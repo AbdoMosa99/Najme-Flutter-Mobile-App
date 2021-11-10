@@ -7,6 +7,8 @@ import 'package:najme/components/main_container.dart';
 import 'package:najme/components/main_registration_image.dart';
 import 'package:najme/components/registration_question.dart';
 import 'package:najme/components/right_end_button.dart';
+import 'package:najme/constants/assets.dart';
+
 
 
 class Register extends StatefulWidget {
@@ -26,7 +28,7 @@ class _RegisterState extends State<Register> {
         child:Column(
           children: [
 
-            mainImage(image: "images/next-level.png"),
+            mainImage(image: Assets.nextLevel),
 
             Expanded(
               child: Row(
