@@ -11,19 +11,34 @@ import 'package:najme/constants/assets.dart';
 
 
 
-class Register extends StatefulWidget {
+class RegistrationLevelScreen extends StatelessWidget {
+  const RegistrationLevelScreen({Key? key}) : super(key: key);
 
   @override
-  _RegisterState createState() => _RegisterState();
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: RegistrationLevel(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
 }
 
-class _RegisterState extends State<Register> {
+
+
+class RegistrationLevel extends StatefulWidget {
+  const RegistrationLevel({Key? key}) : super(key: key);
+
+
+  @override
+  _RegistrationLevelState createState() => _RegistrationLevelState();
+}
+
+class _RegistrationLevelState extends State<RegistrationLevel> {
   var level = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: mainContainer(
-        bgImage: "images/BG.jpg",
 
         child:Column(
           children: [

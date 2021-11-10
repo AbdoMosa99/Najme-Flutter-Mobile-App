@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 class choiseButtonText extends StatefulWidget {
   choiseButtonText({
     Key? key,
-    text = "null",
+    this.text = "null",
     required this.whenTap,
     required this.color,
     required this.textColor,
 
   }) : super(key: key);
 
-  String text = "null";
+  String text;
   Function whenTap;
   Color color;
   Color textColor;
