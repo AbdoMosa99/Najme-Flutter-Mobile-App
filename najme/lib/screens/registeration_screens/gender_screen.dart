@@ -4,6 +4,8 @@ import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
 class GenderScreen extends StatefulWidget {
+  const GenderScreen({Key? key}) : super(key: key);
+
   @override
   _GenderScreenState createState() => _GenderScreenState();
 }
