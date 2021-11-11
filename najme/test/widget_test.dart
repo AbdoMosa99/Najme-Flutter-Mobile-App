@@ -4,9 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import "package:najme/main.dart";
 
 void main() {
-<<<<<<< HEAD
   
-=======
   /*
     testWidgets('Counter increments smoke test', (WidgetTester tester) async {
       // Build our app and trigger a frame.
@@ -27,5 +25,4 @@ void main() {
     });
 
   */
->>>>>>> fcedcd1f81cca5f75e7dd67f577edac73f4ff337
 }

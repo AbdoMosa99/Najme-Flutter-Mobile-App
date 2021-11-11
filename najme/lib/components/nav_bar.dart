@@ -1,7 +1,7 @@
 import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:najme/constants/assets.dart';
+
 
 class NavBar extends StatefulWidget {
   NavBar(Key? key, this.body) 
