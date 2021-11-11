@@ -26,9 +26,7 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
   var level = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // component for the screen background image
-      body :mainContainer(
+    return mainContainer(
       //appBar: true,
         child:Column(
           children: [
@@ -68,8 +66,7 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
             const rightEndButton(),
           ],
         ),
-        )
-      );
+        );
     
   }
 }
