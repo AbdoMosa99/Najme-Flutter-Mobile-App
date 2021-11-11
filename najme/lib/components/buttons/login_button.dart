@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:najme/constants/colors.dart';
 
 class LoginButton extends StatelessWidget {
-  LoginButton(Key? key, this.text, this.color) 
-  : super(key: key);
+  LoginButton({
+    Key? key,
+    this.text = 'Null',
+    this.color = AppColors.primary
+  }): super(key: key);
 
   String text;
   // double height;

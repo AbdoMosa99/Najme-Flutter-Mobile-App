@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:najme/constants/assets.dart';
+import 'package:najme/constants/colors.dart';
 
 class choiseButtonText extends StatefulWidget {
   choiseButtonText({
@@ -7,13 +9,18 @@ class choiseButtonText extends StatefulWidget {
     required this.whenTap,
     required this.color,
     required this.textColor,
+    this.width = 160,
+    this.height = 160,
 
   }) : super(key: key);
 
-  String text;
+  final String text;
   Function whenTap;
   Color color;
   Color textColor;
+  double height;
+  double width;
+
 
   @override
   _choiseButtonTextState createState() => _choiseButtonTextState();
@@ -35,8 +42,8 @@ class _choiseButtonTextState extends State<choiseButtonText> {
               borderRadius: BorderRadius.circular(76),
               color: widget.color,
             ),
-            height: 160,
-            width: 160,
+            height: widget.height,
+            width: widget.width,
 
             child: Center(
               child: Text(
@@ -44,6 +51,7 @@ class _choiseButtonTextState extends State<choiseButtonText> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 65,
+                  fontFamily: 'Cairo',
                   fontWeight: FontWeight.bold,
                   color: widget.textColor,
 

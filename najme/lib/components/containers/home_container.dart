@@ -4,13 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:najme/constants/colors.dart';
 
 class HomeContainer extends StatefulWidget {
-  HomeContainer(Key? key, this.image, this.text, this.counter)
-      : super(key: key);
+  HomeContainer({
+    Key? key,
+    required this.image,
+    this.text = 'Null',
+    this.width = 173,
+    this.height = 233.11,
+    this.color = AppColors.surface,
+    this.textColor = AppColors.primaryDark,
+  }): super(key: key);
 
   ImageProvider image;
   String text;
-  int counter = 0;
-  Color loon = AppColors.surface;
+  Color color;
+  Color textColor;
+  double width;
+  double height;
+
   @override
   _HomeContainerState createState() => _HomeContainerState();
 }
@@ -21,19 +31,19 @@ class _HomeContainerState extends State<HomeContainer> {
     return Expanded(
       child: GestureDetector(
         onTap: () {
-          if(widget.counter == widget.counter)
+          //if(widget.counter == widget.counter)
           setState(() {
             
           });
         },
         child: Container(
-            width: 173,
-            height: 233.11,
+            width: widget.width,
+            height: widget.height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(
                 10.0,
               ),
-              color: widget.loon,
+              color: widget.color,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -48,8 +58,8 @@ class _HomeContainerState extends State<HomeContainer> {
                 ),
                 Text(
                   widget.text,
-                  style: const TextStyle(
-                    color: AppColors.primaryDark,
+                  style: TextStyle(
+                    color: widget.textColor,
                     fontSize: 36.0,
                     fontFamily: 'Cairo',
                     fontWeight: FontWeight.w600,

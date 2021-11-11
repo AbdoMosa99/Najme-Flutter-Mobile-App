@@ -2,11 +2,11 @@ import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:najme/components/choise_button_text.dart';
-import 'package:najme/components/main_container.dart';
-import 'package:najme/components/main_registration_image.dart';
-import 'package:najme/components/registration_question.dart';
-import 'package:najme/components/right_end_button.dart';
+import 'package:najme/components/buttons/choise_button_text.dart';
+import 'package:najme/components/containers/main_container.dart';
+import 'package:najme/components/containers/main_registration_image.dart';
+import 'package:najme/components/text/registration_question.dart';
+import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/constants/assets.dart';
 
 

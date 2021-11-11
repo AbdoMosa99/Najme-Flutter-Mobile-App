@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:najme/components/archives/background_image.dart';
-import 'package:najme/components/form_text_box.dart';
-import 'package:najme/components/login_button.dart';
-import 'package:najme/components/main_container.dart';
+import 'package:najme/components/text_box/form_text_box.dart';
+import 'package:najme/components/buttons/login_button.dart';
+import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
@@ -50,19 +50,30 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 35.0,
                         ),
                         FormTextBox(
-                            null, "الأسم", 20, nameController, TextInputType.name),
+                          text: "الأسم",
+                          length: 20,
+                          controllerKind: nameController,
+                          type: TextInputType.name,
+                        ),
                         const SizedBox(
                           height: 3.5,
                         ),
                         FormTextBox(
-                            null, "كلمة السر", 8, passController, TextInputType.text),
+                            text: "كلمة السر",
+                            length: 8,
+                            controllerKind: passController,
+                            type: TextInputType.text
+                        ),
                         const SizedBox(
                           height: 25.0,
                         ),
                         const SizedBox(
                           height: 2.0,
                         ),
-                        LoginButton(null, 'دخول', AppColors.primary),
+                        LoginButton(
+                            text: 'دخول',
+                            color: AppColors.primary
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
