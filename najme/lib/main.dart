@@ -6,3 +6,4 @@ import 'screens/registration_level.dart';
 void main() {
   runApp(const RegistrationLevelScreen());
 }
+
