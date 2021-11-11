@@ -71,7 +71,7 @@ class Registeration_1 extends StatelessWidget {
                     const SizedBox(
                         height: 50.0,
                     ),
-                    const rightEndButton(),
+                    rightEndButton(icon:Icons.arrow_back_sharp),
                   ],
                 ),
               ),

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:najme/constants/colors.dart';
 
 class rightEndButton extends StatefulWidget {
-  const rightEndButton({Key? key}) : super(key: key);
+   rightEndButton({Key? key,this.icon=Icons.arrow_forward_sharp}) : super(key: key);
+
+   IconData icon;
 
   @override
   _rightEndButtonState createState() => _rightEndButtonState();
@@ -19,7 +21,7 @@ class _rightEndButtonState extends State<rightEndButton> {
         backgroundColor: AppColors.primary,
 
         child: Icon(
-          Icons.arrow_forward_sharp,
+          widget.icon,
 
         ),
 

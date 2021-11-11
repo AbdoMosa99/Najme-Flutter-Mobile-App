@@ -7,6 +7,7 @@ import 'package:najme/components/containers/main_registration_image.dart';
 import 'package:najme/components/text/registration_question.dart';
 import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/constants/assets.dart';
+import 'package:najme/constants/colors.dart';
 class RegistrationLevelScreen extends StatelessWidget {
   const RegistrationLevelScreen({Key? key}) : super(key: key);
   @override
@@ -26,9 +27,8 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
   var level = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // component for the screen background image
-      body :mainContainer(
+    // component for the screen background image
+    return mainContainer(
       //appBar: true,
         child:Column(
           children: [
@@ -47,8 +47,8 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
                         );
                       },
                       // action when user click on image, color change
-                      color: level == 1?   const Color(0xff311B92): const Color(0xFFDED5EF),
-                      textColor: level == 1?  const Color(0xffffffff) : const Color(0xff311B92)
+                    color: level == 1?     AppColors.primary:  AppColors.surface,
+                    textColor: level == 1?   AppColors.white :  AppColors.primary,
                   ),
                   choiseButtonText(
                       text: "KG2",
@@ -58,18 +58,16 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
                           }
                         );
                       },
-                      color: level == 2?   const Color(0xff311B92): const Color(0xFFDED5EF),
-                      textColor: level == 2?  const Color(0xffffffff) : const Color(0xff311B92)
+                      color: level == 2?     AppColors.primary:  AppColors.surface,
+                      textColor: level == 2?   AppColors.white :  AppColors.primary,
                   ),
                 ],
               ),
             ),
             order(question: "!اختر مرحلتك"),
-            const rightEndButton(),
-          ],
-        ),
-        )
-      );
-    
+            rightEndButton(),
+             ],
+            ),
+         );
+    }
   }
-}
