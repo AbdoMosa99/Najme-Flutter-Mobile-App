@@ -21,23 +21,16 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Directionality(
         textDirection: TextDirection.rtl,
-        child: mainContainer(
+        child: Scaffold(
+            body: mainContainer(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Center(
+
                 child: SingleChildScrollView(
                     child: Column(
                       children: [
-                        const Center(
-                          child: Image(
-                            image: AssetImage(Assets.nagmiName),
-                            height: 99.68,
-                            width: 182.17,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 15.0,
-                        ),
+
                         const Center(
                           child: Image(
                             image: AssetImage(Assets.lunchImg),
@@ -112,10 +105,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           ],
                         ),
                       ],
-                    ))),
+                    )
+                )
+            ),
           ),
-        )
-          
-        );
+        ),
+    ),
+    );
+
   }
 }
