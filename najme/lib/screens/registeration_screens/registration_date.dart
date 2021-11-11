@@ -3,17 +3,7 @@ import 'package:najme/components/birth_date_button.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
-class RegistrationBirthDateScreen extends StatelessWidget {
-  const RegistrationBirthDateScreen({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: RegistrationBirthDate(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
 
 class RegistrationBirthDate extends StatefulWidget {
   const RegistrationBirthDate({Key? key}) : super(key: key);

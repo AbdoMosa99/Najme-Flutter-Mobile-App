@@ -39,7 +39,6 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: mainContainer(
-
         child:Column(
           children: [
 
