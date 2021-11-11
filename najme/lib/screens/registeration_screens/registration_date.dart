@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:najme/components/birth_date_button.dart';
+import 'package:najme/components/buttons/birth_date_button.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 

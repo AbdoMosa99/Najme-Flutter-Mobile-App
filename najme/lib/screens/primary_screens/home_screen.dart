@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:najme/components/archives/background_image.dart';
-import 'package:najme/components/home_container.dart';
-import 'package:najme/components/main_container.dart';
+import 'package:najme/components/containers/home_container.dart';
+import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/components/archives/nav_bar.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
@@ -42,12 +42,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Row(
                       children: [
                         HomeContainer(
-                            null, const AssetImage(Assets.math), 'حساب', 1),
+                        image: const AssetImage(Assets.math),
+                        text: 'حساب',
+                        ),
                         const SizedBox(
                           width: 25.0,
                         ),
                         HomeContainer(
-                            null, const AssetImage(Assets.arabic), 'لغة عربية', 2)
+                            image: const AssetImage(Assets.arabic),
+                            text: 'لغة عربية'
+                        )
                       ],
                     ),
                   )),
@@ -57,12 +61,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
                     child: Row(
                       children: [
-                        HomeContainer(null, const AssetImage(Assets.ai), 'ذكاء', 3),
+                        HomeContainer(
+                            image: const AssetImage(Assets.ai),
+                            text: 'ذكاء'
+                        ),
                         const SizedBox(
                           width: 25.0,
                         ),
                         HomeContainer(
-                            null, const AssetImage(Assets.english), 'English', 4)
+                            image: const AssetImage(Assets.english),
+                            text: 'English'
+                        )
                       ],
                     ),
                   )),
