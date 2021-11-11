@@ -7,11 +7,13 @@ class mainContainer extends StatefulWidget {
       Key? key,
       required this.child,
       this.bgImage = Assets.screenBackground,
+      this.appBar = false,
   }) : super(key: key);
 
 
    Widget child;
-   String bgImage;
+   final String bgImage;
+   final bool appBar;
 
 
   @override
@@ -21,20 +23,58 @@ class mainContainer extends StatefulWidget {
 class _mainContainerState extends State<mainContainer> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-        constraints: BoxConstraints.expand(),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage(widget.bgImage),
-              fit: BoxFit.cover
+      return Scaffold(
+
+
+        appBar: widget.appBar ? AppBar(
+          leading: IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.menu,
+                size: 40,
+              )
           ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Center(
-              child: widget.child
+          actions: [
+              Container(
+                alignment: AlignmentDirectional.center,
+                child: const Text(
+                  'نجمي',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontFamily: 'Cairo',
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+
+              Container(
+                alignment: AlignmentDirectional.center,
+                child: const Image(
+                  image: AssetImage(Assets.logo),
+                ),
+              ),
+          ],
+        ) : null,
+
+          
+
+          body: Container(
+              constraints: BoxConstraints.expand(),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(widget.bgImage),
+                    fit: BoxFit.cover
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Center(
+                    child: widget.child
+                ),
+              )
           ),
-        )
-    );;
+
+      );
+
   }
 }
