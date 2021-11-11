@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:najme/constants/colors.dart';
 
 class FormTextBox extends StatefulWidget {
-  FormTextBox(Key? key, this.name, this.length, this.controllerKind, this.type)
+  FormTextBox({
+    Key? key,
+    this.text = 'Null',
+    this.length = 20,
+    required this.controllerKind,
+    this.type = TextInputType.name
+  })
       : super(key: key);
 
-  String name;
+  final String text;
   final int length;
   final TextEditingController controllerKind;
   final TextInputType type;
@@ -29,7 +35,7 @@ class _FormTextBoxState extends State<FormTextBox> {
         print(value);
       },
       decoration: InputDecoration(
-        labelText: widget.name,
+        labelText: widget.text,
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15.0),
             borderSide: const BorderSide(

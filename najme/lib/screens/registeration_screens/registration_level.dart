@@ -1,11 +1,11 @@
 import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:najme/components/choise_button_text.dart';
-import 'package:najme/components/main_container.dart';
-import 'package:najme/components/main_registration_image.dart';
-import 'package:najme/components/registration_question.dart';
-import 'package:najme/components/right_end_button.dart';
+import 'package:najme/components/buttons/choise_button_text.dart';
+import 'package:najme/components/containers/main_container.dart';
+import 'package:najme/components/containers/main_registration_image.dart';
+import 'package:najme/components/text/registration_question.dart';
+import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/constants/assets.dart';
 class RegistrationLevelScreen extends StatelessWidget {
   const RegistrationLevelScreen({Key? key}) : super(key: key);
@@ -26,9 +26,15 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
   var level = 0;
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return Scaffold(
       // component for the screen background image
       body: mainContainer(
+=======
+    return mainContainer(
+
+      //appBar: true,
+>>>>>>> 37d88a82fd527555a745c1c2d0bfccf4482f3846
         child:Column(
           children: [
             // Component to put image in screen
@@ -67,7 +73,13 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
             const rightEndButton(),
           ],
         ),
+<<<<<<< HEAD
       ),
     );
+=======
+      );
+
+
+>>>>>>> 37d88a82fd527555a745c1c2d0bfccf4482f3846
   }
 }

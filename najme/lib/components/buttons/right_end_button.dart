@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:najme/constants/colors.dart';
 
 class rightEndButton extends StatefulWidget {
   const rightEndButton({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _rightEndButtonState extends State<rightEndButton> {
       alignment: Alignment.bottomRight,
       child: FloatingActionButton(
         onPressed: (){},
-        backgroundColor: Color(0XFF311B92),
+        backgroundColor: AppColors.primary,
 
         child: Icon(
           Icons.arrow_forward_sharp,
