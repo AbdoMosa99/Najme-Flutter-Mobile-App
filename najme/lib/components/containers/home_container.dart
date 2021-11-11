@@ -1,12 +1,13 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
 class HomeContainer extends StatefulWidget {
   HomeContainer({
     Key? key,
-    required this.image,
+    this.image = const AssetImage(Assets.error),
     this.text = 'Null',
     this.width = 173,
     this.height = 233.11,

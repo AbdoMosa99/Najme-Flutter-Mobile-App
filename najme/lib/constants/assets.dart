@@ -11,4 +11,6 @@ class Assets {
   static const String english = "assets/images/eng.png";
   static const String math = "assets/images/math.png";
   static const String ai = "assets/images/ai.png";
+  static const String error = "assets/images/question_mark.png";
+
 }
