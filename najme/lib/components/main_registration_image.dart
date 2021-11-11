@@ -15,7 +15,6 @@ class mainImage extends StatefulWidget {
   @override
   _mainImageState createState() => _mainImageState();
 }
-
 class _mainImageState extends State<mainImage> {
   @override
   Widget build(BuildContext context) {

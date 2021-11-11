@@ -118,39 +118,41 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Expanded(
                   child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                child: Row(
-                  children: [
-                    HomeContainer(
-                        null, const AssetImage(Assets.math), 'حساب', 1),
-                    const SizedBox(
-                      width: 25.0,
+                    padding:
+                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                    child: Row(
+                      children: [
+                        HomeContainer(
+                          null, const AssetImage(Assets.math), 'حساب', 1),
+                        const SizedBox(
+                             width: 25.0,
+                        ),
+                        HomeContainer(
+                          null, const AssetImage(Assets.arabic), 'لغة عربية', 2)
+                     ],
                     ),
-                    HomeContainer(
-                        null, const AssetImage(Assets.arabic), 'لغة عربية', 2)
-                  ],
-                ),
-              )),
+                 )
+              ),
               Expanded(
                   child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                child: Row(
-                  children: [
-                    HomeContainer(null, const AssetImage(Assets.ai), 'ذكاء', 3),
-                    const SizedBox(
-                      width: 25.0,
-                    ),
-                    HomeContainer(
+                    padding:
+                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                    child: Row(
+                      children: [
+                        HomeContainer(null, const AssetImage(Assets.ai), 'ذكاء', 3),
+                        const SizedBox(
+                          width: 25.0,
+                         ),
+                        HomeContainer(
                         null, const AssetImage(Assets.english), 'English', 4)
-                  ],
+                     ],
+                  ),
+                 )
                 ),
-              )),
-            ],
+               ],
+              ),
+            ),
           ),
-        ),
-      ),
-      );
-  }
-}
+        );
+     }
+ }
