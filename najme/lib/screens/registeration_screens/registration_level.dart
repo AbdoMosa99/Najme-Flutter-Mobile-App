@@ -26,15 +26,10 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
   var level = 0;
   @override
   Widget build(BuildContext context) {
-<<<<<<< HEAD
     return Scaffold(
       // component for the screen background image
-      body: mainContainer(
-=======
-    return mainContainer(
-
+      body :mainContainer(
       //appBar: true,
->>>>>>> 37d88a82fd527555a745c1c2d0bfccf4482f3846
         child:Column(
           children: [
             // Component to put image in screen
@@ -73,13 +68,8 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
             const rightEndButton(),
           ],
         ),
-<<<<<<< HEAD
-      ),
-    );
-=======
+        )
       );
-
-
->>>>>>> 37d88a82fd527555a745c1c2d0bfccf4482f3846
+    
   }
 }

@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:najme/components/main_container.dart';
-import 'package:najme/components/right_end_button.dart';
+import 'package:najme/components/containers/main_container.dart';
+import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 class Registration_2 extends StatelessWidget {

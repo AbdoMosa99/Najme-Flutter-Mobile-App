@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:najme/components/birth_date_button.dart';
-import 'package:najme/components/main_container.dart';
-=======
 import 'package:najme/components/buttons/birth_date_button.dart';
->>>>>>> 37d88a82fd527555a745c1c2d0bfccf4482f3846
+import 'package:najme/components/containers/main_container.dart';
+import 'package:najme/components/buttons/birth_date_button.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 class RegistrationBirthDate extends StatefulWidget {
