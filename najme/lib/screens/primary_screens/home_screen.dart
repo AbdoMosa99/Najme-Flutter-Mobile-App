@@ -23,8 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: true,
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
-          child: Expanded(
-            child: Column(
+          child: Column(
               children: [
                 const Padding(
                   padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
@@ -117,8 +116,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                ),
             ),
-         ),
-     );
+
+         );
+
   }
 }
 

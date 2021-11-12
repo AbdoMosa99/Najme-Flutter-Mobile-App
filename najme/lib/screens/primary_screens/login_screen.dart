@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:najme/components/archives/background_image.dart';
 import 'package:najme/components/text_box/form_text_box.dart';
 import 'package:najme/components/buttons/login_button.dart';
 import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+
+import 'home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -20,11 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return mainContainer(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30.0),
-            child: Center(
-
-                child: SingleChildScrollView(
+          child: SingleChildScrollView(
                     child: Column(
                       children: [
 
@@ -37,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                         ),
                         const SizedBox(
-                          height: 35.0,
+                          height: 30.0,
                         ),
                         FormTextBox(
                           text: "الأسم",
@@ -55,57 +52,67 @@ class _LoginScreenState extends State<LoginScreen> {
                             type: TextInputType.text
                         ),
                         const SizedBox(
-                          height: 25.0,
+                          height: 20.0,
                         ),
-                        const SizedBox(
-                          height: 2.0,
-                        ),
+
                         LoginButton(
                             text: 'دخول',
-                            color: AppColors.primary
+                            color: AppColors.primary,
+                          whenTap: (){
+                              print(nameController.text);
+                              print(passController.text);
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomeScreen()
+                              ),
+                            );
+                          },
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                          //mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            TextButton(
-                              onPressed: () {},
-                              child: const Padding(
-                                padding:  EdgeInsets.only(left: 30),
-                                child:  Text(
-                                  'تسجيل',
-                                  textDirection: TextDirection.rtl,
-                                  style: TextStyle(
-                                    fontSize: 20.0,
-                                    color: AppColors.primaryDark,
-                                    fontFamily: 'Cairo',
-                                  ),
-                                ),
-                              ),
-                            ),
-                            // const SizedBox(width: 35.0),
-                            TextButton(
-                              onPressed: () {},
-                              child: const Padding(
-                                padding: EdgeInsets.only(right: 30),
+                            Expanded(
+                              child: TextButton(
+
+                                onPressed: () {},
                                 child: Text(
-                                  'نسيت كلمة السر؟',
-                                  textDirection: TextDirection.ltr,
+                                    'نسيت كلمة السر؟',
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    decoration: TextDecoration.underline,
-                                    fontSize: 20.0,
-                                    color: Color(0xFF000063),
-                                    fontFamily: 'Cairo',
+                                      decoration: TextDecoration.underline,
+                                      fontSize: 20.0,
+                                      color: AppColors.primaryDark,
+                                      fontFamily: 'Cairo',
+                                    ),
                                   ),
                                 ),
-                              ),
+                            ),
+                             //const SizedBox(width: 0.0),
+                            Expanded(
+
+                            child: TextButton(
+                                onPressed: () {
+
+                                },
+                                child: Text(
+                                    'تسجيل',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      fontSize: 20.0,
+                                      color: AppColors.primaryDark,
+                                      fontFamily: 'Cairo',
+                                    ),
+                                  ),
+                                ),
                             ),
                           ],
                         ),
                       ],
                     )
-                )
+
             ),
-          ),
     );
 
   }

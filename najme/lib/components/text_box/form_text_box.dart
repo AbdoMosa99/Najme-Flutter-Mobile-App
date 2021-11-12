@@ -23,31 +23,34 @@ class FormTextBox extends StatefulWidget {
 class _FormTextBoxState extends State<FormTextBox> {
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
+    return Directionality(
       textDirection: TextDirection.rtl,
-      //textDirection: TextDirection.ltr,
-      maxLength: widget.length,
-      controller: widget.controllerKind,
-      keyboardType: widget.type,
-      onFieldSubmitted: (value) {
-        print(value);
-      },
-      onChanged: (value) {
-        print(value);
-      },
-      decoration: InputDecoration(
-        labelText: widget.text,
-        border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.0),
-            borderSide: const BorderSide(
-              color: AppColors.primaryLight,
-            )),
-        //suffixIcon: widget.icon,
-        fillColor: const Color(0xFFDED5EF),
-        filled: true,
-        labelStyle: const TextStyle(
-          fontFamily: 'Cairo',
-          fontSize: 20.0,
+      child: TextFormField(
+        //textDirection: TextDirection.ltr,
+        maxLength: widget.length,
+        controller: widget.controllerKind,
+        keyboardType: widget.type,
+        onFieldSubmitted: (value) {
+          print(value);
+        },
+        onChanged: (value) {
+          print(value);
+        },
+        decoration: InputDecoration(
+          labelText: widget.text,
+          border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15.0),
+              borderSide: const BorderSide(
+                color: AppColors.primaryLight,
+              ),
+          ),
+          //suffixIcon: widget.icon,
+          fillColor: AppColors.surface,
+          filled: true,
+          labelStyle: const TextStyle(
+            fontFamily: 'Cairo',
+            fontSize: 20.0,
+          ),
         ),
       ),
     );

@@ -5,26 +5,27 @@ class LoginButton extends StatelessWidget {
   LoginButton({
     Key? key,
     this.text = 'Null',
-    this.color = AppColors.primary
+    this.color = AppColors.primary,
+    required this.whenTap
   }): super(key: key);
 
-  String text;
-  // double height;
-  // double width;
-  Color color;
+  final String text;
+  final Color color;
+  Function whenTap;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      // width: width,
-      // height: height,
+
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15.0),
         color: color,
       ),
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: () {
+          whenTap();
+        },
         child: Text(
             text,
             textAlign: TextAlign.center,
