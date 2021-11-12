@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:najme/constants/assets.dart';
 
 class BirthDateButton extends StatefulWidget {
-  BirthDateButton(Key? key, this.width, this.height, this.text)
-      : super(key: key);
+  BirthDateButton({
+    Key? key,
+    this.width = 144.0,
+    this.height = 89.0,
+    this.text = 'Null',
+  }) : super(key: key);
 
   final double width;
   final double height;

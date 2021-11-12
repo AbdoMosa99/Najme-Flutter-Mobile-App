@@ -8,6 +8,8 @@ import 'package:najme/components/text/registration_question.dart';
 import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+
+import 'gender_screen.dart';
 class RegistrationLevelScreen extends StatelessWidget {
   const RegistrationLevelScreen({Key? key}) : super(key: key);
   @override
@@ -64,11 +66,24 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
                 ],
               ),
             ),
-            order(question: "!اختر مرحلتك"),
+            order(
+                question: "!اختر مرحلتك",
+              size: 50.0,
+            ),
 
-            rightEndButton(),
+
              ],
             ),
-         );
+          floutingButton: RightEndButton(
+            whenTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => GenderScreen()
+                ),
+              );
+            },
+          ),
+             );
     }
   }

@@ -14,7 +14,7 @@ class HomeContainer extends StatefulWidget {
     this.height = 220,
     this.color = AppColors.surface,
     this.textColor = AppColors.primaryDark,
-    required this.whenTap,
+    this.whenTap = null,
   }): super(key: key);
 
   final String image;
@@ -23,7 +23,7 @@ class HomeContainer extends StatefulWidget {
   Color textColor;
   final double width;
   final double height;
-  Function whenTap;
+  var whenTap;
 
   @override
   _HomeContainerState createState() => _HomeContainerState();
@@ -34,9 +34,7 @@ class _HomeContainerState extends State<HomeContainer> {
   Widget build(BuildContext context) {
     return Expanded(
       child: GestureDetector(
-        onTap: () {
-          widget.whenTap();
-        },
+        onTap: widget.whenTap,
         child: Container(
             width: widget.width,
             height: widget.height,
@@ -49,6 +47,7 @@ class _HomeContainerState extends State<HomeContainer> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+
                 mainImage(
                   image: widget.image,
                   height: 108,
@@ -56,7 +55,7 @@ class _HomeContainerState extends State<HomeContainer> {
                 ),
 
                 const SizedBox(
-                  height: 27.0,
+                  height: 25.0,
                 ),
                 Text(
                   widget.text,

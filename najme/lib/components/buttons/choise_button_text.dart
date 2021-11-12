@@ -6,7 +6,7 @@ class choiseButtonText extends StatefulWidget {
   choiseButtonText({
     Key? key,
     this.text = "null",
-    required this.whenTap,
+    this.whenTap = null,
     required this.color,
     required this.textColor,
     this.width = 160,
@@ -15,7 +15,7 @@ class choiseButtonText extends StatefulWidget {
   }) : super(key: key);
 
   final String text;
-  Function whenTap;
+  var whenTap;
   Color color;
   Color textColor;
   double height;
@@ -33,10 +33,7 @@ class _choiseButtonTextState extends State<choiseButtonText> {
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: GestureDetector(
-          onTap: ()
-          {
-            widget.whenTap();
-          },
+          onTap: widget.whenTap,
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(76),

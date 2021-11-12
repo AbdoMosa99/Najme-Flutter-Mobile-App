@@ -4,6 +4,7 @@ import 'package:najme/components/buttons/login_button.dart';
 import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/registeration_screens/registeration_name.dart';
 
 import 'home_screen.dart';
 
@@ -72,40 +73,58 @@ class _LoginScreenState extends State<LoginScreen> {
                         Row(
                           //mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+
+                              Expanded(
+                                child: Container(
+                                  alignment: Alignment.bottomLeft,
+
+                                  child: TextButton(
+
+                                    onPressed: () {},
+                                    child: Text(
+                                        'نسيت كلمة السر؟',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          decoration: TextDecoration.underline,
+                                          fontSize: 20.0,
+                                          color: AppColors.primaryDark,
+                                          fontFamily: 'Cairo',
+                                        ),
+                                      ),
+                                    ),
+                                ),
+                              ),
+
+
                             Expanded(
+
+                            child: Container(
+                              alignment: Alignment.bottomRight,
+
                               child: TextButton(
 
-                                onPressed: () {},
-                                child: Text(
-                                    'نسيت كلمة السر؟',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      decoration: TextDecoration.underline,
-                                      fontSize: 20.0,
-                                      color: AppColors.primaryDark,
-                                      fontFamily: 'Cairo',
+                                  onPressed: () {
+
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => RegistrationName()
+                                      ),
+                                    );
+
+                                  },
+                                  child: Text(
+                                      'تسجيل',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        decoration: TextDecoration.underline,
+                                        fontSize: 20.0,
+                                        color: AppColors.primaryDark,
+                                        fontFamily: 'Cairo',
+                                      ),
                                     ),
                                   ),
-                                ),
                             ),
-                             //const SizedBox(width: 0.0),
-                            Expanded(
-
-                            child: TextButton(
-                                onPressed: () {
-
-                                },
-                                child: Text(
-                                    'تسجيل',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      decoration: TextDecoration.underline,
-                                      fontSize: 20.0,
-                                      color: AppColors.primaryDark,
-                                      fontFamily: 'Cairo',
-                                    ),
-                                  ),
-                                ),
                             ),
                           ],
                         ),

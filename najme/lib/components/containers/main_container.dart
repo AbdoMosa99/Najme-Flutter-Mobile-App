@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
@@ -9,13 +10,13 @@ class mainContainer extends StatefulWidget {
       required this.child,
       this.bgImage = Assets.screenBackground,
       this.appBar = false,
+      this.floutingButton = null
   }) : super(key: key);
-
 
    Widget child;
    final String bgImage;
    final bool appBar;
-
+   var floutingButton;
 
   @override
   _mainContainerState createState() => _mainContainerState();
@@ -25,8 +26,6 @@ class _mainContainerState extends State<mainContainer> {
   @override
   Widget build(BuildContext context) {
       return Scaffold(
-
-
         appBar: widget.appBar ? AppBar(
           backgroundColor: AppColors.primary,
           leading: IconButton(
@@ -58,9 +57,7 @@ class _mainContainerState extends State<mainContainer> {
           ],
         ) : null,
 
-          
-
-          body: Container(
+        body: Container(
               constraints: BoxConstraints.expand(),
               decoration: BoxDecoration(
                 image: DecorationImage(
@@ -76,7 +73,7 @@ class _mainContainerState extends State<mainContainer> {
               )
           ),
 
+        floatingActionButton: widget.floutingButton,
       );
-
   }
 }

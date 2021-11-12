@@ -7,12 +7,12 @@ class GenderButton extends StatefulWidget {
     Key? key,
     this.image = Assets.error,
     this.color = AppColors.surface,
-    required this.whenTap
+    this.whenTap = null
   }) : super(key: key);
 
   final String image;
   Color color;
-  Function whenTap;
+  var whenTap;
 
   @override
   _GenderButtonState createState() => _GenderButtonState();
@@ -23,9 +23,7 @@ class _GenderButtonState extends State<GenderButton> {
   Widget build(BuildContext context) {
     return Expanded(
         child: GestureDetector(
-        onTap: () {
-          widget.whenTap();
-        },
+        onTap: widget.whenTap,
 
             child: Container(
               width: 150.0,

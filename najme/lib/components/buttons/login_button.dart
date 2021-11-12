@@ -6,12 +6,12 @@ class LoginButton extends StatelessWidget {
     Key? key,
     this.text = 'Null',
     this.color = AppColors.primary,
-    required this.whenTap
+    this.whenTap = null
   }): super(key: key);
 
   final String text;
   final Color color;
-  Function whenTap;
+  var whenTap;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +23,7 @@ class LoginButton extends StatelessWidget {
         color: color,
       ),
       child: MaterialButton(
-        onPressed: () {
-          whenTap();
-        },
+        onPressed: whenTap,
         child: Text(
             text,
             textAlign: TextAlign.center,

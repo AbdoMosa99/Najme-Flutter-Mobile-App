@@ -1,31 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:najme/constants/colors.dart';
 
-class rightEndButton extends StatefulWidget {
-   rightEndButton({Key? key,this.icon=Icons.arrow_forward_sharp}) : super(key: key);
+class RightEndButton extends StatefulWidget {
+   RightEndButton({
+     Key? key,
+     this.icon=Icons.arrow_forward_sharp,
+     this.whenTap = null
+   }) : super(key: key);
 
    IconData icon;
+   var whenTap;
 
   @override
-  _rightEndButtonState createState() => _rightEndButtonState();
+  _RightEndButtonState createState() => _RightEndButtonState();
 }
 
-class _rightEndButtonState extends State<rightEndButton> {
+class _RightEndButtonState extends State<RightEndButton> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-
-      alignment: Alignment.bottomRight,
-      child: FloatingActionButton(
-        onPressed: (){},
+    return FloatingActionButton(
+        onPressed:widget.whenTap,
         backgroundColor: AppColors.primary,
 
         child: Icon(
           widget.icon,
-
         ),
-
-      ),
     );
   }
 }
