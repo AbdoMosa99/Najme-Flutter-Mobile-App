@@ -65,7 +65,6 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
               ),
             ),
             order(question: "!اختر مرحلتك"),
-
             rightEndButton(),
              ],
             ),

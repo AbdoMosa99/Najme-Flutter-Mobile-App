@@ -9,7 +9,6 @@ class Registeration_1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var emailController=TextEditingController();
-
     return mainContainer(
               // a box in which a single widget can be scrolled.
               child: SingleChildScrollView(

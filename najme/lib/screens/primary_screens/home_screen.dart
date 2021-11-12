@@ -38,14 +38,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-
                 const SizedBox(
                   height: 25,
                 ),
 
                  Padding(
                       padding:
-
                       const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
                       child: Row(
                         children: [
@@ -116,12 +114,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-              ],
+                  ],
+               ),
             ),
-          ),
-        ),
-    );
-
+         ),
+     );
   }
 }
 

@@ -5,6 +5,7 @@ import 'package:najme/screens/registeration_screens/gender_screen.dart';
 import 'package:najme/screens/registeration_screens/registeration_2.dart';
 
 import 'screens/registeration_screens/registeration_1.dart';
+import 'screens/registeration_screens/registration_6.dart';
 import 'screens/registeration_screens/registration_level.dart';
 
 
@@ -13,7 +14,7 @@ class NajmeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: HomeScreen(),
+      home: Registration_6(),
       debugShowCheckedModeBanner: false,
     );
   }
