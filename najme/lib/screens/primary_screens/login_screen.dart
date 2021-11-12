@@ -19,10 +19,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-        textDirection: TextDirection.rtl,
-        child: Scaffold(
-            body: mainContainer(
+    return mainContainer(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30.0),
             child: Center(
@@ -109,8 +106,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 )
             ),
           ),
-        ),
-    ),
     );
 
   }

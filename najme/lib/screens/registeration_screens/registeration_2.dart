@@ -9,30 +9,26 @@ class Registration_2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var nameController=TextEditingController();
-    return Directionality(
-      // Determine the direction " page ,text"
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        // component for the screen background image
-        body:mainContainer(
-            child: Center(
+    return mainContainer(
               // a box in which a single widget can be scrolled.
               child:SingleChildScrollView(
                 child: Column(
                   children: [
-                    const Center(
-                      child:Image(
+
+                      Image(
                         image: AssetImage(Assets.child),
                 ),
-                    ),
+
                     const SizedBox(
                       height: 80.0,
                     ),
                     //Create name container
                     Padding(
                       padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                      child: TextFormField(
-                        obscureText: false,
+                        // Determine the direction " page ,text"
+                        child: TextFormField(
+                          textDirection: TextDirection.rtl,
+                          obscureText: false,
                         controller: nameController,
                         keyboardType: TextInputType.visiblePassword,
                         onFieldSubmitted: (value) {
@@ -64,19 +60,18 @@ class Registration_2 extends StatelessWidget {
                     ),
                     const Text("اكتب اسم الطفل !",
                       style: TextStyle(
-                        fontFamily: "Cairo",fontSize: 48.0,color: AppColors.primaryDark
+                        fontFamily: "Cairo",
+                          fontSize: 48.0,color: AppColors.primaryDark
                     ),
                     ),
                     const SizedBox(
                       height: 50.0,
                     ),
-                    rightEndButton(icon:Icons.arrow_back_sharp),
+
+                    rightEndButton(),
                   ],
                 ),
               ),
-            ),
-        ),
-      ),
     );
   }
 }

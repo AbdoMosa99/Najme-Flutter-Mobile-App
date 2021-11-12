@@ -4,18 +4,13 @@ import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-var emailController=TextEditingController();
 class Registeration_1 extends StatelessWidget {
    const Registeration_1({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      // Determine the direction " page ,text"
-        textDirection: TextDirection.rtl,
-        child: Scaffold(
-          // component for the screen background image
-          body: mainContainer(
-            child: Center(
+    var emailController=TextEditingController();
+
+    return mainContainer(
               // a box in which a single widget can be scrolled.
               child: SingleChildScrollView(
                 child: Column(
@@ -33,8 +28,9 @@ class Registeration_1 extends StatelessWidget {
                     // create email container
                     Padding(
                       padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
-                      child: TextFormField(
-                        obscureText: false,
+                      child:TextFormField(
+                          textDirection: TextDirection.rtl,
+                          obscureText: false,
                         controller: emailController,
                         keyboardType: TextInputType.visiblePassword,
                         onFieldSubmitted: (value) {
@@ -63,21 +59,23 @@ class Registeration_1 extends StatelessWidget {
                     const SizedBox(
                       height: 50.0,
                     ),
-                    const Text("اكتب ايميل ولى الأمر!",
-                    style: TextStyle(
-                      fontFamily: "Cairo",fontSize: 36.0,color: AppColors.primaryDark
-                    ),
+                    const Text(
+                      "اكتب ايميل ولى الأمر!",
+                      style: TextStyle(
+                      fontFamily: "Cairo",
+                      fontSize: 36.0,
+
+                      color: AppColors.primaryDark,
+                      ),
                     ),
                     const SizedBox(
                         height: 50.0,
                     ),
-                    rightEndButton(icon:Icons.arrow_back_sharp),
+
+                    rightEndButton(),
                   ],
                 ),
               ),
-            ),
-          ),
-        )
     );
   }
 }

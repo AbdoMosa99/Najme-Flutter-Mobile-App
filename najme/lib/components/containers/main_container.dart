@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:najme/constants/assets.dart';
+import 'package:najme/constants/colors.dart';
 
 
 class mainContainer extends StatefulWidget {
@@ -27,6 +28,7 @@ class _mainContainerState extends State<mainContainer> {
 
 
         appBar: widget.appBar ? AppBar(
+          backgroundColor: AppColors.primary,
           leading: IconButton(
               onPressed: () {},
               icon: const Icon(

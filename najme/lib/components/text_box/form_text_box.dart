@@ -24,6 +24,7 @@ class _FormTextBoxState extends State<FormTextBox> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textDirection: TextDirection.rtl,
       //textDirection: TextDirection.ltr,
       maxLength: widget.length,
       controller: widget.controllerKind,

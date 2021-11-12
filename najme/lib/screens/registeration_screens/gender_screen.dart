@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:najme/components/gender_button.dart';
+import 'package:najme/components/buttons/gender_button.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
@@ -11,8 +11,7 @@ class GenderScreen extends StatefulWidget {
 }
 
 class _GenderScreenState extends State<GenderScreen> {
-  int active1 = 0;
-  int active2 = 0;
+  int is_male = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -35,24 +34,25 @@ class _GenderScreenState extends State<GenderScreen> {
                 padding: const EdgeInsets.all(20.0),
                 child: Row(
                   children: [
-                    GestureDetector(
-                      onTap: () {
+                    GenderButton(
+                      whenTap: (){
                         setState(() {
-                          active1 = 1;
-                          active2 = 0;
+                          is_male = 1;
                         });
                       },
-                      child: GenderButton(null, 1, active1),
+                      image: Assets.male,
+                      color: is_male == 1 ? AppColors.primary : AppColors.surface,
                     ),
+
                     SizedBox(width: 20.0),
-                    GestureDetector(
-                      onTap: () {
+                    GenderButton(
+                      whenTap: (){
                         setState(() {
-                          active1 = 0;
-                          active2 = 1;
+                          is_male = 0;
                         });
                       },
-                      child: GenderButton(null, 0, active2),
+                      image: Assets.female,
+                      color: is_male == 0 ? AppColors.primary : AppColors.surface,
                     ),
                   ],
                 ),

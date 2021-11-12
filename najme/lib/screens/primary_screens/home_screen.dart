@@ -14,69 +14,110 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
+  int category = -1;
   @override
   Widget build(BuildContext context) {
 
     return mainContainer(
       appBar: true,
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
-          child: Column(
-            children: [
-              const Padding(
-                padding: EdgeInsets.fromLTRB(0, 70, 0, 5),
-                child: Text(
-                  '!مرحبا بك',
-                  style: TextStyle(
-                    color: AppColors.primaryDark,
-                    fontSize: 36.0,
-                    fontFamily: 'Cairo',
-                    fontWeight: FontWeight.w800,
+          child: Expanded(
+            child: Column(
+              children: [
+                const Padding(
+                  padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                  child: Text(
+                    '!مرحبا بك',
+                    style: TextStyle(
+                      color: AppColors.primaryDark,
+                      fontSize: 36.0,
+                      fontFamily: 'Cairo',
+                      fontWeight: FontWeight.w800,
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                  child: Padding(
-                    padding:
 
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                    child: Row(
-                      children: [
-                        HomeContainer(
-                        image: const AssetImage(Assets.math),
-                        text: 'حساب',
-                        ),
-                        const SizedBox(
-                          width: 25.0,
-                        ),
-                        HomeContainer(
-                            image: const AssetImage(Assets.arabic),
-                            text: 'لغة عربية'
-                        )
-                      ],
+                const SizedBox(
+                  height: 25,
+                ),
+
+                 Padding(
+                      padding:
+
+                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                      child: Row(
+                        children: [
+                          HomeContainer(
+                          whenTap: (){
+                            setState(() {
+                              category = 1;
+                            });
+                          },
+                          image: Assets.math,
+                          text: 'حساب',
+                            color: category == 1?     AppColors.primary:  AppColors.surface,
+                            textColor: category == 1?   AppColors.white :  AppColors.primary,
+                          ),
+
+                          const SizedBox(
+                            width: 25.0,
+                          ),
+                          HomeContainer(
+                              whenTap: (){
+                                setState(() {
+                                  category = 2;
+                                });
+                              },
+                              image: Assets.arabic,
+                              text: 'لغة عربية',
+                              color: category == 2?     AppColors.primary:  AppColors.surface,
+                              textColor: category == 2?   AppColors.white :  AppColors.primary,
+                          )
+                        ],
+                      ),
                     ),
-                  )),
-              Expanded(
-                  child: Padding(
-                    padding:
-                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
-                    child: Row(
-                      children: [
-                        HomeContainer(
-                            image: const AssetImage(Assets.ai),
-                            text: 'ذكاء'
-                        ),
-                        const SizedBox(
-                          width: 25.0,
-                        ),
-                        HomeContainer(
-                            image: const AssetImage(Assets.english),
-                            text: 'English'
-                        )
-                      ],
+
+                    const SizedBox(
+                      height: 30,
                     ),
-                  )),
-            ],
+
+                     Padding(
+                      padding:
+                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                      child: Row(
+                        children: [
+                          HomeContainer(
+                              whenTap: (){
+                                setState(() {
+                                  category = 3;
+                                });
+                              },
+                              image: Assets.ai,
+                              text: 'ذكاء',
+                              color: category == 3?     AppColors.primary:  AppColors.surface,
+                              textColor: category == 3?   AppColors.white :  AppColors.primary,
+                          ),
+                          const SizedBox(
+                            width: 25.0,
+                          ),
+                          HomeContainer(
+                              whenTap: (){
+                                setState(() {
+                                  category = 4;
+                                });
+                              },
+                              image: Assets.english,
+                              text: 'English',
+                              color: category == 4?     AppColors.primary:  AppColors.surface,
+                              textColor: category == 4?   AppColors.white :  AppColors.primary,
+                          )
+                        ],
+                      ),
+                    ),
+              ],
+            ),
           ),
         ),
     );

@@ -1,26 +1,29 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:najme/components/containers/main_registration_image.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
 class HomeContainer extends StatefulWidget {
   HomeContainer({
     Key? key,
-    this.image = const AssetImage(Assets.error),
+    this.image = Assets.error,
     this.text = 'Null',
     this.width = 173,
-    this.height = 233.11,
+    this.height = 220,
     this.color = AppColors.surface,
     this.textColor = AppColors.primaryDark,
+    required this.whenTap,
   }): super(key: key);
 
-  ImageProvider image;
-  String text;
+  final String image;
+  final String text;
   Color color;
   Color textColor;
-  double width;
-  double height;
+  final double width;
+  final double height;
+  Function whenTap;
 
   @override
   _HomeContainerState createState() => _HomeContainerState();
@@ -32,10 +35,7 @@ class _HomeContainerState extends State<HomeContainer> {
     return Expanded(
       child: GestureDetector(
         onTap: () {
-          //if(widget.counter == widget.counter)
-          setState(() {
-            
-          });
+          widget.whenTap();
         },
         child: Container(
             width: widget.width,
@@ -49,25 +49,29 @@ class _HomeContainerState extends State<HomeContainer> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(
+                mainImage(
                   image: widget.image,
                   height: 108,
                   width: 108,
                 ),
+
                 const SizedBox(
                   height: 27.0,
                 ),
                 Text(
                   widget.text,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: widget.textColor,
-                    fontSize: 36.0,
+                    fontSize: 30.0,
                     fontFamily: 'Cairo',
                     fontWeight: FontWeight.w600,
+
                   ),
                 ),
               ],
-            )),
+            )
+          ),
       ),
     );
   }
