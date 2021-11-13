@@ -3,7 +3,7 @@ import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
-import '../navbar/nav_bar.dart';
+import '../archives/nav_bar.dart';
 
 
 class mainContainer extends StatefulWidget {
@@ -11,13 +11,13 @@ class mainContainer extends StatefulWidget {
       Key? key,
       required this.child,
       this.bgImage = Assets.screenBackground,
-      this.appBar = null,
-      this.floutingButton = null
+      this.appBarr = false,
+      this.floutingButton = null,
   }) : super(key: key);
 
    Widget child;
    final String bgImage;
-   var appBar;
+   final bool appBarr;
    var floutingButton;
 
   @override
@@ -28,7 +28,34 @@ class _mainContainerState extends State<mainContainer> {
   @override
   Widget build(BuildContext context) {
       return Scaffold(
-        appBar: widget.appBar,
+        appBar: widget.appBarr ? AppBar(
+          backgroundColor: AppColors.primary,
+          leading: IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.menu,
+                size: 40,
+              )),
+          actions: [
+            Container(
+              alignment: AlignmentDirectional.center,
+              child: const Text(
+                'نجمي',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontFamily: 'Cairo',
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+            Container(
+              alignment: AlignmentDirectional.center,
+              child: const Image(
+                image: AssetImage(Assets.logo),
+              ),
+            ),
+          ],
+        ) : null,
 
         body: Container(
               constraints: BoxConstraints.expand(),

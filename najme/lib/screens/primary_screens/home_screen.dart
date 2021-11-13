@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:najme/components/containers/home_container.dart';
 import 'package:najme/components/containers/main_container.dart';
-import 'package:najme/components/navbar/nav_bar.dart';
+import 'package:najme/components/archives/nav_bar.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
@@ -20,36 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return mainContainer(
 
-        appBar: /* NavBar(), */ AppBar(
-          backgroundColor: AppColors.primary,
-          leading: IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.menu,
-                size: 40,
-              )),
-          actions: [
-            Container(
-              alignment: AlignmentDirectional.center,
-              child: const Text(
-                'نجمي',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontFamily: 'Cairo',
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
-            Container(
-              alignment: AlignmentDirectional.center,
-              child: const Image(
-                image: AssetImage(Assets.logo),
-              ),
-            ),
-          ],
-        ),
-
-
+        appBarr: true,
 
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),

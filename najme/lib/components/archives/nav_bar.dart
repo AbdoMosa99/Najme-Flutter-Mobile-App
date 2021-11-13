@@ -8,6 +8,7 @@ class NavBar extends StatefulWidget {
     Key? key
   }): super(key: key);
 
+
   @override
   _NavBarState createState() => _NavBarState();
 }
