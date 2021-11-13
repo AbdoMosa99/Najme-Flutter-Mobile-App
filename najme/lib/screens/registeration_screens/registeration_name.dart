@@ -13,55 +13,51 @@ class RegistrationName extends StatelessWidget {
   Widget build(BuildContext context) {
     var nameController=TextEditingController();
     return mainContainer(
-              // a box in which a single widget can be scrolled.
-              child:SingleChildScrollView(
-                child: Column(
-                  children: [
-
-                Padding(
-                padding: const EdgeInsets.all(30),
+         // a box in which a single widget can be scrolled.
+          child:SingleChildScrollView(
+           child: Column(
+             children: [
+                const Padding(
+                   padding: EdgeInsets.all(30),
                 // Determine the direction " page ,text"
-                child: Image(
+                   child: Image(
                    image: AssetImage(Assets.child),
-
                 ),
                 ),
 
-                    const SizedBox(
-                      height: 45.0,
+                const SizedBox(
+                    height: 45.0,
                     ),
-
-
-                    //Create name container
-                    FormTextBox(
-                          text: "الأسم",
-                          length: 20,
-                          controllerKind: nameController,
-                          type: TextInputType.name,
+               //Create name container
+                FormTextBox(
+                    text: "الأسم",
+                    length: 20,
+                    controllerKind: nameController,
+                    type: TextInputType.name,
                       ),
 
-                    const SizedBox(
+                const SizedBox(
                       height: 25.0,
                     ),
 
-                    Order(
+                Order(
                       question: "اسم الطفل!",
                       size: 50.0,
                     ),
 
-                    const SizedBox(
-                      height: 25.0,
+                const SizedBox(
+                     height: 25.0,
                     ),
-
                   ],
                 ),
               ),
+
           floutingButton: RightEndButton(
             whenTap: (){
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => RegisterationEmail()
+                    builder: (context) => const RegisterationEmail()
                 ),
               );
             },

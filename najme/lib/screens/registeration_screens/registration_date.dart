@@ -37,7 +37,6 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                   const SizedBox(
                     height: 10.0,
                   ),
-
                   Order(
                     question: "اختر تاريخ ميلادك!",
                     size: 50.0,
@@ -59,7 +58,8 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                 ],
             ),
           ),
-          floutingButton: RightEndButton(
+
+        floutingButton: RightEndButton(
             whenTap: (){
               Navigator.push(
                 context,
@@ -68,7 +68,7 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                 ),
               );
             },
-          ),
+        ),
     );
   }
 }

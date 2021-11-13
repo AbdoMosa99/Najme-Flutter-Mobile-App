@@ -11,12 +11,12 @@ class RegisterationEmail extends StatelessWidget {
   Widget build(BuildContext context) {
     var emailController=TextEditingController();
     return mainContainer(
-              // a box in which a single widget can be scrolled.
-              child: SingleChildScrollView(
+      // a box in which a single widget can be scrolled.
+        child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(30),
+                    const Padding(
+                      padding: EdgeInsets.all(30),
                       // Determine the direction " page ,text"
                       child: Image(
                         image: AssetImage(Assets.E),
@@ -106,12 +106,13 @@ class RegisterationEmail extends StatelessWidget {
                   ],
                 ),
               ),
+
         floutingButton: RightEndButton(
           whenTap: (){
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => RegistrationBirthDate()
+                  builder: (context) => const RegistrationBirthDate()
               ),
             );
           },

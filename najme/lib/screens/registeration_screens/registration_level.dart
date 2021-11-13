@@ -17,18 +17,18 @@ class RegistrationLevel extends StatefulWidget {
 }
 class _RegistrationLevelState extends State<RegistrationLevel> {
   var level = 0;
+
   @override
   Widget build(BuildContext context) {
     // component for the screen background image
     return mainContainer(
       //appBar: true,
-
         child: SingleChildScrollView(
           child:Column(
           children: [
             // Component to put image in screen
-            Padding(
-              padding: const EdgeInsets.all(30.0),
+            const Padding(
+              padding: EdgeInsets.all(30.0),
               child: Image(
                 image: AssetImage(Assets.nextLevel),
                 height: 116,
@@ -40,15 +40,14 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
               height: 30.0,
             ),
 
-
             Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   choiseButtonText(
-                      text: "KG1",
-                      whenTap:(){
-                        setState(() {
-                          level = 1;
+                    text: "KG1",
+                    whenTap:(){
+                      setState(() {
+                        level = 1;
                           }
                         );
                       },
@@ -56,11 +55,12 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
                     color: level == 1?     AppColors.primary:  AppColors.surface,
                     textColor: level == 1?   AppColors.white :  AppColors.primary,
                   ),
+
                   choiseButtonText(
-                      text: "KG2",
-                      whenTap:(){
-                        setState(() {
-                          level = 2;
+                    text: "KG2",
+                    whenTap:(){
+                      setState(() {
+                        level = 2;
                           }
                         );
                       },
@@ -70,29 +70,28 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
                 ],
               ),
 
-
             Order(
-                question: "!اختر مرحلتك",
+              question: "!اختر مرحلتك",
               size: 50.0,
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 35.0,
             ),
+               ],
+              ),
+            ),
 
-             ],
-            ),
-            ),
-          floutingButton: RightEndButton(
+        floutingButton: RightEndButton(
             whenTap: (){
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => GenderScreen()
+                    builder: (context) => const GenderScreen()
                 ),
               );
             },
           ),
-             );
+      );
     }
   }

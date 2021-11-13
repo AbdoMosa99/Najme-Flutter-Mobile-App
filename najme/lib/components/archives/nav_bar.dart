@@ -8,7 +8,6 @@ class NavBar extends StatefulWidget {
     Key? key
   }): super(key: key);
 
-
   @override
   _NavBarState createState() => _NavBarState();
 }
@@ -23,7 +22,8 @@ class _NavBarState extends State<NavBar> {
             icon: const Icon(
               Icons.menu,
               size: 40,
-            )),
+            )
+      ),
             actions: [
             Container(
               alignment: AlignmentDirectional.center,

@@ -127,20 +127,20 @@ class _Registration_6 extends State<RegistrationJob> {
                     size: 50.0,
                     maxlines: 3,
                   ),
-
-                ]
+                ],
             ),
           ),
+
         floutingButton: RightEndButton(
           whenTap: (){
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => LoginScreen()
-              ),
-            );
-          },
-        ),
-      );
-     }
-  }
+                  builder: (context) => const LoginScreen()
+                ),
+              );
+             },
+           ),
+        );
+      }
+   }

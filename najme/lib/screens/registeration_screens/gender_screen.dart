@@ -9,11 +9,9 @@ import 'package:najme/screens/registeration_screens/registration_job.dart';
 
 class GenderScreen extends StatefulWidget {
   const GenderScreen({Key? key}) : super(key: key);
-
   @override
   _GenderScreenState createState() => _GenderScreenState();
 }
-
 class _GenderScreenState extends State<GenderScreen> {
   int is_male = -1;
 
@@ -39,7 +37,10 @@ class _GenderScreenState extends State<GenderScreen> {
                       color: is_male == 1 ? AppColors.primary : AppColors.surface,
                     ),
 
-                    SizedBox(width: 20.0),
+                    const SizedBox(
+                        width: 20.0
+                    ),
+
                     GenderButton(
                       whenTap: (){
                         setState(() {
@@ -53,6 +54,7 @@ class _GenderScreenState extends State<GenderScreen> {
                 ),
               ),
             ),
+
             Container(
                 margin: const EdgeInsets.only(top: 30.0),
                 child: Order(
@@ -60,21 +62,19 @@ class _GenderScreenState extends State<GenderScreen> {
                   size: 50.0,
                 )
             ),
-
-
           ],
         ),
+
         floutingButton: RightEndButton(
           whenTap: (){
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => RegistrationJob()
+                  builder: (context) => const RegistrationJob()
               ),
             );
           },
         ),
-
     );
   }
 }

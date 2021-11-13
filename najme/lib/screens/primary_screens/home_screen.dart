@@ -7,21 +7,16 @@ import 'package:najme/constants/colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
-
 class _HomeScreenState extends State<HomeScreen> {
-
   int category = -1;
+
   @override
   Widget build(BuildContext context) {
-
     return mainContainer(
-
         appBarr: true,
-
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 30),
           child: Column(
@@ -30,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
                   child: Text(
                     '!مرحبا بك',
-                    style: TextStyle(
+                      style: TextStyle(
                       color: AppColors.primaryDark,
                       fontSize: 36.0,
                       fontFamily: 'Cairo',
@@ -38,13 +33,14 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
+
                 const SizedBox(
                   height: 25,
                 ),
 
-                 Padding(
-                      padding:
-                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                Padding(
+                  padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
                       child: Row(
                         children: [
                           HomeContainer(
@@ -77,13 +73,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
 
-                    const SizedBox(
-                      height: 30,
+                const SizedBox(
+                  height: 30,
                     ),
 
-                     Padding(
-                      padding:
-                      const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
+                Padding(
+                  padding:
+                    const EdgeInsets.symmetric(horizontal: 20.0, vertical: 0.0),
                       child: Row(
                         children: [
                           HomeContainer(
@@ -97,9 +93,11 @@ class _HomeScreenState extends State<HomeScreen> {
                               color: category == 3?     AppColors.primary:  AppColors.surface,
                               textColor: category == 3?   AppColors.white :  AppColors.primary,
                           ),
+
                           const SizedBox(
                             width: 25.0,
                           ),
+
                           HomeContainer(
                               whenTap: (){
                                 setState(() {
@@ -116,11 +114,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                ),
-            ),
-
+             ),
          );
-
-  }
+    }
 }
 
 
