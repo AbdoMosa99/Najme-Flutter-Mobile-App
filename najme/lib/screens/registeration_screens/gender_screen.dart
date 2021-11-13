@@ -5,6 +5,7 @@ import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/components/text/registration_question.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/registeration_screens/registration_job.dart';
 
 class GenderScreen extends StatefulWidget {
   const GenderScreen({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _GenderScreenState extends State<GenderScreen> {
           children: [
             Container(
               height: 200.0,
-              margin: const EdgeInsets.only(top: 150.0),
+              margin: const EdgeInsets.only(top: 80.0),
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Row(
@@ -54,7 +55,7 @@ class _GenderScreenState extends State<GenderScreen> {
             ),
             Container(
                 margin: const EdgeInsets.only(top: 30.0),
-                child: order(
+                child: Order(
                   question: "اختر نوعك!",
                   size: 50.0,
                 )
@@ -68,7 +69,7 @@ class _GenderScreenState extends State<GenderScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => GenderScreen()
+                  builder: (context) => RegistrationJob()
               ),
             );
           },

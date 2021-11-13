@@ -5,13 +5,13 @@ import 'package:najme/components/containers/main_image.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
-class HomeContainer extends StatefulWidget {
-  HomeContainer({
+class JobContainer extends StatefulWidget {
+  JobContainer({
     Key? key,
     this.image = Assets.error,
     this.text = 'Null',
-    this.width = 173,
-    this.height = 220,
+    this.width = 115,
+    this.height = 142,
     this.color = AppColors.surface,
     this.textColor = AppColors.primaryDark,
     this.whenTap = null,
@@ -26,10 +26,10 @@ class HomeContainer extends StatefulWidget {
   var whenTap;
 
   @override
-  _HomeContainerState createState() => _HomeContainerState();
+  _JobContainerState createState() => _JobContainerState() ;
 }
 
-class _HomeContainerState extends State<HomeContainer> {
+class _JobContainerState extends State<JobContainer> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -40,29 +40,27 @@ class _HomeContainerState extends State<HomeContainer> {
             height: widget.height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(
-                10.0,
+                42.0,
               ),
               color: widget.color,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-
                 mainImage(
                   image: widget.image,
-                  height: 108,
-                  width: 108,
+                  height: 70,
+                  width: 70,
                 ),
 
-                const SizedBox(
-                  height: 25.0,
-                ),
                 Text(
                   widget.text,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: widget.textColor,
-                    fontSize: 30.0,
+                    fontSize: 24.0,
                     fontFamily: 'Cairo',
                     fontWeight: FontWeight.w600,
 
@@ -70,7 +68,7 @@ class _HomeContainerState extends State<HomeContainer> {
                 ),
               ],
             )
-          ),
+        ),
       ),
     );
   }

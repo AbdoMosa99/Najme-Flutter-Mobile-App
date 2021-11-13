@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:najme/components/buttons/birth_date_button.dart';
 import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/components/containers/main_container.dart';
-import 'package:najme/components/buttons/birth_date_button.dart';
 import 'package:najme/components/text/registration_question.dart';
-import 'package:najme/constants/assets.dart';
-import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration_screens/registration_level.dart';
+
 class RegistrationBirthDate extends StatefulWidget {
   const RegistrationBirthDate({Key? key}) : super(key: key);
   @override
@@ -37,10 +35,10 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                       text: "السنة"
                   ),
                   const SizedBox(
-                    height: 25.0,
+                    height: 10.0,
                   ),
 
-                  order(
+                  Order(
                     question: "اختر تاريخ ميلادك!",
                     size: 50.0,
                   ),
@@ -58,9 +56,6 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                     ),
                   ),
                       **/
-
-
-
                 ],
             ),
           ),
@@ -69,7 +64,7 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => RegistrationLevelScreen()
+                    builder: (context) => RegistrationLevel()
                 ),
               );
             },

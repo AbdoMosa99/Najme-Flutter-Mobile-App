@@ -1,25 +1,15 @@
-import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:najme/components/buttons/choise_button_text.dart';
 import 'package:najme/components/containers/main_container.dart';
-import 'package:najme/components/containers/main_registration_image.dart';
+import 'package:najme/components/containers/main_image.dart';
 import 'package:najme/components/text/registration_question.dart';
 import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
 import 'gender_screen.dart';
-class RegistrationLevelScreen extends StatelessWidget {
-  const RegistrationLevelScreen({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: RegistrationLevel(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
+
 class RegistrationLevel extends StatefulWidget {
   const RegistrationLevel({Key? key}) : super(key: key);
   @override
@@ -32,12 +22,26 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
     // component for the screen background image
     return mainContainer(
       //appBar: true,
-        child:Column(
+
+        child: SingleChildScrollView(
+          child:Column(
           children: [
             // Component to put image in screen
-            mainImage(image: Assets.nextLevel),
-            Expanded(
-              child: Row(
+            Padding(
+              padding: const EdgeInsets.all(30.0),
+              child: Image(
+                image: AssetImage(Assets.nextLevel),
+                height: 116,
+                width: 116,
+              ),
+            ),
+
+            const SizedBox(
+              height: 30.0,
+            ),
+
+
+            Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   choiseButtonText(
@@ -65,14 +69,19 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
                   ),
                 ],
               ),
-            ),
-            order(
+
+
+            Order(
                 question: "!اختر مرحلتك",
               size: 50.0,
             ),
 
+            SizedBox(
+              height: 35.0,
+            ),
 
              ],
+            ),
             ),
           floutingButton: RightEndButton(
             whenTap: (){

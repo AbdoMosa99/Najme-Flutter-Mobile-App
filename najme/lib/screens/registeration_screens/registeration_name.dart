@@ -44,7 +44,7 @@ class RegistrationName extends StatelessWidget {
                       height: 25.0,
                     ),
 
-                    order(
+                    Order(
                       question: "اسم الطفل!",
                       size: 50.0,
                     ),

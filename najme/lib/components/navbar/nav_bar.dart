@@ -1,15 +1,13 @@
-/**
-
-import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:najme/constants/assets.dart';
+import 'package:najme/constants/colors.dart';
 
 
 class NavBar extends StatefulWidget {
-  NavBar(Key? key, this.body)
-  : super(key: key);
+  NavBar({
+    Key? key
+  }): super(key: key);
 
-  Widget body;
   @override
   _NavBarState createState() => _NavBarState();
 }
@@ -17,13 +15,9 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-
-
-
-
-          appBar:  AppBar(
-          leading: IconButton(
+    return AppBar(
+      backgroundColor: AppColors.primary,
+      leading: IconButton(
             onPressed: () {},
             icon: const Icon(
               Icons.menu,
@@ -48,11 +42,6 @@ class _NavBarState extends State<NavBar> {
               ),
             ),
           ],
-      ),
-        body: widget.body,
     );
   }
 }
-
-
- **/
