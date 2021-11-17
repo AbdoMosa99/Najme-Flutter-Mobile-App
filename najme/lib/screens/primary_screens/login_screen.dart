@@ -12,118 +12,119 @@ class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
+
 class _LoginScreenState extends State<LoginScreen> {
   var nameController = TextEditingController();
   var passController = TextEditingController();
+  bool isPassword = true;
 
   @override
   Widget build(BuildContext context) {
     return mainContainer(
-          child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const Center(
-                    child: Image(
-                      image: AssetImage(Assets.lunchImg),
-                      height: 200,
-                      width: 200,
-                            //alignment: Alignment(114.83, 46.59),
+      child: SingleChildScrollView(
+          child: Column(
+        children: [
+          const Center(
+            child: Image(
+              image: AssetImage(Assets.nagmiName),
+              height: 99.68,
+              width: 182.17,
+            ),
+          ),
+          const Center(
+            child: Image(
+              image: AssetImage(Assets.lunchImg),
+              height: 200,
+              width: 200,
+            ),
+          ),
+          const SizedBox(
+            height: 30.0,
+          ),
+          FormTextBox(
+            text: "الأسم",
+            length: 20,
+            controllerKind: nameController,
+            type: TextInputType.name,
+          ),
+          const SizedBox(
+            height: 3.5,
+          ),
+          FormTextBox(
+            text: "كلمة السر",
+            length: 8,
+            controllerKind: passController,
+            type: TextInputType.text,
+            suffIcon: isPassword
+                ? Icons.visibility_off_outlined
+                : Icons.visibility_outlined,
+            ispass: isPassword,
+            suffixFun: () {
+              setState(() {
+                isPassword = !isPassword;
+              });
+            },
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          LoginButton(
+            text: 'دخول',
+            color: AppColors.primary,
+            whenTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const HomeScreen()),
+              );
+            },
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Container(
+                  alignment: Alignment.bottomLeft,
+                  child: TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'نسيت كلمة السر؟',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        decoration: TextDecoration.underline,
+                        fontSize: 20.0,
+                        color: AppColors.primaryDark,
+                        fontFamily: 'Cairo',
+                      ),
                     ),
                   ),
-
-                  const SizedBox(
-                    height: 30.0,
-                  ),
-
-                  FormTextBox(
-                    text: "الأسم",
-                    length: 20,
-                    controllerKind: nameController,
-                    type: TextInputType.name,
-                  ),
-
-                  const SizedBox(
-                    height: 3.5,
-                  ),
-
-                  FormTextBox(
-                      text: "كلمة السر",
-                      length: 8,
-                      controllerKind: passController,
-                      type: TextInputType.text
-                  ),
-
-                  const SizedBox(
-                    height: 20.0,
-                  ),
-
-                  LoginButton(
-                    text: 'دخول',
-                    color: AppColors.primary,
-                    whenTap: (){
-                      print(nameController.text);
-                      print(passController.text);
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.bottomRight,
+                  child: TextButton(
+                    onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => HomeScreen()
-                            ),
-                           );
-                          },
-                        ),
-
-                  Row(
-                    //mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          alignment: Alignment.bottomLeft,
-                          child: TextButton(
-                            onPressed: () {},
-                            child: const Text(
-                              'نسيت كلمة السر؟',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                //decoration: TextDecoration.underline,
-                                fontSize: 20.0,
-                                color: AppColors.primaryDark,
-                                fontFamily: 'Cairo',
-                                        ),
-                                      ),
-                                    ),
-                                ),
-                              ),
-
-                      Expanded(
-                        child: Container(
-                          alignment: Alignment.bottomRight,
-                          child: TextButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => RegistrationName()
-                                      ),
-                                    );
-                                  },
-                                  child: const Text(
-                                      'تسجيل',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        //decoration: TextDecoration.underline,
-                                        fontSize: 20.0,
-                                        color: AppColors.primaryDark,
-                                        fontFamily: 'Cairo',
-                                      ),
-                                    ),
-                                  ),
-                            ),
-                            ),
-                    ],
+                            builder: (context) => const RegistrationName()),
+                      );
+                    },
+                    child: const Text(
+                      'تسجيل',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: AppColors.primaryDark,
+                        fontFamily: 'Cairo',
+                      ),
+                    ),
                   ),
-                ],
-              )
+                ),
+              ),
+            ],
           ),
+        ],
+      )),
     );
   }
 }

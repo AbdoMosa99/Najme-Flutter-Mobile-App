@@ -7,15 +7,19 @@ class FormTextBox extends StatefulWidget {
     this.text = 'Null',
     this.length = 20,
     required this.controllerKind,
-    this.type = TextInputType.name
-  })
-      : super(key: key);
+    this.type = TextInputType.name,
+    this.suffIcon = null,
+    this.ispass = false,
+    this.suffixFun = null,
+  }) : super(key: key);
 
   final String text;
   final int length;
   final TextEditingController controllerKind;
   final TextInputType type;
-  // Icon icon;
+  var suffIcon;
+  bool ispass;
+  var suffixFun;
   @override
   _FormTextBoxState createState() => _FormTextBoxState();
 }
@@ -26,25 +30,20 @@ class _FormTextBoxState extends State<FormTextBox> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: TextFormField(
-        //textDirection: TextDirection.ltr,
         maxLength: widget.length,
+        obscureText: widget.ispass,
         controller: widget.controllerKind,
         keyboardType: widget.type,
-        onFieldSubmitted: (value) {
-          print(value);
-        },
-        onChanged: (value) {
-          print(value);
-        },
         decoration: InputDecoration(
           labelText: widget.text,
           border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(15.0),
-              borderSide: const BorderSide(
-                color: AppColors.primaryLight,
-              ),
+            borderRadius: BorderRadius.circular(15.0),
+            borderSide: const BorderSide(
+              color: AppColors.primaryLight,
+            ),
           ),
-          //suffixIcon: widget.icon,
+          suffixIcon: IconButton(
+              onPressed: widget.suffixFun, icon: Icon(widget.suffIcon)),
           fillColor: AppColors.surface,
           filled: true,
           labelStyle: const TextStyle(

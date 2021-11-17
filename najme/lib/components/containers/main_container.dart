@@ -18,7 +18,7 @@ class mainContainer extends StatefulWidget {
    Widget child;
    final String bgImage;
    final bool appBarr;
-   var floutingButton;
+   var floutingButton;  
 
   @override
   _mainContainerState createState() => _mainContainerState();
