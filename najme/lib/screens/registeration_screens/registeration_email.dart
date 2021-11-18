@@ -1,57 +1,52 @@
 import 'package:flutter/material.dart';
+import 'package:najme/components/animation/from_left_to_right.dart';
 import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/components/text/registration_question.dart';
 import 'package:najme/components/text_box/form_text_box.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/screens/registeration_screens/registration_date.dart';
+
 class RegisterationEmail extends StatelessWidget {
-   const RegisterationEmail({Key? key}) : super(key: key);
+  const RegisterationEmail({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var emailController=TextEditingController();
+    var emailController = TextEditingController();
     return mainContainer(
       // a box in which a single widget can be scrolled.
-        child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.all(30),
-                      // Determine the direction " page ,text"
-                      child: Image(
-                        image: AssetImage(Assets.E),
-                        height: 108,
-                        width: 108,
-                      ),
-                    ),
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(30),
+              // Determine the direction " page ,text"
+              child: Image(
+                image: AssetImage(Assets.E),
+                height: 108,
+                width: 108,
+              ),
+            ),
+            const SizedBox(
+              height: 45.0,
+            ),
+            FormTextBox(
+              text: "الايميل",
+              length: 20,
+              controllerKind: emailController,
+              type: TextInputType.emailAddress,
+            ),
+            const SizedBox(
+              height: 25.0,
+            ),
+            Order(
+              question: "ايميل ولى الأمر!",
+              size: 50.0,
+            ),
+            const SizedBox(
+              height: 25.0,
+            ),
 
-                    const SizedBox(
-                      height: 45.0,
-                    ),
-
-                    FormTextBox(
-                      text: "الايميل",
-                      length: 20,
-                      controllerKind: emailController,
-                      type: TextInputType.emailAddress,
-                    ),
-
-                    const SizedBox(
-                      height: 25.0,
-                    ),
-
-                    Order(
-                      question: "ايميل ولى الأمر!",
-                      size: 50.0,
-                    ),
-
-                    const SizedBox(
-                      height: 25.0,
-                    ),
-
-
-
-                    /**
+            /**
                     // create email container
                     Padding(
                       padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
@@ -103,20 +98,16 @@ class RegisterationEmail extends StatelessWidget {
                       whenTap: (){},
                     ),
                         **/
-                  ],
-                ),
-              ),
-
-        floutingButton: RightEndButton(
-          whenTap: (){
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => const RegistrationBirthDate()
-              ),
-            );
-          },
+          ],
         ),
+      ),
+
+      floutingButton: RightEndButton(
+        whenTap: () {
+          Navigator.push(
+              context, LeftRightPageRoute(const RegistrationBirthDate()));
+        },
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/text_box/form_text_box.dart';
 import 'package:najme/components/buttons/login_button.dart';
 import 'package:najme/components/containers/main_container.dart';
@@ -72,10 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
             text: 'دخول',
             color: AppColors.primary,
             whenTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()),
-              );
+              Navigator.push(context, InOutPageRoute(const HomeScreen()));
             },
           ),
           Row(
@@ -104,10 +102,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: TextButton(
                     onPressed: () {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const RegistrationName()),
-                      );
+                          context, InOutPageRoute(const RegistrationName()));
                     },
                     child: const Text(
                       'تسجيل',

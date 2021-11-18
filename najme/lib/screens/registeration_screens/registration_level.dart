@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:najme/components/animation/from_left_to_right.dart';
 import 'package:najme/components/buttons/choise_button_text.dart';
 import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/components/containers/main_image.dart';
@@ -15,6 +16,7 @@ class RegistrationLevel extends StatefulWidget {
   @override
   _RegistrationLevelState createState() => _RegistrationLevelState();
 }
+
 class _RegistrationLevelState extends State<RegistrationLevel> {
   var level = 0;
 
@@ -23,8 +25,8 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
     // component for the screen background image
     return mainContainer(
       //appBar: true,
-        child: SingleChildScrollView(
-          child:Column(
+      child: SingleChildScrollView(
+        child: Column(
           children: [
             // Component to put image in screen
             const Padding(
@@ -41,34 +43,31 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
             ),
 
             Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  choiseButtonText(
-                    text: "KG1",
-                    whenTap:(){
-                      setState(() {
-                        level = 1;
-                          }
-                        );
-                      },
-                      // action when user click on image, color change
-                    color: level == 1?     AppColors.primary:  AppColors.surface,
-                    textColor: level == 1?   AppColors.white :  AppColors.primary,
-                  ),
-
-                  choiseButtonText(
-                    text: "KG2",
-                    whenTap:(){
-                      setState(() {
-                        level = 2;
-                          }
-                        );
-                      },
-                      color: level == 2?     AppColors.primary:  AppColors.surface,
-                      textColor: level == 2?   AppColors.white :  AppColors.primary,
-                  ),
-                ],
-              ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                choiseButtonText(
+                  text: "KG1",
+                  whenTap: () {
+                    setState(() {
+                      level = 1;
+                    });
+                  },
+                  // action when user click on image, color change
+                  color: level == 1 ? AppColors.primary : AppColors.surface,
+                  textColor: level == 1 ? AppColors.white : AppColors.primary,
+                ),
+                choiseButtonText(
+                  text: "KG2",
+                  whenTap: () {
+                    setState(() {
+                      level = 2;
+                    });
+                  },
+                  color: level == 2 ? AppColors.primary : AppColors.surface,
+                  textColor: level == 2 ? AppColors.white : AppColors.primary,
+                ),
+              ],
+            ),
 
             Order(
               question: "!اختر مرحلتك",
@@ -78,20 +77,15 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
             const SizedBox(
               height: 35.0,
             ),
-               ],
-              ),
-            ),
+          ],
+        ),
+      ),
 
-        floutingButton: RightEndButton(
-            whenTap: (){
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const GenderScreen()
-                ),
-              );
-            },
-          ),
-      );
-    }
+      floutingButton: RightEndButton(
+        whenTap: () {
+          Navigator.push(context, LeftRightPageRoute(const GenderScreen()));
+        },
+      ),
+    );
   }
+}
