@@ -23,7 +23,7 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
   @override
   Widget build(BuildContext context) {
     // component for the screen background image
-    return mainContainer(
+    return MainContainer(
       //appBar: true,
       child: SingleChildScrollView(
         child: Column(

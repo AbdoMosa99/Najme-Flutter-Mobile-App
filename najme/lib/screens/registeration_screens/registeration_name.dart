@@ -13,7 +13,7 @@ class RegistrationName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var nameController=TextEditingController();
-    return mainContainer(
+    return MainContainer(
          // a box in which a single widget can be scrolled.
           child:SingleChildScrollView(
            child: Column(

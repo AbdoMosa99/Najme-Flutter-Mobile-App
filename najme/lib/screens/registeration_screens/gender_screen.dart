@@ -19,7 +19,7 @@ class _GenderScreenState extends State<GenderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return mainContainer(
+    return MainContainer(
       child: Column(
         children: [
           Container(

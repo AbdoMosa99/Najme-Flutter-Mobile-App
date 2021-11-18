@@ -18,7 +18,7 @@ class _Registration_6 extends State<RegistrationJob> {
   int job = -1;
   @override
   Widget build(BuildContext context) {
-    return mainContainer(
+    return MainContainer(
       child: SingleChildScrollView(
         child: Column(
           children: [

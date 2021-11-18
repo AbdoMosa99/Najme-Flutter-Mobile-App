@@ -15,7 +15,7 @@ class RegistrationBirthDate extends StatefulWidget {
 class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
   @override
   Widget build(BuildContext context) {
-    return mainContainer(
+    return MainContainer(
       child: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
