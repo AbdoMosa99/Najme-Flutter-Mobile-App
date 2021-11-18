@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:najme/components/animation/from_left_to_right.dart';
+import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/components/text/registration_question.dart';
@@ -57,7 +57,7 @@ class RegistrationName extends StatelessWidget {
             whenTap: (){
               Navigator.push(
                 context,
-                LeftRightPageRoute(const RegisterationEmail())
+                LeftRightPageRoute(const RegisterationEmail(), -1, 0)
               );
             },
           ),

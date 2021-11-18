@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-class RightLeftPageRoute extends PageRouteBuilder {
+class LeftRightPageRoute extends PageRouteBuilder {
   final Widget widget;
-  RightLeftPageRoute(this.widget)
+  final double x;
+  final double y;
+  LeftRightPageRoute(this.widget, this.x, this.y)
       : super(
             transitionDuration: const Duration(seconds: 2),
             reverseTransitionDuration: const Duration(seconds: 1),
@@ -14,7 +16,7 @@ class RightLeftPageRoute extends PageRouteBuilder {
                   parent: animation, curve: Curves.elasticInOut);
               return SlideTransition(
                   position: Tween<Offset>(
-                          begin: const Offset(0, -1), end: Offset.zero)
+                          begin: Offset(x, y), end: Offset.zero)
                       .animate(animation),
                   child: child);
             },

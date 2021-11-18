@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:najme/components/animation/from_left_to_right.dart';
+import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/buttons/birth_date_button.dart';
 import 'package:najme/components/buttons/right_end_button.dart';
 import 'package:najme/components/containers/main_container.dart';
@@ -51,7 +51,7 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
       floutingButton: RightEndButton(
         whenTap: () {
           Navigator.push(
-              context, LeftRightPageRoute(const RegistrationLevel()));
+              context, LeftRightPageRoute(const RegistrationLevel(), -1, 0));
         },
       ),
     );

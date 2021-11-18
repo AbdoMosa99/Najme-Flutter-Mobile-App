@@ -73,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
             text: 'دخول',
             color: AppColors.primary,
             whenTap: () {
-              Navigator.push(context, InOutPageRoute(const HomeScreen()));
+              Navigator.push(context, InOutPageRoute(const HomeScreen(), Alignment.bottomCenter));
             },
           ),
           Row(
@@ -102,7 +102,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: TextButton(
                     onPressed: () {
                       Navigator.push(
-                          context, InOutPageRoute(const RegistrationName()));
+                          context, InOutPageRoute(const RegistrationName(),
+                              Alignment.bottomRight));
                     },
                     child: const Text(
                       'تسجيل',

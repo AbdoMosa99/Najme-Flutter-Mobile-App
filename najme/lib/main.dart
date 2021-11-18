@@ -14,7 +14,7 @@ class NajmeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: RegistrationName(),
+      home: LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

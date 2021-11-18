@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:najme/components/animation/from_left_to_right.dart';
+import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/buttons/choise_button_text.dart';
 import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/components/containers/main_image.dart';
@@ -83,7 +83,7 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
 
       floutingButton: RightEndButton(
         whenTap: () {
-          Navigator.push(context, LeftRightPageRoute(const GenderScreen()));
+          Navigator.push(context, LeftRightPageRoute(const GenderScreen(), -1, 0));
         },
       ),
     );
