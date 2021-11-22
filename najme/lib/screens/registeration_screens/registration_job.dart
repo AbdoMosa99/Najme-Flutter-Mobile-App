@@ -132,7 +132,8 @@ class _Registration_6 extends State<RegistrationJob> {
       ),
       floutingButton: RightEndButton(
         whenTap: () {
-          Navigator.push(context, LeftRightPageRoute(const LoginScreen(), -1, 0));
+          Navigator.push(
+              context, LeftRightPageRoute(const LoginScreen(), 1, 0));
         },
       ),
     );

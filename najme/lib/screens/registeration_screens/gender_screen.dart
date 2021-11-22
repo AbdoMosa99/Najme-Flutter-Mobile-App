@@ -62,10 +62,10 @@ class _GenderScreenState extends State<GenderScreen> {
       ),
       floutingButton: RightEndButton(
         whenTap: () {
-          Navigator.push(context, LeftRightPageRoute(const RegistrationJob(),-1,0));
+          Navigator.push(
+              context, LeftRightPageRoute(const RegistrationJob(), 1, 0));
         },
       ),
-      
     );
   }
 }

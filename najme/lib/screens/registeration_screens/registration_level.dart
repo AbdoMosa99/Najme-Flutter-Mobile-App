@@ -83,7 +83,8 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
 
       floutingButton: RightEndButton(
         whenTap: () {
-          Navigator.push(context, LeftRightPageRoute(const GenderScreen(), -1, 0));
+          Navigator.push(
+              context, LeftRightPageRoute(const GenderScreen(), 1, 0));
         },
       ),
     );

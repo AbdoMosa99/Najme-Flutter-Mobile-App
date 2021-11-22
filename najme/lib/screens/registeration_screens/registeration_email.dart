@@ -105,7 +105,7 @@ class RegisterationEmail extends StatelessWidget {
       floutingButton: RightEndButton(
         whenTap: () {
           Navigator.push(
-              context, LeftRightPageRoute(const RegistrationBirthDate(), -1, 0));
+              context, LeftRightPageRoute(const RegistrationBirthDate(), 1, 0));
         },
       ),
     );

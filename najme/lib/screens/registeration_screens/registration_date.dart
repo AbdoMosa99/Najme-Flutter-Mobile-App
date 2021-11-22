@@ -51,7 +51,7 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
       floutingButton: RightEndButton(
         whenTap: () {
           Navigator.push(
-              context, LeftRightPageRoute(const RegistrationLevel(), -1, 0));
+              context, LeftRightPageRoute(const RegistrationLevel(), 1, 0));
         },
       ),
     );

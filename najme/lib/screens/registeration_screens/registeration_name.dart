@@ -57,7 +57,7 @@ class RegistrationName extends StatelessWidget {
             whenTap: (){
               Navigator.push(
                 context,
-                LeftRightPageRoute(const RegisterationEmail(), -1, 0)
+                LeftRightPageRoute(const RegisterationEmail(), 1, 0)
               );
             },
           ),
