@@ -4,8 +4,8 @@ class Assets {
   static const String screenBackground = "assets/images/background.png";
   static const String nextLevel = "assets/images/next-level.png";
   static const String dateBox = "assets/icons/date_box.png";
-  static const String nagmiName = "assets/images/naaa.png";
-  static const String lunchImg = "assets/images/laaa.png";
+  static const String nagmiName = "assets/images/name.svg";
+  static const String lunchImg = "assets/images/launch.svg";
   static const String logo = "assets/images/logo.png";
   static const String arabic = "assets/images/ara.png";
   static const String english = "assets/images/eng.png";
