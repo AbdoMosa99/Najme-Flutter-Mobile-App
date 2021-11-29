@@ -10,8 +10,8 @@ class HomeContainer extends StatefulWidget {
     Key? key,
     this.image = Assets.error,
     this.text = 'Null',
-    this.width = 173,
-    this.height = 220,
+    this.width,
+    this.height,
     this.color = AppColors.surface,
     this.textColor = AppColors.primaryDark,
     this.whenTap = null,
@@ -21,8 +21,8 @@ class HomeContainer extends StatefulWidget {
   final String text;
   Color color;
   Color textColor;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
   var whenTap;
 
   @override
