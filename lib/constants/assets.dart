@@ -7,10 +7,10 @@ class Assets {
   static const String nagmiName = "assets/images/name.svg";
   static const String lunchImg = "assets/images/launch.svg";
   static const String logo = "assets/images/logo.png";
-  static const String arabic = "assets/images/ara.png";
-  static const String english = "assets/images/eng.png";
-  static const String math = "assets/images/math.png";
-  static const String ai = "assets/images/ai.png";
+  static const String arabicSymbol = "assets/icons/arabic_symbol.svg";
+  static const String englishSymbol = "assets/icons/english_symbol.svg";
+  static const String mathSymbol = "assets/icons/math_symbol.svg";
+  static const String iqSymbol = "assets/icons/iq_symbol.svg";
   static const String E = "assets/images/E.png";
   static const String child = "assets/images/child.png";
   static const String error = "assets/images/question_mark.png";
