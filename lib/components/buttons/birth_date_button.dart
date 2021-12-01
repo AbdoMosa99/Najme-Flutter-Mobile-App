@@ -20,7 +20,7 @@ class BirthDateButton extends StatefulWidget {
 class _BirthDateButtonState extends State<BirthDateButton> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       child: Stack(
         alignment: AlignmentDirectional.center,
         children: [

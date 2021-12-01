@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/buttons/gender_button.dart';
-import 'package:najme/components/buttons/right_end_button.dart';
+import 'package:najme/components/buttons/main_floating_button.dart';
 import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/components/text/registration_question.dart';
 import 'package:najme/constants/assets.dart';
@@ -60,8 +60,8 @@ class _GenderScreenState extends State<GenderScreen> {
               )),
         ],
       ),
-      floutingButton: RightEndButton(
-        whenTap: () {
+      floutingButton: MainFloatingButton(
+        onTap: () {
           Navigator.push(
               context, LeftRightPageRoute(const RegistrationJob(), 1, 0));
         },

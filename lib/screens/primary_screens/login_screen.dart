@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/text_box/form_text_box.dart';
-import 'package:najme/components/buttons/login_button.dart';
+import 'package:najme/components/buttons/main_button.dart';
 import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
@@ -66,10 +66,10 @@ class _LoginScreenState extends State<LoginScreen> {
           const SizedBox(
             height: 20.0,
           ),
-          LoginButton(
+          MainButton(
             text: 'دخول',
             color: AppColors.primary,
-            whenTap: () {
+            onTap: () {
               Navigator.push(context,
                   InOutPageRoute(const HomeScreen(), Alignment.bottomCenter));
             },

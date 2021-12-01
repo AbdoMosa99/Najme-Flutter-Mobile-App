@@ -3,12 +3,12 @@ import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
 class GenderButton extends StatefulWidget {
-  GenderButton({
-    Key? key,
-    this.image = Assets.error,
-    this.color = AppColors.surface,
-    this.whenTap = null
-  }) : super(key: key);
+  GenderButton(
+      {Key? key,
+      this.image = Assets.error,
+      this.color = AppColors.surface,
+      this.whenTap = null})
+      : super(key: key);
 
   final String image;
   Color color;
@@ -22,28 +22,27 @@ class _GenderButtonState extends State<GenderButton> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: GestureDetector(
+      child: InkWell(
         onTap: widget.whenTap,
-
-            child: Container(
+        child: Container(
+          width: 150.0,
+          child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
+            Image(
+              image: AssetImage(widget.image),
+              height: 150.0,
               width: 150.0,
-              child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                Image(
-                  image:  AssetImage(widget.image),
-                  height: 150.0,
-                  width: 150.0,
-                ),
-              ]),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: widget.color,
-                border: Border.all(
-                  color: AppColors.primaryDark,
-                  width: 1,
-                ),
-              ),
             ),
+          ]),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.0),
+            color: widget.color,
+            border: Border.all(
+              color: AppColors.primaryDark,
+              width: 1,
+            ),
+          ),
         ),
+      ),
     );
   }
 }

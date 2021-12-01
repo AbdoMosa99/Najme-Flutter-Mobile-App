@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:najme/components/containers/main_image.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
@@ -47,8 +46,8 @@ class _JobContainerState extends State<JobContainer> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                mainImage(
-                  image: widget.image,
+                Image(
+                  image: AssetImage(widget.image),
                   height: 70,
                   width: 70,
                 ),

@@ -11,7 +11,6 @@ class choiseButtonText extends StatefulWidget {
     required this.textColor,
     this.width = 160,
     this.height = 160,
-
   }) : super(key: key);
 
   final String text;
@@ -20,7 +19,6 @@ class choiseButtonText extends StatefulWidget {
   Color textColor;
   double height;
   double width;
-
 
   @override
   _choiseButtonTextState createState() => _choiseButtonTextState();
@@ -32,7 +30,7 @@ class _choiseButtonTextState extends State<choiseButtonText> {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.all(10),
-        child: GestureDetector(
+        child: InkWell(
           onTap: widget.whenTap,
           child: Container(
             decoration: BoxDecoration(
@@ -41,7 +39,6 @@ class _choiseButtonTextState extends State<choiseButtonText> {
             ),
             height: widget.height,
             width: widget.width,
-
             child: Center(
               child: Text(
                 widget.text,
@@ -51,7 +48,6 @@ class _choiseButtonTextState extends State<choiseButtonText> {
                   fontFamily: 'Cairo',
                   fontWeight: FontWeight.bold,
                   color: widget.textColor,
-
                 ),
               ),
             ),

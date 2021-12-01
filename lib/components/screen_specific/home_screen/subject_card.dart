@@ -9,7 +9,7 @@ class SubjectCard extends Card {
     required String text,
     Color color = AppColors.surface,
     Color textColor = AppColors.primaryDark,
-    GestureTapCallback? onTap,
+    void Function()? onTap,
   })
   : 
   super(
