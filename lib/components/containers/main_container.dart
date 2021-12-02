@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:najme/constants/assets.dart';
+import 'package:najme/utility.dart';
 
 class MainContainer extends StatelessWidget {
   const MainContainer({
@@ -19,21 +20,21 @@ class MainContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: this.appBar,
+      appBar: appBar,
       body: Container(
         constraints: const BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(this.bgImage), 
+            image: AssetImage(bgImage), 
             fit: BoxFit.cover
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: Center(child: this.child),
+          padding: EdgeInsets.all(adjustValue(context, 20.0)),
+          child: child,
         )
       ),
-      floatingActionButton: this.floutingButton
+      floatingActionButton: floutingButton
     );
   }
 }

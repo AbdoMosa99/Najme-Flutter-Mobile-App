@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/utility.dart';
 
 class SubjectCard extends Card {
   SubjectCard({
     Key? key,
+    required BuildContext context,
     required String image,
     required String text,
     Color color = AppColors.surface,
@@ -15,9 +17,9 @@ class SubjectCard extends Card {
   super(
     key: key,
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(15.0),
+      borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
     ),
-    elevation: 3.0,
+    elevation: adjustValue(context, 3.0),
     color: color,
     child: InkWell(
       onTap: onTap,
@@ -44,7 +46,7 @@ class SubjectCard extends Card {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: textColor,
-              fontSize: 30.0,
+              fontSize: adjustValue(context, 30.0),
               fontFamily: 'Cairo',
               fontWeight: FontWeight.w600,
             ),
