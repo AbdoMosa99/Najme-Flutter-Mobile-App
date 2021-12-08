@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/utility.dart';
 
-class choiseButtonText extends StatefulWidget {
-  choiseButtonText({
+
+class choiceButtonText extends StatefulWidget {
+  choiceButtonText({
     Key? key,
     this.text = "null",
     this.whenTap = null,
@@ -21,20 +23,20 @@ class choiseButtonText extends StatefulWidget {
   double width;
 
   @override
-  _choiseButtonTextState createState() => _choiseButtonTextState();
+  _choiceButtonTextState createState() => _choiceButtonTextState();
 }
 
-class _choiseButtonTextState extends State<choiseButtonText> {
+class _choiceButtonTextState extends State<choiceButtonText> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: EdgeInsets.all(adjustValue(context, 10)),
         child: InkWell(
           onTap: widget.whenTap,
           child: Container(
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(76),
+              borderRadius: BorderRadius.circular(adjustValue(context, 76)),
               color: widget.color,
             ),
             height: widget.height,
@@ -44,7 +46,7 @@ class _choiseButtonTextState extends State<choiseButtonText> {
                 widget.text,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 65,
+                  fontSize: adjustValue(context, 65),
                   fontFamily: 'Cairo',
                   fontWeight: FontWeight.bold,
                   color: widget.textColor,

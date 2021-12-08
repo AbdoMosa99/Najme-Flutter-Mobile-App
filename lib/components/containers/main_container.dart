@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:najme/constants/assets.dart';
+import 'package:najme/components/containers/drawer.dart';
 import 'package:najme/utility.dart';
 
 class MainContainer extends StatelessWidget {
@@ -8,6 +9,7 @@ class MainContainer extends StatelessWidget {
     required this.child,
     this.bgImage = Assets.screenBackground,
     this.appBar,
+    this.drawer,
     this.floutingButton,
   }) 
   : super(key: key);
@@ -15,12 +17,14 @@ class MainContainer extends StatelessWidget {
   final Widget child;
   final String bgImage;
   final AppBar? appBar;
+  final Drawer? drawer;
   final FloatingActionButton? floutingButton;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar,
+      drawer: drawer,
       body: Container(
         constraints: const BoxConstraints.expand(),
         decoration: BoxDecoration(

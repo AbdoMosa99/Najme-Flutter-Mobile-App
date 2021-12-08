@@ -11,6 +11,7 @@ class SubjectCard extends Card {
     required String text,
     Color color = AppColors.surface,
     Color textColor = AppColors.primaryDark,
+    double redius = 15.0,
     void Function()? onTap,
   })
   : 
@@ -30,6 +31,7 @@ class SubjectCard extends Card {
             flex: 1,
             child: SizedBox()
           ),
+        
           
           Expanded(
             flex: 9,
@@ -38,7 +40,7 @@ class SubjectCard extends Card {
               child: SvgPicture.asset(image),
             ),
           ),
-
+        
           const Expanded(
             flex: 1,
             child: SizedBox()

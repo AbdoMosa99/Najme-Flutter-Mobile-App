@@ -6,6 +6,7 @@ import 'package:najme/components/text/registration_question.dart';
 import 'package:najme/components/text_box/form_text_box.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/screens/registeration_screens/registration_date.dart';
+import 'package:najme/utility.dart';
 
 class RegisterationEmail extends StatelessWidget {
   const RegisterationEmail({Key? key}) : super(key: key);
@@ -17,33 +18,38 @@ class RegisterationEmail extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.all(30),
+            Padding(
+              padding: EdgeInsets.all(adjustValue(context, 30)),
               // Determine the direction " page ,text"
               child: Image(
                 image: AssetImage(Assets.E),
-                height: 108,
-                width: 108,
+                height: adjustValue(context, 108),
+                width: adjustValue(context, 108),
               ),
             ),
-            const SizedBox(
-              height: 45.0,
+
+            SizedBox(
+              height: adjustValue(context, 45.0),
             ),
+
             FormTextBox(
               text: "الايميل",
               length: 20,
               controllerKind: emailController,
               type: TextInputType.emailAddress,
             ),
-            const SizedBox(
-              height: 25.0,
+
+            SizedBox(
+              height: adjustValue(context, 25.0),
             ),
+
             Order(
-              question: "ايميل ولى الأمر!",
-              size: 50.0,
+              question: "ايميل ولي الأمر!",
+              size: adjustValue(context, 50.0),
             ),
-            const SizedBox(
-              height: 25.0,
+
+            SizedBox(
+              height: adjustValue(context, 25.0),
             ),
 
             /**

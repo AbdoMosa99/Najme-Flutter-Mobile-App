@@ -7,6 +7,7 @@ import 'package:najme/components/text/registration_question.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration_screens/registration_job.dart';
+import 'package:najme/utility.dart';
 
 class GenderScreen extends StatefulWidget {
   const GenderScreen({Key? key}) : super(key: key);
@@ -23,10 +24,10 @@ class _GenderScreenState extends State<GenderScreen> {
       child: Column(
         children: [
           Container(
-            height: 200.0,
-            margin: const EdgeInsets.only(top: 80.0),
+            height: adjustValue(context, 200.0),
+            margin: EdgeInsets.only(top: adjustValue(context, 80.0)),
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(adjustValue(context, 20.0)),
               child: Row(
                 children: [
                   GenderButton(
@@ -38,7 +39,11 @@ class _GenderScreenState extends State<GenderScreen> {
                     image: Assets.male,
                     color: is_male == 1 ? AppColors.primary : AppColors.surface,
                   ),
-                  const SizedBox(width: 20.0),
+
+                  SizedBox(
+                    width: adjustValue(context, 20.0)
+                  ),
+
                   GenderButton(
                     whenTap: () {
                       setState(() {
@@ -52,18 +57,22 @@ class _GenderScreenState extends State<GenderScreen> {
               ),
             ),
           ),
+
           Container(
-              margin: const EdgeInsets.only(top: 30.0),
-              child: Order(
-                question: "اختر نوعك!",
-                size: 50.0,
-              )),
+            margin: EdgeInsets.only(top: adjustValue(context, 30.0)),
+            child: Order(
+              question: "اختر نوعك!",
+              size: adjustValue(context, 50.0),
+            )
+          ),
         ],
       ),
+
       floutingButton: MainFloatingButton(
         onTap: () {
           Navigator.push(
-              context, LeftRightPageRoute(const RegistrationJob(), 1, 0));
+            context, LeftRightPageRoute(const RegistrationJob(), 1, 0)
+          );
         },
       ),
     );

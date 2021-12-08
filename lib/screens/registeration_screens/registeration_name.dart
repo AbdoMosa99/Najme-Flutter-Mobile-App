@@ -8,59 +8,64 @@ import 'package:najme/components/text_box/form_text_box.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration_screens/registeration_email.dart';
+import 'package:najme/utility.dart';
+
 class RegistrationName extends StatelessWidget {
   const RegistrationName({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    var nameController=TextEditingController();
+    var nameController = TextEditingController();
     return MainContainer(
          // a box in which a single widget can be scrolled.
-          child:SingleChildScrollView(
-           child: Column(
-             children: [
-                const Padding(
-                   padding: EdgeInsets.all(30),
-                // Determine the direction " page ,text"
-                   child: Image(
-                   image: AssetImage(Assets.child),
-                ),
-                ),
-
-                const SizedBox(
-                    height: 45.0,
-                    ),
-               //Create name container
-                FormTextBox(
-                    text: "الأسم",
-                    length: 20,
-                    controllerKind: nameController,
-                    type: TextInputType.name,
-                      ),
-
-                const SizedBox(
-                      height: 25.0,
-                    ),
-
-                Order(
-                      question: "اسم الطفل!",
-                      size: 50.0,
-                    ),
-
-                const SizedBox(
-                     height: 25.0,
-                    ),
-                  ],
-                ),
+      child:SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(adjustValue(context, 30)),
+              // Determine the direction " page ,text"
+              child: Image(
+                image: AssetImage(Assets.child),
+                height: adjustValue(context, 108),
+                width: adjustValue(context, 108),
               ),
+            ),
 
-          floutingButton: MainFloatingButton(
-            onTap: (){
-              Navigator.push(
-                context,
-                LeftRightPageRoute(const RegisterationEmail(), 1, 0)
-              );
-            },
-          ),
+            SizedBox(
+              height: adjustValue(context, 45.0),
+            ),
+            //Create name container
+
+            FormTextBox(
+              text: "الأسم",
+              length: 20,
+              controllerKind: nameController,
+              type: TextInputType.name,
+            ),
+
+            SizedBox(
+              height: adjustValue(context, 25.0),
+            ),
+
+            Order(
+              question: "اسم الطفل!",
+              size: adjustValue(context, 50.0),
+            ),
+
+            SizedBox(
+              height: adjustValue(context, 25.0),
+            ),
+          ],
+        ),
+      ),
+
+      floutingButton: MainFloatingButton(
+        onTap: (){
+          Navigator.push(
+            context,
+            LeftRightPageRoute(const RegisterationEmail(), 1, 0)
+          );
+        },
+      ),
     );
   }
 }

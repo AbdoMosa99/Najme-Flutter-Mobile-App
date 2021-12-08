@@ -7,6 +7,7 @@ import 'package:najme/components/text/registration_question.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/primary_screens/login_screen.dart';
+import 'package:najme/utility.dart';
 
 class RegistrationJob extends StatefulWidget {
   const RegistrationJob({Key? key}) : super(key: key);
@@ -24,7 +25,10 @@ class _Registration_6 extends State<RegistrationJob> {
           children: [
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                  EdgeInsets.symmetric(
+                    horizontal: adjustValue(context, 10.0), 
+                    vertical: adjustValue(context, 0.0)
+                    ),
               child: Row(
                 children: [
                   JobContainer(
@@ -34,12 +38,14 @@ class _Registration_6 extends State<RegistrationJob> {
                       });
                     },
                     image: Assets.teacher,
+                    height: adjustValue(context, 142),
+                    width: adjustValue(context, 115),
                     text: 'مدرس',
                     color: job == 1 ? AppColors.primary : AppColors.surface,
                     textColor: job == 1 ? AppColors.white : AppColors.primary,
                   ),
-                  const SizedBox(
-                    width: 20,
+                  SizedBox(
+                    width: adjustValue(context, 20),
                   ),
                   JobContainer(
                     whenTap: () {
@@ -48,12 +54,14 @@ class _Registration_6 extends State<RegistrationJob> {
                       });
                     },
                     image: Assets.engineer,
+                    height: adjustValue(context, 142),
+                    width: adjustValue(context, 115),
                     text: 'مهندس',
                     color: job == 2 ? AppColors.primary : AppColors.surface,
                     textColor: job == 2 ? AppColors.white : AppColors.primary,
                   ),
-                  const SizedBox(
-                    width: 20,
+                  SizedBox(
+                    width: adjustValue(context, 20),
                   ),
                   JobContainer(
                     whenTap: () {
@@ -62,6 +70,8 @@ class _Registration_6 extends State<RegistrationJob> {
                       });
                     },
                     image: Assets.policeman,
+                    height: adjustValue(context, 142),
+                    width: adjustValue(context, 115),
                     text: 'ضابط',
                     color: job == 3 ? AppColors.primary : AppColors.surface,
                     textColor: job == 3 ? AppColors.white : AppColors.primary,
@@ -69,12 +79,15 @@ class _Registration_6 extends State<RegistrationJob> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: adjustValue(context, 30),
             ),
             Padding(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 10.0, vertical: 0.0),
+                  EdgeInsets.symmetric(
+                    horizontal: adjustValue(context, 10.0), 
+                    vertical: adjustValue(context, 0.0)
+                    ),
               child: Row(
                 children: [
                   JobContainer(
@@ -84,12 +97,14 @@ class _Registration_6 extends State<RegistrationJob> {
                       });
                     },
                     image: Assets.doctor,
-                    text: ' دكتور ',
+                    height: adjustValue(context, 142),
+                    width: adjustValue(context, 115),
+                    text: 'طبيب',
                     color: job == 4 ? AppColors.primary : AppColors.surface,
                     textColor: job == 4 ? AppColors.white : AppColors.primary,
                   ),
-                  const SizedBox(
-                    width: 20,
+                  SizedBox(
+                    width: adjustValue(context, 20),
                   ),
                   JobContainer(
                     whenTap: () {
@@ -98,12 +113,14 @@ class _Registration_6 extends State<RegistrationJob> {
                       });
                     },
                     image: Assets.programmer,
+                    height: adjustValue(context, 142),
+                    width: adjustValue(context, 115),
                     text: 'مبرمج',
                     color: job == 5 ? AppColors.primary : AppColors.surface,
                     textColor: job == 5 ? AppColors.white : AppColors.primary,
                   ),
-                  const SizedBox(
-                    width: 20,
+                  SizedBox(
+                    width: adjustValue(context, 20),
                   ),
                   JobContainer(
                     whenTap: () {
@@ -112,6 +129,8 @@ class _Registration_6 extends State<RegistrationJob> {
                       });
                     },
                     image: Assets.scientist,
+                    height: adjustValue(context, 142),
+                    width: adjustValue(context, 115),
                     text: 'عالم',
                     color: job == 6 ? AppColors.primary : AppColors.surface,
                     textColor: job == 6 ? AppColors.white : AppColors.primary,
@@ -119,12 +138,12 @@ class _Registration_6 extends State<RegistrationJob> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: adjustValue(context, 30),
             ),
             Order(
               question: "ماذا تريد أن تكون عندما تكبر!",
-              size: 50.0,
+              size: adjustValue(context, 50.0),
               maxlines: 3,
             ),
           ],

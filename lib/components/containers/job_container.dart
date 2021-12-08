@@ -3,6 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/utility.dart';
+
 
 class JobContainer extends StatefulWidget {
   JobContainer({
@@ -10,7 +12,7 @@ class JobContainer extends StatefulWidget {
     this.image = Assets.error,
     this.text = 'Null',
     this.width = 115,
-    this.height = 142,
+    this.height =142,
     this.color = AppColors.surface,
     this.textColor = AppColors.primaryDark,
     this.whenTap = null,
@@ -39,7 +41,7 @@ class _JobContainerState extends State<JobContainer> {
             height: widget.height,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(
-                42.0,
+                adjustValue(context, 42.0),
               ),
               color: widget.color,
             ),
@@ -48,8 +50,8 @@ class _JobContainerState extends State<JobContainer> {
               children: [
                 Image(
                   image: AssetImage(widget.image),
-                  height: 70,
-                  width: 70,
+                  height: adjustValue(context, 70),
+                  width: adjustValue(context, 70),
                 ),
 
                 Text(
@@ -59,7 +61,7 @@ class _JobContainerState extends State<JobContainer> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: widget.textColor,
-                    fontSize: 24.0,
+                    fontSize: adjustValue(context, 24.0),
                     fontFamily: 'Cairo',
                     fontWeight: FontWeight.w600,
 

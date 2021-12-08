@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:najme/components/containers/app_bar.dart';
 import 'package:najme/components/containers/game_app_bar.dart';
+import 'package:najme/components/containers/drawer.dart';
 import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/components/screen_specific/home_screen/subject_card.dart';
 import 'package:najme/constants/assets.dart';
@@ -14,6 +15,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MainContainer(
       appBar: GameAppBar(context: context, gameName: "المستوى 1",),
+      drawer: MainDrawer(context: context,),
       child: Column(
         children: [
           Expanded(
