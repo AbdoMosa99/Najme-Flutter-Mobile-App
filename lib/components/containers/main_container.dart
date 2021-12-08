@@ -31,7 +31,10 @@ class MainContainer extends StatelessWidget {
         ),
         child: Padding(
           padding: EdgeInsets.all(adjustValue(context, 20.0)),
-          child: child,
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: child,
+          ),
         )
       ),
       floatingActionButton: floutingButton

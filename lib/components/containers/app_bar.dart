@@ -1,39 +1,49 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/utility.dart';
 
 class MainAppBar extends AppBar {
-  MainAppBar({Key? key}) : super(
+  MainAppBar({
+    Key? key, 
+    required BuildContext context,
+  }) 
+  : super(
     key: key,
+    toolbarHeight: adjustValue(context, 50.0),
     backgroundColor: AppColors.primary,
-    leading: 
-      IconButton(
-        onPressed: () {},
-        icon: 
-          const Icon(
+    leading: Center(
+      child: Padding(
+        padding: EdgeInsets.all(adjustValue(context, 5.0)),
+        child: IconButton(
+          onPressed: () {},
+          icon: const Icon(
             Icons.menu,
-            size: 40,
           ),
+          iconSize: adjustValue(context, 30.0),
+        ),
       ),
+    ),
     actions: [
-      Container(
-        alignment: AlignmentDirectional.center,
-        child:
-          const Text(
-            'نچمي',
-            style: TextStyle(
-              fontSize: 30,
-              fontFamily: 'Cairo',
-              fontWeight: FontWeight.w600,
-            ),
+      Center(
+        child: Text(
+          'نچمي',
+          style: TextStyle(
+            fontSize: adjustValue(context, 25.0),
+            fontFamily: 'Cairo',
+            fontWeight: FontWeight.w600,
           ),
+        ),
       ),
-      Container(
-        alignment: AlignmentDirectional.center,
-        child:
-          const Image(
+
+      Center(
+        child: Padding(
+          padding: EdgeInsets.all(adjustValue(context, 5.0)),
+          child: const Image(
             image: AssetImage(Assets.logo),
           ),
+        ),
       ),
     ],
   );

@@ -33,7 +33,10 @@ class SubjectCard extends Card {
           
           Expanded(
             flex: 9,
-            child: SvgPicture.asset(image),
+            child: Padding(
+              padding: EdgeInsets.all(adjustValue(context, 8.0)),
+              child: SvgPicture.asset(image),
+            ),
           ),
 
           const Expanded(

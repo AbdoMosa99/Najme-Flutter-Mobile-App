@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:najme/components/containers/app_bar.dart';
+import 'package:najme/components/containers/game_app_bar.dart';
 import 'package:najme/components/containers/main_container.dart';
 import 'package:najme/components/screen_specific/home_screen/subject_card.dart';
 import 'package:najme/constants/assets.dart';
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
-      appBar: MainAppBar(),
+      appBar: GameAppBar(context: context, gameName: "المستوى 1",),
       child: Column(
         children: [
           Expanded(
@@ -37,21 +38,21 @@ class HomeScreen extends StatelessWidget {
                   child: SubjectCard(
                     context: context,
                     onTap: () {},
-                    image: Assets.mathSymbol,
-                    text: 'حساب',
+                    image: Assets.arabicSymbol,
+                    text: 'لغة عربية',
                   ),
                 ),
                 
                 SizedBox(
                   width: adjustValue(context, 15.0),
                 ),
-                
+
                 Expanded(
                   child: SubjectCard(
                     context: context,
                     onTap: () {},
-                    image: Assets.arabicSymbol,
-                    text: 'لغة عربية',
+                    image: Assets.mathSymbol,
+                    text: 'حساب',
                   ),
                 ),
               ],
@@ -70,8 +71,8 @@ class HomeScreen extends StatelessWidget {
                   child: SubjectCard(
                     context: context,
                     onTap: () {},
-                    image: Assets.iqSymbol,
-                    text: 'ذكاء',
+                    image: Assets.englishSymbol,
+                    text: 'English',
                   ),
                 ),
                 
@@ -83,8 +84,8 @@ class HomeScreen extends StatelessWidget {
                   child: SubjectCard(
                     context: context,
                     onTap: () {},
-                    image: Assets.englishSymbol,
-                    text: 'English',
+                    image: Assets.iqSymbol,
+                    text: 'ذكاء',
                   ),
                 ),
               ],
