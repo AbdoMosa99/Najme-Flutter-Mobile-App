@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
@@ -9,13 +8,13 @@ import 'package:najme/utility.dart';
 class JobContainer extends StatefulWidget {
   JobContainer({
     Key? key,
-    this.image = Assets.error,
-    this.text = 'Null',
+    required this.image,
+    this.text = '',
     this.width = 115,
-    this.height =142,
+    this.height = 142,
     this.color = AppColors.surface,
     this.textColor = AppColors.primaryDark,
-    this.whenTap = null,
+    this.whenTap,
   }): super(key: key);
 
   final String image;
@@ -48,12 +47,10 @@ class _JobContainerState extends State<JobContainer> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image(
-                  image: AssetImage(widget.image),
-                  height: adjustValue(context, 70),
-                  width: adjustValue(context, 70),
+                Expanded(
+                  child: SvgPicture.asset(widget.image),
                 ),
-
+                
                 Text(
                   widget.text,
                   maxLines: 2,

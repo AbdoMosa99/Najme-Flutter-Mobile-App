@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
-import 'package:najme/components/text_box/form_text_box.dart';
-import 'package:najme/components/buttons/main_button.dart';
-import 'package:najme/components/containers/main_container.dart';
+import 'package:najme/components/general/form_text_box.dart';
+import 'package:najme/components/general/main_button.dart';
+import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration_screens/registeration_name.dart';
@@ -28,25 +28,40 @@ class _LoginScreenState extends State<LoginScreen> {
         children: [
           
           Expanded(
-            flex: 1, 
-            child: SvgPicture.asset(Assets.nagmiName)
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(adjustValue(context, 5.0)),
+              child: SvgPicture.asset(Assets.nagmiName),
+              ),
             ),
+
+          SizedBox(
+            height: adjustValue(context, 20.0),
+          ),
 
           Expanded(
-            flex: 2, 
-            child: SvgPicture.asset(Assets.launchImg)
-            ),
+            flex: 2,
+            child: SvgPicture.asset(Assets.launchImg),
+          ),
+
+          SizedBox(
+            height: adjustValue(context, 10.0),
+          ),
 
           FormTextBox(
-            text: "الأسم",
-            length: 20,
+            context: context,
+            text: "الاسم",
             controllerKind: nameController,
             type: TextInputType.name,
           ),
 
+          SizedBox(
+            height: adjustValue(context, 10.0),
+          ),
+
           FormTextBox(
+            context: context,
             text: "كلمة السر",
-            length: 8,
             controllerKind: passController,
             type: TextInputType.text,
             suffIcon: isPassword
@@ -59,65 +74,61 @@ class _LoginScreenState extends State<LoginScreen> {
               });
             },
           ),
-          
+
           SizedBox(
             height: adjustValue(context, 20.0),
           ),
 
           Container(
             width: double.infinity,
+            height: adjustHeightValue(context, 50.0),
             child: MainButton(
+              context: context,
               text: 'دخول',
               color: AppColors.primary,
               onTap: () {
-                Navigator.push(context,
-                  InOutPageRoute(const HomeScreen(), Alignment.bottomCenter));
+                Navigator.push(
+                  context,
+                  InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
+                );
               },
             ),
           ),
-          
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-
-              Expanded(
-                child: Container(
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        InOutPageRoute(const RegistrationName(),
-                            Alignment.bottomRight
-                        )
-                      );
-                    },
-                    child: Text(
-                      'تسجيل',
-                      textAlign: TextAlign.end,
-                      style: TextStyle(
-                        fontSize: adjustValue(context, 20.0),
-                        color: AppColors.primaryDark,
-                        fontFamily: 'Cairo',
-                      ),
-                    ),
+              TextButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    InOutPageRoute(
+                      const RegistrationName(),
+                      Alignment.bottomRight,
+                    )
+                  );
+                },
+                child: Text(
+                  'تسجيل',
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    fontSize: adjustValue(context, 20.0),
+                    color: AppColors.primaryDark,
+                    fontFamily: 'Cairo',
                   ),
                 ),
               ),
 
-              Expanded(
-                child: Container(
-                  //alignment: Alignment.bottomLeft,
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'نسيت كلمة السر؟',
-                      textAlign: TextAlign.start,
-                      style: TextStyle(
-                        fontSize: adjustValue(context, 20.0),
-                        color: AppColors.primaryDark,
-                        fontFamily: 'Cairo',
-                      ),
-                    ),
+              TextButton(
+                onPressed: () {},
+                child: Text(
+                  'نسيت كلمة السر؟',
+                  textAlign: TextAlign.start,
+                  maxLines: 1,
+                  style: TextStyle(
+                    fontSize: adjustValue(context, 20.0),
+                    color: AppColors.primaryDark,
+                    fontFamily: 'Cairo',
                   ),
                 ),
               ),

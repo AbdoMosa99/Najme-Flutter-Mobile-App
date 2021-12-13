@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
@@ -7,7 +8,7 @@ import 'package:najme/utility.dart';
 class GenderButton extends StatefulWidget {
   GenderButton(
       {Key? key,
-      this.image = Assets.error,
+      this.image = Assets.placeholder,
       this.color = AppColors.surface,
       this.whenTap = null})
       : super(key: key);
@@ -29,11 +30,9 @@ class _GenderButtonState extends State<GenderButton> {
         child: Container(
           width: adjustValue(context, 150.0),
           child: Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-            Image(
-              image: AssetImage(widget.image),
-              height: adjustValue(context, 150.0),
-              width: adjustValue(context, 150.0),
-            ),
+            Expanded(
+              child: SvgPicture.asset(widget.image),
+            )
           ]),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(adjustValue(context, 20.0)),

@@ -1,27 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/utility.dart';
 
 class FormTextBox extends TextFormField {
   FormTextBox({
     Key? key,
-    String text = 'Null',
-    int length = 20,
+    required BuildContext context,
+    required String text,
     required TextEditingController controllerKind,
     TextInputType type = TextInputType.name,
-    var suffIcon = null,
+    var suffIcon,
     bool ispass = false,
-    var suffixFun = null,
+    var suffixFun,
   }) 
   : super(
     key: key,
-    maxLength: length,
+    style: TextStyle(
+      fontFamily: 'Cairo',
+      fontSize: adjustValue(context, 17.0),
+    ),
+
     obscureText: ispass,
     controller: controllerKind,
     keyboardType: type,
     decoration: InputDecoration(
       labelText: text,
+      contentPadding: EdgeInsets.symmetric(vertical: adjustHeightValue(context, 5.0), horizontal: adjustWidthValue(context, 15.0)),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
         borderSide: const BorderSide(
           color: AppColors.primaryLight,
         ),
@@ -32,9 +38,9 @@ class FormTextBox extends TextFormField {
       ),
       fillColor: AppColors.surface,
       filled: true,
-      labelStyle: const TextStyle(
+      labelStyle: TextStyle(
         fontFamily: 'Cairo',
-        fontSize: 20.0,
+        fontSize: adjustValue(context, 15.0),
       ),
     ),
   );

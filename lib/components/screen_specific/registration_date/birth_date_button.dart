@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/constants/assets.dart';
+import 'package:najme/utility.dart';
 
 class BirthDateButton extends StatefulWidget {
   BirthDateButton({
     Key? key,
     this.width = 144.0,
     this.height = 89.0,
-    this.text = 'Null',
+    this.text = '',
   }) : super(key: key);
 
   final double width;
@@ -24,20 +26,21 @@ class _BirthDateButtonState extends State<BirthDateButton> {
       child: Stack(
         alignment: AlignmentDirectional.center,
         children: [
-          Image(
-            image: const AssetImage(Assets.dateBox),
+          SvgPicture.asset(
+            Assets.dateBox,
             width: widget.width,
             height: widget.height,
           ),
+          
           Text(
             widget.text,
             textAlign: TextAlign.center,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             textDirection: TextDirection.rtl,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.black,
-              fontSize: 34.0,
+              fontSize: adjustValue(context, 24.0),
               fontFamily: 'Cairo',
             ),
           ),

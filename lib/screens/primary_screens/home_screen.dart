@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:najme/components/containers/app_bar.dart';
-import 'package:najme/components/containers/game_app_bar.dart';
-import 'package:najme/components/containers/drawer.dart';
-import 'package:najme/components/containers/main_container.dart';
-import 'package:najme/components/screen_specific/home_screen/subject_card.dart';
+import 'package:najme/components/general/app_bar.dart';
+import 'package:najme/components/general/drawer.dart';
+import 'package:najme/components/general/main_container.dart';
+import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
@@ -14,15 +13,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
-      appBar: GameAppBar(context: context, gameName: "المستوى 1",),
+      appBar: MainAppBar(context: context,),
       drawer: MainDrawer(context: context,),
       child: Column(
         children: [
           Expanded(
             flex: 1,
-            child: Center(
+            child: Center(  
               child: Text(
-                '!مرحباً بك',
+                'مرحباً بك!',
                 style: TextStyle(
                   color: AppColors.primaryDark,
                   fontSize: adjustValue(context, 36.0),
@@ -37,7 +36,7 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: SubjectCard(
+                  child: MainCard(
                     context: context,
                     onTap: () {},
                     image: Assets.arabicSymbol,
@@ -50,7 +49,7 @@ class HomeScreen extends StatelessWidget {
                 ),
 
                 Expanded(
-                  child: SubjectCard(
+                  child: MainCard(
                     context: context,
                     onTap: () {},
                     image: Assets.mathSymbol,
@@ -70,7 +69,7 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: SubjectCard(
+                  child: MainCard(
                     context: context,
                     onTap: () {},
                     image: Assets.englishSymbol,
@@ -83,7 +82,7 @@ class HomeScreen extends StatelessWidget {
                 ),
 
                 Expanded(
-                  child: SubjectCard(
+                  child: MainCard(
                     context: context,
                     onTap: () {},
                     image: Assets.iqSymbol,
