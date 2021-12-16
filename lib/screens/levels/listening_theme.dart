@@ -6,14 +6,14 @@ import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
 
-class ListenningTheme extends StatefulWidget {
-  const ListenningTheme({ Key? key }) : super(key: key);
+class ListeningTheme extends StatefulWidget {
+  const ListeningTheme({ Key? key }) : super(key: key);
 
   @override
-  State<ListenningTheme> createState() => _ListenningThemeState();
+  State<ListeningTheme> createState() => _ListeningThemeState();
 }
 
-class _ListenningThemeState extends State<ListenningTheme> {
+class _ListeningThemeState extends State<ListeningTheme> {
   var level = 0;
 
   @override
