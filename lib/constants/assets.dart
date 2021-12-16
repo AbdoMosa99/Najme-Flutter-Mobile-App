@@ -28,4 +28,7 @@ class Assets {
   static const String rateApp = "assets/icons/rate_the_app.svg";
   static const String contactUs = "assets/icons/contact_us.svg";
   static const String logout = "assets/icons/logout.svg";
+  static const String ele = "assets/icons/ele.svg";
+  static const String audio = "assets/icons/audio.svg";
+  static const String slow = "assets/icons/slow.svg";
 }
