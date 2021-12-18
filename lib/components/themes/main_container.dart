@@ -7,15 +7,20 @@ class MainContainer extends StatelessWidget {
   const MainContainer({ 
     Key? key, 
     required this.child,
-  }) : super(key: key);
+    this.appBar,
+    //required this.child, required GameAppBar appBar,
+  }) : 
+  super(key: key,);
 
+  final AppBar? appBar;
   final Widget child;
+  
   @override
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        appBar: GameAppBar(context:context,gameName:'المستوي2'),
+        appBar: appBar,
         body: Container(
           constraints: const BoxConstraints.expand(),
           decoration: const BoxDecoration(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:najme/components/general/game_app_bar.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/components/themes/main_container.dart';
 import 'package:najme/constants/assets.dart';
@@ -19,6 +20,7 @@ class _ListeningThemeState extends State<ListeningTheme> {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
+      appBar: GameAppBar(context:context,gameName:'المستوي2'),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
