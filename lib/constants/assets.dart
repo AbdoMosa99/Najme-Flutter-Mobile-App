@@ -30,4 +30,7 @@ class Assets {
   static const String logout = "assets/icons/logout.svg";
   static const String crab = "assets/icons/crab.svg";
   static const String smileFace = "assets/icons/smile_face.svg";
+  static const String ele = "assets/icons/ele.svg";
+  static const String audio = "assets/icons/audio.svg";
+  static const String slow = "assets/icons/slow.svg";
 }
