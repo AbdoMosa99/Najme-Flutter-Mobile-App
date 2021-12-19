@@ -23,6 +23,7 @@ class Assets {
   static const String programmer = "assets/icons/programmer.svg";
   static const String scientist = "assets/icons/scientist.svg";
   static const String accountCircle = "assets/icons/account_circle.svg";
+  static const String faceBlack = "assets/icons/face_black.svg";
   static const String settings = "assets/icons/settings.svg";
   static const String parentsFollowUp = "assets/icons/parents_follow_up.svg";
   static const String rateApp = "assets/icons/rate_the_app.svg";
@@ -33,4 +34,6 @@ class Assets {
   static const String ele = "assets/icons/ele.svg";
   static const String audio = "assets/icons/audio.svg";
   static const String slow = "assets/icons/slow.svg";
+  static const String seaHorse = "assets/icons/sea_horse.svg";
+  static const String zee = "assets/audios/zee.mp3";
 }

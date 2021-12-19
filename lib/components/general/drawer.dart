@@ -71,7 +71,7 @@ class MainDrawer extends Drawer {
               ),
             ),
             leading: SvgPicture.asset(
-              Assets.accountCircle,
+              Assets.faceBlack,
               color: AppColors.secondary,
               width: adjustValue(context, 50.0),
             ),
@@ -118,11 +118,14 @@ class MainDrawer extends Drawer {
             },
           ),
 
-          Divider(
-            color: AppColors.secondary,
-            thickness: 1,
-            indent: adjustValue(context, 50.0),
-            endIndent: adjustValue(context, 50.0),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 16.0)),
+            child: Divider(
+              color: AppColors.secondary,
+              thickness: 1,
+              indent: adjustValue(context, 50.0),
+              endIndent: adjustValue(context, 50.0),
+            ),
           ),
 
           ListTile(
@@ -163,16 +166,19 @@ class MainDrawer extends Drawer {
             },
           ),
 
-          Divider(
-            color: AppColors.secondary,
-            thickness: 1,
-            indent: adjustValue(context, 50.0),
-            endIndent: adjustValue(context, 50.0),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 16.0)),
+            child: Divider(
+              color: AppColors.secondary,
+              thickness: 1,
+              indent: adjustValue(context, 50.0),
+              endIndent: adjustValue(context, 50.0),
+            ),
           ),
 
           ListTile(
             title: Text(
-              'تسجيل خروج',
+              'إدارة الحساب',
               style: TextStyle(
                 color: AppColors.surface,
                 fontFamily: 'Cairo',
@@ -180,7 +186,7 @@ class MainDrawer extends Drawer {
               ),
             ),
             leading: SvgPicture.asset(
-              Assets.logout,
+              Assets.accountCircle,
               color: AppColors.secondary,
               width: adjustValue(context, 50.0),
             ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:najme/screens/levels/order_game.dart';
 import 'package:najme/screens/primary_screens/login_screen.dart';
 
 
@@ -9,7 +8,7 @@ class NajmeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: OrderGame(),
+      home: LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
