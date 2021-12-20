@@ -60,9 +60,9 @@ class _OrderGameState extends State<OrderGame> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: adjustValue(context, 72.0),
-                  height: adjustValue(context, 72.0),
-                  child: SvgPicture.asset(Assets.seaHorse),
+                  width: adjustValue(context, 60.0),
+                  height: adjustValue(context, 60.0),
+                  child: SvgPicture.asset(Assets.pufferFish),
                 ),
 
                 ...choices.keys.map((element) {
@@ -133,7 +133,7 @@ class _OrderGameState extends State<OrderGame> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: choices.keys.map((element) {
                 return Draggable<String>(
-                  child: Container(
+                  child: choices[element] == true ? Container() : Container(
                     width: adjustValue(context, 60.0),
                     height: adjustValue(context, 60.0),
                     decoration: BoxDecoration(
