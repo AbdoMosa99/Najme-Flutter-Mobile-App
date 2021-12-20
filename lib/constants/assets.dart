@@ -36,5 +36,8 @@ class Assets {
   static const String slow = "assets/icons/slow.svg";
   static const String seaHorse = "assets/icons/sea_horse.svg";
   static const String pufferFish = "assets/icons/puffer_fish.svg";
+  static const String circular = "assets/icons/circular.svg";
+  static const String play = "assets/icons/play.svg";
   static const String zee = "assets/audios/zee.mp3";
+  static const String snail = "assets/icons/snail.svg";
 }
