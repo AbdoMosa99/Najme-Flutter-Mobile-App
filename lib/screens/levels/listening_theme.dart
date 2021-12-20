@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/general/game_app_bar.dart';
 import 'package:najme/components/themes/main_container.dart';
 import 'package:najme/constants/assets.dart';
+import 'package:najme/constants/audios.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -67,9 +68,7 @@ class _ListeningThemeState extends State<ListeningTheme> {
                       ),
                       onTap: () {
                         setState(() {
-                          player.play(Assets.zee);
-                          // AudioCache player = AudioCache(prefix: 'assets/audios/');
-                          // player.play('zee.mp3');
+                          player.play(Audios.zee);
                           playAudio = !playAudio;
                         });
                       },
@@ -88,7 +87,12 @@ class _ListeningThemeState extends State<ListeningTheme> {
                         )
                       ],
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        player.play(Audios.zee);
+                        player.setPlaybackRate(0.5);
+                      });
+                    },
                   ),
                 ),
             ],
@@ -134,6 +138,7 @@ class _ListeningThemeState extends State<ListeningTheme> {
                     onTap: () {
                       setState(() {
                         answer = 1;
+                        player.play(Audios.clap);
                       });
                     },
                   ),
@@ -187,6 +192,7 @@ class _ListeningThemeState extends State<ListeningTheme> {
                     onTap: () {
                       setState(() {
                         answer = 2;
+                        player.play(Audios.clap);
                       });
                     },
                   ),
