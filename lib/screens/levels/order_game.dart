@@ -79,10 +79,10 @@ class _OrderGameState extends State<OrderGame> {
                           height: adjustValue(context, 60.0),
                           margin: EdgeInsets.all(adjustValue(context, 1.0)),
                           decoration: BoxDecoration(
-                            color: AppColors.secondary,  
+                            color: AppColors.primaryDark,  
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: AppColors.primaryDark,
+                              color: AppColors.secondary,
                               width: adjustValue(context, 1),
                             ),
                           ),
@@ -90,7 +90,7 @@ class _OrderGameState extends State<OrderGame> {
                             element,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: AppColors.primaryDark,
+                              color: AppColors.secondary,
                               fontSize: adjustValue(context, 33.0),
                               fontFamily: 'Cairo',
                               fontWeight: FontWeight.w600,
@@ -144,7 +144,6 @@ class _OrderGameState extends State<OrderGame> {
                         width: adjustValue(context, 1),
                       ),
                     ),
-                  
                     child: Text(
                       element,
                       textAlign: TextAlign.center,
