@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
@@ -37,7 +38,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
                       job = 1;
                     });
                   },
-                  image: Assets.teacher,
+                  image: SvgPicture.asset(Assets.teacher),
                   text: 'مدرس',
                   color: job == 1 ? AppColors.primary : AppColors.surface,
                   textColor: job == 1 ? AppColors.white : AppColors.primary,
@@ -56,7 +57,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
                       job = 2;
                     });
                   },
-                  image: Assets.engineer,
+                  image: SvgPicture.asset(Assets.engineer),
                   text: 'مهندس',
                   color: job == 2 ? AppColors.primary : AppColors.surface,
                   textColor: job == 2 ? AppColors.white : AppColors.primary,
@@ -75,7 +76,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
                       job = 3;
                     });
                   },
-                  image: Assets.policeman,
+                  image: SvgPicture.asset(Assets.policeman),
                   text: 'ضابط',
                   color: job == 3 ? AppColors.primary : AppColors.surface,
                   textColor: job == 3 ? AppColors.white : AppColors.primary,
@@ -103,7 +104,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
                       job = 4;
                     });
                   },
-                  image: Assets.doctor,
+                  image: SvgPicture.asset(Assets.doctor),
                   text: 'طبيب',
                   color: job == 4 ? AppColors.primary : AppColors.surface,
                   textColor: job == 4 ? AppColors.white : AppColors.primary,
@@ -122,7 +123,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
                       job = 5;
                     });
                   },
-                  image: Assets.programmer,
+                  image: SvgPicture.asset(Assets.programmer),
                   text: 'مبرمج',
                   color: job == 5 ? AppColors.primary : AppColors.surface,
                   textColor: job == 5 ? AppColors.white : AppColors.primary,
@@ -141,7 +142,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
                       job = 6;
                     });
                   },
-                  image: Assets.scientist,
+                  image: SvgPicture.asset(Assets.scientist),
                   text: 'عالم',
                   color: job == 6 ? AppColors.primary : AppColors.surface,
                   textColor: job == 6 ? AppColors.white : AppColors.primary,

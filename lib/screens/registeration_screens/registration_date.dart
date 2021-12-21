@@ -24,19 +24,41 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
           BirthDateButton(
             width: adjustValue(context, 144.0), 
             height: adjustValue(context, 88.0), 
-            text: "اليوم"
+            text: "اليوم",
+            title: "اختر يوم ميلادك!",
+            fontSize: 26,
+            data: [for(var i=1; i<=31; i++) i],
           ),
 
           BirthDateButton(
             width: adjustValue(context, 168.0), 
             height: adjustValue(context, 104.0), 
-            text: "الشهر"
+            text: "الشهر",
+            title: "اختر شهر ميلادك!",
+            fontSize: 23,
+            data: [
+                      "يناير",
+                      "فبراير",
+                      "مارس",
+                      "إبريل",
+                      "مايو",
+                      "يونيو",
+                      "يوليو",
+                      "أغسطس",
+                      "سبتمبر",
+                      "أكتوبر",
+                      "نوفمبر",
+                      "ديسمبر",
+                ],
           ),
 
           BirthDateButton(
             width: adjustValue(context, 192.0), 
             height: adjustValue(context, 120.0), 
-            text: "السنة"
+            text: "السنة",
+            title: "اختر سنة ميلادك!",
+            fontSize: 27,
+            data: [for(var i=2005; i<=2020; i++) i],
           ),
 
           SizedBox(

@@ -6,7 +6,6 @@ class Assets {
   static const String dateBox = "assets/icons/date_box.svg";
   static const String nagmiName = "assets/icons/name.svg";
   static const String launchImg = "assets/icons/launch.svg";
-  static const String logo = "assets/images/logo.png";
   static const String arabicSymbol = "assets/icons/arabic_symbol.svg";
   static const String englishSymbol = "assets/icons/english_symbol.svg";
   static const String mathSymbol = "assets/icons/math_symbol.svg";
@@ -40,4 +39,12 @@ class Assets {
   static const String play = "assets/icons/play.svg";
   static const String zee = "assets/audios/zee.mp3";
   static const String snail = "assets/icons/snail.svg";
+
+  static const String logo = "assets/images/logo.png";
+  static const String logoName = "assets/images/logoName.png";
+  static const String Rocket = "assets/images/launch.png";
+  static const String arabicSymbolImg = "assets/images/arabic_symbol.png";
+
+
+
 }

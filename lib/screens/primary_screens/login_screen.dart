@@ -29,10 +29,11 @@ class _LoginScreenState extends State<LoginScreen> {
           
           Expanded(
             flex: 1,
-            child: Container(
-              padding: EdgeInsets.all(adjustValue(context, 5.0)),
-              child: SvgPicture.asset(Assets.nagmiName),
-              ),
+              child: Image.asset(
+                Assets.logoName,
+                width: adjustWidthValue(context, 182.17),
+                height: adjustHeightValue(context, 99.68),
+              )
             ),
 
           SizedBox(
@@ -41,7 +42,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
           Expanded(
             flex: 2,
-            child: SvgPicture.asset(Assets.launchImg),
+              child: Image.asset(
+                Assets.Rocket,
+                width: adjustWidthValue(context, 175.47),
+                height: adjustHeightValue(context, 175.47),
+              )
           ),
 
           SizedBox(
