@@ -5,6 +5,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/registeration_screens/registeration_name.dart';
 import 'package:najme/screens/registeration_screens/registration_date.dart';
 import 'package:najme/utility.dart';
 
@@ -14,37 +15,53 @@ class RegisterationEmail extends StatelessWidget {
   Widget build(BuildContext context) {
     var emailController = TextEditingController();
     return MainContainer(
-      child: Column(
+      child: Stack(
         children: [
-          SizedBox(
-            height: adjustHeightValue(context, 48.0),
-          ),
-
-          Expanded(
-            child: SvgPicture.asset(Assets.E),
-          ),
-
-          Expanded(
-            child: Center(
-              child: FormTextBox(
-                context: context,
-                text: "الايميل",
-                controllerKind: emailController,
-                type: TextInputType.emailAddress,
+          Column(
+            children: [
+              SizedBox(
+                height: adjustHeightValue(context, 48.0),
               ),
-            ),
-          ),
 
-          Expanded(
-            child: Text(
-              "إيميل ولي الأمر",
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              style: TextStyle(
-                fontSize: adjustValue(context, 50.0),
-                fontFamily: 'Cairo',
-                color: AppColors.primaryDark,
+              Expanded(
+                child: SvgPicture.asset(Assets.E),
               ),
+
+              Expanded(
+                child: Center(
+                  child: FormTextBox(
+                    context: context,
+                    text: "الايميل",
+                    controllerKind: emailController,
+                    type: TextInputType.emailAddress,
+                  ),
+                ),
+              ),
+
+              Expanded(
+                child: Text(
+                  "إيميل ولي الأمر",
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  style: TextStyle(
+                    fontSize: adjustValue(context, 50.0),
+                    fontFamily: 'Cairo',
+                    color: AppColors.primaryDark,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: IconButton(
+              icon: const Icon(Icons.arrow_forward_ios_outlined),
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  LeftRightPageRoute(const RegistrationName(), -1, 0),
+                );
+              },
             ),
           ),
         ],

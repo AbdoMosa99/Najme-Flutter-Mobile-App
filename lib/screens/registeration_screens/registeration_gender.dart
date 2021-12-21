@@ -4,7 +4,9 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/registeration_screens/registeration_email.dart';
 import 'package:najme/screens/registeration_screens/registration_job.dart';
+import 'package:najme/screens/registeration_screens/registration_level.dart';
 import 'package:najme/utility.dart';
 
 class RegistrationGender extends StatefulWidget {
@@ -19,66 +21,82 @@ class _RegistrationGenderState extends State<RegistrationGender> {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
-      child: Column(
+      child: Stack(
         children: [
-          SizedBox(
-            height: adjustValue(context, 48.0),
-          ),
+          Column(
+            children: [
+              SizedBox(
+                height: adjustValue(context, 48.0),
+              ),
 
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  width: adjustValue(context, 148.0),
-                  height: adjustValue(context, 200.0),
-                  child: MainCard(
-                    context: context,
-                    onTap: () {
-                      setState(() {
-                        isMale = 1;
-                      });
-                    },
-                    image: Assets.male,
-                    color: isMale == 1 ? AppColors.primary : AppColors.surface,
-                    radius: 20.0,
-                    stroke: true,
-                  ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      width: adjustValue(context, 148.0),
+                      height: adjustValue(context, 200.0),
+                      child: MainCard(
+                        context: context,
+                        onTap: () {
+                          setState(() {
+                            isMale = 1;
+                          });
+                        },
+                        image: Assets.male,
+                        color: isMale == 1 ? AppColors.primary : AppColors.surface,
+                        radius: 20.0,
+                        stroke: true,
+                      ),
+                    ),
+
+                    Container(
+                      width: adjustValue(context, 148.0),
+                      height: adjustValue(context, 200.0),
+                      child: MainCard(
+                        context: context,
+                        onTap: () {
+                          setState(() {
+                            isMale = 0;
+                          });
+                        },
+                        image: Assets.female,
+                        color: isMale == 0 ? AppColors.primary : AppColors.surface,
+                        radius: 20.0,
+                        stroke: true,
+                      ),
+                    ),
+                  ],
                 ),
+              ),
 
-                Container(
-                  width: adjustValue(context, 148.0),
-                  height: adjustValue(context, 200.0),
-                  child: MainCard(
-                    context: context,
-                    onTap: () {
-                      setState(() {
-                        isMale = 0;
-                      });
-                    },
-                    image: Assets.female,
-                    color: isMale == 0 ? AppColors.primary : AppColors.surface,
-                    radius: 20.0,
-                    stroke: true,
-                  ),
+              Text(
+                "اختر نوعك!",
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                style: TextStyle(
+                  fontSize: adjustValue(context, 50.0),
+                  fontFamily: 'Cairo',
+                  color: AppColors.primaryDark,
                 ),
-              ],
-            ),
-          ),
+              ),
 
-          Text(
-            "اختر نوعك!",
-            textAlign: TextAlign.center,
-            maxLines: 2,
-            style: TextStyle(
-              fontSize: adjustValue(context, 50.0),
-              fontFamily: 'Cairo',
-              color: AppColors.primaryDark,
-            ),
+              SizedBox(
+                height: adjustValue(context, 64.0),
+              ),
+            ],
           ),
-
-          SizedBox(
-            height: adjustValue(context, 64.0),
+          Align(
+            alignment: Alignment.topLeft,
+            child: IconButton(
+              icon: const Icon(Icons.arrow_forward_ios_outlined),
+              onPressed: (){
+                Navigator.push(
+                  context,
+                  LeftRightPageRoute(const RegistrationLevel(), -1, 0),
+                );
+              },
+            ),
           ),
         ],
       ),
