@@ -5,9 +5,8 @@ import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/registeration_screens/registeration_name.dart';
+import 'package:najme/screens/registeration_screens/registeration_email.dart';
 import 'home_screen.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/utility.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -108,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.push(
                     context,
                     InOutPageRoute(
-                      const RegistrationName(),
+                      const RegisterationEmail(),
                       Alignment.bottomRight,
                     )
                   );
