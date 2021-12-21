@@ -99,105 +99,105 @@ class _ListeningThemeState extends State<ListeningTheme> {
           )),
           Expanded(
               child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Expanded(
-                  child: InkWell(
-                    child: Stack(
-                      alignment: AlignmentDirectional.center,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.all(adjustValue(context, 10.0)),
-                          decoration: BoxDecoration(
-                            color: answer == 1
-                                ? AppColors.primary
-                                : AppColors.surface,
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: const Offset(0, 3),
-                              ),
-                            ],
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    child: InkWell(
+                      child: Stack(
+                        alignment: AlignmentDirectional.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.all(adjustValue(context, 10.0)),
+                            decoration: BoxDecoration(
+                              color: answer == 1
+                                  ? AppColors.primary
+                                  : AppColors.surface,
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                        Text(
-                          'أ',
-                          style: TextStyle(
-                            color:
-                                answer == 1 ? AppColors.white : AppColors.primary,
-                            fontSize: adjustValue(context, 56),
-                            fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w600,
+                          Text(
+                            'أ',
+                            style: TextStyle(
+                              color:
+                                  answer == 1 ? AppColors.white : AppColors.primary,
+                              fontSize: adjustValue(context, 56),
+                              fontFamily: 'Cairo',
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    onTap: () {
-                      setState(() {
-                        answer = 1;
-                        player.play(Audios.clap);
-                      });
-                    },
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(adjustValue(context, 8.0)),
-                  child: Text(
-                    'أم',
-                    style: TextStyle(
-                      fontSize: adjustValue(context, 25.0),
-                      fontFamily: 'Cairo',
-                      // fontWeight: FontWeight.w600,
-                      color: Colors.black,
+                        ],
+                      ),
+                      onTap: () {
+                        setState(() {
+                          answer = 1;
+                          player.play(Audios.clap);
+                        });
+                      },
                     ),
                   ),
-                ),
-                Expanded(
-                  child: InkWell(
-                    child: Stack(
-                      alignment: AlignmentDirectional.center,
-                      children: [
-                        Container(
-                          margin: EdgeInsets.all(adjustValue(context, 10.0)),
-                          decoration: BoxDecoration(
-                            color: answer == 2
-                                ? AppColors.primary
-                                : AppColors.surface,
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.5),
-                                spreadRadius: 5,
-                                blurRadius: 7,
-                                offset: const Offset(0, 3),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Text(
-                          'ب',
-                          style: TextStyle(
-                            color:
-                                answer == 2 ? AppColors.white : AppColors.primary,
-                            fontSize: adjustValue(context, 56),
-                            fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ],
+                  Padding(
+                    padding: EdgeInsets.all(adjustValue(context, 8.0)),
+                    child: Text(
+                      'أم',
+                      style: TextStyle(
+                        fontSize: adjustValue(context, 25.0),
+                        fontFamily: 'Cairo',
+                        // fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
                     ),
-                    onTap: () {
-                      setState(() {
-                        answer = 2;
-                        player.play(Audios.clap);
-                      });
-                    },
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: InkWell(
+                      child: Stack(
+                        alignment: AlignmentDirectional.center,
+                        children: [
+                          Container(
+                            margin: EdgeInsets.all(adjustValue(context, 10.0)),
+                            decoration: BoxDecoration(
+                              color: answer == 2
+                                  ? AppColors.primary
+                                  : AppColors.surface,
+                              shape: BoxShape.circle,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.5),
+                                  spreadRadius: 5,
+                                  blurRadius: 7,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Text(
+                            'ب',
+                            style: TextStyle(
+                              color:
+                                  answer == 2 ? AppColors.white : AppColors.primary,
+                              fontSize: adjustValue(context, 56),
+                              fontFamily: 'Cairo',
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                      onTap: () {
+                        setState(() {
+                          answer = 2;
+                          player.play(Audios.clap);
+                        });
+                      },
+                    ),
+                  ),
+                ],
           )),
         ],
       ),

@@ -40,4 +40,6 @@ class Assets {
   static const String play = "assets/icons/play.svg";
   static const String zee = "assets/audios/zee.mp3";
   static const String snail = "assets/icons/snail.svg";
+  static const String rabbit = "assets/icons/rabbit.svg";
+  static const String carrot = "assets/icons/carrot2.svg";
 }
