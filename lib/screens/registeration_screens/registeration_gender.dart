@@ -28,45 +28,60 @@ class _RegistrationGenderState extends State<RegistrationGender> {
         children: [
           Column(
             children: [
-              SizedBox(
-                height: adjustValue(context, 48.0),
+              const Expanded(
+                child: SizedBox(),
               ),
 
               Expanded(
+                flex: 3,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      width: adjustValue(context, 148.0),
-                      height: adjustValue(context, 200.0),
-                      child: MainCard(
-                        context: context,
-                        onTap: () {
-                          setState(() {
-                            isMale = 1;
-                          });
-                        },
-                        image: SvgPicture.asset(Assets.male),
-                        color: isMale == 1 ? AppColors.primary : AppColors.surface,
-                        radius: 20.0,
-                        stroke: true,
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: adjustHeightValue(context, 8.0),
+                          horizontal: adjustWidthValue(context, 8.0),
+                        ),
+                        child: AspectRatio(
+                          aspectRatio: 3 / 4,
+                          child: MainCard(
+                            context: context,
+                            onTap: () {
+                              setState(() {
+                                isMale = 1;
+                              });
+                            },
+                            image: SvgPicture.asset(Assets.male),
+                            color: isMale == 1 ? AppColors.primary : AppColors.surface,
+                            radius: 20.0,
+                            stroke: true,
+                          ),
+                        ),
                       ),
                     ),
 
-                    Container(
-                      width: adjustValue(context, 148.0),
-                      height: adjustValue(context, 200.0),
-                      child: MainCard(
-                        context: context,
-                        onTap: () {
-                          setState(() {
-                            isMale = 0;
-                          });
-                        },
-                        image: SvgPicture.asset(Assets.female),
-                        color: isMale == 0 ? AppColors.primary : AppColors.surface,
-                        radius: 20.0,
-                        stroke: true,
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          vertical: adjustHeightValue(context, 8.0),
+                          horizontal: adjustWidthValue(context, 8.0),
+                        ),
+                        child: AspectRatio(
+                          aspectRatio: 3 / 4,
+                          child: MainCard(
+                            context: context,
+                            onTap: () {
+                              setState(() {
+                                isMale = 0;
+                              });
+                            },
+                            image: SvgPicture.asset(Assets.female),
+                            color: isMale == 0 ? AppColors.primary : AppColors.surface,
+                            radius: 20.0,
+                            stroke: true,
+                          ),
+                        ),
                       ),
                     ),
                   ],
@@ -84,11 +99,12 @@ class _RegistrationGenderState extends State<RegistrationGender> {
                 ),
               ),
 
-              SizedBox(
-                height: adjustValue(context, 64.0),
+              const Expanded(
+                child: SizedBox(),
               ),
             ],
           ),
+          
           Align(
             alignment: Alignment.topLeft,
             child: IconButton(

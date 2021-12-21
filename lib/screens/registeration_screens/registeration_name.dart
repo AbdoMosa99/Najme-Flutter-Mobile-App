@@ -21,11 +21,12 @@ class RegistrationName extends StatelessWidget {
         children: [
           Column(
             children: [
-              SizedBox(
-                height: adjustHeightValue(context, 48.0),
+              const Expanded(
+                child: SizedBox(),
               ),
 
               Expanded(
+                flex: 2,
                 child: SvgPicture.asset(Assets.child),
               ),
 
@@ -40,21 +41,19 @@ class RegistrationName extends StatelessWidget {
                 ),
               ),
 
-              Expanded(
-                child: Text(
-                  "اسم الطفل",
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  style: TextStyle(
-                    fontSize: adjustValue(context, 50.0),
-                    fontFamily: 'Cairo',
-                    color: AppColors.primaryDark,
-                  ),
+              Text(
+                "اسم الطفل",
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                style: TextStyle(
+                  fontSize: adjustValue(context, 50.0),
+                  fontFamily: 'Cairo',
+                  color: AppColors.primaryDark,
                 ),
               ),
 
-              SizedBox(
-                height: adjustValue(context, 25.0),
+              const Expanded(
+                child: SizedBox(),
               ),
             ],
           ),

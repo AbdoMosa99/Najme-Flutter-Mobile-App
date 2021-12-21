@@ -27,23 +27,25 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
         children: [
           Column(
             children: [
-              Expanded(
-                flex: 3,
-                child: SvgPicture.asset(
-                  Assets.nextLevel,
-                  width: adjustValue(context, 168.0),
-                ),
+              const Expanded(
+                child: SizedBox(),
               ),
 
               Expanded(
                 flex: 2,
+                child: SvgPicture.asset(
+                  Assets.nextLevel,
+                ),
+              ),
+
+              Padding(
+                padding: EdgeInsets.symmetric(
+                  vertical: adjustHeightValue(context, 8.0)
+                ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      width: adjustValue(context, 150.0),
-                      height: adjustValue(context, 150.0),
-                      child: MainCard(
+                      MainCard(
                         context: context,
                         text: "KG1",
                         onTap: () {
@@ -54,26 +56,25 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
                         color: level == 1 ? AppColors.primary : AppColors.surface,
                         textColor: level == 1 ? AppColors.white : AppColors.primary,
                         radius: 76.0,
-                        fontSize: 56.0,
+                        fontSize: 48.0,
+                        circle: true,
+                        padding: 20.0,
                       ),
-                    ),
 
-                    Container(
-                      width: adjustValue(context, 150.0),
-                      height: adjustValue(context, 150.0),
-                      child: MainCard(
-                        context: context,
-                        text: "KG2",
-                        onTap: () {
-                          setState(() {
-                            level = 2;
-                          });
-                        },
-                        color: level == 2 ? AppColors.primary : AppColors.surface,
-                        textColor: level == 2 ? AppColors.white : AppColors.primary,
-                        radius: 76.0,
-                        fontSize: 56.0,
-                      ),
+                    MainCard(
+                      context: context,
+                      text: "KG2",
+                      onTap: () {
+                        setState(() {
+                          level = 2;
+                        });
+                      },
+                      color: level == 2 ? AppColors.primary : AppColors.surface,
+                      textColor: level == 2 ? AppColors.white : AppColors.primary,
+                      radius: 76.0,
+                      fontSize: 48.0,
+                      circle: true,
+                      padding: 20.0,
                     ),
                   ],
                 ),
@@ -90,8 +91,8 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
                 ),
               ),
 
-              SizedBox(
-                height: adjustValue(context, 48.0),
+              const Expanded(
+                child: SizedBox(),
               ),
             ],
           ),
