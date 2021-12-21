@@ -90,7 +90,11 @@ class _RegistrationGenderState extends State<RegistrationGender> {
           Align(
             alignment: Alignment.topLeft,
             child: IconButton(
-              icon: const Icon(Icons.arrow_forward_ios_outlined),
+              icon: Icon(
+                Icons.arrow_forward_ios_outlined,
+                size: adjustValue(context, 24.0),
+                color: AppColors.primary,
+              ),
               onPressed: (){
                 Navigator.push(
                   context,
