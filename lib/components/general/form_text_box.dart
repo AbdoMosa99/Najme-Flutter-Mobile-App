@@ -12,6 +12,7 @@ class FormTextBox extends TextFormField {
     var suffIcon,
     bool ispass = false,
     var suffixFun,
+    var valid,
   }) 
   : super(
     key: key,
@@ -42,6 +43,9 @@ class FormTextBox extends TextFormField {
         fontFamily: 'Cairo',
         fontSize: adjustValue(context, 15.0),
       ),
+
     ),
+
+    validator: valid
   );
 }
