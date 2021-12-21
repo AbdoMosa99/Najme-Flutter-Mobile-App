@@ -37,7 +37,7 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                 text: "الشهر",
                 title: "اختر شهر ميلادك!",
                 fontSize: 23,
-                data: [
+                data: const [
                   "يناير",
                   "فبراير",
                   "مارس",

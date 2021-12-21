@@ -23,6 +23,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
       child: Stack(
         children: [
           Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
                 height: adjustHeightValue(context, 40.0),
@@ -31,126 +32,128 @@ class _RegistrationJobState extends State<RegistrationJob> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    height: adjustHeightValue(context, 152),
-                    width: adjustWidthValue(context, 96),
-                    child: MainCard(
-                      context: context,
-                      onTap: () {
-                        setState(() {
-                          job = 1;
-                        });
-                      },
-                      image: SvgPicture.asset(Assets.teacher),
-                      text: 'مدرس',
-                      color: job == 1 ? AppColors.primary : AppColors.surface,
-                      textColor: job == 1 ? AppColors.white : AppColors.primary,
-                      fontSize: 20,
-                      stroke: true,
+                  Expanded(
+                    child: AspectRatio(
+                      aspectRatio: 3 / 4,
+                      child: MainCard(
+                        context: context,
+                        onTap: () {
+                          setState(() {
+                            job = 1;
+                          });
+                        },
+                        image: SvgPicture.asset(Assets.teacher),
+                        text: 'مدرس',
+                        color: job == 1 ? AppColors.primary : AppColors.surface,
+                        textColor: job == 1 ? AppColors.white : AppColors.primary,
+                        fontSize: 16,
+                        stroke: true,
+                      ),
                     ),
                   ),
 
-                  Container(
-                    height: adjustHeightValue(context, 152),
-                    width: adjustWidthValue(context, 96),
-                    child: MainCard(
-                      context: context,
-                      onTap: () {
-                        setState(() {
-                          job = 2;
-                        });
-                      },
-                      image: SvgPicture.asset(Assets.engineer),
-                      text: 'مهندس',
-                      color: job == 2 ? AppColors.primary : AppColors.surface,
-                      textColor: job == 2 ? AppColors.white : AppColors.primary,
-                      fontSize: 20,
-                      stroke: true,
+                  Expanded(
+                    child: AspectRatio(
+                      aspectRatio: 3 / 4,
+                      child: MainCard(
+                        context: context,
+                        onTap: () {
+                          setState(() {
+                            job = 2;
+                          });
+                        },
+                        image: SvgPicture.asset(Assets.engineer),
+                        text: 'مهندس',
+                        color: job == 2 ? AppColors.primary : AppColors.surface,
+                        textColor: job == 2 ? AppColors.white : AppColors.primary,
+                        fontSize: 16,
+                        stroke: true,
+                      ),
                     ),
                   ),
 
-                  Container(
-                    height: adjustHeightValue(context, 152),
-                    width: adjustWidthValue(context, 96),
-                    child: MainCard(
-                      context: context,
-                      onTap: () {
-                        setState(() {
-                          job = 3;
-                        });
-                      },
-                      image: SvgPicture.asset(Assets.policeman),
-                      text: 'ضابط',
-                      color: job == 3 ? AppColors.primary : AppColors.surface,
-                      textColor: job == 3 ? AppColors.white : AppColors.primary,
-                      fontSize: 20,
-                      stroke: true,
+                  Expanded(
+                    child: AspectRatio(
+                      aspectRatio: 3 / 4,
+                      child: MainCard(
+                        context: context,
+                        onTap: () {
+                          setState(() {
+                            job = 3;
+                          });
+                        },
+                        image: SvgPicture.asset(Assets.policeman),
+                        text: 'ضابط',
+                        color: job == 3 ? AppColors.primary : AppColors.surface,
+                        textColor: job == 3 ? AppColors.white : AppColors.primary,
+                        fontSize: 16,
+                        stroke: true,
+                      ),
                     ),
                   ),
                 ],
               ),
 
-              SizedBox(
-                height: adjustHeightValue(context, 20.0),
-              ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    height: adjustHeightValue(context, 152),
-                    width: adjustWidthValue(context, 96),
-                    child: MainCard(
-                      context: context,
-                      onTap: () {
-                        setState(() {
-                          job = 4;
-                        });
-                      },
-                      image: SvgPicture.asset(Assets.doctor),
-                      text: 'طبيب',
-                      color: job == 4 ? AppColors.primary : AppColors.surface,
-                      textColor: job == 4 ? AppColors.white : AppColors.primary,
-                      fontSize: 20,
-                      stroke: true,
+                  Expanded(
+                    child: AspectRatio(
+                      aspectRatio: 3 / 4,
+                      child: MainCard(
+                        context: context,
+                        onTap: () {
+                          setState(() {
+                            job = 4;
+                          });
+                        },
+                        image: SvgPicture.asset(Assets.doctor),
+                        text: 'طبيب',
+                        color: job == 4 ? AppColors.primary : AppColors.surface,
+                        textColor: job == 4 ? AppColors.white : AppColors.primary,
+                        fontSize: 16,
+                        stroke: true,
+                      ),
                     ),
                   ),
 
-                  Container(
-                    height: adjustHeightValue(context, 152),
-                    width: adjustWidthValue(context, 96),
-                    child: MainCard(
-                      context: context,
-                      onTap: () {
-                        setState(() {
-                          job = 5;
-                        });
-                      },
-                      image: SvgPicture.asset(Assets.programmer),
-                      text: 'مبرمج',
-                      color: job == 5 ? AppColors.primary : AppColors.surface,
-                      textColor: job == 5 ? AppColors.white : AppColors.primary,
-                      fontSize: 20,
-                      stroke: true,
+                  Expanded(
+                    child: AspectRatio(
+                      aspectRatio: 3 / 4,
+                      child: MainCard(
+                        context: context,
+                        onTap: () {
+                          setState(() {
+                            job = 5;
+                          });
+                        },
+                        image: SvgPicture.asset(Assets.programmer),
+                        text: 'مبرمج',
+                        color: job == 5 ? AppColors.primary : AppColors.surface,
+                        textColor: job == 5 ? AppColors.white : AppColors.primary,
+                        fontSize: 16,
+                        stroke: true,
+                      ),
                     ),
                   ),
 
-                  Container(
-                    height: adjustHeightValue(context, 152),
-                    width: adjustWidthValue(context, 96),
-                    child: MainCard(
-                      context: context,
-                      onTap: () {
-                        setState(() {
-                          job = 6;
-                        });
-                      },
-                      image: SvgPicture.asset(Assets.scientist),
-                      text: 'عالم',
-                      color: job == 6 ? AppColors.primary : AppColors.surface,
-                      textColor: job == 6 ? AppColors.white : AppColors.primary,
-                      fontSize: 20,
-                      stroke: true,
+                  Expanded(
+                    child: AspectRatio(
+                      aspectRatio: 3 / 4,
+                      child: MainCard(
+                        context: context,
+                        onTap: () {
+                          setState(() {
+                            job = 6;
+                          });
+                        },
+                        image: SvgPicture.asset(Assets.scientist),
+                        text: 'عالم',
+                        color: job == 6 ? AppColors.primary : AppColors.surface,
+                        textColor: job == 6 ? AppColors.white : AppColors.primary,
+                        fontSize: 16,
+                        stroke: true,
+                      ),
                     ),
                   ),
                 ],
@@ -169,6 +172,10 @@ class _RegistrationJobState extends State<RegistrationJob> {
                   fontFamily: 'Cairo',
                   color: AppColors.primaryDark,
                 ),
+              ),
+              
+              SizedBox(
+                height: adjustHeightValue(context, 20.0),
               ),
             ],
           ),
