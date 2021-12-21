@@ -7,7 +7,7 @@ class MainCard extends Card {
   MainCard({
     Key? key,
     required BuildContext context,
-    String? image,
+    Widget? image,
     String? text,
     Color color = AppColors.surface,
     Color textColor = AppColors.primaryDark,
@@ -36,7 +36,7 @@ class MainCard extends Card {
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: SvgPicture.asset(image),
+                child: image,
               ),
             ),
           

@@ -4,10 +4,8 @@ import 'package:najme/components/screen_specific/registration_date/birth_date_bu
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration_screens/registeration_email.dart';
-import 'package:najme/screens/registeration_screens/registeration_gender.dart';
 import 'package:najme/screens/registeration_screens/registration_level.dart';
 import 'package:najme/utility.dart';
-
 
 class RegistrationBirthDate extends StatefulWidget {
   const RegistrationBirthDate({Key? key}) : super(key: key);
@@ -26,27 +24,45 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               BirthDateButton(
-                  width: adjustValue(context, 144.0),
-                  height: adjustValue(context, 88.0),
-                  text: "اليوم"
+                width: adjustValue(context, 144.0),
+                height: adjustValue(context, 88.0),
+                text: "اليوم",
+                title: "اختر يوم ميلادك!",
+                fontSize: 26,
+                data: [for (var i = 1; i <= 31; i++) i],
               ),
-
               BirthDateButton(
-                  width: adjustValue(context, 168.0),
-                  height: adjustValue(context, 104.0),
-                  text: "الشهر"
+                width: adjustValue(context, 168.0),
+                height: adjustValue(context, 104.0),
+                text: "الشهر",
+                title: "اختر شهر ميلادك!",
+                fontSize: 23,
+                data: [
+                  "يناير",
+                  "فبراير",
+                  "مارس",
+                  "إبريل",
+                  "مايو",
+                  "يونيو",
+                  "يوليو",
+                  "أغسطس",
+                  "سبتمبر",
+                  "أكتوبر",
+                  "نوفمبر",
+                  "ديسمبر",
+                ],
               ),
-
               BirthDateButton(
-                  width: adjustValue(context, 192.0),
-                  height: adjustValue(context, 120.0),
-                  text: "السنة"
+                width: adjustValue(context, 192.0),
+                height: adjustValue(context, 120.0),
+                text: "السنة",
+                title: "اختر سنة ميلادك!",
+                fontSize: 27,
+                data: [for (var i = 2005; i <= 2020; i++) i],
               ),
-
               SizedBox(
                 height: adjustValue(context, 10.0),
               ),
-
               Text(
                 "اختر تاريخ ميلادك!",
                 textAlign: TextAlign.center,
@@ -63,7 +79,7 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
             alignment: Alignment.topLeft,
             child: IconButton(
               icon: const Icon(Icons.arrow_forward_ios_outlined),
-              onPressed: (){
+              onPressed: () {
                 Navigator.push(
                   context,
                   LeftRightPageRoute(const RegisterationEmail(), -1, 0),
@@ -71,13 +87,13 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
               },
             ),
           ),
+        
         ],
       ),
-
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
         Navigator.push(
-          context, 
+          context,
           LeftRightPageRoute(const RegistrationLevel(), 1, 0),
         );
       },

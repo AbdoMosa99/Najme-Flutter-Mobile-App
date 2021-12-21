@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
@@ -43,7 +44,7 @@ class _RegistrationGenderState extends State<RegistrationGender> {
                             isMale = 1;
                           });
                         },
-                        image: Assets.male,
+                        image: SvgPicture.asset(Assets.male),
                         color: isMale == 1 ? AppColors.primary : AppColors.surface,
                         radius: 20.0,
                         stroke: true,
@@ -60,7 +61,7 @@ class _RegistrationGenderState extends State<RegistrationGender> {
                             isMale = 0;
                           });
                         },
-                        image: Assets.female,
+                        image: SvgPicture.asset(Assets.female),
                         color: isMale == 0 ? AppColors.primary : AppColors.surface,
                         radius: 20.0,
                         stroke: true,
