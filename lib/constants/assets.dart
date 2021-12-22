@@ -41,11 +41,12 @@ class Assets {
   static const String rabbit = "assets/icons/rabbit.svg";
   static const String carrot = "assets/icons/carrot2.svg";
   static const String lock = "assets/icons/lock2.svg";
-
-
   static const String logo = "assets/images/logo.png";
   static const String logoName = "assets/images/logoName.png";
   static const String Rocket = "assets/images/launch.png";
   static const String arabicSymbolImg = "assets/images/arabic_symbol.png";
+  static const String age = "assets/icons/age.svg";
+  static const String home = "assets/icons/home.svg";
+  static const String work = "assets/icons/work.svg";
 
 }
