@@ -4,6 +4,7 @@ import 'package:najme/components/themes/main_container.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/constants/assets.dart';
+import 'package:najme/constants/audios.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:audioplayers/audioplayers.dart';
 
@@ -119,7 +120,7 @@ class _OrderGameState extends State<OrderGame> {
                     onAccept: (data) {
                       setState(() {
                         choices[element] = true;
-                        player.play(Assets.zee);
+                        player.play(Audios.zee);
                       }); 
                     }
                   );
