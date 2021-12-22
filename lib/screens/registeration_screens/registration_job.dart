@@ -6,8 +6,7 @@ import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/primary_screens/login_screen.dart';
-import 'package:najme/screens/registeration_screens/registeration_gender.dart';
-import 'package:najme/screens/registeration_screens/registration_level.dart';
+import 'package:najme/screens/registeration_screens/registration_address.dart';
 import 'package:najme/utility.dart';
 
 class RegistrationJob extends StatefulWidget {
@@ -191,7 +190,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
               onPressed: (){
                 Navigator.push(
                   context,
-                  LeftRightPageRoute(const RegistrationLevel(), -1, 0),
+                  LeftRightPageRoute(const RegistrationAddress(), -1, 0),
                 );
               },
             ),
