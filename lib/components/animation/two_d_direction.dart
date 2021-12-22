@@ -13,12 +13,16 @@ class LeftRightPageRoute extends PageRouteBuilder {
                 Animation<double> secAnimation,
                 Widget child) {
               animation = CurvedAnimation(
-                  parent: animation, curve: Curves.elasticInOut);
+                parent: animation, 
+                curve: Curves.elasticInOut,
+              );
               return SlideTransition(
-                  position: Tween<Offset>(
-                          begin: Offset(x, y), end: Offset.zero)
-                      .animate(animation),
-                  child: child);
+                position: Tween<Offset>(
+                  begin: Offset(x, y), 
+                  end: Offset.zero
+                ).animate(animation),
+                child: child
+              );
             },
             pageBuilder: (BuildContext context, Animation<double> animation,
                 Animation<double> secAnimation) {

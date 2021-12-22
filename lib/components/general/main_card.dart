@@ -7,14 +7,16 @@ class MainCard extends Card {
   MainCard({
     Key? key,
     required BuildContext context,
-    String? image,
+    Widget? image,
     String? text,
     Color color = AppColors.surface,
     Color textColor = AppColors.primaryDark,
     double radius = 15.0,
     double fontSize = 30.0,
     bool stroke = false,
+    bool circle = false,
     void Function()? onTap,
+    double padding = 8.0,
   })
   : 
   super(
@@ -27,31 +29,36 @@ class MainCard extends Card {
     color: color,
     child: InkWell(
       onTap: onTap,
-      child: Padding(
-        padding: EdgeInsets.all(adjustValue(context, 8.0)),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [          
-            if (image != null)
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SvgPicture.asset(image),
+      child: Container(
+        decoration: BoxDecoration(
+          shape: circle? BoxShape.circle : BoxShape.rectangle
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(adjustValue(context, padding)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [          
+              if (image != null)
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: image,
+                ),
               ),
-            ),
-          
-            if (text != null)
-            Text(
-              text,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: textColor,
-                fontSize: adjustValue(context, fontSize),
-                fontFamily: 'Cairo',
-                fontWeight: FontWeight.w600,
+            
+              if (text != null)
+              Text(
+                text,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: adjustValue(context, fontSize),
+                  fontFamily: 'Cairo',
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     ),

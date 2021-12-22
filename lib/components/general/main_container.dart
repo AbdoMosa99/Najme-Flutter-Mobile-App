@@ -11,7 +11,7 @@ class MainContainer extends StatelessWidget {
     this.appBar,
     this.drawer,
     this.floatingActionButton = false,
-    this.floatingActionIcon = Icons.arrow_back,
+    this.floatingActionIcon = Icons.arrow_forward,
     this.onFloatingActionButtonTap,
   }) 
   : super(key: key);
@@ -57,9 +57,12 @@ class MainContainer extends StatelessWidget {
             key: key,
             onPressed: onFloatingActionButtonTap,
             backgroundColor: AppColors.primary,
-            child: Icon(
-              floatingActionIcon,
-              size: adjustValue(context, 24.0),
+            child: Directionality(
+              textDirection: TextDirection.ltr,
+              child: Icon(
+                floatingActionIcon,
+                size: adjustValue(context, 24.0),
+              ),
             ),
           ),
         ) : null,

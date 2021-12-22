@@ -4,8 +4,8 @@ import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
 
-class BirthDateButton extends StatefulWidget {
-  BirthDateButton(
+class AddressButton extends StatefulWidget {
+  AddressButton(
       {Key? key,
       this.width = 144.0,
       this.height = 89.0,
@@ -24,34 +24,50 @@ class BirthDateButton extends StatefulWidget {
   String text;
 
   @override
-  _BirthDateButtonState createState() => _BirthDateButtonState();
+  _AddressButtonState createState() => _AddressButtonState();
 }
 
-class _BirthDateButtonState extends State<BirthDateButton> {
+class _AddressButtonState extends State<AddressButton> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
       child: Stack(
-        alignment: AlignmentDirectional.center,
+        //alignment: AlignmentDirectional.center,
         children: [
-          SvgPicture.asset(
-            Assets.dateBox,
-            width: widget.width,
-            height: widget.height,
-          ),
-          Text(
-            widget.text,
-            textAlign: TextAlign.center,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            textDirection: TextDirection.rtl,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: adjustValue(context, widget.fontSize),
-              fontFamily: 'Cairo',
-              fontWeight: FontWeight.bold,
+          Align(
+            alignment: Alignment(0.0, 0.0),
+
+            child: SvgPicture.asset(
+              Assets.address,
+              width: widget.width,
+              height: widget.height,
             ),
           ),
+          Column(
+            children: [
+              SizedBox(
+                height: adjustHeightValue(context, 115),
+              ),
+
+              Align(
+                alignment: Alignment(0.0, -1.0),
+                child: Text(
+                  widget.text,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textDirection: TextDirection.rtl,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: adjustValue(context, widget.fontSize),
+                    fontFamily: 'Cairo',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+          ),
+            ],
+          ),
+
         ],
       ),
       onTap: () {
