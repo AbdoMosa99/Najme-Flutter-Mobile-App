@@ -29,11 +29,11 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
               Expanded(
               flex: 2,
                 child: AddressButton(
-                  width: adjustWidthValue(context, 262.0),
-                  height: adjustHeightValue(context, 290.0),
+                  width: adjustWidthValue(context, 285.0),
+                  height: adjustHeightValue(context, 315.0),
                   text: "المحافظة",
                   title: "اختر محافظتك!          ",
-                  fontSize: 28,
+                  fontSize: 27,
                   data: const [
                     "القاهرة",
                     "الجيزة",
