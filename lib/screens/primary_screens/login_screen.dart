@@ -5,9 +5,8 @@ import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/registeration_screens/registeration_name.dart';
+import 'package:najme/screens/registeration_screens/registeration_email.dart';
 import 'home_screen.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/utility.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -29,10 +28,11 @@ class _LoginScreenState extends State<LoginScreen> {
           
           Expanded(
             flex: 1,
-            child: Container(
-              padding: EdgeInsets.all(adjustValue(context, 5.0)),
-              child: SvgPicture.asset(Assets.nagmiName),
-              ),
+              child: Image.asset(
+                Assets.logoName,
+                width: adjustWidthValue(context, 182.17),
+                height: adjustHeightValue(context, 99.68),
+              )
             ),
 
           SizedBox(
@@ -41,7 +41,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
           Expanded(
             flex: 2,
-            child: SvgPicture.asset(Assets.launchImg),
+              child: Image.asset(
+                Assets.Rocket,
+                width: adjustWidthValue(context, 175.47),
+                height: adjustHeightValue(context, 175.47),
+              )
           ),
 
           SizedBox(
@@ -103,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.push(
                     context,
                     InOutPageRoute(
-                      const RegistrationName(),
+                      const RegisterationEmail(),
                       Alignment.bottomRight,
                     )
                   );

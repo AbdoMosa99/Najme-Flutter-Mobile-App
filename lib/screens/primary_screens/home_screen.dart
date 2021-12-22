@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:najme/components/general/app_bar.dart';
 import 'package:najme/components/general/drawer.dart';
 import 'package:najme/components/general/main_container.dart';
@@ -39,7 +40,11 @@ class HomeScreen extends StatelessWidget {
                   child: MainCard(
                     context: context,
                     onTap: () {},
-                    image: Assets.arabicSymbol,
+                    image: Image.asset(
+                      Assets.arabicSymbolImg,
+                      width: adjustWidthValue(context, 180.0),
+                      height: adjustHeightValue(context, 180.0),
+                    ),
                     text: 'لغة عربية',
                   ),
                 ),
@@ -52,7 +57,7 @@ class HomeScreen extends StatelessWidget {
                   child: MainCard(
                     context: context,
                     onTap: () {},
-                    image: Assets.mathSymbol,
+                    image: SvgPicture.asset(Assets.mathSymbol),
                     text: 'حساب',
                   ),
                 ),
@@ -72,7 +77,7 @@ class HomeScreen extends StatelessWidget {
                   child: MainCard(
                     context: context,
                     onTap: () {},
-                    image: Assets.englishSymbol,
+                    image: SvgPicture.asset(Assets.englishSymbol),
                     text: 'English',
                   ),
                 ),
@@ -85,7 +90,7 @@ class HomeScreen extends StatelessWidget {
                   child: MainCard(
                     context: context,
                     onTap: () {},
-                    image: Assets.iqSymbol,
+                    image: SvgPicture.asset(Assets.iqSymbol),
                     text: 'ذكاء',
                   ),
                 ),
