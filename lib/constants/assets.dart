@@ -28,4 +28,10 @@ class Assets {
   static const String rateApp = "assets/icons/rate_the_app.svg";
   static const String contactUs = "assets/icons/contact_us.svg";
   static const String logout = "assets/icons/logout.svg";
+  static const String spaceBackground = "assets/images/spacebackground.png";
+  static const String spiralStar = "assets/icons/spiral.png";
+  static const String spiralIcon = "assets/icons/123.png";
+  static const String star = "assets/icons/star.png";
+
+  
 }
