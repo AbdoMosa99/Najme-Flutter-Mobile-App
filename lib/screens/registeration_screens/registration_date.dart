@@ -28,7 +28,7 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                 width: adjustValue(context, 144.0),
                 height: adjustValue(context, 88.0),
                 text: "اليوم",
-                title: "اختر يوم ميلادك!",
+                title: "اختر يوم ميلادك!  ",
                 fontSize: 26,
                 data: [for (var i = 1; i <= 31; i++) i],
               ),

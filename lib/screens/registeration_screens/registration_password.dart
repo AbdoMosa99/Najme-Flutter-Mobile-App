@@ -24,6 +24,9 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
   final passController = TextEditingController();
   final confpassController = TextEditingController();
   bool isPassword = true;
+  bool isConfPassword = true;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -78,10 +81,10 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
                   suffIcon: isPassword
                       ? Icons.visibility_off_outlined
                       : Icons.visibility_outlined,
-                  ispass: isPassword,
+                  ispass: isConfPassword,
                   suffixFun: () {
                     setState(() {
-                      isPassword = !isPassword;
+                      isConfPassword = !isConfPassword;
                     });
                   },
                   valid: (value) {

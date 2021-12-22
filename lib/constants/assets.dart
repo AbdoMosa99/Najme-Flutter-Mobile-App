@@ -40,7 +40,9 @@ class Assets {
   static const String snail = "assets/icons/snail.svg";
   static const String rabbit = "assets/icons/rabbit.svg";
   static const String carrot = "assets/icons/carrot2.svg";
-  static const String lock = "assets/icons/lock2.svg";
+  static const String lock = "assets/icons/lock.svg";
+  static const String address = "assets/icons/address.svg";
+
 
 
   static const String logo = "assets/images/logo.png";

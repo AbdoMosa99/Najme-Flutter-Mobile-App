@@ -6,10 +6,9 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/registeration_screens/registration_address.dart';
 import 'package:najme/screens/registeration_screens/registration_date.dart';
-import 'package:najme/screens/registeration_screens/registration_job.dart';
 import 'package:najme/utility.dart';
-import 'registeration_gender.dart';
 
 class RegistrationLevel extends StatefulWidget {
   const RegistrationLevel({Key? key}) : super(key: key);
@@ -119,7 +118,7 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
       onFloatingActionButtonTap: () {
         Navigator.push(
           context, 
-          LeftRightPageRoute(const RegistrationJob(), 1, 0),
+          LeftRightPageRoute(const RegistrationAddress(), 1, 0),
         );
       },
     );
