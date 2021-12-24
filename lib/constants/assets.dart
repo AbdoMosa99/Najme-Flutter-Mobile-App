@@ -50,5 +50,7 @@ class Assets {
   static const String age = "assets/icons/age.svg";
   static const String home = "assets/icons/home.svg";
   static const String work = "assets/icons/work.svg";
-
+  static const String star = "assets/icons/star.svg";
+  static const String ustar = "assets/icons/unRatedStar.svg";
+  static const String googlePlay = "assets/icons/googlePlay.svg";
 }

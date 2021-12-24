@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:najme/components/animation/from_in_to_out.dart';
+import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/primary_screens/rateing_screen.dart';
 import 'package:najme/utility.dart';
 
 class MainDrawer extends Drawer {
@@ -143,7 +146,11 @@ class MainDrawer extends Drawer {
               width: adjustValue(context, 50.0),
             ),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                InOutPageRoute(const RatingScreen(), Alignment.bottomLeft),
+                //LeftRightPageRoute(const RatingScreen(), -1, 0),
+              );
             },
           ),
 

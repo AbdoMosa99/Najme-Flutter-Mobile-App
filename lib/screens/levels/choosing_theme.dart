@@ -33,18 +33,17 @@ class _ChoosingThemeState extends State<ChoosingTheme> {
               child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(child: SvgPicture.asset(Assets.rabbit)),
                 Expanded(
-                  child: Text('اختر الإجابة الصحيحة',
-                      maxLines: 1,
-                      style: TextStyle(
-                        fontSize: adjustValue(context, 27.0),
-                        fontFamily: 'Cairo',
-                        letterSpacing: 0,
-                        fontWeight: FontWeight.w900,
-                        color: Colors.black,
-                      )),
-                ),
+                  child: SvgPicture.asset(Assets.rabbit)),
+                Text('اختر الإجابة الصحيحة',
+                    maxLines: 1,
+                    style: TextStyle(
+                      fontSize: adjustWidthValue(context, 27.0),
+                      fontFamily: 'Cairo',
+                      letterSpacing: 0,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.black,
+                    )),
               ],
           )),
           Expanded(
