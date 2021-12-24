@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/primary_screens/home_screen.dart';
 import 'package:najme/screens/primary_screens/login_screen.dart';
 import 'package:najme/screens/registeration_screens/registration_address.dart';
 import 'package:najme/utility.dart';
@@ -159,10 +161,6 @@ class _RegistrationJobState extends State<RegistrationJob> {
                 ],
               ),
 
-              SizedBox(
-                height: adjustValue(context, 30),
-              ),
-
               Text(
                 "ماذا تريد أن تكون؟",
                 textAlign: TextAlign.center,
@@ -174,9 +172,31 @@ class _RegistrationJobState extends State<RegistrationJob> {
                 ),
               ),
               
-              SizedBox(
-                height: adjustHeightValue(context, 20.0),
-              ),
+              MaterialButton(
+                color: AppColors.primary,
+                minWidth: double.infinity,
+                height: adjustValue(context, 60),
+                shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(adjustValue(context, 15.0)),
+                ),
+                child: Text(
+                  'تسجيل',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Cairo',
+                    color: AppColors.surface,
+                    fontSize: adjustValue(context, 30.0),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
+                  );
+          
+                },
+              ),    
             ],
           ),
           Align(
@@ -198,13 +218,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
         ],
       ),
 
-      floatingActionButton: true,
-      onFloatingActionButtonTap: () {
-        Navigator.push(
-          context, 
-          LeftRightPageRoute(const LoginScreen(), 1, 0),
-        );
-      },
+      
     );
   }
 }
