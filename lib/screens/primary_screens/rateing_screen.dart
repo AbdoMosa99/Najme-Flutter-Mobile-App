@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
-import 'package:najme/components/general/app_bar.dart';
-import 'package:najme/components/general/drawer.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
@@ -64,7 +62,7 @@ class _RatingScreenState extends State<RatingScreen> {
                     itemCount: 5,
                     itemPadding: EdgeInsets.symmetric(horizontal: adjustValue(context, 4.0)),
                     itemBuilder: (context, _) => SvgPicture.asset(
-                      Assets.star,
+                      Assets.rateStar,
                     ),
                     onRatingUpdate: (rating) {},
                   ),
