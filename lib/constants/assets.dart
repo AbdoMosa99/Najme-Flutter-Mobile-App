@@ -31,7 +31,7 @@ class Assets {
   static const String spaceBackground = "assets/images/spacebackground.png";
   static const String spiralStar = "assets/icons/spiral.png";
   static const String spiralIcon = "assets/icons/123.png";
-  static const String rateStar = "assets/icons/star.png";
+  static const String star = "assets/icons/star.png";
 
   
   static const String crab = "assets/icons/crab.svg";
@@ -56,7 +56,7 @@ class Assets {
   static const String age = "assets/icons/age.svg";
   static const String home = "assets/icons/home.svg";
   static const String work = "assets/icons/work.svg";
-  static const String star = "assets/icons/star.svg";
+  static const String rate_star = "assets/icons/rate_star.svg";
   static const String ustar = "assets/icons/unRatedStar.svg";
   static const String googlePlay = "assets/icons/googlePlay.svg";
 }
