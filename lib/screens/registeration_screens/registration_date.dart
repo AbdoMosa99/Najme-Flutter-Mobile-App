@@ -19,6 +19,7 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
   Widget build(BuildContext context) {
     return MainContainer(
       child: Stack(
+        alignment: Alignment.center,
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
