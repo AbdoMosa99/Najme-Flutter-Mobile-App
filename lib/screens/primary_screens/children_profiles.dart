@@ -302,6 +302,7 @@ class childrenprofiles extends StatelessWidget {
                           fontSize: adjustValue(context, 23),
                           fontFamily: 'Cairo',
                           color:AppColors.surface,
+                          decoration: TextDecoration.none,
                         )
                     ),
                   ],
