@@ -23,8 +23,8 @@ class SparialStar extends StatelessWidget {
           children: [
              // ignore: sized_box_for_whitespace
               Container(
-                width: 110 ,
-                height: 110 ,
+                width: adjustValue(context, 110) ,
+                height: adjustValue(context, 110) ,
                 child: Padding(
                 padding: const EdgeInsets.all(2.0),
                 child: Stack(
@@ -38,8 +38,8 @@ class SparialStar extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Image.asset(
                   img ,
-                  width: 80,
-                  height: 80,
+                  width: adjustValue(context, 80),
+                  height: adjustValue(context, 80)
                   ),                     
                 ) 
               ]  
