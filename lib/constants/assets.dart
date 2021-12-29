@@ -59,4 +59,5 @@ class Assets {
   static const String rate_star = "assets/icons/rate_star.svg";
   static const String ustar = "assets/icons/unRatedStar.svg";
   static const String googlePlay = "assets/icons/googlePlay.svg";
+  static const String falsePic = "assets/icons/false.svg";
 }

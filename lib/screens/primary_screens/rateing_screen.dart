@@ -55,7 +55,7 @@ class _RatingScreenState extends State<RatingScreen> {
                     glowColor: AppColors.secondaryLight,
                     glowRadius: adjustValue(context, 40),
                     itemSize: adjustWidthValue(context, 50),
-                    initialRating: 1,
+                    initialRating: 5,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
@@ -123,6 +123,7 @@ class _RatingScreenState extends State<RatingScreen> {
                           fontSize: adjustValue(context, 23.0),
                           fontFamily: 'Cairo',
                           color: Colors.white,
+                          decoration: TextDecoration.none,
                         )
                     ),
                   ],
