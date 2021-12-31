@@ -59,4 +59,10 @@ class Assets {
   static const String rate_star = "assets/icons/rate_star.svg";
   static const String ustar = "assets/icons/unRatedStar.svg";
   static const String googlePlay = "assets/icons/googlePlay.svg";
+  static const String facebock = "assets/icons/facebock.svg";
+  static const String gmail = "assets/icons/gmail.svg";
+  static const String twiter= "assets/icons/twiter.svg";
+  static const String watsapp= "assets/icons/watsapp.svg";
+
+
 }
