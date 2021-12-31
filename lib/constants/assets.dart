@@ -60,4 +60,6 @@ class Assets {
   static const String ustar = "assets/icons/unRatedStar.svg";
   static const String googlePlay = "assets/icons/googlePlay.svg";
   static const String falsePic = "assets/icons/false.svg";
+  static const String trueIcon = "assets/icons/trueIcon.svg";
+  static const String keys = "assets/icons/keys.svg";
 }
