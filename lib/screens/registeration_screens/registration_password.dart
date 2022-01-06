@@ -12,7 +12,12 @@ import 'package:najme/screens/registeration_screens/registeration_name.dart';
 import '../../utility.dart';
 
 class RegistrationPassword extends StatefulWidget {
-  const RegistrationPassword({Key? key}) : super(key: key);
+  RegistrationPassword({
+    Key? key,
+    required this.registrationData,
+  }) : super(key: key);
+
+  Map<String, dynamic> registrationData;
 
   @override
   _RegistrationPasswordState createState() => _RegistrationPasswordState();
@@ -126,7 +131,7 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
               onPressed: (){
                 Navigator.push(
                   context,
-                  LeftRightPageRoute(const RegisterationEmail(), -1, 0),
+                  LeftRightPageRoute(RegisterationEmail(), -1, 0),
                 );
               },
             ),
@@ -138,10 +143,10 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
         floatingActionButton: true,
         onFloatingActionButtonTap: () {
           if(formkey.currentState!.validate()){
-
+            widget.registrationData["password"] = passController.text;
             Navigator.push(
               context,
-              LeftRightPageRoute(const RegistrationName(), 1, 0)
+              LeftRightPageRoute(RegistrationName(registrationData: widget.registrationData), 1, 0)
             );
           }
 

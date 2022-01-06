@@ -3,13 +3,35 @@ import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/screen_specific/registration_date/birth_date_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/registeration_screens/registeration_email.dart';
 import 'package:najme/screens/registeration_screens/registeration_gender.dart';
 import 'package:najme/screens/registeration_screens/registration_level.dart';
 import 'package:najme/utility.dart';
 
 class RegistrationBirthDate extends StatefulWidget {
-  const RegistrationBirthDate({Key? key}) : super(key: key);
+  RegistrationBirthDate({
+    Key? key,
+    required this.registrationData
+  }) : super(key: key);
+
+  Map<String, dynamic> registrationData;
+
+  final days = [for (var i = 1; i <= 31; i++) i];
+  final months = [
+    "يناير",
+    "فبراير",
+    "مارس",
+    "إبريل",
+    "مايو",
+    "يونيو",
+    "يوليو",
+    "أغسطس",
+    "سبتمبر",
+    "أكتوبر",
+    "نوفمبر",
+    "ديسمبر",
+  ];
+  final years = [for (var i = 2005; i <= 2020; i++) i];
+
   @override
   _RegistrationBirthDateState createState() => _RegistrationBirthDateState();
 }
@@ -17,6 +39,10 @@ class RegistrationBirthDate extends StatefulWidget {
 class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
   @override
   Widget build(BuildContext context) {
+    int? dayI;
+    int? monthI;
+    int? yearI;
+
     return MainContainer(
       child: Stack(
         alignment: Alignment.center,
@@ -31,7 +57,10 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                 text: "اليوم",
                 title: "اختر يوم ميلادك!  ",
                 fontSize: 26,
-                data: [for (var i = 1; i <= 31; i++) i],
+                data: widget.days,
+                callBack: (int index) {
+                  dayI = index;
+                },
               ),
               BirthDateButton(
                 width: adjustValue(context, 168.0),
@@ -39,20 +68,10 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                 text: "الشهر",
                 title: "اختر شهر ميلادك!",
                 fontSize: 23,
-                data: const [
-                  "يناير",
-                  "فبراير",
-                  "مارس",
-                  "إبريل",
-                  "مايو",
-                  "يونيو",
-                  "يوليو",
-                  "أغسطس",
-                  "سبتمبر",
-                  "أكتوبر",
-                  "نوفمبر",
-                  "ديسمبر",
-                ],
+                data: widget.months,
+                callBack: (int index) {
+                  monthI = index;
+                },
               ),
               BirthDateButton(
                 width: adjustValue(context, 192.0),
@@ -60,7 +79,10 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                 text: "السنة",
                 title: "اختر سنة ميلادك!",
                 fontSize: 27,
-                data: [for (var i = 2005; i <= 2020; i++) i],
+                data: widget.years,
+                callBack: (int index) {
+                  yearI = index;
+                },
               ),
               SizedBox(
                 height: adjustValue(context, 10.0),
@@ -88,7 +110,9 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  LeftRightPageRoute(const RegistrationGender(), -1, 0),
+                  LeftRightPageRoute(
+                    RegistrationGender(registrationData: widget.registrationData), -1, 0
+                  ),
                 );
               },
             ),
@@ -97,10 +121,18 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
       ),
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
-        Navigator.push(
-          context,
-          LeftRightPageRoute(const RegistrationLevel(), 1, 0),
-        );
+        if (dayI != null && monthI != null && yearI != null) {
+          widget.registrationData["birthdate"] = 
+            widget.years[yearI!].toString() + "/" +
+            (monthI! + 1).toString() + "/" +
+            widget.days[dayI!].toString();
+          Navigator.push(
+            context,
+            LeftRightPageRoute(
+              RegistrationLevel(registrationDate: widget.registrationData), 1, 0
+            ),
+          );
+        }
       },
     );
   }
