@@ -11,13 +11,19 @@ import 'package:najme/screens/registeration_screens/registration_date.dart';
 import 'package:najme/utility.dart';
 
 class RegistrationLevel extends StatefulWidget {
-  const RegistrationLevel({Key? key}) : super(key: key);
+  RegistrationLevel({
+    Key? key,
+    required this.registrationDate,
+  }) : super(key: key);
+  
+  Map<String, dynamic> registrationDate;
+
   @override
   _RegistrationLevelState createState() => _RegistrationLevelState();
 }
 
 class _RegistrationLevelState extends State<RegistrationLevel> {
-  var level = 0;
+  int level = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -106,7 +112,9 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
               onPressed: (){
                 Navigator.push(
                   context,
-                  LeftRightPageRoute(const RegistrationBirthDate(), -1, 0),
+                  LeftRightPageRoute(
+                    RegistrationBirthDate(registrationData: widget.registrationDate,), -1, 0
+                  ),
                 );
               },
             ),
@@ -116,10 +124,14 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
 
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
-        Navigator.push(
-          context, 
-          LeftRightPageRoute(const RegistrationAddress(), 1, 0),
-        );
+        if (level != 0) {
+          widget.registrationDate["level"] = level;
+
+          Navigator.push(
+            context, 
+            LeftRightPageRoute(RegistrationAddress(registrationData: widget.registrationDate), 1, 0),
+          );
+        }
       },
     );
   }

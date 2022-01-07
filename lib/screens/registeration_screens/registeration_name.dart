@@ -6,13 +6,18 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/primary_screens/login_screen.dart';
 import 'package:najme/screens/registeration_screens/registeration_gender.dart';
 import 'package:najme/screens/registeration_screens/registration_password.dart';
 import 'package:najme/utility.dart';
 
 class RegistrationName extends StatelessWidget {
-  const RegistrationName({Key? key}) : super(key: key);
+  RegistrationName({
+    Key? key,
+    required this.registrationData,
+  }) : super(key: key);
+
+  Map<String, dynamic> registrationData;
+
   @override
   Widget build(BuildContext context) {
     var nameController = TextEditingController();
@@ -68,7 +73,11 @@ class RegistrationName extends StatelessWidget {
               onPressed: (){
                 Navigator.push(
                   context,
-                  LeftRightPageRoute(const RegistrationPassword(), -1, 0),
+                  LeftRightPageRoute(
+                    RegistrationPassword(registrationData: registrationData), 
+                    -1, 
+                    0,
+                  ),
                 );
               },
             ),
@@ -78,10 +87,17 @@ class RegistrationName extends StatelessWidget {
 
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
-        Navigator.push(
-          context, 
-          LeftRightPageRoute(const RegistrationGender(), 1, 0),
-        );
+        if (nameController.text != "") {
+          registrationData["name"] = nameController.text;
+          Navigator.push(
+            context, 
+            LeftRightPageRoute(
+              RegistrationGender(registrationData: registrationData), 
+              1, 
+              0,
+            ),
+          );
+        }
       },
     );
   }

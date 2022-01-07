@@ -107,7 +107,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.push(
                     context,
                     InOutPageRoute(
-                      const RegisterationEmail(),
+                      RegisterationEmail(),
                       Alignment.bottomRight,
                     )
                   );

@@ -6,12 +6,23 @@ import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/primary_screens/login_screen.dart';
-import 'package:najme/screens/registeration_screens/registeration_name.dart';
 import 'package:najme/screens/registeration_screens/registration_password.dart';
 import 'package:najme/utility.dart';
 
 class RegisterationEmail extends StatelessWidget {
-  const RegisterationEmail({Key? key}) : super(key: key);
+  RegisterationEmail({Key? key}) : super(key: key);
+
+  Map<String, dynamic> registrationData = {
+    "email": null,
+    "password": null,
+    "name": null,
+    "gender": null,
+    "birthdate": null,
+    "level": null,
+    "city": null,
+    "ambition": null,
+  };
+
   @override
   Widget build(BuildContext context) {
     var emailController = TextEditingController();
@@ -77,10 +88,13 @@ class RegisterationEmail extends StatelessWidget {
 
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
-        Navigator.push(
-          context, 
-          LeftRightPageRoute(const RegistrationPassword(), 1, 0),
-        );
+        if (emailController.text != "") {
+          registrationData["email"] = emailController.text;
+          Navigator.push(
+            context, 
+            LeftRightPageRoute(RegistrationPassword(registrationData: registrationData), 1, 0),
+          );
+        }
       },
     );
   }
