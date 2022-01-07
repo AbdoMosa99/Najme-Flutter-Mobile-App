@@ -22,7 +22,7 @@ class DoneScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.only(bottom: adjustHeightValue(context, 60)),
                 child: SvgPicture.asset(
-                  Assets.trueIcon,
+                  Assets.ok,
                   height: adjustHeightValue(context, 140),
                 ),
               ),
@@ -75,7 +75,6 @@ class DoneScreen extends StatelessWidget {
                   context,
                   InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
                 );
-
               },
             ),
           ),
