@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:najme/screens/primary_screens/login_screen.dart';
-
+import 'package:najme/screens/primary_screens/personal_account_updates.dart';
 
 
 class NajmeApp extends StatelessWidget {
@@ -9,7 +9,7 @@ class NajmeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: LoginScreen(),
+      home: PersonalAccountUpdates(),
       debugShowCheckedModeBanner: false,
     );
   }
