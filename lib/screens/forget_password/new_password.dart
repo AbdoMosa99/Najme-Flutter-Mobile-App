@@ -39,7 +39,7 @@ class _NewPasswordState extends State<NewPassword> {
                   child: Container(
                     child: Center(
                       child: SvgPicture.asset(
-                        Assets.keys,
+                        Assets.key,
                         height: adjustHeightValue(context, 100),
                         width: adjustWidthValue(context, 100),
                       ),
@@ -114,21 +114,6 @@ class _NewPasswordState extends State<NewPassword> {
                     }
                     return null;
                   },
-                ),
-              ],
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'كلمة السر الجديدة',
-                  style: TextStyle(
-                    fontSize: adjustValue(context, 33.0),
-                    fontFamily: 'Cairo',
-                    color: AppColors.primaryDark,
-                    fontWeight: FontWeight.w900,
-                  ),
                 ),
               ],
             ),

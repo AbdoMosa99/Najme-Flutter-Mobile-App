@@ -10,7 +10,42 @@ import 'package:najme/screens/registeration_screens/registration_level.dart';
 import '../../utility.dart';
 
 class RegistrationAddress extends StatefulWidget {
-  const RegistrationAddress({Key? key}) : super(key: key);
+  RegistrationAddress({
+    Key? key,
+    required this.registrationData,
+  }) : super(key: key);
+
+  Map<String, dynamic> registrationData;
+
+  final cities = const [
+    "القاهرة",
+    "الجيزة",
+    "الشرقية",
+    "الدقهلية",
+    "البحيرة",
+    "المنيا",
+    "القليوبية",
+    "الإسكندرية",
+    "الغربية",
+    "سوهاج",
+    "أسيوط",
+    "المنوفية",
+    "كفر الشيخ",
+    "الفيوم",
+    "قنا",
+    "بني سويف",
+    "أسوان",
+    "دمياط",
+    "الإسماعيلية",
+    "الأقصر",
+    "بور سعيد",
+    "السويس",
+    "مطروح",
+    "شمال سيناء",
+    "البحر الاحمر",
+    "الوادي الجديد",
+    "جنوب سيناء",
+  ];
 
   @override
   _RegistrationAddressState createState() => _RegistrationAddressState();
@@ -32,37 +67,12 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
                   width: adjustWidthValue(context, 285.0),
                   height: adjustHeightValue(context, 315.0),
                   text: "المحافظة",
-                  title: "اختر محافظتك!          ",
+                  title: "اختر محافظتك!",
                   fontSize: 27,
-                  data: const [
-                    "القاهرة",
-                    "الجيزة",
-                    "الشرقية",
-                    "الدقهلية",
-                    "البحيرة",
-                    "المنيا",
-                    "القليوبية",
-                    "الإسكندرية",
-                    "الغربية",
-                    "سوهاج",
-                    "أسيوط",
-                    "المنوفية",
-                    "كفر الشيخ",
-                    "الفيوم",
-                    "قنا",
-                    "بني سويف",
-                    "أسوان",
-                    "دمياط",
-                    "الإسماعيلية",
-                    "الأقصر",
-                    "بور سعيد",
-                    "السويس",
-                    "مطروح",
-                    "شمال سيناء",
-                    "البحر الاحمر",
-                    "الوادي الجديد",
-                    "جنوب سيناء",
-                  ],
+                  data: widget.cities,
+                  callback: (int index) {
+                    widget.registrationData["city"] = index;
+                  },
                 ),
               ),
 
@@ -92,7 +102,7 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  LeftRightPageRoute(const RegistrationLevel(), -1, 0),
+                  LeftRightPageRoute(RegistrationLevel(registrationDate: widget.registrationData,), -1, 0),
                 );
               },
             ),
@@ -101,10 +111,12 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
       ),
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
-        Navigator.push(
-          context,
-          LeftRightPageRoute(const RegistrationJob(), 1, 0),
-        );
+        if (widget.registrationData["city"] != null) {
+          Navigator.push(
+            context,
+            LeftRightPageRoute(RegistrationJob(registrationData: widget.registrationData), 1, 0),
+          );
+        }
       },
     );
   }

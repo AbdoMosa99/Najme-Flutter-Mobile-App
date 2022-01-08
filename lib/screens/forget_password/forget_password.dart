@@ -30,11 +30,11 @@ class ForgetPassword extends StatelessWidget {
                   child: Center(
                     child: SvgPicture.asset(
                         Assets.E,
-                        height: 90,
-                        width: 90,
+                        height: adjustHeightValue(context, 90) ,
+                        width: adjustWidthValue(context, 90) ,
                     ),
                   ),
-                  height:140,
+                  height:adjustHeightValue(context, 140),
                   decoration: BoxDecoration(
                     color: AppColors.primary.withOpacity(0.6),
                     shape: BoxShape.circle,
@@ -65,33 +65,27 @@ class ForgetPassword extends StatelessWidget {
               ),
             ],
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'نسيت كلمة السر!',
-                style: TextStyle(
-                  fontSize: adjustValue(context, 33.0),
-                  fontFamily: 'Cairo',
-                  color: AppColors.primaryDark,
-                  fontWeight: FontWeight.bold,
+          Align(
+            alignment: Alignment.topLeft,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  icon: Icon(
+                    Icons.arrow_forward_ios_outlined,
+                    size: adjustValue(context, 30.0),
+                    color: AppColors.primary,
+                  ),
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      LeftRightPageRoute(const HomeScreen(), -1, 0),
+                    );
+                  },
                 ),
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.arrow_forward_ios_outlined,
-                  size: adjustValue(context, 30.0),
-                  color: AppColors.primary,
-                ),
-                onPressed: (){
-                  Navigator.push(
-                    context,
-                    LeftRightPageRoute(const HomeScreen(), -1, 0),
-                  );
-                },
-              ),
-            ],
+              ],
+            ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
