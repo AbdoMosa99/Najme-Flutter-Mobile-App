@@ -62,4 +62,5 @@ class Assets {
   static const String falsePic = "assets/icons/false.svg";
   static const String trueIcon = "assets/icons/trueIcon.svg";
   static const String keys = "assets/icons/keys.svg";
+  static const String mailBox = "assets/icons/mailbox.svg";
 }
