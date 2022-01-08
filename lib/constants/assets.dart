@@ -65,4 +65,5 @@ class Assets {
   static const String watsapp= "assets/icons/watsapp.svg";
 
 
+  static const String falsePic = "assets/icons/false.svg";
 }

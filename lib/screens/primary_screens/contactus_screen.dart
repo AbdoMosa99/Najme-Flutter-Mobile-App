@@ -17,7 +17,7 @@ class ContactUsScreen extends StatelessWidget {
     return Stack(
     children: [
         MainContainer(
-         child:Column(
+            child:Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -91,61 +91,61 @@ class ContactUsScreen extends StatelessWidget {
                         color: AppColors.primary,
                       ),
                     ),
-               ),
-             ),
+                ),
+              ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: adjustValue(context, 4.0)),
+                padding: EdgeInsets.symmetric(vertical: adjustValue(context, 2.0)),
                 child: Row(
                   children: [
                     Stack(
-                       alignment: AlignmentDirectional.center,
-                       children: [
+                        alignment: AlignmentDirectional.center,
+                        children: [
                           Container(
-                             width: adjustValue(context, 65),
-                             height: adjustValue(context, 65),
-                             decoration: BoxDecoration(
-                                 color: AppColors.primaryLight,
-                                 shape: BoxShape.circle,
-                                 border: Border.all(color: AppColors.secondary,),
-                                     ),
-                                   ),
-                          Column(
-                             children: [
-                                SvgPicture.asset(
-                                     Assets.gmail,
-                                     height: adjustValue(context, 55.0),
+                              width: adjustValue(context, 65),
+                              height: adjustValue(context, 65),
+                              decoration: BoxDecoration(
+                                  color: AppColors.primaryLight,
+                                  shape: BoxShape.circle,
+                                  border: Border.all(color: AppColors.secondary,),
                                       ),
-                                   ],
-                                 ),
-                               ],
-                             ),
+                                    ),
+                          Column(
+                              children: [
+                                SvgPicture.asset(
+                                      Assets.gmail,
+                                      height: adjustValue(context, 55.0),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                     SizedBox(
-                     width: adjustValue(context, 20.0),
+                      width: adjustValue(context, 20.0),
         ),
                     SvgPicture.asset(
                         Assets.twiter,
                         height: adjustValue(context, 65.0),
                       ),
                     SizedBox(
-                     width: adjustValue(context, 20.0),
-                       ),
+                      width: adjustValue(context, 20.0),
+                        ),
                     SvgPicture.asset(
                         Assets.watsapp,
                         height: adjustValue(context, 65.0),
                       ),
                     SizedBox(
-                     width: adjustValue(context, 20.0),
-                       ),
+                      width: adjustValue(context, 20.0),
+                        ),
                     SvgPicture.asset(
                         Assets.facebock,
                         height: adjustValue(context, 65.0),
                       ),
-                   ],
-                 ),
-               ),
+                    ],
+                  ),
+                ),
             ],
         ),
-     ),
+      ),
         GestureDetector(
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: adjustValue(context, 15.0)),
@@ -188,7 +188,7 @@ class ContactUsScreen extends StatelessWidget {
           onTap: (){
             },
         ),
-     ],
+      ],
     );
   }
 }
