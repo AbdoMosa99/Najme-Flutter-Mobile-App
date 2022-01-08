@@ -7,7 +7,6 @@ import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/forget_password/forget_password.dart';
 import 'package:najme/screens/forget_password/new_password.dart';
-import 'package:najme/screens/primary_screens/home_screen.dart';
 import 'package:najme/utility.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
@@ -73,7 +72,7 @@ class ConfirmationCode extends StatelessWidget {
                   underlineColor: AppColors.primaryDark,
                   keyboardType: TextInputType.number,
                   length: 5,
-                  underlineWidth: 5,
+                  underlineWidth: adjustValue(context, 5),
                   onCompleted: (String value) {  
                   },
                   onEditing: (bool value) {
