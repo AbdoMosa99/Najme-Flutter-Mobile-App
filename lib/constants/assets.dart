@@ -59,7 +59,16 @@ class Assets {
   static const String rate_star = "assets/icons/rate_star.svg";
   static const String ustar = "assets/icons/unRatedStar.svg";
   static const String googlePlay = "assets/icons/googlePlay.svg";
+  static const String facebock = "assets/icons/facebock.svg";
+  static const String gmail = "assets/icons/gmail.svg";
+  static const String twiter= "assets/icons/twiter.svg";
+  static const String watsapp= "assets/icons/watsapp.svg";
+
+
   static const String falsePic = "assets/icons/false.svg";
   static const String trueIcon = "assets/icons/trueIcon.svg";
   static const String keys = "assets/icons/keys.svg";
+  static const String mailBox = "assets/icons/mailbox.svg";
+  static const String ok = "assets/icons/ok.svg";
+  static const String key = "assets/icons/key.svg";
 }

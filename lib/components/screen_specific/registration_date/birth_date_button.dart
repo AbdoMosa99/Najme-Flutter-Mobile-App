@@ -5,20 +5,22 @@ import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
 
 class BirthDateButton extends StatefulWidget {
-  BirthDateButton(
-      {Key? key,
+  BirthDateButton({
+      Key? key,
       this.width = 144.0,
       this.height = 89.0,
       this.text = '',
       this.fontSize = 24,
       this.data,
-      this.title = "NULL"})
-      : super(key: key);
+      this.title = "NULL",
+      this.callBack,
+    }) : super(key: key);
 
   final double width;
   final double height;
   final double fontSize;
   final String title;
+  final Function(int)? callBack;
 
   var data;
   String text;
@@ -74,16 +76,17 @@ class _BirthDateButtonState extends State<BirthDateButton> {
                 ),
                 backgroundColor: AppColors.surface,
                 children: [
-                  for (var i in widget.data)
+                  for (int i = 0; i < widget.data.length; i++)
                     SimpleDialogOption(
                       onPressed: () {
                         Navigator.pop(context);
                         setState(() {
-                          widget.text = i.toString();
+                          widget.text = widget.data[i].toString();
+                          widget.callBack!(i);
                         });
                       },
                       child: Text(
-                        i.toString(),
+                        widget.data[i].toString(),
                         textAlign: TextAlign.right,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,

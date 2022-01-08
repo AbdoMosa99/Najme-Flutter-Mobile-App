@@ -5,15 +5,17 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/registeration_screens/registeration_email.dart';
 import 'package:najme/screens/registeration_screens/registeration_name.dart';
 import 'package:najme/screens/registeration_screens/registration_date.dart';
-import 'package:najme/screens/registeration_screens/registration_job.dart';
-import 'package:najme/screens/registeration_screens/registration_level.dart';
 import 'package:najme/utility.dart';
 
 class RegistrationGender extends StatefulWidget {
-  const RegistrationGender({Key? key}) : super(key: key);
+  RegistrationGender({
+    Key? key,
+    required this.registrationData,
+  }) : super(key: key);
+
+  Map<String, dynamic> registrationData;
   @override
   _RegistrationGenderState createState() => _RegistrationGenderState();
 }
@@ -116,7 +118,11 @@ class _RegistrationGenderState extends State<RegistrationGender> {
               onPressed: (){
                 Navigator.push(
                   context,
-                  LeftRightPageRoute(const RegistrationName(), -1, 0),
+                  LeftRightPageRoute(
+                    RegistrationName(registrationData: widget.registrationData), 
+                    -1, 
+                    0,
+                  ),
                 );
               },
             ),
@@ -126,10 +132,13 @@ class _RegistrationGenderState extends State<RegistrationGender> {
 
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
-        Navigator.push(
-          context, 
-          LeftRightPageRoute(const RegistrationBirthDate(), 1, 0),
-        );
+        if (isMale != -1) { 
+          widget.registrationData["gender"] = (isMale == 1)? "male" : "female";
+          Navigator.push(
+            context, 
+            LeftRightPageRoute(RegistrationBirthDate(registrationData: widget.registrationData), 1, 0),
+          );
+        }
       },
     );
   }

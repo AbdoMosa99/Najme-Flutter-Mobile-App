@@ -7,12 +7,17 @@ import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/primary_screens/home_screen.dart';
-import 'package:najme/screens/primary_screens/login_screen.dart';
 import 'package:najme/screens/registeration_screens/registration_address.dart';
 import 'package:najme/utility.dart';
 
 class RegistrationJob extends StatefulWidget {
-  const RegistrationJob({Key? key}) : super(key: key);
+  RegistrationJob({
+    Key? key,
+    required this.registrationData,
+  }) : super(key: key);
+
+  Map<String, dynamic> registrationData;
+
   @override
   _RegistrationJobState createState() => _RegistrationJobState();
 }
@@ -190,11 +195,15 @@ class _RegistrationJobState extends State<RegistrationJob> {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
-                  );
-          
+                  if (job != -1) {
+                    widget.registrationData["ambition"] = job;
+                    // TODO: Call API
+                    print(widget.registrationData);
+                    Navigator.push(
+                      context,
+                      InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
+                    );
+                  }
                 },
               ),    
             ],
@@ -210,7 +219,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
               onPressed: (){
                 Navigator.push(
                   context,
-                  LeftRightPageRoute(const RegistrationAddress(), -1, 0),
+                  LeftRightPageRoute(RegistrationAddress(registrationData: widget.registrationData,), -1, 0),
                 );
               },
             ),

@@ -6,8 +6,8 @@ import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/forget_password/new_password.dart';
-import 'package:najme/screens/primary_screens/home_screen.dart';
+import 'package:najme/screens/forget_password/confirmation_code.dart';
+import 'package:najme/screens/primary_screens/login_screen.dart';
 import 'package:najme/utility.dart';
 
 class ForgetPassword extends StatelessWidget {
@@ -24,16 +24,16 @@ class ForgetPassword extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.only(bottom: adjustHeightValue(context, 50)),
+                padding: EdgeInsets.all(adjustHeightValue(context, 15)),
                 child: Container(
                   child: Center(
                     child: SvgPicture.asset(
                         Assets.E,
-                        height: 90,
-                        width: 90,
+                        height: adjustHeightValue(context, 90) ,
+                        width: adjustWidthValue(context, 90) ,
                     ),
                   ),
-                  height:140,
+                  height:adjustHeightValue(context, 140),
                   decoration: BoxDecoration(
                     color: AppColors.primary.withOpacity(0.6),
                     shape: BoxShape.circle,
@@ -42,19 +42,31 @@ class ForgetPassword extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(bottom: adjustHeightValue(context, 20)),
+                padding: EdgeInsets.all(adjustHeightValue(context, 7)),
                 child: Text(
-                  'ادخل إيميلك لإرسال الكود التأكيد',
+                  'نسيت كلمة السر!',
+                  style: TextStyle(
+                    fontSize: adjustValue(context, 33.0),
+                    fontFamily: 'Cairo',
+                    color: AppColors.primaryDark,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(adjustHeightValue(context, 7)),
+                child: Text(
+                  'ادخل إيميلك لإرسال كود التأكيد',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'Cairo',
                     color: AppColors.primaryDark,
-                    fontSize: adjustValue(context, 33.0),
+                    fontSize: adjustValue(context, 29.0),
                   ),
                 ),
               ),
-              Padding(//
-                padding: EdgeInsets.only(bottom: adjustHeightValue(context, 80)),
+              Padding(
+                padding: EdgeInsets.only(top: adjustHeightValue(context, 15), bottom: adjustHeightValue(context, 40)),
                 child: FormTextBox(
                   context: context,
                   text: "البريد الالكتروني",
@@ -62,63 +74,58 @@ class ForgetPassword extends StatelessWidget {
                   type: TextInputType.name,
                 ),
               ),
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'نسيت كلمة السر!',
-                style: TextStyle(
-                  fontSize: adjustValue(context, 33.0),
-                  fontFamily: 'Cairo',
-                  color: AppColors.primaryDark,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              IconButton(
-                icon: Icon(
-                  Icons.arrow_forward_ios_outlined,
-                  size: adjustValue(context, 30.0),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: MaterialButton(
                   color: AppColors.primary,
+                  minWidth: double.infinity,
+                  height: adjustValue(context, 45),
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                    BorderRadius.circular(adjustValue(context, 15.0)),
+                  ),
+                  child: Text(
+                    'إرسال',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Cairo',
+                      color: AppColors.surface,
+                      fontSize: adjustValue(context, 26.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      InOutPageRoute(const ConfirmationCode(), Alignment.bottomCenter),
+                    );
+                  },
                 ),
-                onPressed: (){
-                  Navigator.push(
-                    context,
-                    LeftRightPageRoute(const HomeScreen(), -1, 0),
-                  );
-                },
               ),
             ],
           ),
           Align(
-            alignment: Alignment.bottomCenter,
-            child: MaterialButton(
-              color: AppColors.primary,
-              minWidth: double.infinity,
-              height: adjustValue(context, 50),
-              shape: RoundedRectangleBorder(
-                borderRadius:
-                BorderRadius.circular(adjustValue(context, 15.0)),
-              ),
-              child: Text(
-                'إرسال',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Cairo',
-                  color: AppColors.surface,
-                  fontSize: adjustValue(context, 30.0),
+            alignment: Alignment.topLeft,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  icon: Icon(
+                    Icons.arrow_forward_ios_outlined,
+                    size: adjustValue(context, 30.0),
+                    color: AppColors.primary,
+                  ),
+                  onPressed: (){
+                    Navigator.push(
+                      context,
+                      LeftRightPageRoute(const LoginScreen(), -1, 0),
+                    );
+                  },
                 ),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  InOutPageRoute(const NewPassword(), Alignment.bottomCenter),
-                );
-              },
+              ],
             ),
           ),
+          
         ],
       ),
     );
