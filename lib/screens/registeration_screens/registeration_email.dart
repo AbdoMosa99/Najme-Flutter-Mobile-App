@@ -12,6 +12,9 @@ import 'package:najme/utility.dart';
 class RegisterationEmail extends StatelessWidget {
   RegisterationEmail({Key? key}) : super(key: key);
 
+  final _formKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController();
+
   Map<String, dynamic> registrationData = {
     "email": null,
     "password": null,
@@ -25,47 +28,55 @@ class RegisterationEmail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var emailController = TextEditingController();
     return MainContainer(
       child: Stack(
         children: [
-          Column(
-            children: [
-              const Expanded(
-                child: SizedBox(),
-              ),
+          Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                const Expanded(
+                  child: SizedBox(),
+                ),
 
-              Expanded(
-                flex: 2,
-                child: SvgPicture.asset(Assets.E),
-              ),
+                Expanded(
+                  flex: 2,
+                  child: SvgPicture.asset(Assets.E),
+                ),
 
-              Expanded(
-                child: Center(
-                  child: FormTextBox(
-                    context: context,
-                    text: "الايميل",
-                    controllerKind: emailController,
-                    type: TextInputType.emailAddress,
+                Expanded(
+                  child: Center(
+                    child: FormTextBox(
+                      context: context,
+                      text: "الايميل",
+                      controllerKind: emailController,
+                      type: TextInputType.emailAddress,
+                      valid: (value) {
+                        if (!validateEmail(value)) {
+                          return "من فضلك ادخل بريد إلكتروني صحيح!";
+                        }
+                        return null;
+                      },
+                    ),
                   ),
                 ),
-              ),
 
-              Text(
-                "إيميل ولي الأمر",
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                style: TextStyle(
-                  fontSize: adjustValue(context, 50.0),
-                  fontFamily: 'Cairo',
-                  color: AppColors.primaryDark,
+                Text(
+                  "إيميل ولي الأمر",
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  style: TextStyle(
+                    fontSize: adjustValue(context, 50.0),
+                    fontFamily: 'Cairo',
+                    color: AppColors.primaryDark,
+                  ),
                 ),
-              ),
 
-              const Expanded(
-                child: SizedBox(),
-              ),
-            ],
+                const Expanded(
+                  child: SizedBox(),
+                ),
+              ],
+            ),
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -88,7 +99,7 @@ class RegisterationEmail extends StatelessWidget {
 
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
-        if (emailController.text != "") {
+        if (_formKey.currentState!.validate()) {
           registrationData["email"] = emailController.text;
           Navigator.push(
             context, 
