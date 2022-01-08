@@ -12,13 +12,15 @@ class AddressButton extends StatefulWidget {
       this.text = '',
       this.fontSize = 24,
       this.data,
-      this.title = "NULL"})
-      : super(key: key);
+      this.title = "NULL",
+      this.callback,
+    }) : super(key: key);
 
   final double width;
   final double height;
   final double fontSize;
   final String title;
+  final Function? callback;
 
   var data;
   String text;
@@ -90,16 +92,17 @@ class _AddressButtonState extends State<AddressButton> {
                 ),
                 backgroundColor: AppColors.surface,
                 children: [
-                  for (var i in widget.data)
+                  for (int i = 0; i < widget.data.length; i++)
                     SimpleDialogOption(
                       onPressed: () {
                         Navigator.pop(context);
                         setState(() {
-                          widget.text = i.toString();
+                          widget.text = widget.data[i].toString();
+                          widget.callback!(i);
                         });
                       },
                       child: Text(
-                        i.toString(),
+                        widget.data[i].toString(),
                         textAlign: TextAlign.right,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,

@@ -5,6 +5,7 @@ import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/forget_password/forget_password.dart';
 import 'package:najme/screens/registeration_screens/registeration_email.dart';
 import 'home_screen.dart';
 import 'package:najme/utility.dart';
@@ -107,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.push(
                     context,
                     InOutPageRoute(
-                      const RegisterationEmail(),
+                      RegisterationEmail(),
                       Alignment.bottomRight,
                     )
                   );
@@ -124,7 +125,12 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
 
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                    Navigator.push(
+                      context,
+                      InOutPageRoute(const ForgetPassword(), Alignment.bottomCenter),
+                    );
+                  },
                 child: Text(
                   'نسيت كلمة السر؟',
                   textAlign: TextAlign.start,

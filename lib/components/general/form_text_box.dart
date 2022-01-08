@@ -19,15 +19,23 @@ class FormTextBox extends TextFormField {
     style: TextStyle(
       fontFamily: 'Cairo',
       fontSize: adjustValue(context, 17.0),
+      color: AppColors.primaryDark,
     ),
-
+      cursorColor: AppColors.primary,
     obscureText: ispass,
     controller: controllerKind,
     keyboardType: type,
     decoration: InputDecoration(
       labelText: text,
       contentPadding: EdgeInsets.symmetric(vertical: adjustHeightValue(context, 5.0), horizontal: adjustWidthValue(context, 15.0)),
-      border: OutlineInputBorder(
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
+        borderSide: BorderSide(
+          color: AppColors.secondaryLight,
+          width: adjustValue(context, 2),
+        ),
+      ),
+      enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
         borderSide: const BorderSide(
           color: AppColors.primaryLight,
@@ -35,13 +43,16 @@ class FormTextBox extends TextFormField {
       ),
       suffixIcon: IconButton(
         onPressed: suffixFun, 
-        icon: Icon(suffIcon)
+        icon: Icon(suffIcon),
+        color: AppColors.primary,
+        iconSize: adjustValue(context, 20),
       ),
       fillColor: AppColors.surface,
       filled: true,
       labelStyle: TextStyle(
         fontFamily: 'Cairo',
         fontSize: adjustValue(context, 15.0),
+        color: AppColors.primary,
       ),
 
     ),
