@@ -13,50 +13,49 @@ class DoneScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
-      child: Stack(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: adjustHeightValue(context, 60)),
-                child: SvgPicture.asset(
-                  Assets.ok,
-                  height: adjustHeightValue(context, 140),
-                ),
+          Padding(
+            padding: EdgeInsets.all(adjustHeightValue(context, 15)),
+            child: SvgPicture.asset(
+              Assets.ok,
+              height: adjustHeightValue(context, 140),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(adjustHeightValue(context, 2)),
+            child: Text(
+              'تم تعديل كلمة السر بنجاح',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.w900,
+                fontFamily: 'Cairo',
+                color: AppColors.primaryDark,
+                fontSize: adjustValue(context, 30.0),
               ),
-              Text(
-                'تم تعديل كلمة السر بنجاح',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontWeight: FontWeight.w900,
-                  fontFamily: 'Cairo',
-                  color: AppColors.primaryDark,
-                  fontSize: adjustValue(context, 30.0),
-                ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: adjustHeightValue(context, 15), bottom: adjustHeightValue(context, 75)),
+            child: Text(
+              'قم بإستخدامها عند التسجيل المرة القادمة',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                // fontWeight: FontWeight.w900,
+                fontFamily: 'Cairo',
+                color: AppColors.primaryDark,
+                fontSize: adjustValue(context, 25.0),
               ),
-              Padding(
-                padding: EdgeInsets.only(bottom: adjustHeightValue(context, 60)),
-                child: Text(
-                  'قم بإستخدامها عند التسجيل المرة القادمة',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    // fontWeight: FontWeight.w900,
-                    fontFamily: 'Cairo',
-                    color: AppColors.primaryDark,
-                    fontSize: adjustValue(context, 25.0),
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
           Align(
             alignment: Alignment.bottomCenter,
             child: MaterialButton(
               color: AppColors.primary,
               minWidth: double.infinity,
-              height: adjustValue(context, 50),
+              height: adjustValue(context, 45),
               shape: RoundedRectangleBorder(
                 borderRadius:
                 BorderRadius.circular(adjustValue(context, 15.0)),
@@ -67,7 +66,7 @@ class DoneScreen extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Cairo',
                   color: AppColors.surface,
-                  fontSize: adjustValue(context, 30.0),
+                  fontSize: adjustValue(context, 26.0),
                 ),
               ),
               onPressed: () {

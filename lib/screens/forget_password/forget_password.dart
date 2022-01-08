@@ -66,7 +66,7 @@ class ForgetPassword extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: adjustHeightValue(context, 15), bottom: adjustHeightValue(context, 35)),
+                padding: EdgeInsets.only(top: adjustHeightValue(context, 15), bottom: adjustHeightValue(context, 40)),
                 child: FormTextBox(
                   context: context,
                   text: "البريد الالكتروني",
