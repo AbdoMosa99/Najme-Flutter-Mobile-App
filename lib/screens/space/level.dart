@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/app_bar.dart';
 import 'package:najme/components/general/drawer.dart';
 import 'package:najme/components/screen_specific/space/space_main_container.dart';
@@ -6,6 +7,9 @@ import 'package:najme/components/screen_specific/space/space_star_dark.dart';
 import 'package:najme/components/screen_specific/space/sparial_sta.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/levels/choosing_theme.dart';
+import 'package:najme/screens/levels/listening_theme.dart';
+import 'package:najme/screens/levels/order_game.dart';
 import '../../utility.dart';
 
 class LevelScreen extends StatefulWidget {
@@ -45,13 +49,37 @@ class _LevelScreenState extends State<LevelScreen> {
               children: [
                 Row(
                   children: [
-                    SparialStar(backEMG:Assets.star,text: 'رقم 2',),
-                    SparialStar(backEMG:Assets.star,text: 'رقم 1',),
+                    InkWell(
+                      child: SparialStar(backEMG:Assets.star,text: 'رقم 2',),
+                      onTap: (){
+                        Navigator.push(
+                          context,
+                          LeftRightPageRoute(const ListeningTheme(), -1, 0),
+                        );
+                      },
+                    ),
+                    InkWell(
+                      child: SparialStar(backEMG:Assets.star,text: 'رقم 1',),
+                      onTap: (){
+                        Navigator.push(
+                          context,
+                          LeftRightPageRoute(const OrderGame(), -1, 0),
+                        );
+                      },
+                    ),
                     ],
                   ),
                 Row(
                   children: [
-                    SparialStar(backEMG:Assets.star,text: 'العد ل2',),
+                    InkWell(
+                      child: SparialStar(backEMG:Assets.star,text: 'العد ل2',),
+                      onTap: (){
+                        Navigator.push(
+                          context,
+                          LeftRightPageRoute(const ChoosingTheme(), -1, 0),
+                        );
+                      },
+                      ),
                     ],
                   ),
                 Row(
