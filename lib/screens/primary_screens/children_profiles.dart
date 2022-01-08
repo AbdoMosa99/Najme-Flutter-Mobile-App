@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/themes/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/primary_screens/personal_account_updates.dart';
 
 import '../../utility.dart';
 
@@ -271,7 +273,12 @@ class ChildrenProfiles extends StatelessWidget {
       Container(
          alignment: Alignment.topRight,
          child: FloatingActionButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                LeftRightPageRoute(const PersonalAccountUpdates(), -1, 0),
+              );
+            },
             child: const Icon(Icons.edit_outlined,color: AppColors.secondary,size: 40,),
             backgroundColor: AppColors.primary,)
            )

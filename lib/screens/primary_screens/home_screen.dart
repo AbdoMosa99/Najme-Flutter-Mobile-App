@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/general/app_bar.dart';
 import 'package:najme/components/general/drawer.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/space/categories.dart';
 import 'package:najme/utility.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -56,7 +58,12 @@ class HomeScreen extends StatelessWidget {
                 Expanded(
                   child: MainCard(
                     context: context,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        InOutPageRoute(const CategoyScreen(), Alignment.bottomCenter),
+                    );
+                    },
                     image: SvgPicture.asset(Assets.mathSymbol),
                     text: 'حساب',
                   ),

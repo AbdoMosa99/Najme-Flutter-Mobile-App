@@ -1,5 +1,6 @@
 //import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/app_bar.dart';
 import 'package:najme/components/general/drawer.dart';
 import 'package:najme/components/screen_specific/space/space_main_container.dart';
@@ -8,6 +9,7 @@ import 'package:najme/components/screen_specific/space/sparial_sta.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import '../../utility.dart';
+import 'level.dart';
 
 class CategoyScreen extends StatefulWidget {
   const CategoyScreen({Key? key}) : super(key: key);
@@ -46,30 +48,38 @@ class _CategoyScreenState extends State<CategoyScreen> {
                     Row(
                       children: [                              
                         SparialStar(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text: ' الوحدة الثانية ',),
-                        SparialStar(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text:'الوحدة الاولى ',),
-                          ],
+                        InkWell(
+                          child: SparialStar(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text:'الوحدة الاولى ',),
+                          onTap: (){
+                            Navigator.push(
+                              context,
+                              LeftRightPageRoute(const LevelScreen(), -1, 0),
+                            );
+                          },
+                        ),
+                      ],
                     ),
                     Row(
                       children: [                              
                         SparialStar(backEMG: Assets.spiralStar,img:Assets.spiralIcon, text: 'الوحدة الثالثة',),
-                          ],
+                      ],
                     ),  
                     Row(
                       children: [                              
                         SparialStarDark(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text: 'الوحدة الخامسة',),
                         SparialStar(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text:'الوحدة الرابعة',),
-                          ],
+                      ],
                     ),
                     Row(
                       children: [                         
                         SparialStarDark(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text:"الوحدة السادسة",),
-                        ],
-                      ),                  
+                      ],
+                    ),                  
                     Row(
                       children: [                         
                         SparialStarDark( backEMG: Assets.spiralStar,img:Assets.spiralIcon,text: 'الوحدة ',),
                         SparialStarDark(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text:'الوحدة ',),          
-                          ],
+                      ],
                     ),
                     Row(
                       children: [                         

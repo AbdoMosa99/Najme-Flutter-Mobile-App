@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/themes/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import '../../utility.dart';
+import 'home_screen.dart';
 
 class ContactUsScreen extends StatelessWidget {
     const ContactUsScreen({Key? key}) : super(key: key);
@@ -186,7 +188,11 @@ class ContactUsScreen extends StatelessWidget {
             ),
           ),
           onTap: (){
-            },
+            Navigator.push(
+              context,
+              LeftRightPageRoute(const HomeScreen(), -1, 0),
+            );
+          },
         ),
       ],
     );

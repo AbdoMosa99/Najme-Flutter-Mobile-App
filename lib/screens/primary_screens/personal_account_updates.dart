@@ -4,6 +4,7 @@ import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/primary_screens/children_profiles.dart';
 import 'package:najme/screens/primary_screens/personal_profile.dart';
 import '../../utility.dart';
 import 'package:najme/components/general/form_text_box.dart';
@@ -62,7 +63,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                     children :[            
                       Expanded(child:FormTextBox(
                       context: context,
-                      text: "الايميل",
+                      text: "البريد الإلكتروني",
                       controllerKind: emailController,
                       type: TextInputType.emailAddress,
                     ), 
@@ -102,7 +103,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                       flex: 1,
                       child:  FormTextBox(
                     context: context,
-                    text: "كلمة السر القديمة",
+                    text: "كلمة السر الحالية",
                     controllerKind: oldPassController,
                     type: TextInputType.text,
                     suffIcon: isPassword
@@ -128,7 +129,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
 
                   Expanded(
                       child: Text(
-                        'كلمة السر الجديده:',
+                        'كلمة السر الجديدة:',
                         style: TextStyle(
                           fontSize: adjustValue(context, 20.0),
                           fontFamily: 'Cairo',
@@ -168,7 +169,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                 
                   Expanded(
                       child: Text(
-                        ' تاكيد كلمة السر :',
+                        ' تأكيد كلمة السر :',
                         style: TextStyle(
                           fontSize: adjustValue(context, 20.0),
                           fontFamily: 'Cairo',
@@ -184,7 +185,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                       child: FormTextBox(
                     context: context,
                     text:
-                        ' تاكيد كلمة السر ',                       
+                        ' تأكيد كلمة السر ',                       
                     controllerKind: confpassController,
                     type: TextInputType.text,                    
                     suffIcon: isPassword
@@ -201,7 +202,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                         return "من فضلك ادخل كلمة السر";
                       }
                       if(value.length < 8) {
-                        return "يجب أن يكون عدد الحروف على الاقل 8";
+                        return "يجب أن يكون عدد الحروف على الأقل 8";
                       }
                       return null;
                     },
@@ -299,7 +300,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                 onTap: (){
                   Navigator.push(
                     context,
-                    InOutPageRoute(const PersonalProfile(), Alignment.topRight),
+                    InOutPageRoute(const ChildrenProfiles(), Alignment.topRight),
                   );
                 },
               ),
