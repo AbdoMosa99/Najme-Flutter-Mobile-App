@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:najme/components/animation/from_in_to_out.dart';
-import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/themes/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 
 import '../../utility.dart';
-import 'home_screen.dart';
 
-class childrenprofiles extends StatelessWidget {
-  const childrenprofiles({Key? key}) : super(key: key);
+class ChildrenProfiles extends StatelessWidget {
+  const ChildrenProfiles({Key? key}) : super(key: key);
 
 
   @override

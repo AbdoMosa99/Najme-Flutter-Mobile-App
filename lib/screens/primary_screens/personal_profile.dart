@@ -8,6 +8,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/primary_screens/home_screen.dart';
+import 'package:najme/screens/primary_screens/personal_profile_updates.dart';
 import '../../utility.dart';
 
 class PersonalProfile extends StatelessWidget {
@@ -270,7 +271,7 @@ class PersonalProfile extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
+                    InOutPageRoute(const PersonalProfileUpdates(), Alignment.bottomCenter),
                   );
                 },
               ),
