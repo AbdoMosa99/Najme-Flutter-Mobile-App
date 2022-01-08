@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:najme/screens/primary_screens/login_screen.dart';
+import 'package:najme/database/init.dart';
 
 
 
@@ -8,6 +9,9 @@ class NajmeApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    final database = Database();
+    database.init();
+
     return const MaterialApp(
       home: LoginScreen(),
       debugShowCheckedModeBanner: false,
