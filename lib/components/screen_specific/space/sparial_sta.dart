@@ -10,8 +10,7 @@ class SparialStar extends StatelessWidget {
     this.backEMG ="",
     this.text=''
   }) 
-  : 
-  super(key: key,);
+  : super(key: key,);
   String img="";
   String backEMG="";
   String text;
