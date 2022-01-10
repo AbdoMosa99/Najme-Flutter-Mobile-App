@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:najme/screens/primary_screens/home_screen.dart';
 import 'package:najme/screens/primary_screens/login_screen.dart';
 import 'package:najme/database/init.dart';
-import 'package:najme/screens/space/categories.dart';
 
 
 
@@ -15,7 +13,7 @@ class NajmeApp extends StatelessWidget {
     database.init();
 
     return const MaterialApp(
-      home: HomeScreen(),
+      home: LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
