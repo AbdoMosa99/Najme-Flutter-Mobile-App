@@ -20,78 +20,95 @@ class _CategoyScreenState extends State<CategoyScreen> {
   @override
   Widget build(BuildContext context) {
     return SpaceContainer(
-        appBar: MainAppBar(context: context,),
-        drawer: MainDrawer(context: context,),
-        child: Center(
-          child:Column(
-            children:[ 
-              Container( 
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),  
-                  color:const Color.fromRGBO( 80 , 54 , 164 , 0.5) ,
+      appBar: MainAppBar(context: context,),
+      drawer: MainDrawer(context: context,),
+      child: Center(
+        child:Column(
+          children:[ 
+            Container( 
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(adjustValue(context, 30)),
+                  bottomRight: Radius.circular(adjustValue(context, 30)),
+                ),  
+                color:const Color.fromRGBO( 80 , 54 , 164 , 0.5) ,
+              ),
+              child: Text(
+                'حساب',
+                style: TextStyle(
+                  color: AppColors.secondary,
+                  fontSize:adjustValue(context, 30),
+                  fontFamily: 'Cairo',
+                  fontWeight: FontWeight.w800,
                 ),
-                child: Text(
-                    'حساب',
-                      style: TextStyle(
-                        color: AppColors.secondary,
-                        fontSize:adjustValue(context, 30),
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.w800,
+              ),
+              padding: const EdgeInsets.all(0), 
+              alignment: Alignment.center,
+            ),
+            Expanded(
+              child:ListView(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [                              
+                      InkWell(
+                        child: SparialStar(
+                          backEMG: Assets.spiralStar,
+                          img:Assets.spiralIcon,
+                          text: ' الوحدة الثانية ',
                         ),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            LeftRightPageRoute(const LevelScreen(), -1, 0),
+                          );
+                        },
                       ),
-                padding: const EdgeInsets.all(0), 
-                alignment: Alignment.center,
-                      ),
-              Expanded(
-                child:ListView(
-                  children: [
-                    Row(
-                      children: [                              
-                        SparialStar(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text: ' الوحدة الثانية ',),
-                        InkWell(
-                          child: SparialStar(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text:'الوحدة الاولى ',),
-                          onTap: (){
-                            Navigator.push(
-                              context,
-                              LeftRightPageRoute(const LevelScreen(), -1, 0),
-                            );
-                          },
+                      InkWell(
+                        child: SparialStar(
+                          backEMG: Assets.spiralStar,
+                          img:Assets.spiralIcon,
+                          text:'الوحدة الاولى ',
                         ),
-                      ],
-                    ),
-                    Row(
-                      children: [                              
-                        SparialStar(backEMG: Assets.spiralStar,img:Assets.spiralIcon, text: 'الوحدة الثالثة',),
-                      ],
-                    ),  
-                    Row(
-                      children: [                              
-                        SparialStarDark(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text: 'الوحدة الخامسة',),
-                        SparialStar(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text:'الوحدة الرابعة',),
-                      ],
-                    ),
-                    Row(
-                      children: [                         
-                        SparialStarDark(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text:"الوحدة السادسة",),
-                      ],
-                    ),                  
-                    Row(
-                      children: [                         
-                        SparialStarDark( backEMG: Assets.spiralStar,img:Assets.spiralIcon,text: 'الوحدة ',),
-                        SparialStarDark(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text:'الوحدة ',),          
-                      ],
-                    ),
-                    Row(
-                      children: [                         
-                        SparialStarDark( backEMG: Assets.spiralStar,img:Assets.spiralIcon,text: 'الوحدة ',),         
-                          ],
-                    ),      
-                      ],
-                      reverse: true,
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            LeftRightPageRoute(const LevelScreen(), -1, 0),
+                          );
+                        },
+                      ),
+                    ],
                   ),
-              )
-            ] ,
-             //reverse: true,  
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [                              
+                      InkWell(
+                        child: SparialStar(
+                          backEMG: Assets.spiralStar,
+                          img:Assets.spiralIcon, 
+                          text: 'الوحدة الثالثة',
+                        ),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            LeftRightPageRoute(const LevelScreen(), -1, 0),
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [                         
+                      SparialStarDark(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text:"الوحدة السادسة",),
+                      SparialStarDark(backEMG: Assets.spiralStar,img:Assets.spiralIcon,text:"الوحدة السابعة",),
+                    ],
+                  ),
+                ],
+                reverse: true,
+              ),
+            )
+          ] ,  
         ),
       ),        
     );    

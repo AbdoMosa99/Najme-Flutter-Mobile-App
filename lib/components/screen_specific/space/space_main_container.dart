@@ -47,8 +47,8 @@ class SpaceContainer extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(adjustValue(context, 0.0)),
             child: child,
-            ),
           ),
+        ),
 
         floatingActionButton: floatingActionButton? Container(
           width: adjustValue(context, 56.0),

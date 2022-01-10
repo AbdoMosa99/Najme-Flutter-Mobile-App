@@ -27,12 +27,12 @@ class ConfirmationCode extends StatelessWidget {
                 child: Container(
                   child: Center(
                     child: SvgPicture.asset(
-                        Assets.mailBox,
-                        height: 90,
-                        width: 90,
+                      Assets.mailBox,
+                      height: adjustHeightValue(context, 135) ,
+                      width: adjustWidthValue(context, 135) ,
                     ),
                   ),
-                  height:140,
+                  height:adjustHeightValue(context, 140),
                   decoration: BoxDecoration(
                     color: AppColors.primary.withOpacity(0.6),
                     shape: BoxShape.circle,
@@ -43,7 +43,6 @@ class ConfirmationCode extends StatelessWidget {
               Text(
                 'ادخل كود التأكيد الذي وصلك على',
                 textAlign: TextAlign.center,
-                //maxLines: 2,
                 style: TextStyle(
                   fontSize: adjustValue(context, 33.0),
                   fontFamily: 'Cairo',
@@ -71,7 +70,9 @@ class ConfirmationCode extends StatelessWidget {
                   ),
                   underlineColor: AppColors.primaryDark,
                   keyboardType: TextInputType.number,
+                  itemSize: 90,
                   length: 5,
+                  autofocus: false,
                   underlineWidth: adjustValue(context, 5),
                   onCompleted: (String value) {  
                   },
@@ -125,7 +126,6 @@ class ConfirmationCode extends StatelessWidget {
                   },
                 ),
               ),
-              
             ],
           ),
           Align(
@@ -144,7 +144,6 @@ class ConfirmationCode extends StatelessWidget {
               },
             ),
           ),
-          
         ],
       ),
     );

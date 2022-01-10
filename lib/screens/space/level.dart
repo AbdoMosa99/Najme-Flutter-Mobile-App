@@ -29,16 +29,19 @@ class _LevelScreenState extends State<LevelScreen> {
         children: [
           Container( 
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20), 
-                color:const Color.fromRGBO( 80 , 54 , 164 , 0.5) ,
-                ),
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(adjustValue(context, 20)),
+                  bottomRight: Radius.circular(adjustValue(context, 20)),
+                ),  
+              color:const Color.fromRGBO( 80 , 54 , 164 , 0.5) ,
+            ),
             child: Text(
               'حساب: الوحدة الاولى ',
-                style: TextStyle(
-                color: AppColors.secondary,
-                fontSize:adjustValue(context, 30),
-                fontFamily: 'Cairo',
-                fontWeight: FontWeight.w800,
+              style: TextStyle(
+              color: AppColors.secondary,
+              fontSize:adjustValue(context, 30),
+              fontFamily: 'Cairo',
+              fontWeight: FontWeight.w800,
               ),
             ),
             padding: const EdgeInsets.all(0), 
@@ -48,6 +51,7 @@ class _LevelScreenState extends State<LevelScreen> {
             child: ListView(
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     InkWell(
                       child: SparialStar(backEMG:Assets.star,text: 'رقم 2',),
@@ -67,9 +71,10 @@ class _LevelScreenState extends State<LevelScreen> {
                         );
                       },
                     ),
-                    ],
-                  ),
+                  ],
+                ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     InkWell(
                       child: SparialStar(backEMG:Assets.star,text: 'العد ل2',),
@@ -79,33 +84,21 @@ class _LevelScreenState extends State<LevelScreen> {
                           LeftRightPageRoute(const ChoosingTheme(), -1, 0),
                         );
                       },
-                      ),
-                    ],
-                  ),
-                Row(
-                  children: [
-                    SparialStarDark(backEMG:Assets.star,text: 'العد ل3',),
-                    SparialStar(backEMG:Assets.star,text: 'رقم 3',),
-                    ],
-                  ),
-                Row(
-                  children: [
-                    SparialStarDark(backEMG:Assets.star,text: 'رقم ',),
-                    ],
-                  ),
+                    ),
+                  ],
+                ),
                 Row(
                   children: [
                     SparialStarDark(backEMG:Assets.star,text: 'رقم ',),
                     SparialStarDark(backEMG:Assets.star,text: 'رقم',)
-                    ],
-                  ),
-              ],
-                  reverse: true,
+                  ],
                 ),
-            )      
-      ],
-     // reverse: true,
-    )
-  );
-}
+              ],
+              reverse: true,
+            ),
+          )      
+        ],
+      )
+    );
+  }
 }
