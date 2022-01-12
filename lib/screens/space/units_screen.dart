@@ -26,9 +26,12 @@ class _UnitsScreenState extends State<UnitsScreen> {
         child: Center(
           child:Column(
             children:[ 
-              Container( 
+              Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),  
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(adjustValue(context, 30)),
+                    bottomRight: Radius.circular(adjustValue(context, 30)),
+                  ),
                   color:const Color.fromRGBO( 80 , 54 , 164 , 0.5) ,
                 ),
                 child: Text(
