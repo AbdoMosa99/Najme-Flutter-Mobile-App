@@ -71,4 +71,6 @@ class Assets {
   static const String mailBox = "assets/icons/mailbox.svg";
   static const String ok = "assets/icons/ok.svg";
   static const String key = "assets/icons/key.svg";
+  static const String galaxy = "assets/icons/galaxy.svg";
+  static const String unit1 = "assets/icons/unit1.svg";
 }

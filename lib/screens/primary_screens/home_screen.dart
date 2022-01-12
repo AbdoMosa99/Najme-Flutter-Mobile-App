@@ -7,7 +7,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/space/categories.dart';
+import 'package:najme/screens/space/units_screen.dart';
 import 'package:najme/utility.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        InOutPageRoute(const CategoyScreen(), Alignment.bottomCenter),
+                        InOutPageRoute(const UnitsScreen(), Alignment.bottomCenter),
                     );
                     },
                     image: SvgPicture.asset(Assets.mathSymbol),
