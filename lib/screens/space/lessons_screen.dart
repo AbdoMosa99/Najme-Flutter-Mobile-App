@@ -28,12 +28,15 @@ class _LessonsScreenState extends State<LessonsScreen> {
         children: [
           Container(
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color:const Color.fromRGBO( 80 , 54 , 164 , 0.5) ,
-                ),
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(adjustValue(context, 30)),
+                bottomRight: Radius.circular(adjustValue(context, 30)),
+              ),
+              color:const Color.fromRGBO( 80 , 54 , 164 , 0.5) ,
+            ),
             child: Text(
               'حساب: الوحدة الاولى ',
-                style: TextStyle(
+              style: TextStyle(
                 color: AppColors.secondary,
                 fontSize:adjustValue(context, 30),
                 fontFamily: 'Cairo',
