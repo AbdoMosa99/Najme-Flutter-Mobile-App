@@ -9,6 +9,8 @@ import 'package:najme/components/screen_specific/space/space_main_container.dart
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/levels/choosing_theme.dart';
+import 'package:najme/screens/levels/listening_theme.dart';
+import 'package:najme/screens/levels/order_game.dart';
 import '../../utility.dart';
 
 class LessonsScreen extends StatefulWidget {
@@ -55,43 +57,23 @@ class _LessonsScreenState extends State<LessonsScreen> {
                   children: [
                     Galaxy(
                       context: context,
-                      backEMG: Assets.galaxy,
-                      img:Assets.unit1,
+                      backEMG: Assets.star,
                       text: 'الوحدة الثالثة',
                       onClick: () {
                         Navigator.push(
                           context,
-                          InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
+                          InOutPageRoute(const OrderGame(), Alignment.bottomCenter),
                         );
                       },
                     ),
                     Galaxy(
                       context: context,
-                      backEMG: Assets.galaxy,
-                      img:Assets.unit1,
+                      backEMG: Assets.star,
                       text: 'الوحدة الثالثة',
                       onClick: () {
                         Navigator.push(
                           context,
-                          InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Galaxy(
-                      context: context,
-                      backEMG: Assets.galaxy,
-                      img:Assets.unit1,
-                      text: 'الوحدة الثالثة',
-                      onClick: () {
-                        Navigator.push(
-                          context,
-                          InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
+                          InOutPageRoute(const ListeningTheme(), Alignment.bottomCenter),
                         );
                       },
                     ),
@@ -103,38 +85,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
                   children: [
                     Galaxy(
                       context: context,
-                      backEMG: Assets.galaxy,
-                      img:Assets.unit1,
-                      text: 'الوحدة الثالثة',
-                      onClick: () {
-                        Navigator.push(
-                          context,
-                          InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                        );
-                      },
-                    ),
-                    Galaxy(
-                      context: context,
-                      backEMG: Assets.galaxy,
-                      img:Assets.unit1,
-                      text: 'الوحدة الثالثة',
-                      onClick: () {
-                        Navigator.push(
-                          context,
-                          InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Galaxy(
-                      context: context,
-                      backEMG: Assets.galaxy,
-                      img:Assets.unit1,
+                      backEMG: Assets.star,
                       text: 'الوحدة الثالثة',
                       onClick: () {
                         Navigator.push(
@@ -151,8 +102,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
                   children: [
                     DarkGalaxy(
                       context: context,
-                      backEMG: Assets.galaxy,
-                      img:Assets.unit1,
+                      backEMG: Assets.star,
                       text: 'الوحدة الثالثة',
                       onClick: () {
                         Navigator.push(
@@ -163,56 +113,7 @@ class _LessonsScreenState extends State<LessonsScreen> {
                     ),
                     DarkGalaxy(
                       context: context,
-                      backEMG: Assets.galaxy,
-                      img:Assets.unit1,
-                      text: 'الوحدة الثالثة',
-                      onClick: () {
-                        Navigator.push(
-                          context,
-                          InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    DarkGalaxy(
-                      context: context,
-                      backEMG: Assets.galaxy,
-                      img:Assets.unit1,
-                      text: 'الوحدة الثالثة',
-                      onClick: () {
-                        Navigator.push(
-                          context,
-                          InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                        );
-                      },
-                    ),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    DarkGalaxy(
-                      context: context,
-                      backEMG: Assets.galaxy,
-                      img:Assets.unit1,
-                      text: 'الوحدة الثالثة',
-                      onClick: () {
-                        Navigator.push(
-                          context,
-                          InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                        );
-                      },
-                    ),
-                    DarkGalaxy(
-                      context: context,
-                      backEMG: Assets.galaxy,
-                      img:Assets.unit1,
+                      backEMG: Assets.star,
                       text: 'الوحدة الثالثة',
                       onClick: () {
                         Navigator.push(

@@ -67,4 +67,5 @@ class Assets {
   static const String galaxy = "assets/icons/galaxy_icon.svg";
   static const String unit1 = "assets/icons/unit1.svg";
   static const String star = "assets/icons/star_icon.svg";
+  static const String two = "assets/icons/two.svg";
 }

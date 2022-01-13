@@ -8,7 +8,7 @@ class Galaxy extends InkWell {
   Galaxy({
     Key? key,
     required BuildContext context,
-    required String img,
+    String img = "",
     required String backEMG,
     required String text,
     void Function()? onClick,
