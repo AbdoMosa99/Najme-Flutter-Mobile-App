@@ -29,11 +29,6 @@ class Assets {
   static const String contactUs = "assets/icons/contact_us.svg";
   static const String logout = "assets/icons/logout.svg";
   static const String spaceBackground = "assets/images/spacebackground.png";
-  static const String spiralStar = "assets/icons/spiral.png";
-  static const String spiralIcon = "assets/icons/123.png";
-  static const String star = "assets/icons/star.png";
-
-  
   static const String crab = "assets/icons/crab.svg";
   static const String smileFace = "assets/icons/smile_face.svg";
   static const String ele = "assets/icons/ele.svg";
@@ -63,8 +58,6 @@ class Assets {
   static const String gmail = "assets/icons/gmail.svg";
   static const String twiter= "assets/icons/twiter.svg";
   static const String watsapp= "assets/icons/watsapp.svg";
-
-
   static const String falsePic = "assets/icons/false.svg";
   static const String trueIcon = "assets/icons/trueIcon.svg";
   static const String keys = "assets/icons/keys.svg";
@@ -73,4 +66,5 @@ class Assets {
   static const String key = "assets/icons/key.svg";
   static const String galaxy = "assets/icons/galaxy.svg";
   static const String unit1 = "assets/icons/unit1.svg";
+  static const String star = "assets/icons/star_icon.svg";
 }
