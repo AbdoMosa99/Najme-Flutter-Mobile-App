@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
@@ -8,6 +7,7 @@ class GameAppBar extends AppBar {
     Key? key, 
     required BuildContext context,
     required String gameName,
+    required void Function() backButtonFunction,
   }) 
   : super(
     key: key,
@@ -47,7 +47,7 @@ class GameAppBar extends AppBar {
           child: Padding(
             padding: EdgeInsets.all(adjustValue(context, 5.0)),
             child: IconButton(
-              onPressed: () {},
+              onPressed: backButtonFunction, 
               icon: const Icon(
                 Icons.arrow_forward,
               ),

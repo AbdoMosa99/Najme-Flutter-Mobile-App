@@ -15,7 +15,7 @@ class RegistrationName extends StatelessWidget {
     Key? key,
     required this.registrationData,
   }) : super(key: key);
-
+  final _formKey = GlobalKey<FormState>();
   Map<String, dynamic> registrationData;
 
   @override
@@ -24,43 +24,52 @@ class RegistrationName extends StatelessWidget {
     return MainContainer(
       child: Stack(
         children: [
-          Column(
-            children: [
-              const Expanded(
-                child: SizedBox(),
-              ),
+          Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                const Expanded(
+                  child: SizedBox(),
+                ),
 
-              Expanded(
-                flex: 2,
-                child: SvgPicture.asset(Assets.child),
-              ),
+                Expanded(
+                  flex: 2,
+                  child: SvgPicture.asset(Assets.child),
+                ),
 
-              Expanded(
-                child: Center(
-                  child: FormTextBox(
-                    context: context,
-                    text: "الأسم",
-                    controllerKind: nameController,
-                    type: TextInputType.name,
+                Expanded(
+                  child: Center(
+                    child: FormTextBox(
+                      context: context,
+                      text: "الأسم",
+                      controllerKind: nameController,
+                      type: TextInputType.name,
+                      valid: (value){
+                        if (value == "") {
+                          return "من فضلك ادخل الاسم!";
+                        }
+                        return null;
+                      }
+                    ),
                   ),
                 ),
-              ),
 
-              Text(
-                "اسم الطفل",
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                style: TextStyle(
-                  fontSize: adjustValue(context, 50.0),
-                  fontFamily: 'Cairo',
-                  color: AppColors.primaryDark,
+                Text(
+                  "اسم الطفل",
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  style: TextStyle(
+                    fontSize: adjustValue(context, 50.0),
+                    fontFamily: 'Cairo',
+                    color: AppColors.primaryDark,
+                  ),
                 ),
-              ),
 
-              const Expanded(
-                child: SizedBox(),
-              ),
-            ],
+                const Expanded(
+                  child: SizedBox(),
+                ),
+              ],
+            ),
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -87,7 +96,7 @@ class RegistrationName extends StatelessWidget {
 
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
-        if (nameController.text != "") {
+        if (_formKey.currentState!.validate()) {
           registrationData["name"] = nameController.text;
           Navigator.push(
             context, 

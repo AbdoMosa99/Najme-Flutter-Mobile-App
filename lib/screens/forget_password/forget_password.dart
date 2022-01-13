@@ -28,9 +28,9 @@ class ForgetPassword extends StatelessWidget {
                 child: Container(
                   child: Center(
                     child: SvgPicture.asset(
-                        Assets.E,
-                        height: adjustHeightValue(context, 90) ,
-                        width: adjustWidthValue(context, 90) ,
+                      Assets.E,
+                      height: adjustHeightValue(context, 90) ,
+                      width: adjustWidthValue(context, 90) ,
                     ),
                   ),
                   height:adjustHeightValue(context, 140),

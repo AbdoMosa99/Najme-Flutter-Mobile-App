@@ -54,6 +54,11 @@ class FormTextBox extends TextFormField {
         fontSize: adjustValue(context, 15.0),
         color: AppColors.primary,
       ),
+      errorStyle: TextStyle(
+        fontFamily: 'Cairo',
+        fontSize: adjustValue(context, 15.0),
+        color: Colors.red,
+      )
 
     ),
 

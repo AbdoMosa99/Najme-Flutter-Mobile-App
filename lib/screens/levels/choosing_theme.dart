@@ -1,11 +1,13 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/game_app_bar.dart';
 import 'package:najme/components/themes/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/audios.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/space/lessons_screen.dart';
 import 'package:najme/utility.dart';
 
 class ChoosingTheme extends StatefulWidget {
@@ -24,7 +26,16 @@ class _ChoosingThemeState extends State<ChoosingTheme> {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
-      appBar: GameAppBar(context: context, gameName: 'المستوي2'),
+      appBar: GameAppBar(
+        context:context,
+        gameName:'المستوى 55',
+        backButtonFunction: () {
+          Navigator.push(
+            context,
+            LeftRightPageRoute(const LessonsScreen(), -1, 0),
+          );
+        },
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
