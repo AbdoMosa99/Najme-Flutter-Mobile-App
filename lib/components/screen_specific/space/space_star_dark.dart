@@ -31,7 +31,8 @@ class SparialStarDark extends StatelessWidget {
                     alignment: Alignment.center,
                     child: ColorFiltered(
                       colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.4), BlendMode.dstIn),
-                      child: Image.asset(backEMG ))
+                      child: Image.asset(backEMG )
+                    )
                   ),
                   if (img != "") ...[
                     Align(                       

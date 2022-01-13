@@ -23,21 +23,26 @@ class SparialStar extends StatelessWidget {
           Container(
             width: adjustValue(context, 110) ,
             height: adjustValue(context, 110) ,
+            color: Colors.red,
             child: Padding(
-            padding: const EdgeInsets.all(2.0),
+            padding: EdgeInsets.all(adjustHeightValue(context, 2.0)),
               child: Stack(
                 children: <Widget>[        
                   Container(
                     alignment: Alignment.center,
-                    child: Image.asset(backEMG)
+                    child: Image.asset(
+                      backEMG,
+                      width: adjustValue(context, 100) ,
+                      height: adjustValue(context, 100) ,
+                    )
                   ),
                   if (img != "") ...[
                     Align(                       
                       alignment: Alignment.center,
                       child: Image.asset(
-                      img ,
-                      width: adjustValue(context, 80),
-                      height: adjustValue(context, 80)
+                        img,
+                        width: adjustValue(context, 80),
+                        height: adjustValue(context, 80),
                       ),                     
                     ) 
                   ]  
@@ -45,13 +50,16 @@ class SparialStar extends StatelessWidget {
               ),
             ),
           ),
-          Text(
-            text,
-            style: TextStyle(
-            fontSize: adjustValue(context, 15),
-            color:AppColors.secondary,
-            fontFamily: 'Cairo',
-          ),
+          Padding(
+            padding: EdgeInsets.only(bottom: adjustValue(context, 2.0)),
+            child: Text(
+              text,
+              style: TextStyle(
+              fontSize: adjustValue(context, 15),
+              color:AppColors.secondary,
+              fontFamily: 'Cairo',
+            ),
+            ),
           )
         ],
       ),

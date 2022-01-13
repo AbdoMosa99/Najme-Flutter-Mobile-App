@@ -70,7 +70,7 @@ class ConfirmationCode extends StatelessWidget {
                   ),
                   underlineColor: AppColors.primaryDark,
                   keyboardType: TextInputType.number,
-                  itemSize: 90,
+                  itemSize: adjustValue(context, 50),
                   length: 5,
                   autofocus: false,
                   underlineWidth: adjustValue(context, 5),
