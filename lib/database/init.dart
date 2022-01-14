@@ -21,13 +21,13 @@ class Database {
               birthdate Date,
               level INT,
               city INT,
-              ambition INT,
+              ambition INT
             );
             CREATE TABLE subjects(
               id INT PRIMARY KEY,
               category TEXT,
               icon TEXT,
-              level INT,
+              level INT
             );
             CREATE TABLE units(
               id INT PRIMARY KEY,
@@ -35,14 +35,14 @@ class Database {
               name TEXT,
               icon TEXT,
               subject_id INT,
-              FOREIGN KEY(subject_id) REFERENCES subjects(id),
+              FOREIGN KEY(subject_id) REFERENCES subjects(id)
             );
             CREATE TABLE lessons(
               id INT PRIMARY KEY,
               number INT,
               name TEXT,
               unit_id INT,
-              FOREIGN KEY(unit_id) REFERENCES units(id),
+              FOREIGN KEY(unit_id) REFERENCES units(id)
             );
             CREATE TABLE progess(
               id INT PRIMARY KEY,
@@ -50,7 +50,7 @@ class Database {
               fruits INT,
               excellences INT,
               profile_id INT,
-              FOREIGN KEY(profile_id) REFERENCES profiles(id),
+              FOREIGN KEY(profile_id) REFERENCES profiles(id)
             );
             CREATE TABLE currents(
               progress_id INT,
@@ -58,7 +58,7 @@ class Database {
               current INT,
               FOREIGN KEY(progress_id) REFERENCES progress(id),
               FOREIGN KEY(subject_id) REFERENCES subjects(id),
-              PRIMARY KEY(progress_id, subject_id),
+              PRIMARY KEY(progress_id, subject_id)
             );
           ''',
         );
