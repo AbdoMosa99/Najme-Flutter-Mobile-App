@@ -43,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
           Expanded(
             flex: 2,
               child: Image.asset(
-                Assets.Rocket,
+                Assets.rocket,
                 width: adjustWidthValue(context, 175.47),
                 height: adjustHeightValue(context, 175.47),
               )

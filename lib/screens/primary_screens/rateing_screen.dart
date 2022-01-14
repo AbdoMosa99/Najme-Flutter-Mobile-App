@@ -62,7 +62,7 @@ class _RatingScreenState extends State<RatingScreen> {
                     itemCount: 5,
                     itemPadding: EdgeInsets.symmetric(horizontal: adjustValue(context, 4.0)),
                     itemBuilder: (context, _) => SvgPicture.asset(
-                      Assets.rate_star,
+                      Assets.rateStar,
                     ),
                     onRatingUpdate: (rating) {},
                   ),

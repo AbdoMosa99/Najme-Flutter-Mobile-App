@@ -46,12 +46,12 @@ class Assets {
   static const String address = "assets/icons/address.svg";
   static const String logo = "assets/images/logo.png";
   static const String logoName = "assets/images/logoName.png";
-  static const String Rocket = "assets/images/launch.png";
+  static const String rocket = "assets/images/launch.png";
   static const String arabicSymbolImg = "assets/images/arabic_symbol.png";
   static const String age = "assets/icons/age.svg";
   static const String home = "assets/icons/home.svg";
   static const String work = "assets/icons/work.svg";
-  static const String rate_star = "assets/icons/rate_star.svg";
+  static const String rateStar = "assets/icons/rate_star.svg";
   static const String ustar = "assets/icons/unRatedStar.svg";
   static const String googlePlay = "assets/icons/googlePlay.svg";
   static const String facebock = "assets/icons/facebock.svg";
@@ -64,7 +64,7 @@ class Assets {
   static const String mailBox = "assets/icons/mailbox.svg";
   static const String ok = "assets/icons/ok.svg";
   static const String key = "assets/icons/key.svg";
-  static const String galaxy = "assets/icons/galaxy.svg";
+  static const String galaxy = "assets/icons/galaxy_icon.svg";
   static const String unit1 = "assets/icons/unit1.svg";
   static const String star = "assets/icons/star_icon.svg";
 }
