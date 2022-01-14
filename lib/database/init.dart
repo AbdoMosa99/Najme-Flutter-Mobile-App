@@ -111,19 +111,35 @@ class Database {
 
 
   Future<void> insertProfile(Profile profile) async {
-
+    final db = await database;
+    await db.insert(
+      'profile',
+      profile.toMap(),
+    );
   }
 
   Future<void> insertLesson(Lesson lesson) async {
-    
+    final db = await database;
+    await db.insert(
+      'lesson',
+      lesson.toMap(),
+    );
   }
 
   Future<void> insertUnit(Unit unit) async {
-    
+    final db = await database;
+    await db.insert(
+      'unit',
+      unit.toMap(),
+    );
   }
 
   Future<void> insertSubject(Subject subject) async {
-
+    final db = await database;
+    await db.insert(
+      'subject',
+      subject.toMap(),
+    );
   }
 
 
@@ -150,7 +166,13 @@ class Database {
 
 
   Future<void> updateProfile(Profile profile) async {
-    
+    final db = await database;
+    await db.update(
+      'profile',
+      profile.toMap(),
+      where: 'id = ?',
+      whereArgs: [profile.id],
+    );
   }
 
 
@@ -297,6 +319,25 @@ class Database {
 
 
   Future<void> deleteAll() async {
+    final db = await database;
+    await db.delete(
+    'profile'
+    );
 
+    await db.delete(
+    'unit'
+    );
+
+    await db.delete(
+    'lesson'
+    );
+
+    await db.delete(
+    'subject'
+    );
+
+    await db.delete(
+    'progress'
+    );
   }
 }
