@@ -56,7 +56,7 @@ class _UnitsScreenState extends State<UnitsScreen> {
                         Galaxy(
                           context: context,
                           backEMG: Assets.galaxy,
-                          img:Assets.unit1,
+                          img:Assets.two,
                           text: 'الوحدة الثالثة',
                           onClick: () {
                             Navigator.push(
@@ -92,102 +92,6 @@ class _UnitsScreenState extends State<UnitsScreen> {
                             Navigator.push(
                               context,
                               InOutPageRoute(const LessonsScreen(), Alignment.bottomCenter),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Galaxy(
-                          context: context,
-                          backEMG: Assets.galaxy,
-                          img:Assets.unit1,
-                          text: 'الوحدة الثالثة',
-                          onClick: () {
-                            Navigator.push(
-                              context,
-                              InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                            );
-                          },
-                        ),
-                        Galaxy(
-                          context: context,
-                          backEMG: Assets.galaxy,
-                          img:Assets.unit1,
-                          text: 'الوحدة الثالثة',
-                          onClick: () {
-                            Navigator.push(
-                              context,
-                              InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Galaxy(
-                          context: context,
-                          backEMG: Assets.galaxy,
-                          img:Assets.unit1,
-                          text: 'الوحدة الثالثة',
-                          onClick: () {
-                            Navigator.push(
-                              context,
-                              InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        DarkGalaxy(
-                          context: context,
-                          backEMG: Assets.galaxy,
-                          img:Assets.unit1,
-                          text: 'الوحدة الثالثة',
-                          onClick: () {
-                            Navigator.push(
-                              context,
-                              InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                            );
-                          },
-                        ),
-                        DarkGalaxy(
-                          context: context,
-                          backEMG: Assets.galaxy,
-                          img:Assets.unit1,
-                          text: 'الوحدة الثالثة',
-                          onClick: () {
-                            Navigator.push(
-                              context,
-                              InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        DarkGalaxy(
-                          context: context,
-                          backEMG: Assets.galaxy,
-                          img:Assets.unit1,
-                          text: 'الوحدة الثالثة',
-                          onClick: () {
-                            Navigator.push(
-                              context,
-                              InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
                             );
                           },
                         ),
