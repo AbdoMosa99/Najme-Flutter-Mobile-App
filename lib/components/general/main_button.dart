@@ -23,7 +23,7 @@ class MainButton extends MaterialButton {
       maxLines: 1,
       style: TextStyle(
         fontFamily: 'Cairo',
-        color: AppColors.surface,
+        color: AppColors.white,
         fontSize: adjustValue(context, 20.0),
       ),
     ),

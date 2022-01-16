@@ -12,6 +12,7 @@ class MainContainer extends StatelessWidget {
     this.drawer,
     this.floatingActionButton = false,
     this.floatingActionIcon = Icons.arrow_forward,
+    this.floatingActionIconColor = AppColors.white,
     this.onFloatingActionButtonTap,
   }) 
   : super(key: key);
@@ -23,6 +24,7 @@ class MainContainer extends StatelessWidget {
 
   final bool floatingActionButton;
   final IconData? floatingActionIcon;
+  final Color? floatingActionIconColor;
   final void Function()? onFloatingActionButtonTap;
 
   @override
@@ -62,6 +64,7 @@ class MainContainer extends StatelessWidget {
               child: Icon(
                 floatingActionIcon,
                 size: adjustValue(context, 24.0),
+                color: floatingActionIconColor,
               ),
             ),
           ),

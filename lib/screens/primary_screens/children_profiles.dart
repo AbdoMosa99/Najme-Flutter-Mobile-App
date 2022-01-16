@@ -3,15 +3,17 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_button.dart';
-import 'package:najme/components/themes/main_container.dart';
+import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/forget_password/confirmation_code.dart';
 import 'package:najme/screens/primary_screens/personal_account_updates.dart';
+import 'package:najme/screens/primary_screens/personal_profile.dart';
+import 'package:najme/screens/registeration_screens/registeration_name.dart';
 import '../../utility.dart';
 
 class ChildrenProfiles extends StatelessWidget {
-  const ChildrenProfiles({Key? key}) : super(key: key);
+  const ChildrenProfiles({Key? key,}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -21,172 +23,180 @@ class ChildrenProfiles extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: adjustValue(context, 120.0),
-              ),
               Text(
                 'ملفات أطفالك الشخصية',
                 style:TextStyle(
-                  fontSize: adjustValue(context, 26.0),
+                  fontSize: adjustValue(context, 28.0),
                   fontFamily: 'Cairo',
                   fontWeight: FontWeight.w900,
                   color: AppColors.primary,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
-                child: InkWell(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
-                      color:AppColors.surface,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: const Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child:Row(
+              SizedBox(
+                height: adjustHeightValue(context, 25),
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: adjustHeightValue(context, 270.0),
+                child: Center(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Stack(
-                            alignment: AlignmentDirectional.center,
-                            children: [
-                              Container(
-                                width: adjustValue(context, 45),
-                                height: adjustValue(context, 45),
-                                decoration: BoxDecoration(
-                                  color: AppColors.primaryLight,
-                                  shape: BoxShape.circle,
-                                  border: Border.all(color: AppColors.secondary,),
-                                ),
-                              ),
-                              Column(
-                                children: [
-                                  SvgPicture.asset(
-                                    Assets.male,
-                                    height: adjustValue(context, 35.0),
+                        InkWell(
+                          child: Container(
+                              width: double.infinity,
+                              height: adjustHeightValue(context, 65.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(adjustValue(context, 10.0)),
+                                color:AppColors.surface,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.blueGrey.withOpacity(0.5),
+                                    spreadRadius: 2,
+                                    blurRadius: 2,
+                                    offset: const Offset(0, 3), // changes position of shadow
                                   ),
                                 ],
                               ),
-                            ],
-                          )
-                        ),
-                        Text(
-                          ' محمد على',style:TextStyle(
-                            fontSize: adjustValue(context, 17.0),
-                            fontFamily: 'Cairo',
-                            color: AppColors.primary,
+                              child:Row(
+                                children: [
+                                  Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: adjustValue(context, 10.0)),
+                                      child: Stack(
+                                        alignment: AlignmentDirectional.center,
+                                        children: [
+                                          Container(
+                                            width: adjustValue(context, 55),
+                                            height: adjustValue(context, 55),
+                                            decoration: BoxDecoration(
+                                              color: AppColors.primaryLight,
+                                              shape: BoxShape.circle,
+                                              border: Border.all(color: AppColors.secondary,),
+                                            ),
+                                          ),
+                                          SvgPicture.asset(
+                                            Assets.male,
+                                            height: adjustValue(context, 45.0),
+                                          ),
+                                        ],
+                                      )
+                                  ),
+                                  Text(
+                                    ' محمد علي',
+                                    style:TextStyle(
+                                        fontSize: adjustValue(context, 20.0),
+                                        fontFamily: 'Cairo',
+                                        color: AppColors.primaryDark,
+                                        fontWeight: FontWeight.bold
+                                    ),
+                                  ),
+                                ],
+                              )
                           ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              InOutPageRoute(const PersonalProfile(), Alignment.bottomCenter),
+                            );
+                          },
                         ),
-                      ],
-                    )
-                  ),
-                  onTap: () {},
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                child: InkWell(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
-                      color:AppColors.surface,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3), // changes position of shadow
+                        SizedBox(
+                          height: adjustHeightValue(context, 25),
+                        ),
+                        InkWell(
+                          child: Container(
+                              width: double.infinity,
+                              height: adjustHeightValue(context, 65.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(adjustValue(context, 10.0)),
+                                color:AppColors.surface,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.blueGrey.withOpacity(0.5),
+                                    spreadRadius: 2,
+                                    blurRadius: 2,
+                                    offset: const Offset(0, 3), // changes position of shadow
+                                  ),
+                                ],
+                              ),
+                              child:Row(
+                                children: [
+                                  Padding(
+                                      padding: EdgeInsets.symmetric(horizontal: adjustValue(context, 10.0)),
+                                      child: Stack(
+                                        alignment: AlignmentDirectional.center,
+                                        children: [
+                                          Container(
+                                            width: adjustValue(context, 55),
+                                            height: adjustValue(context, 55),
+                                            decoration: BoxDecoration(
+                                              color: AppColors.primaryLight,
+                                              shape: BoxShape.circle,
+                                              border: Border.all(color: AppColors.secondary,),
+                                            ),
+                                          ),
+                                          SvgPicture.asset(
+                                            Assets.male,
+                                            height: adjustValue(context, 45.0),
+                                          ),
+                                        ],
+                                      )
+                                  ),
+                                  Text(
+                                    ' محمد علي',
+                                    style:TextStyle(
+                                        fontSize: adjustValue(context, 20.0),
+                                        fontFamily: 'Cairo',
+                                        color: AppColors.primaryDark,
+                                        fontWeight: FontWeight.bold
+                                    ),
+                                  ),
+                                ],
+                              )
+                          ),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              InOutPageRoute(const PersonalProfile(), Alignment.bottomCenter),
+                            );
+                          },
                         ),
                       ],
                     ),
-                    child:Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Container(
-                            child:Stack(
-                            alignment: AlignmentDirectional.center,
-                              children: [
-                                Container(
-                                  width: adjustValue(context, 45),
-                                  height: adjustValue(context, 45),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.primaryLight,
-                                    shape: BoxShape.circle,
-                                    border: Border.all(color: AppColors.secondary,),
-                                  ),
-                                ),
-                                Column(
-                                  children: [
-                                    SvgPicture.asset(
-                                      Assets.male,
-                                      height: adjustValue(context, 35.0),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Text(
-                          'ابراهيم على',
-                          style:TextStyle(
-                            fontSize: adjustValue(context, 17.0),
-                            fontFamily: 'Cairo',
-                            color: AppColors.primary,
-                          ),
-                        ),
-                      ],
-                    )
-                  ),
-                  onTap: () {},
-                ),
-              ),
-
-              Padding(
-                padding: EdgeInsets.all(adjustValue(context, 20)),
-                child: Container(
-                  width: adjustHeightValue(context, 300.0),
-                  height: adjustHeightValue(context, 50.0),
-                  child: MainButton(
-                    context: context,
-                    text: 'أضف ملف لطفل آخر',
-                    color: AppColors.primary,
-                    onTap: () {},
                   ),
                 ),
               ),
-
-              // SizedBox(
-              //   height: adjustValue(context,40.0),
-              // ),
-
-              Container(
-                alignment: Alignment.topRight,
-                child: FloatingActionButton(
-                  onPressed: () {
+              SizedBox(
+                height: adjustHeightValue(context, 25),
+              ),
+              SizedBox(
+                width: double.infinity,
+                height: adjustHeightValue(context, 50.0),
+                child: MainButton(
+                  context: context,
+                  text: 'أضف ملف لطفل آخر',
+                  color: AppColors.primary,
+                  onTap: () {
                     Navigator.push(
-                      context,
-                      LeftRightPageRoute(const PersonalAccountUpdates(), -1, 0),
+                        context,
+                        LeftRightPageRoute(RegistrationName(registrationData: Map<String, dynamic>()), 1, 0)
                     );
                   },
-                  child: const Icon(
-                    Icons.edit_outlined,
-                    color: AppColors.secondary,
-                    size: 40,
-                  ),
-                  backgroundColor: AppColors.primary,
-                )
+                ),
               ),
-      
             ]
-          ) ,          
+          ) ,
+          floatingActionButton: true,
+          floatingActionIcon: Icons.edit_outlined,
+          floatingActionIconColor: AppColors.secondary,
+          onFloatingActionButtonTap: (){
+            Navigator.push(
+              context,
+              InOutPageRoute(const PersonalAccountUpdates(), Alignment.bottomCenter),
+            );
+          },
         ),
         GestureDetector(
           child: Padding(
@@ -208,7 +218,7 @@ class ChildrenProfiles extends StatelessWidget {
                       style: TextStyle(
                         fontSize: adjustValue(context, 23),
                         fontFamily: 'Cairo',
-                        color:AppColors.surface,
+                        color:AppColors.white,
                         decoration: TextDecoration.none,
                       )
                     ),
