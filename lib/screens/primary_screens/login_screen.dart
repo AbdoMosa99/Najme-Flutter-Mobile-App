@@ -24,127 +24,126 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
-      child: Column(
-        children: [
-          
-          Expanded(
-            flex: 1,
-              child: Image.asset(
+      child: Center(
+        child: SingleChildScrollView(
+          child: Column(
+
+            children: [
+
+              Image.asset(
                 Assets.logoName,
                 width: adjustWidthValue(context, 182.17),
                 height: adjustHeightValue(context, 99.68),
-              )
-            ),
-
-          SizedBox(
-            height: adjustValue(context, 20.0),
-          ),
-
-          Expanded(
-            flex: 2,
-              child: Image.asset(
-                Assets.rocket,
-                width: adjustWidthValue(context, 175.47),
-                height: adjustHeightValue(context, 175.47),
-              )
-          ),
-
-          SizedBox(
-            height: adjustValue(context, 10.0),
-          ),
-
-          FormTextBox(
-            context: context,
-            text: "الاسم",
-            controllerKind: nameController,
-            type: TextInputType.name,
-          ),
-
-          SizedBox(
-            height: adjustValue(context, 10.0),
-          ),
-
-          FormTextBox(
-            context: context,
-            text: "كلمة السر",
-            controllerKind: passController,
-            type: TextInputType.text,
-            suffIcon: isPassword
-                ? Icons.visibility_off_outlined
-                : Icons.visibility_outlined,
-            ispass: isPassword,
-            suffixFun: () {
-              setState(() {
-                isPassword = !isPassword;
-              });
-            },
-          ),
-
-          SizedBox(
-            height: adjustValue(context, 20.0),
-          ),
-
-          Container(
-            width: double.infinity,
-            height: adjustHeightValue(context, 50.0),
-            child: MainButton(
-              context: context,
-              text: 'دخول',
-              color: AppColors.primary,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
-                );
-              },
-            ),
-          ),
-
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    InOutPageRoute(
-                      RegisterationEmail(),
-                      Alignment.bottomRight,
-                    )
-                  );
-                },
-                child: Text(
-                  'تسجيل',
-                  textAlign: TextAlign.end,
-                  style: TextStyle(
-                    fontSize: adjustValue(context, 20.0),
-                    color: AppColors.primaryDark,
-                    fontFamily: 'Cairo',
-                  ),
-                ),
               ),
 
-              TextButton(
-                onPressed: () {
+              SizedBox(
+                height: adjustHeightValue(context, 20.0),
+              ),
+
+              Image.asset(
+                Assets.rocket,
+                width: adjustWidthValue(context, 220),
+                height: adjustHeightValue(context, 220),
+              ),
+
+              SizedBox(
+                height: adjustHeightValue(context, 10.0),
+              ),
+
+              FormTextBox(
+                context: context,
+                text: "الاسم",
+                controllerKind: nameController,
+                type: TextInputType.name,
+              ),
+
+              SizedBox(
+                height: adjustHeightValue(context, 10.0),
+              ),
+
+              FormTextBox(
+                context: context,
+                text: "كلمة السر",
+                controllerKind: passController,
+                type: TextInputType.text,
+                suffIcon: isPassword
+                    ? Icons.visibility_off_outlined
+                    : Icons.visibility_outlined,
+                ispass: isPassword,
+                suffixFun: () {
+                  setState(() {
+                    isPassword = !isPassword;
+                  });
+                },
+              ),
+
+              SizedBox(
+                height: adjustHeightValue(context, 20.0),
+              ),
+
+              Container(
+                width: double.infinity,
+                height: adjustHeightValue(context, 50.0),
+                child: MainButton(
+                  context: context,
+                  text: 'دخول',
+                  color: AppColors.primary,
+                  onTap: () {
                     Navigator.push(
                       context,
-                      InOutPageRoute(const ForgetPassword(), Alignment.bottomCenter),
+                      InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
                     );
                   },
-                child: Text(
-                  'نسيت كلمة السر؟',
-                  textAlign: TextAlign.start,
-                  maxLines: 1,
-                  style: TextStyle(
-                    fontSize: adjustValue(context, 20.0),
-                    color: AppColors.primaryDark,
-                    fontFamily: 'Cairo',
-                  ),
                 ),
               ),
-            ],  
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        InOutPageRoute(
+                          RegisterationEmail(),
+                          Alignment.bottomRight,
+                        )
+                      );
+                    },
+                    child: Text(
+                      'تسجيل',
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        fontSize: adjustValue(context, 20.0),
+                        color: AppColors.primaryDark,
+                        fontFamily: 'Cairo',
+                      ),
+                    ),
+                  ),
+
+                  TextButton(
+                    onPressed: () {
+                        Navigator.push(
+                          context,
+                          InOutPageRoute(const ForgetPassword(), Alignment.bottomCenter),
+                        );
+                      },
+                    child: Text(
+                      'نسيت كلمة السر؟',
+                      textAlign: TextAlign.start,
+                      maxLines: 1,
+                      style: TextStyle(
+                        fontSize: adjustValue(context, 20.0),
+                        color: AppColors.primaryDark,
+                        fontFamily: 'Cairo',
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

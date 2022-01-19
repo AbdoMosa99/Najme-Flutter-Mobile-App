@@ -22,6 +22,7 @@ class FormTextBox extends TextFormField {
       color: AppColors.primaryDark,
     ),
       cursorColor: AppColors.primary,
+    //cursorHeight: adjustHeightValue(context, 30.0),
     obscureText: ispass,
     controller: controllerKind,
     keyboardType: type,
@@ -32,7 +33,7 @@ class FormTextBox extends TextFormField {
         borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
         borderSide: BorderSide(
           color: AppColors.secondaryLight,
-          width: adjustValue(context, 2),
+          width: adjustWidthValue(context, 2),
         ),
       ),
       enabledBorder: OutlineInputBorder(

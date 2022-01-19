@@ -31,16 +31,12 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
       child: Stack(
         children: [
           Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Expanded(
-                child: SizedBox(),
-              ),
-
-              Expanded(
-                flex: 2,
-                child: SvgPicture.asset(
-                  Assets.nextLevel,
-                ),
+              SvgPicture.asset(
+                Assets.nextLevel,
+                height: adjustHeightValue(context, 170),
               ),
 
               Padding(
@@ -90,14 +86,10 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: adjustValue(context, 50.0),
+                  fontSize: adjustValue(context, 42.0),
                   fontFamily: 'Cairo',
                   color: AppColors.primaryDark,
                 ),
-              ),
-
-              const Expanded(
-                child: SizedBox(),
               ),
             ],
           ),

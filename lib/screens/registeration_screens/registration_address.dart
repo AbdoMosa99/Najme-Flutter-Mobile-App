@@ -58,35 +58,29 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
       child: Stack(
         children: [
           Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Expanded(
-              flex: 2,
-                child: AddressButton(
-                  width: adjustWidthValue(context, 285.0),
-                  height: adjustHeightValue(context, 315.0),
-                  text: "المحافظة",
-                  title: "اختر محافظتك!",
-                  fontSize: 27,
-                  data: widget.cities,
-                  callback: (int index) {
-                    widget.registrationData["city"] = index;
-                  },
-                ),
+              AddressButton(
+                width: adjustWidthValue(context, 285.0),
+                height: adjustHeightValue(context, 315.0),
+                text: "المحافظة",
+                title: "اختر محافظتك!",
+                fontSize: 27,
+                data: widget.cities,
+                callback: (int index) {
+                  widget.registrationData["city"] = index;
+                },
               ),
 
-              Expanded(
-
-                child: Text(
-                  "اختر محافظتك!",
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  style: TextStyle(
-                    fontSize: adjustValue(context, 50.0),
-                    fontFamily: 'Cairo',
-                    color: AppColors.primaryDark,
-                  ),
+              Text(
+                "اختر محافظتك!",
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                style: TextStyle(
+                  fontSize: adjustValue(context, 45.0),
+                  fontFamily: 'Cairo',
+                  color: AppColors.primaryDark,
                 ),
               ),
             ],

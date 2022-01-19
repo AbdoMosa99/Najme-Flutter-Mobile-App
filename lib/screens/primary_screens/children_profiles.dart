@@ -214,7 +214,7 @@ class ChildrenProfiles extends StatelessWidget {
                       size: adjustValue(context, 40),
                     ),
                     Text(
-                      ' تسجيل الخروج ',
+                      'تسجيل الخروج',
                       style: TextStyle(
                         fontSize: adjustValue(context, 23),
                         fontFamily: 'Cairo',
@@ -231,8 +231,8 @@ class ChildrenProfiles extends StatelessWidget {
                   ),
                   color: AppColors.primary,
                 ),
-                width: adjustValue(context, 192),
-                height: adjustValue(context, 55),
+                width: adjustWidthValue(context, 192),
+                height: adjustHeightValue(context, 55),
               ),
             ),
           ),

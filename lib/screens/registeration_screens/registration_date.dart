@@ -52,8 +52,8 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               BirthDateButton(
-                width: adjustValue(context, 144.0),
-                height: adjustValue(context, 88.0),
+                width: adjustWidthValue(context, 144.0),
+                height: adjustHeightValue(context, 95.0),
                 text: "اليوم",
                 title: "اختر يوم ميلادك!  ",
                 fontSize: 26,
@@ -63,8 +63,8 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                 },
               ),
               BirthDateButton(
-                width: adjustValue(context, 168.0),
-                height: adjustValue(context, 104.0),
+                width: adjustWidthValue(context, 168.0),
+                height: adjustHeightValue(context, 113.0),
                 text: "الشهر",
                 title: "اختر شهر ميلادك!",
                 fontSize: 23,
@@ -74,8 +74,8 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                 },
               ),
               BirthDateButton(
-                width: adjustValue(context, 192.0),
-                height: adjustValue(context, 120.0),
+                width: adjustWidthValue(context, 192.0),
+                height: adjustHeightValue(context, 125.0),
                 text: "السنة",
                 title: "اختر سنة ميلادك!",
                 fontSize: 27,
@@ -85,14 +85,14 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                 },
               ),
               SizedBox(
-                height: adjustValue(context, 10.0),
+                height: adjustValue(context, 20.0),
               ),
               Text(
                 "اختر تاريخ ميلادك!",
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: adjustValue(context, 50.0),
+                  fontSize: adjustValue(context, 42.0),
                   fontFamily: 'Cairo',
                   color: AppColors.primaryDark,
                 ),

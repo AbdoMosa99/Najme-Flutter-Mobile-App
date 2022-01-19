@@ -29,80 +29,70 @@ class _RegistrationGenderState extends State<RegistrationGender> {
       child: Stack(
         children: [
           Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Expanded(
-                child: SizedBox(),
-              ),
-
-              Expanded(
-                flex: 3,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: adjustHeightValue(context, 8.0),
-                          horizontal: adjustWidthValue(context, 8.0),
-                        ),
-                        child: AspectRatio(
-                          aspectRatio: 3 / 4,
-                          child: MainCard(
-                            context: context,
-                            onTap: () {
-                              setState(() {
-                                isMale = 1;
-                              });
-                            },
-                            image: SvgPicture.asset(Assets.male),
-                            color: isMale == 1 ? AppColors.primary : AppColors.surface,
-                            radius: 20.0,
-                            stroke: true,
-                          ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: adjustHeightValue(context, 8.0),
+                        horizontal: adjustWidthValue(context, 8.0),
+                      ),
+                      child: AspectRatio(
+                        aspectRatio: 3 / 4,
+                        child: MainCard(
+                          context: context,
+                          onTap: () {
+                            setState(() {
+                              isMale = 1;
+                            });
+                          },
+                          image: SvgPicture.asset(Assets.male),
+                          color: isMale == 1 ? AppColors.primary : AppColors.surface,
+                          radius: 20.0,
+                          stroke: true,
                         ),
                       ),
                     ),
+                  ),
 
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          vertical: adjustHeightValue(context, 8.0),
-                          horizontal: adjustWidthValue(context, 8.0),
-                        ),
-                        child: AspectRatio(
-                          aspectRatio: 3 / 4,
-                          child: MainCard(
-                            context: context,
-                            onTap: () {
-                              setState(() {
-                                isMale = 0;
-                              });
-                            },
-                            image: SvgPicture.asset(Assets.female),
-                            color: isMale == 0 ? AppColors.primary : AppColors.surface,
-                            radius: 20.0,
-                            stroke: true,
-                          ),
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: adjustHeightValue(context, 8.0),
+                        horizontal: adjustWidthValue(context, 8.0),
+                      ),
+                      child: AspectRatio(
+                        aspectRatio: 3 / 4,
+                        child: MainCard(
+                          context: context,
+                          onTap: () {
+                            setState(() {
+                              isMale = 0;
+                            });
+                          },
+                          image: SvgPicture.asset(Assets.female),
+                          color: isMale == 0 ? AppColors.primary : AppColors.surface,
+                          radius: 20.0,
+                          stroke: true,
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-
               Text(
-                "اختر نوعك!",
+                "أختر نوعك!",
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: adjustValue(context, 50.0),
+                  fontSize: adjustValue(context, 40.0),
                   fontFamily: 'Cairo',
                   color: AppColors.primaryDark,
                 ),
-              ),
-
-              const Expanded(
-                child: SizedBox(),
               ),
             ],
           ),

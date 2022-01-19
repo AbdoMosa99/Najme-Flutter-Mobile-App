@@ -48,7 +48,7 @@ class _AddressButtonState extends State<AddressButton> {
           Column(
             children: [
               SizedBox(
-                height: adjustHeightValue(context, 115),
+                height: adjustHeightValue(context, 73),
               ),
 
               Align(

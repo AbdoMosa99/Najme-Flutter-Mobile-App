@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
@@ -33,20 +34,18 @@ class RegisterationEmail extends StatelessWidget {
         children: [
           Form(
             key: _formKey,
-            child: Column(
-              children: [
-                const Expanded(
-                  child: SizedBox(),
-                ),
-
-                Expanded(
-                  flex: 2,
-                  child: SvgPicture.asset(Assets.E),
-                ),
-
-                Expanded(
-                  child: Center(
-                    child: FormTextBox(
+            child: Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SvgPicture.asset(
+                        Assets.E,
+                      height: adjustHeightValue(context, 150),
+                    ),
+                    SizedBox(
+                      height: adjustHeightValue(context, 50),
+                    ),
+                    FormTextBox(
                       context: context,
                       text: "الايميل",
                       controllerKind: emailController,
@@ -58,24 +57,22 @@ class RegisterationEmail extends StatelessWidget {
                         return null;
                       },
                     ),
-                  ),
+                    SizedBox(
+                      height: adjustHeightValue(context, 50),
+                    ),
+                    Text(
+                      "إيميل ولي الأمر ",
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      style: TextStyle(
+                        fontSize: adjustValue(context, 40.0),
+                        fontFamily: 'Cairo',
+                        color: AppColors.primaryDark,
+                      ),
+                    ),
+                  ],
                 ),
-
-                Text(
-                  "إيميل ولي الأمر",
-                  textAlign: TextAlign.center,
-                  maxLines: 2,
-                  style: TextStyle(
-                    fontSize: adjustValue(context, 50.0),
-                    fontFamily: 'Cairo',
-                    color: AppColors.primaryDark,
-                  ),
-                ),
-
-                const Expanded(
-                  child: SizedBox(),
-                ),
-              ],
+              ),
             ),
           ),
           Align(
