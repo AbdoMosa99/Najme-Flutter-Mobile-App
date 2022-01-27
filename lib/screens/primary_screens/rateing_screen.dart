@@ -142,9 +142,9 @@ class _RatingScreenState extends State<RatingScreen> {
             ),
           ),
           onTap: (){
-            Navigator.push(
+            Navigator.pop(
               context,
-              LeftRightPageRoute(const HomeScreen(), -1, 0),
+              false
             );
           },
         ),

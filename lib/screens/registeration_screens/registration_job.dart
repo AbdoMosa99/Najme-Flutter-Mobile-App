@@ -218,9 +218,8 @@ class _RegistrationJobState extends State<RegistrationJob> {
                 color: AppColors.primary,
               ),
               onPressed: (){
-                Navigator.push(
-                  context,
-                  LeftRightPageRoute(RegistrationAddress(registrationData: widget.registrationData,), -1, 0),
+                Navigator.pop(
+                    context,false
                 );
               },
             ),

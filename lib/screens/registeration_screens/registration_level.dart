@@ -102,11 +102,8 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
                 color: AppColors.primary,
               ),
               onPressed: (){
-                Navigator.push(
-                  context,
-                  LeftRightPageRoute(
-                    RegistrationBirthDate(registrationData: widget.registrationDate,), -1, 0
-                  ),
+                Navigator.pop(
+                    context,false
                 );
               },
             ),

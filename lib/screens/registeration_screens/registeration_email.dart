@@ -84,10 +84,10 @@ class RegisterationEmail extends StatelessWidget {
                 color: AppColors.primary,
               ),
               onPressed: (){
-                Navigator.push(
-                  context,
-                  LeftRightPageRoute(const LoginScreen(), -1, 0),
+                Navigator.pop(
+                    context,false
                 );
+
               },
             ),
           ),

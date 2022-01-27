@@ -33,9 +33,9 @@ class _OrderGameState extends State<OrderGame> {
         context:context,
         gameName:'المستوى 21',
         backButtonFunction: () {
-          Navigator.push(
-            context,
-            LeftRightPageRoute(const LessonsScreen(), -1, 0),
+          Navigator.pop(
+              context,
+              false
           );
         },
       ),

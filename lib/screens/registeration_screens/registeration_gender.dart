@@ -106,13 +106,8 @@ class _RegistrationGenderState extends State<RegistrationGender> {
                 color: AppColors.primary,
               ),
               onPressed: (){
-                Navigator.push(
-                  context,
-                  LeftRightPageRoute(
-                    RegistrationName(registrationData: widget.registrationData), 
-                    -1, 
-                    0,
-                  ),
+                Navigator.pop(
+                    context,false
                 );
               },
             ),

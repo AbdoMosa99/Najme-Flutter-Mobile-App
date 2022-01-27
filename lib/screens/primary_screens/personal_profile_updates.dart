@@ -783,10 +783,10 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> {
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.primaryLight.withOpacity(adjustValue(context, 0.2)),
-                          spreadRadius: adjustValue(context, 3),
-                          blurRadius: adjustValue(context, 4),
-                          offset: Offset(adjustValue(context, 0), adjustValue(context, 4)), // changes position of shadow
+                          color: AppColors.primaryLight.withOpacity(0.2),
+                          spreadRadius: 3,
+                          blurRadius: 5,
+                          offset: Offset(0, 4), // changes position of shadow
                         ),
                       ],
                     ),
@@ -798,9 +798,9 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> {
                 ),
               ),
               onTap: (){
-                Navigator.push(
-                  context,
-                  InOutPageRoute(const PersonalProfile(), Alignment.topRight),
+                Navigator.pop(
+                    context,
+                    false
                 );
               },
             ),

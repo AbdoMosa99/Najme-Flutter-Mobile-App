@@ -30,9 +30,9 @@ class _ChoosingThemeState extends State<ChoosingTheme> {
         context:context,
         gameName:'المستوى 55',
         backButtonFunction: () {
-          Navigator.push(
+          Navigator.pop(
             context,
-            LeftRightPageRoute(const LessonsScreen(), -1, 0),
+            false
           );
         },
       ),

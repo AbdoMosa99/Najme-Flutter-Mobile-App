@@ -188,9 +188,9 @@ class ContactUsScreen extends StatelessWidget {
             ),
           ),
           onTap: (){
-            Navigator.push(
-              context,
-              LeftRightPageRoute(const HomeScreen(), -1, 0),
+            Navigator.pop(
+                context,
+                false
             );
           },
         ),

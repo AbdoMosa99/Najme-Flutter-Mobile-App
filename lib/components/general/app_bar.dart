@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/primary_screens/home_screen.dart';
 import 'package:najme/utility.dart';
 
 class MainAppBar extends AppBar {
@@ -17,19 +19,35 @@ class MainAppBar extends AppBar {
 
     leading: Padding(
       padding: EdgeInsets.all(adjustValue(context, 5.0)),
-      child: const Image(
-        image: AssetImage(Assets.logo),
+      child: GestureDetector(
+        child: const Image(
+          image: AssetImage(Assets.logo),
+        ),
+        onTap: () {
+          Navigator.push(
+            context,
+            InOutPageRoute(const HomeScreen(), Alignment.topRight),
+          );
+        },
       ),
     ),
     leadingWidth: adjustValue(context, 50.0),
 
-    title: Text(
-      'نچمي',
-      style: TextStyle(
-        fontSize: adjustValue(context, 25.0),
-        fontFamily: 'Cairo',
-        fontWeight: FontWeight.w600,
+    title: GestureDetector(
+      child: Text(
+        'نچمي',
+        style: TextStyle(
+          fontSize: adjustValue(context, 25.0),
+          fontFamily: 'Cairo',
+          fontWeight: FontWeight.w600,
+        ),
       ),
+      onTap: () {
+        Navigator.push(
+          context,
+          InOutPageRoute(const HomeScreen(), Alignment.topRight),
+        );
+      },
     ),
     titleSpacing: 0.0,
 
