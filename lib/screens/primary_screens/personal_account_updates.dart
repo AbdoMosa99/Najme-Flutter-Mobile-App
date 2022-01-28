@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
+import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
@@ -44,7 +45,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children:[
-                  Expanded(
+                Expanded(
                         flex:1,
                         child: Text(
                             'البريد الالكتروني:',
@@ -56,8 +57,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                           ),
                         ),
                       ),
-                  
-                  Expanded(
+                Expanded(
                   flex:1,
                   child: Row(
                     children :[            
@@ -71,8 +71,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                     ] 
                   ),
                 ),
-
-                  Expanded(
+                Expanded(
                   flex:1,
                   child: Row(
                     children :[
@@ -85,8 +84,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                     ] 
                   ),
                 ),
-                  
-                  Expanded(
+                Expanded(
                   flex:1,
                       child: Text(
                         'كلمة السر الحالية:',
@@ -98,8 +96,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                         ),
                       ),
                     ),
-                  
-                  Expanded(
+                Expanded(
                       flex: 1,
                       child:  FormTextBox(
                     context: context,
@@ -126,8 +123,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                     },
                   ),
                     ),
-
-                  Expanded(
+                Expanded(
                       child: Text(
                         'كلمة السر الجديدة:',
                         style: TextStyle(
@@ -138,8 +134,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                         ),
                       ),
                     ),
-                  
-                  Expanded(
+                Expanded(
                       flex: 1,
                       child: FormTextBox(
                   context: context,
@@ -166,8 +161,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                   },
                 ),
                     ),
-                
-                  Expanded(
+                Expanded(
                       child: Text(
                         ' تأكيد كلمة السر :',
                         style: TextStyle(
@@ -179,8 +173,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                         ),
                       ),
                     ),
-                  
-                  Expanded(
+                Expanded(
                       flex: 1,
                       child: FormTextBox(
                     context: context,
@@ -208,71 +201,52 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                     },
                   ),
                     ),
-          
-                  Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Expanded(
-                  flex: 1,
-                  child: SizedBox(
-                      height: adjustHeightValue(context, 45),
-                      child: MaterialButton(
-                        color: AppColors.primary,
-                        minWidth: double.infinity,
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                          BorderRadius.circular(adjustValue(context, 15.0)),
-                        ),
-                        child: Text(
-                          'حفظ التعديلات',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontFamily: 'Cairo',
-                            color: AppColors.surface,
-                            fontSize: adjustValue(context, 25.0),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            InOutPageRoute(const PersonalProfile(), Alignment.bottomCenter),
-                          );
-                
-                        },
-                      ),
-                    ),
+                Container(
+                  width: double.infinity,
+                  height: adjustHeightValue(context, 50.0),
+                  child: MainButton(
+                    context: context,
+                    text: 'حفظ التعديلات',
+                    color: AppColors.primary,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        InOutPageRoute(const PersonalProfile(), Alignment.bottomCenter),
+                      );
+                    },
+                  ),
                 ),
-              ),
               ],
             ),
           ),
         ),
-                  Expanded(
+        Expanded(
           flex: 1,
           child: Stack(
             children: [
               Container(
-                  width: double.infinity,
-                  height: adjustHeightValue(context, 54),
-                  color: AppColors.primary,
-              ),
+                            width: double.infinity,
+                            height: adjustHeightValue(context, 54),
+                            color: AppColors.primary,
+                        ),
               ClipOval(
-                child: Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                      'تعديل الحساب',
-                      style: TextStyle(
-                        fontSize: adjustValue(context, 30.0),
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        fontWeight: FontWeight.w100,
-                        decoration: TextDecoration.none,
-                      )
-                  ),
-                  color: AppColors.primary,
-                  width: double.infinity,
-                  height: adjustHeightValue(context, 110),
-                ),
-              ),
+                          child: Container(
+                            alignment: Alignment.center,
+                            child: Text(
+                                'تعديل الحساب',
+                                style: TextStyle(
+                                  fontSize: adjustValue(context, 30.0),
+                                  fontFamily: 'Cairo',
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w100,
+                                  decoration: TextDecoration.none,
+                                )
+                            ),
+                            color: AppColors.primary,
+                            width: double.infinity,
+                            height: adjustHeightValue(context, 110),
+                          ),
+                        ),
               GestureDetector(
                 child: Padding(
                   padding: EdgeInsets.only(top:adjustValue(context, 110.0),
@@ -283,10 +257,10 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                       decoration: BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.primaryLight.withOpacity(adjustValue(context, 0.2)),
-                            spreadRadius: adjustValue(context, 3),
-                            blurRadius: adjustValue(context, 4),
-                            offset: Offset(adjustValue(context, 0), adjustValue(context, 4)), // changes position of shadow
+                            color: AppColors.primaryLight.withOpacity(0.2),
+                            spreadRadius: 3,
+                            blurRadius: 5,
+                            offset: Offset(0, 4), // changes position of shadow
                           ),
                         ],
                       ),
@@ -298,11 +272,11 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                   ),
                 ),
                 onTap: (){
-                  Navigator.push(
-                    context,
-                    InOutPageRoute(const ChildrenProfiles(), Alignment.topRight),
-                  );
-                },
+                  Navigator.pop(
+                                context,
+                                false
+                            );
+                  },
               ),
             ],
           ),

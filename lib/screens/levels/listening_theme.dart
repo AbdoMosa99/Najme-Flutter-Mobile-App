@@ -30,9 +30,9 @@ class _ListeningThemeState extends State<ListeningTheme> {
         context:context,
         gameName:'المستوى 66',
         backButtonFunction: () {
-          Navigator.push(
-            context,
-            LeftRightPageRoute(const LessonsScreen(), -1, 0),
+          Navigator.pop(
+              context,
+              false
           );
         },
       ),

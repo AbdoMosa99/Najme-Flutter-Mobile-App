@@ -94,9 +94,8 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
                 color: AppColors.primary,
               ),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  LeftRightPageRoute(RegistrationLevel(registrationDate: widget.registrationData,), -1, 0),
+                Navigator.pop(
+                    context,false
                 );
               },
             ),

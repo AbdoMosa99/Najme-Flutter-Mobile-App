@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
+import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
@@ -64,682 +66,685 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> {
         MainContainer(
           child: Padding(
             padding: EdgeInsets.only(top: adjustHeightValue(context, 110.0)),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children:[
-                Expanded(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                            'الأسم:',
-                          style: TextStyle(
-                            fontSize: adjustValue(context, 20.0),
-                            fontFamily: 'Cairo',
-                            color: AppColors.primaryDark,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: 50,
-                            child: TextFormField(
-                              style: TextStyle(
-                                fontFamily: 'Cairo',
-                                fontSize: adjustValue(context, 17.0),
-                                color: AppColors.primaryDark,
-                              ),
-                              cursorColor: AppColors.primary,
-                              decoration: InputDecoration(
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  borderSide: BorderSide(
-                                    color: AppColors.secondaryLight,
-                                    width: adjustValue(context, 2),
-                                  ),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                  borderSide: const BorderSide(
-                                    color: AppColors.primaryLight,
-                                  ),
-                                ),
-                                labelText: 'الأسم',
-                                contentPadding: EdgeInsets.symmetric(vertical: adjustHeightValue(context, 5.0), horizontal: adjustWidthValue(context, 15.0)),
-                                fillColor: AppColors.surface,
-                                filled: true,
-                                labelStyle: TextStyle(
-                                  fontFamily: 'Cairo',
-                                  fontSize: adjustValue(context, 15.0),
-                                  color: AppColors.primary,
-                                ),
-                              ),
-                        ),
-                          ),
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        'النوع:',
-                        style: TextStyle(
-                          fontSize: adjustValue(context, 20.0),
-                          fontFamily: 'Cairo',
-                          color: AppColors.primaryDark,
-                          fontWeight: FontWeight.w900,
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: ListTile(
-                              contentPadding: EdgeInsets.only(left: adjustValue(context, 18.0)),
-                              title: Text(
-                                'ولد',
-                                style: TextStyle(
-                                  fontSize: adjustValue(context, 20.0),
-                                  fontFamily: 'Cairo',
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.primaryDark,
-                                ),
-                              ),
-                              leading: Transform.scale(
-                                scale: 1.2,
-                                child: Radio<SingingCharacter>(
-                                  activeColor: AppColors.secondary,
-                                  value: SingingCharacter.lafayette,
-                                  groupValue: _character,
-                                  onChanged: (SingingCharacter? value) {
-                                    setState(() {
-                                      _character = value;
-                                    });
-                                  },
-                                ),
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                              child: ListTile(
-                                contentPadding: EdgeInsets.only(left: adjustValue(context, 15.0)),
-                                title: Text(
-                                'بنت',
-                                style: TextStyle(
-                                  fontSize: adjustValue(context, 20.0),
-                                  fontFamily: 'Cairo',
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.primaryDark,
-                                ),
-                              ),
-                                leading: Transform.scale(
-                                  scale: 1.2,
-                                  child: Radio<SingingCharacter>(
-                                  activeColor: AppColors.secondary,
-                                  value: SingingCharacter.jefferson,
-                                  groupValue: _character,
-                                  onChanged: (SingingCharacter? value) {
-                                    setState(() {
-                                      _character = value;
-                                    });
-                                  },
-                              ),
-                                ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          'تاريخ الميلاد',
-                          style: TextStyle(
-                            fontSize: adjustValue(context, 20.0),
-                            fontFamily: 'Cairo',
-                            color: AppColors.primaryDark,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
+            child: Center(
+              child: CustomScrollView(
+                scrollDirection: Axis.vertical,
+                slivers: [
+                  SliverFillRemaining(
+                    hasScrollBody: false,
+                    child: Column(
+                      children:[
+                        Row(
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 0),
-                              child: Expanded(
-                                child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 10.0),)),
-                                      color: AppColors.surface,
-                                      border: Border.all(
-                                        color: AppColors.primaryLight,
-                                      ),
-                                    ),
-                                    child: Directionality(
-                                      textDirection: TextDirection.ltr,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(
-                                          left: adjustValue(context, 4),
-                                          top: adjustValue(context, 3),
-                                          bottom: adjustValue(context, 3) ,
-                                        ),
-                                        child: PopupMenuButton<int>(
-                                          shape: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(18),
-                                              borderSide: const BorderSide(
-                                                  color: AppColors.secondaryLight,
-                                                  width: 1
-                                              )
-                                          ),
-                                          color: AppColors.surface,
-                                          itemBuilder: (context) {
-                                            return dayList.map((num) => PopupMenuItem(
-                                              value: num,
-                                              child: Center(
-                                                child: Text(
-                                                    '$num',
-                                                    style: TextStyle(
-                                                      fontSize: adjustValue(context, 20.0),
-                                                      fontFamily: 'Cairo',
-                                                      color: AppColors.primary,
-                                                    )
-                                                ),
-                                              ),
-                                            )).toList();
-                                          },
-                                          child: Row(
-                                            // mainAxisSize: MainAxisSize.max,
-                                            children: <Widget>[
-                                              Text(
-                                                  '$_dayCurrentItemSelected',
-                                                  style: TextStyle(
-                                                    fontSize: adjustValue(context, 15.0),
-                                                    fontFamily: 'Cairo',
-                                                    color: AppColors.primaryDark,
-                                                  )),
-                                              Icon(Icons.arrow_drop_down_outlined,
-                                                size: adjustValue(context, 20),
-                                                color: AppColors.secondary,)
-                                            ],
-                                          ),
-                                          onSelected: (v) {
-                                            setState(() {
-                                              print('!!!===== $v');
-                                              _dayCurrentItemSelected = v;
-                                            });
-                                          },),
-                                      ),
-                                    )),
+                            Expanded(
+                              child: Text(
+                                'النوع:',
+                                style: TextStyle(
+                                  fontSize: adjustValue(context, 20.0),
+                                  fontFamily: 'Cairo',
+                                  color: AppColors.primaryDark,
+                                  fontWeight: FontWeight.w900,
+                                ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 0.0),
-                              child: Expanded(
-                                child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 10.0),)),
-                                      color: AppColors.surface,
-                                      border: Border.all(
-                                        color: AppColors.primaryLight,
+                            Expanded(
+                              flex: 2,
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: ListTile(
+                                      contentPadding: EdgeInsets.only(left: adjustValue(context, 18.0)),
+                                      title: Text(
+                                        'ولد',
+                                        style: TextStyle(
+                                          fontSize: adjustValue(context, 22.0),
+                                          fontFamily: 'Cairo',
+                                          fontWeight: FontWeight.bold,
+                                          color: AppColors.primaryDark,
+                                        ),
+                                      ),
+                                      leading: Transform.scale(
+                                        scale: 1.2,
+                                        child: Radio<SingingCharacter>(
+                                          activeColor: AppColors.secondary,
+                                          value: SingingCharacter.lafayette,
+                                          groupValue: _character,
+                                          onChanged: (SingingCharacter? value) {
+                                            setState(() {
+                                              _character = value;
+                                            });
+                                          },
+                                        ),
                                       ),
                                     ),
-                                    child: Directionality(
-                                      textDirection: TextDirection.ltr,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(
-                                          left: adjustValue(context, 4),
-                                          top: adjustValue(context, 3),
-                                          bottom: adjustValue(context, 3) ,
+                                  ),
+                                  Expanded(
+                                    child: ListTile(
+                                      contentPadding: EdgeInsets.only(left: adjustValue(context, 15.0)),
+                                      title: Text(
+                                        'بنت',
+                                        style: TextStyle(
+                                          fontSize: adjustValue(context, 22.0),
+                                          fontFamily: 'Cairo',
+                                          fontWeight: FontWeight.bold,
+                                          color: AppColors.primaryDark,
                                         ),
-                                        child: PopupMenuButton<String>(
-                                          shape: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(18),
-                                              borderSide: const BorderSide(
-                                                  color: AppColors.secondaryLight,
-                                                  width: 1
-                                              )
-                                          ),
-                                          color: AppColors.surface,
-                                          itemBuilder: (context) {
-                                            return monthList.map((str) => PopupMenuItem(
-                                              value: str,
-                                              child: Center(
-                                                child: Text(
-                                                    str,
-                                                    style: TextStyle(
-                                                      fontSize: adjustValue(context, 20.0),
-                                                      fontFamily: 'Cairo',
-                                                      color: AppColors.primary,
-                                                    )
-                                                ),
-                                              ),
-                                            )).toList();
-                                          },
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: <Widget>[
-                                              Text(
-                                                  _monthCurrentItemSelected,
-                                                  style: TextStyle(
-                                                    fontSize: adjustValue(context, 14.0),
-                                                    fontFamily: 'Cairo',
-                                                    color: AppColors.primaryDark,
-                                                  )
-                                              ),
-                                              Icon(Icons.arrow_drop_down_outlined,
-                                                size: adjustValue(context, 20),
-                                                color: AppColors.secondary,),
-                                            ],
-                                          ),
-                                          onSelected: (v) {
-                                            setState(() {
-                                              print('!!!===== $v');
-                                              _monthCurrentItemSelected = v;
-                                            });
-                                          },),
                                       ),
-                                    )),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(right: 0),
-                              child: Expanded(
-                                child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 10.0),)),
-                                      color: AppColors.surface,
-                                      border: Border.all(
-                                        color: AppColors.primaryLight,
+                                      leading: Transform.scale(
+                                        scale: 1.2,
+                                        child: Radio<SingingCharacter>(
+                                          activeColor: AppColors.secondary,
+                                          value: SingingCharacter.jefferson,
+                                          groupValue: _character,
+                                          onChanged: (SingingCharacter? value) {
+                                            setState(() {
+                                              _character = value;
+                                            });
+                                          },
+                                        ),
                                       ),
                                     ),
-                                    child: Directionality(
-                                      textDirection: TextDirection.ltr,
-                                      child: Padding(
-                                        padding: EdgeInsets.only(
-                                          left: adjustValue(context, 4),
-                                          top: adjustValue(context, 3),
-                                          bottom: adjustValue(context, 3) ,
-                                        ),
-                                        child: PopupMenuButton<int>(
-                                          shape: OutlineInputBorder(
-                                            borderRadius: BorderRadius.circular(18),
-                                              borderSide: const BorderSide(
-                                                  color: AppColors.secondaryLight,
-                                                  width: 1
-                                              )
-                                          ),
-                                          color: AppColors.surface,
-                                          itemBuilder: (context) {
-                                            return yearList.map((num) => PopupMenuItem(
-                                              value: num,
-                                              child: Center(
-                                                child: Text(
-                                                    '$num',
-                                                    style: TextStyle(
-                                                      fontSize: adjustValue(context, 20.0),
-                                                      fontFamily: 'Cairo',
-                                                      color: AppColors.primary,
-                                                    )),
-                                              ),
-                                            )).toList();
-                                          },
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: <Widget>[
-                                              Text(
-                                                  '$_yearCurrentItemSelected',
-                                                  style: TextStyle(
-                                                    fontSize: adjustValue(context, 15.0),
-                                                    fontFamily: 'Cairo',
-                                                    color: AppColors.primaryDark,
-                                                  )
-                                              ),
-                                              Icon(Icons.arrow_drop_down_outlined,
-                                                size: adjustValue(context, 20),
-                                                color: AppColors.secondary,),
-                                            ],
-                                          ),
-                                          onSelected: (v) {
-                                            setState(() {
-                                              print('!!!===== $v');
-                                              _yearCurrentItemSelected = v;
-                                            });
-                                          },),
-                                      ),
-                                    )),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
-                      )
-                    ]
-                  ),
-                ),
-                Expanded(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          'المرحلة:',
-                          style: TextStyle(
-                            fontSize: adjustValue(context, 20.0),
-                            fontFamily: 'Cairo',
-                            color: AppColors.primaryDark,
-                            fontWeight: FontWeight.w900,
-                          ),
+                        SizedBox(
+                          height: adjustHeightValue(context, 25),
                         ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                          height: adjustHeightValue(context, 45),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 15.0),)),
-                              color: AppColors.surface,
-                              border: Border.all(
-                                color: AppColors.primaryLight,
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'الأسم:',
+                                style: TextStyle(
+                                  fontSize: adjustValue(context, 20.0),
+                                  fontFamily: 'Cairo',
+                                  color: AppColors.primaryDark,
+                                  fontWeight: FontWeight.w900,
+                                ),
                               ),
                             ),
-                            child: Directionality(
-                              textDirection: TextDirection.ltr,
-                              child: PopupMenuButton<String>(
-                                shape: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                    borderSide: const BorderSide(
+                            Expanded(
+                              flex: 2,
+                              child: Container(
+                                alignment: Alignment.center,
+                                height: 50,
+                                child: TextFormField(
+                                  style: TextStyle(
+                                    fontFamily: 'Cairo',
+                                    fontSize: adjustValue(context, 17.0),
+                                    color: AppColors.primaryDark,
+                                  ),
+                                  cursorColor: AppColors.primary,
+                                  decoration: InputDecoration(
+                                    focusedBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                      borderSide: BorderSide(
                                         color: AppColors.secondaryLight,
-                                        width: 1
-                                    )
-                                ),
-                                color: AppColors.surface,
-                                itemBuilder: (context) {
-                                  return levelList.map((str) => PopupMenuItem(
-                                    value: str,
-                                    child: Center(
-                                      child: Text(
-                                          str,
-                                          style: TextStyle(
-                                            fontSize: adjustValue(context, 18.0),
-                                            fontFamily: 'Cairo',
-                                            color: AppColors.primary,
-                                          )
+                                        width: adjustValue(context, 2),
                                       ),
                                     ),
-                                  )).toList();
-                                },
-                                child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      flex: 6,
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                              _levelCurrentItemSelected,
-                                              style: TextStyle(
-                                                fontSize: adjustValue(context, 18.0),
-                                                fontFamily: 'Cairo',
-                                                color: AppColors.primaryDark,
-                                              )),
-                                        ],
+                                    enabledBorder: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                      borderSide: const BorderSide(
+                                        color: AppColors.primaryLight,
                                       ),
                                     ),
-                                    Expanded(
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.arrow_drop_down_outlined,
-                                            size: adjustValue(context, 30),
-                                            color: AppColors.secondary,),
-                                        ],
-                                      ),
-                                    )
-                                  ],
+                                    labelText: 'الأسم',
+                                    contentPadding: EdgeInsets.symmetric(vertical: adjustHeightValue(context, 5.0), horizontal: adjustWidthValue(context, 15.0)),
+                                    fillColor: AppColors.surface,
+                                    filled: true,
+                                    labelStyle: TextStyle(
+                                      fontFamily: 'Cairo',
+                                      fontSize: adjustValue(context, 15.0),
+                                      color: AppColors.primary,
+                                    ),
+                                  ),
                                 ),
-                                onSelected: (v) {
-                                  setState(() {
-                                    print('!!!===== $v');
-                                    _levelCurrentItemSelected = v;
-                                  });
-                                },),
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          'المحافظة:',
-                          style: TextStyle(
-                            fontSize: adjustValue(context, 20.0),
-                            fontFamily: 'Cairo',
-                            color: AppColors.primaryDark,
-                            fontWeight: FontWeight.w900,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                            height: adjustHeightValue(context, 45),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 15.0),)),
-                              color: AppColors.surface,
-                              border: Border.all(
-                                color: AppColors.primaryLight,
                               ),
                             ),
-                            child: Directionality(
-                              textDirection: TextDirection.ltr,
-                              child: PopupMenuButton<String>(
-                                shape: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                    borderSide: const BorderSide(
-                                        color: AppColors.secondaryLight,
-                                        width: 1
-                                    )
+                          ],
+                        ),
+                        SizedBox(
+                          height: adjustHeightValue(context, 25),
+                        ),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  'تاريخ الميلاد',
+                                  style: TextStyle(
+                                    fontSize: adjustValue(context, 20.0),
+                                    fontFamily: 'Cairo',
+                                    color: AppColors.primaryDark,
+                                    fontWeight: FontWeight.w800,
+                                  ),
                                 ),
-                                color: AppColors.surface,
-                                itemBuilder: (context) {
-                                  return countryList.map((str) => PopupMenuItem(
-                                    value: str,
-                                    child: Center(
-                                      child: Text(
-                                          str,
-                                          style: TextStyle(
-                                            fontSize: adjustValue(context, 18.0),
-                                            fontFamily: 'Cairo',
-                                            color: AppColors.primary,
-                                          )
-                                      ),
-                                    ),
-                                  )).toList();
-                                },
+                              ),
+                              Expanded(
+                                flex: 2,
                                 child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      flex: 6,
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                              _countryCurrentItemSelected,
-                                              style: TextStyle(
-                                                fontSize: adjustValue(context, 18.0),
-                                                fontFamily: 'Cairo',
-                                                color: AppColors.primaryDark,
-                                              )),
-                                        ],
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 0),
+                                      child: Expanded(
+                                        child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 10.0),)),
+                                              color: AppColors.surface,
+                                              border: Border.all(
+                                                color: AppColors.primaryLight,
+                                              ),
+                                            ),
+                                            child: Directionality(
+                                              textDirection: TextDirection.ltr,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                  left: adjustValue(context, 4),
+                                                  top: adjustValue(context, 3),
+                                                  bottom: adjustValue(context, 3) ,
+                                                ),
+                                                child: PopupMenuButton<int>(
+                                                  shape: OutlineInputBorder(
+                                                      borderRadius: BorderRadius.circular(18),
+                                                      borderSide: const BorderSide(
+                                                          color: AppColors.secondaryLight,
+                                                          width: 1
+                                                      )
+                                                  ),
+                                                  color: AppColors.surface,
+                                                  itemBuilder: (context) {
+                                                    return dayList.map((num) => PopupMenuItem(
+                                                      value: num,
+                                                      child: Center(
+                                                        child: Text(
+                                                            '$num',
+                                                            style: TextStyle(
+                                                              fontSize: adjustValue(context, 20.0),
+                                                              fontFamily: 'Cairo',
+                                                              color: AppColors.primary,
+                                                            )
+                                                        ),
+                                                      ),
+                                                    )).toList();
+                                                  },
+                                                  child: Row(
+                                                    children: <Widget>[
+                                                      Text(
+                                                          '$_dayCurrentItemSelected',
+                                                          style: TextStyle(
+                                                            fontSize: adjustValue(context, 18.0),
+                                                            fontFamily: 'Cairo',
+                                                            color: AppColors.primaryDark,
+                                                          )),
+                                                      Icon(Icons.arrow_drop_down_outlined,
+                                                        size: adjustValue(context, 20),
+                                                        color: AppColors.secondary,)
+                                                    ],
+                                                  ),
+                                                  onSelected: (v) {
+                                                    setState(() {
+                                                      print('!!!===== $v');
+                                                      _dayCurrentItemSelected = v;
+                                                    });
+                                                  },),
+                                              ),
+                                            )),
                                       ),
                                     ),
-                                    Expanded(
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.arrow_drop_down_outlined,
-                                            size: adjustValue(context, 30),
-                                            color: AppColors.secondary,),
-                                        ],
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 0.0),
+                                      child: Expanded(
+                                        child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 10.0),)),
+                                              color: AppColors.surface,
+                                              border: Border.all(
+                                                color: AppColors.primaryLight,
+                                              ),
+                                            ),
+                                            child: Directionality(
+                                              textDirection: TextDirection.ltr,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                  left: adjustValue(context, 4),
+                                                  top: adjustValue(context, 3),
+                                                  bottom: adjustValue(context, 3) ,
+                                                ),
+                                                child: PopupMenuButton<String>(
+                                                  shape: OutlineInputBorder(
+                                                      borderRadius: BorderRadius.circular(18),
+                                                      borderSide: const BorderSide(
+                                                          color: AppColors.secondaryLight,
+                                                          width: 1
+                                                      )
+                                                  ),
+                                                  color: AppColors.surface,
+                                                  itemBuilder: (context) {
+                                                    return monthList.map((str) => PopupMenuItem(
+                                                      value: str,
+                                                      child: Center(
+                                                        child: Text(
+                                                            str,
+                                                            style: TextStyle(
+                                                              fontSize: adjustValue(context, 20.0),
+                                                              fontFamily: 'Cairo',
+                                                              color: AppColors.primary,
+                                                            )
+                                                        ),
+                                                      ),
+                                                    )).toList();
+                                                  },
+                                                  child: Row(
+                                                    mainAxisSize: MainAxisSize.min,
+                                                    children: <Widget>[
+                                                      Text(
+                                                          _monthCurrentItemSelected,
+                                                          style: TextStyle(
+                                                            fontSize: adjustValue(context, 18.0),
+                                                            fontFamily: 'Cairo',
+                                                            color: AppColors.primaryDark,
+                                                          )
+                                                      ),
+                                                      Icon(Icons.arrow_drop_down_outlined,
+                                                        size: adjustValue(context, 20),
+                                                        color: AppColors.secondary,),
+                                                    ],
+                                                  ),
+                                                  onSelected: (v) {
+                                                    setState(() {
+                                                      print('!!!===== $v');
+                                                      _monthCurrentItemSelected = v;
+                                                    });
+                                                  },),
+                                              ),
+                                            )),
                                       ),
-                                    )
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 0),
+                                      child: Expanded(
+                                        child: Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 10.0),)),
+                                              color: AppColors.surface,
+                                              border: Border.all(
+                                                color: AppColors.primaryLight,
+                                              ),
+                                            ),
+                                            child: Directionality(
+                                              textDirection: TextDirection.ltr,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                  left: adjustValue(context, 4),
+                                                  top: adjustValue(context, 3),
+                                                  bottom: adjustValue(context, 3) ,
+                                                ),
+                                                child: PopupMenuButton<int>(
+                                                  shape: OutlineInputBorder(
+                                                      borderRadius: BorderRadius.circular(18),
+                                                      borderSide: const BorderSide(
+                                                          color: AppColors.secondaryLight,
+                                                          width: 1
+                                                      )
+                                                  ),
+                                                  color: AppColors.surface,
+                                                  itemBuilder: (context) {
+                                                    return yearList.map((num) => PopupMenuItem(
+                                                      value: num,
+                                                      child: Center(
+                                                        child: Text(
+                                                            '$num',
+                                                            style: TextStyle(
+                                                              fontSize: adjustValue(context, 20.0),
+                                                              fontFamily: 'Cairo',
+                                                              color: AppColors.primary,
+                                                            )),
+                                                      ),
+                                                    )).toList();
+                                                  },
+                                                  child: Row(
+                                                    mainAxisSize: MainAxisSize.min,
+                                                    children: <Widget>[
+                                                      Text(
+                                                          '$_yearCurrentItemSelected',
+                                                          style: TextStyle(
+                                                            fontSize: adjustValue(context, 18.0),
+                                                            fontFamily: 'Cairo',
+                                                            color: AppColors.primaryDark,
+                                                          )
+                                                      ),
+                                                      Icon(Icons.arrow_drop_down_outlined,
+                                                        size: adjustValue(context, 20),
+                                                        color: AppColors.secondary,),
+                                                    ],
+                                                  ),
+                                                  onSelected: (v) {
+                                                    setState(() {
+                                                      print('!!!===== $v');
+                                                      _yearCurrentItemSelected = v;
+                                                    });
+                                                  },),
+                                              ),
+                                            )),
+                                      ),
+                                    ),
                                   ],
                                 ),
-                                onSelected: (v) {
-                                  setState(() {
-                                    print('!!!===== $v');
-                                    _countryCurrentItemSelected = v;
-                                  });
-                                },),
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Text(
-                          'الطموح:',
-                          style: TextStyle(
-                            fontSize: adjustValue(context, 20.0),
-                            fontFamily: 'Cairo',
-                            color: AppColors.primaryDark,
-                            fontWeight: FontWeight.w900,
-                          ),
+                              )
+                            ]
                         ),
-                      ),
-                      Expanded(
-                        flex: 2,
-                        child: Container(
-                            height: adjustHeightValue(context, 45),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 15.0),)),
-                              color: AppColors.surface,
-                              border: Border.all(
-                                color: AppColors.primaryLight,
+                        SizedBox(
+                          height: adjustHeightValue(context, 25),
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'المرحلة:',
+                                style: TextStyle(
+                                  fontSize: adjustValue(context, 20.0),
+                                  fontFamily: 'Cairo',
+                                  color: AppColors.primaryDark,
+                                  fontWeight: FontWeight.w900,
+                                ),
                               ),
                             ),
-                            child: Directionality(
-                              textDirection: TextDirection.ltr,
-                              child: PopupMenuButton<String>(
-                                shape: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(18),
-                                    borderSide: const BorderSide(
-                                        color: AppColors.secondaryLight,
-                                        width: 1
-                                    )
-                                ),
-                                color: AppColors.surface,
-                                itemBuilder: (context) {
-                                  return futureList.map((str) => PopupMenuItem(
-                                    value: str,
-                                    child: Center(
-                                      child: Text(
-                                          str,
-                                          style: TextStyle(
-                                            fontSize: adjustValue(context, 18.0),
-                                            fontFamily: 'Cairo',
-                                            color: AppColors.primary,
+                            Expanded(
+                              flex: 2,
+                              child: Container(
+                                  height: adjustHeightValue(context, 45),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 15.0),)),
+                                    color: AppColors.surface,
+                                    border: Border.all(
+                                      color: AppColors.primaryLight,
+                                    ),
+                                  ),
+                                  child: Directionality(
+                                    textDirection: TextDirection.ltr,
+                                    child: PopupMenuButton<String>(
+                                      shape: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(18),
+                                          borderSide: const BorderSide(
+                                              color: AppColors.secondaryLight,
+                                              width: 1
                                           )
                                       ),
-                                    ),
-                                  )).toList();
-                                },
-                                child: Row(
-                                  children: <Widget>[
-                                    Expanded(
-                                      flex: 6,
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Text(
-                                              _futureCurrentItemSelected,
-                                              style: TextStyle(
-                                                fontSize: adjustValue(context, 18.0),
-                                                fontFamily: 'Cairo',
-                                                color: AppColors.primaryDark,
-                                              )),
+                                      color: AppColors.surface,
+                                      itemBuilder: (context) {
+                                        return levelList.map((str) => PopupMenuItem(
+                                          value: str,
+                                          child: Center(
+                                            child: Text(
+                                                str,
+                                                style: TextStyle(
+                                                  fontSize: adjustValue(context, 18.0),
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors.primary,
+                                                )
+                                            ),
+                                          ),
+                                        )).toList();
+                                      },
+                                      child: Row(
+                                        children: <Widget>[
+                                          Expanded(
+                                            flex: 6,
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                    _levelCurrentItemSelected,
+                                                    style: TextStyle(
+                                                      fontSize: adjustValue(context, 18.0),
+                                                      fontFamily: 'Cairo',
+                                                      color: AppColors.primaryDark,
+                                                    )),
+                                              ],
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Icon(Icons.arrow_drop_down_outlined,
+                                                  size: adjustValue(context, 30),
+                                                  color: AppColors.secondary,),
+                                              ],
+                                            ),
+                                          )
                                         ],
                                       ),
-                                    ),
-                                    Expanded(
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.arrow_drop_down_outlined,
-                                            size: adjustValue(context, 30),
-                                            color: AppColors.secondary,),
-                                        ],
-                                      ),
-                                    )
-                                  ],
+                                      onSelected: (v) {
+                                        setState(() {
+                                          print('!!!===== $v');
+                                          _levelCurrentItemSelected = v;
+                                        });
+                                      },),
+                                  )),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: adjustHeightValue(context, 25),
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'المحافظة:',
+                                style: TextStyle(
+                                  fontSize: adjustValue(context, 20.0),
+                                  fontFamily: 'Cairo',
+                                  color: AppColors.primaryDark,
+                                  fontWeight: FontWeight.w900,
                                 ),
-                                onSelected: (v) {
-                                  setState(() {
-                                    print('!!!===== $v');
-                                    _futureCurrentItemSelected = v;
-                                  });
-                                },),
-                            )),
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: adjustHeightValue(context, 45),
-                  child: MaterialButton(
-                    color: AppColors.primary,
-                    minWidth: double.infinity,
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                      BorderRadius.circular(adjustValue(context, 15.0)),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: Container(
+                                  height: adjustHeightValue(context, 45),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 15.0),)),
+                                    color: AppColors.surface,
+                                    border: Border.all(
+                                      color: AppColors.primaryLight,
+                                    ),
+                                  ),
+                                  child: Directionality(
+                                    textDirection: TextDirection.ltr,
+                                    child: PopupMenuButton<String>(
+                                      shape: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(18),
+                                          borderSide: const BorderSide(
+                                              color: AppColors.secondaryLight,
+                                              width: 1
+                                          )
+                                      ),
+                                      color: AppColors.surface,
+                                      itemBuilder: (context) {
+                                        return countryList.map((str) => PopupMenuItem(
+                                          value: str,
+                                          child: Center(
+                                            child: Text(
+                                                str,
+                                                style: TextStyle(
+                                                  fontSize: adjustValue(context, 18.0),
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors.primary,
+                                                )
+                                            ),
+                                          ),
+                                        )).toList();
+                                      },
+                                      child: Row(
+                                        children: <Widget>[
+                                          Expanded(
+                                            flex: 6,
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                    _countryCurrentItemSelected,
+                                                    style: TextStyle(
+                                                      fontSize: adjustValue(context, 18.0),
+                                                      fontFamily: 'Cairo',
+                                                      color: AppColors.primaryDark,
+                                                    )),
+                                              ],
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Icon(Icons.arrow_drop_down_outlined,
+                                                  size: adjustValue(context, 30),
+                                                  color: AppColors.secondary,),
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      onSelected: (v) {
+                                        setState(() {
+                                          print('!!!===== $v');
+                                          _countryCurrentItemSelected = v;
+                                        });
+                                      },),
+                                  )),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: adjustHeightValue(context, 25),
+                        ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Text(
+                                'الطموح:',
+                                style: TextStyle(
+                                  fontSize: adjustValue(context, 20.0),
+                                  fontFamily: 'Cairo',
+                                  color: AppColors.primaryDark,
+                                  fontWeight: FontWeight.w900,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 2,
+                              child: Container(
+                                  height: adjustHeightValue(context, 45),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.all(Radius.circular(adjustValue(context, 15.0),)),
+                                    color: AppColors.surface,
+                                    border: Border.all(
+                                      color: AppColors.primaryLight,
+                                    ),
+                                  ),
+                                  child: Directionality(
+                                    textDirection: TextDirection.ltr,
+                                    child: PopupMenuButton<String>(
+                                      shape: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(18),
+                                          borderSide: const BorderSide(
+                                              color: AppColors.secondaryLight,
+                                              width: 1
+                                          )
+                                      ),
+                                      color: AppColors.surface,
+                                      itemBuilder: (context) {
+                                        return futureList.map((str) => PopupMenuItem(
+                                          value: str,
+                                          child: Center(
+                                            child: Text(
+                                                str,
+                                                style: TextStyle(
+                                                  fontSize: adjustValue(context, 18.0),
+                                                  fontFamily: 'Cairo',
+                                                  color: AppColors.primary,
+                                                )
+                                            ),
+                                          ),
+                                        )).toList();
+                                      },
+                                      child: Row(
+                                        children: <Widget>[
+                                          Expanded(
+                                            flex: 6,
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                    _futureCurrentItemSelected,
+                                                    style: TextStyle(
+                                                      fontSize: adjustValue(context, 18.0),
+                                                      fontFamily: 'Cairo',
+                                                      color: AppColors.primaryDark,
+                                                    )),
+                                              ],
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              crossAxisAlignment: CrossAxisAlignment.center,
+                                              children: [
+                                                Icon(Icons.arrow_drop_down_outlined,
+                                                  size: adjustValue(context, 30),
+                                                  color: AppColors.secondary,),
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                      onSelected: (v) {
+                                        setState(() {
+                                          print('!!!===== $v');
+                                          _futureCurrentItemSelected = v;
+                                        });
+                                      },),
+                                  )),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: adjustHeightValue(context, 35),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          height: adjustHeightValue(context, 50.0),
+                          child: MainButton(
+                            context: context,
+                            text: 'حفظ التعديلات',
+                            color: AppColors.primary,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                InOutPageRoute(const PersonalProfile(), Alignment.bottomCenter),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                    child: Text(
-                      'حفظ التعديلات',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: 'Cairo',
-                        color: AppColors.surface,
-                        fontSize: adjustValue(context, 25.0),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        InOutPageRoute(const PersonalProfile(), Alignment.bottomCenter),
-                      );
-
-                    },
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
@@ -778,10 +783,10 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> {
                     decoration: BoxDecoration(
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.primaryLight.withOpacity(adjustValue(context, 0.2)),
-                          spreadRadius: adjustValue(context, 3),
-                          blurRadius: adjustValue(context, 4),
-                          offset: Offset(adjustValue(context, 0), adjustValue(context, 4)), // changes position of shadow
+                          color: AppColors.primaryLight.withOpacity(0.2),
+                          spreadRadius: 3,
+                          blurRadius: 5,
+                          offset: Offset(0, 4), // changes position of shadow
                         ),
                       ],
                     ),
@@ -793,9 +798,9 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> {
                 ),
               ),
               onTap: (){
-                Navigator.push(
-                  context,
-                  InOutPageRoute(const PersonalProfile(), Alignment.topRight),
+                Navigator.pop(
+                    context,
+                    false
                 );
               },
             ),

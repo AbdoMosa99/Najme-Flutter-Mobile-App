@@ -76,13 +76,8 @@ class RegistrationName extends StatelessWidget {
                 color: AppColors.primary,
               ),
               onPressed: (){
-                Navigator.push(
-                  context,
-                  LeftRightPageRoute(
-                    RegistrationPassword(registrationData: registrationData), 
-                    -1, 
-                    0,
-                  ),
+                Navigator.pop(
+                    context,false
                 );
               },
             ),

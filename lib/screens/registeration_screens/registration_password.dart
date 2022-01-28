@@ -134,9 +134,8 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
                     color: AppColors.primary,
                   ),
                   onPressed: (){
-                    Navigator.push(
-                      context,
-                      LeftRightPageRoute(RegisterationEmail(), -1, 0),
+                    Navigator.pop(
+                        context,false
                     );
                   },
                 ),
