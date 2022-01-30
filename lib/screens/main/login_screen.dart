@@ -48,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: adjustHeightValue(context, 220),
                 ),
                 SizedBox(
-                  height: adjustHeightValue(context, 10.0),
+                  height: adjustHeightValue(context, 25.0),
                 ),
                 FormTextBox(
                   context: context,
@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
                 ),
                 SizedBox(
-                  height: adjustHeightValue(context, 10.0),
+                  height: adjustHeightValue(context, 15.0),
                 ),
                 FormTextBox(
                   context: context,
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                 ),
                 SizedBox(
-                  height: adjustHeightValue(context, 20.0),
+                  height: adjustHeightValue(context, 35.0),
                 ),
                 Container(
                   width: double.infinity,
