@@ -7,8 +7,8 @@ import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/primary_screens/home_screen.dart';
-import 'package:najme/screens/primary_screens/personal_profile_updates.dart';
+import 'package:najme/screens/main/home_screen.dart';
+import 'package:najme/screens/drawer/personal_profile_updates.dart';
 import '../../utility.dart';
 
 class PersonalProfile extends StatelessWidget {
@@ -259,22 +259,19 @@ class PersonalProfile extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.all(adjustValue(context, 10)),
-            child: Container(
-              width: double.infinity,
-              height: adjustHeightValue(context, 50.0),
-              child: MainButton(
-                context: context,
-                text: 'تعديل الملف الشخصي',
-                color: AppColors.primary,
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    InOutPageRoute(const PersonalProfileUpdates(), Alignment.bottomCenter),
-                  );
-                },
-              ),
+          Container(
+            width: double.infinity,
+            height: adjustHeightValue(context, 50.0),
+            child: MainButton(
+              context: context,
+              text: 'تعديل الملف الشخصي',
+              color: AppColors.primary,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  InOutPageRoute(const PersonalProfileUpdates(), Alignment.bottomCenter),
+                );
+              },
             ),
           ),
         ],

@@ -4,8 +4,8 @@ import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/screen_specific/registration_address/address_button.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/registeration_screens/registration_job.dart';
-import 'package:najme/screens/registeration_screens/registration_level.dart';
+import 'package:najme/screens/registeration/registration_job.dart';
+import 'package:najme/screens/registeration/registration_level.dart';
 
 import '../../utility.dart';
 

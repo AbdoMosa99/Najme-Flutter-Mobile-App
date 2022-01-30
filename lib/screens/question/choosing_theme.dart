@@ -7,7 +7,7 @@ import 'package:najme/components/themes/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/audios.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/space/lessons_screen.dart';
+import 'package:najme/screens/browsing/lessons_screen.dart';
 import 'package:najme/utility.dart';
 
 class ChoosingTheme extends StatefulWidget {

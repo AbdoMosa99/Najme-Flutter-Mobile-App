@@ -3,7 +3,7 @@ import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/game_app_bar.dart';
 import 'package:najme/components/themes/main_container.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:najme/screens/space/lessons_screen.dart';
+import 'package:najme/screens/browsing/lessons_screen.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/audios.dart';

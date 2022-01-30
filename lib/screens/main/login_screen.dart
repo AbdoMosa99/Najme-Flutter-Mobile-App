@@ -6,7 +6,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/forget_password/forget_password.dart';
-import 'package:najme/screens/registeration_screens/registeration_email.dart';
+import 'package:najme/screens/registeration/registeration_email.dart';
 import 'home_screen.dart';
 import 'package:najme/utility.dart';
 

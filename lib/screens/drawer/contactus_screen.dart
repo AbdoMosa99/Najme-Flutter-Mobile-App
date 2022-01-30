@@ -6,7 +6,7 @@ import 'package:najme/components/themes/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import '../../utility.dart';
-import 'home_screen.dart';
+import '../main/home_screen.dart';
 
 class ContactUsScreen extends StatelessWidget {
     const ContactUsScreen({Key? key}) : super(key: key);
@@ -148,52 +148,51 @@ class ContactUsScreen extends StatelessWidget {
             ],
         ),
       ),
-        GestureDetector(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 15.0)),
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.arrow_back_ios,
-                      color: AppColors.secondary,
-                      size: adjustValue(context, 30),
-                    ),
-                    Text(
-                        ' رجوع ',
-                        style: TextStyle(
-                          fontSize: adjustValue(context, 23),
-                          fontFamily: 'Cairo',
-                          color:AppColors.surface,
-                          decoration: TextDecoration.none,
-                        )
-                    ),
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(adjustValue(context, 22)),
-                    bottomRight: Radius.circular(adjustValue(context, 22)),
+      GestureDetector(
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: adjustValue(context, 30.0)),
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.arrow_back_ios,
+                    color: AppColors.secondary,
+                    size: adjustValue(context, 30),
                   ),
-                  color: AppColors.primary,
-                ),
-                width: adjustValue(context, 100),
-                height: adjustValue(context, 50),
-
+                  Text(
+                      'رجوع',
+                      style: TextStyle(
+                        fontSize: adjustValue(context, 23.0),
+                        fontFamily: 'Cairo',
+                        color: Colors.white,
+                        decoration: TextDecoration.none,
+                      )
+                  ),
+                ],
               ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(adjustValue(context, 22)),
+                  bottomRight: Radius.circular(adjustValue(context, 22)),
+                ),
+                color: AppColors.primary,
+              ),
+              width: adjustWidthValue(context, 100),
+              height: adjustHeightValue(context, 55),
             ),
           ),
-          onTap: (){
-            Navigator.pop(
-                context,
-                false
-            );
-          },
         ),
+        onTap: (){
+          Navigator.pop(
+              context,
+              false
+          );
+        },
+      ),
       ],
     );
   }

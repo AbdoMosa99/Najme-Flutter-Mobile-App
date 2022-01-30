@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/primary_screens/home_screen.dart';
+import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/utility.dart';
 
 class MainAppBar extends AppBar {

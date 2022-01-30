@@ -3,8 +3,8 @@ import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/screen_specific/registration_date/birth_date_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/registeration_screens/registeration_gender.dart';
-import 'package:najme/screens/registeration_screens/registration_level.dart';
+import 'package:najme/screens/registeration/registeration_gender.dart';
+import 'package:najme/screens/registeration/registration_level.dart';
 import 'package:najme/utility.dart';
 
 class RegistrationBirthDate extends StatefulWidget {
