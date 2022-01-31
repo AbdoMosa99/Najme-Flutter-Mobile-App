@@ -1,199 +1,209 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/themes/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import '../../utility.dart';
-import '../main/home_screen.dart';
 
 class ContactUsScreen extends StatelessWidget {
-    const ContactUsScreen({Key? key}) : super(key: key);
+  const ContactUsScreen({Key? key}) : super(key: key);
 
-    @override
-    Widget build(BuildContext context) {
-
-      var textController=TextEditingController();
+  @override
+  Widget build(BuildContext context) {
 
     return Stack(
-    children: [
+      children: [
         MainContainer(
-            child:Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: adjustValue(context, 50.0),
-              ),
-              Text(
-                'تواصل معنا',
-                style:TextStyle(
-                    fontSize: adjustValue(context, 40.0),
-                    fontFamily: 'Cairo',
-                    fontWeight: FontWeight.w900,
-                    color: AppColors.primary,
-                  ),
-                ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: adjustValue(context, 15)),
-                child: Align(
-                  alignment: Alignment.topLeft,
-                  child: TextFormField(
-                    controller: textController,
-                    decoration: InputDecoration(
-                       labelStyle: TextStyle(
-                        fontSize: adjustValue(context, 16.0),
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.primary,
-                       ),
-                       contentPadding: EdgeInsets.symmetric(vertical: adjustHeightValue(context, 70.0), horizontal: adjustWidthValue(context, 120.0)),
-                       border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(adjustValue(context, 10.0)),
-                          borderSide: const BorderSide(
-                          color: AppColors.primaryLight,
-                       ),
-                 ),
-                       fillColor: AppColors.surface,
-                       filled: true,
-                       labelText: 'رسالتك...',
-                   )
-                 ),
-               ),
-
-             ),
-              Container(
-                alignment: Alignment.topRight,
-                child: Padding(
-                   padding: EdgeInsets.symmetric(vertical: adjustValue(context, 15)),
-                  child:SizedBox(
-                     width: adjustHeightValue(context, 100.0),
-                     height: adjustHeightValue(context, 50.0),
-                     child: MainButton(
-                       context: context,
-                       text: 'ارسال',
-                       color: AppColors.primary,
-                       onTap: () {
-                       },
-                    ),
-                   ),
-               ),
-             ),
-              Container(
-                alignment: Alignment.topRight,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 70, 0, 0),
-                  child: Text(
-                      'أو راسلنا عبر:',
-                    style: TextStyle(
-                        fontSize: adjustValue(context, 25.0),
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.primary,
+          child:Padding(
+            padding: EdgeInsets.only(top: adjustHeightValue(context, 100.0)),
+            child: CustomScrollView(
+              scrollDirection: Axis.vertical,
+              slivers: [
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'تواصل معنا',
+                        style:TextStyle(
+                          fontSize: adjustValue(context, 40.0),
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.w900,
+                          color: AppColors.primary,
+                        ),
                       ),
-                    ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: adjustValue(context, 2.0)),
-                child: Row(
-                  children: [
-                    Stack(
-                        alignment: AlignmentDirectional.center,
+                      TextFormField(
+                        maxLines: 4,
+                        cursorColor: AppColors.primary,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: adjustHeightValue(context, 15.0),
+                              horizontal: adjustWidthValue(context, 15.0)),
+                          fillColor: AppColors.surface,
+                          filled: true,
+                          hintText: 'رسالتك ...',
+                          hintStyle: TextStyle(
+                            fontFamily: 'Cairo',
+                            fontSize: adjustValue(context, 18.0),
+                            color: AppColors.primary,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
+                            borderSide: BorderSide(
+                              color: AppColors.secondaryLight,
+                              width: adjustWidthValue(context, 2),
+                            ),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
+                            borderSide: const BorderSide(
+                              color: AppColors.primaryLight,
+                            ),
+                          ),
+                        ),
+                        style: TextStyle(
+                          fontFamily: 'Cairo',
+                          fontSize: adjustValue(context, 20.0),
+                          color: AppColors.primaryDark,
+                        ),
+                      ),
+                      Container(
+                        alignment: Alignment.topRight,
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              vertical: adjustHeightValue(context, 15)),
+                          child:SizedBox(
+                            width: adjustHeightValue(context, 100.0),
+                            height: adjustHeightValue(context, 50.0),
+                            child: MainButton(
+                              context: context,
+                              text: 'إرسال',
+                              color: AppColors.primary,
+                              onTap: () {},
+                            ),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topRight,
+                        child: Text(
+                          'أو راسلنا عبر:',
+                          style: TextStyle(
+                            fontSize: adjustValue(context, 25.0),
+                            fontFamily: 'Cairo',
+                            fontWeight: FontWeight.w600,
+                            color: AppColors.primary,
+                          ),
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                              width: adjustValue(context, 65),
-                              height: adjustValue(context, 65),
-                              decoration: BoxDecoration(
-                                  color: AppColors.primaryLight,
-                                  shape: BoxShape.circle,
-                                  border: Border.all(color: AppColors.secondary,),
-                                      ),
-                                    ),
-                          Column(
+                          InkWell(
+                            child: Stack(
+                              alignment: AlignmentDirectional.center,
                               children: [
-                                SvgPicture.asset(
+                                Container(
+                                  width: adjustValue(context, 65),
+                                  height: adjustValue(context, 65),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.primaryLight,
+                                    shape: BoxShape.circle,
+                                    border: Border.all(color: AppColors.secondary,),
+                                  ),
+                                ),
+                                Column(
+                                  children: [
+                                    SvgPicture.asset(
                                       Assets.gmail,
                                       height: adjustValue(context, 55.0),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                    SizedBox(
-                      width: adjustValue(context, 20.0),
-        ),
-                    SvgPicture.asset(
-                        Assets.twiter,
-                        height: adjustValue(context, 65.0),
-                      ),
-                    SizedBox(
-                      width: adjustValue(context, 20.0),
-                        ),
-                    SvgPicture.asset(
-                        Assets.watsapp,
-                        height: adjustValue(context, 65.0),
-                      ),
-                    SizedBox(
-                      width: adjustValue(context, 20.0),
-                        ),
-                    SvgPicture.asset(
-                        Assets.facebock,
-                        height: adjustValue(context, 65.0),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            onTap: (){},
+                          ),
+                          InkWell(
+                            child: SvgPicture.asset(
+                              Assets.twiter,
+                              height: adjustValue(context, 65.0),
+                            ),
+                            onTap: (){},
+                          ),
+                          InkWell(
+                            child: SvgPicture.asset(
+                              Assets.watsapp,
+                              height: adjustValue(context, 65.0),
+                            ),
+                            onTap: (){},
+                          ),
+                          InkWell(
+                            child: SvgPicture.asset(
+                              Assets.facebock,
+                              height: adjustValue(context, 65.0),
+                            ),
+                            onTap: (){},
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ),
-            ],
-        ),
-      ),
-      GestureDetector(
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: adjustValue(context, 30.0)),
-          child: Align(
-            alignment: Alignment.topLeft,
-            child: Container(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.arrow_back_ios,
-                    color: AppColors.secondary,
-                    size: adjustValue(context, 30),
-                  ),
-                  Text(
-                      'رجوع',
-                      style: TextStyle(
-                        fontSize: adjustValue(context, 23.0),
-                        fontFamily: 'Cairo',
-                        color: Colors.white,
-                        decoration: TextDecoration.none,
-                      )
-                  ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(adjustValue(context, 22)),
-                  bottomRight: Radius.circular(adjustValue(context, 22)),
-                ),
-                color: AppColors.primary,
-              ),
-              width: adjustWidthValue(context, 100),
-              height: adjustHeightValue(context, 55),
+                )
+              ],
             ),
           ),
         ),
-        onTap: (){
-          Navigator.pop(
-              context,
-              false
-          );
-        },
-      ),
-      ],
+        GestureDetector(
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 30.0)),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.arrow_back_ios,
+                      color: AppColors.secondary,
+                      size: adjustValue(context, 30),
+                    ),
+                    Text(
+                        'رجوع',
+                        style: TextStyle(
+                          fontSize: adjustValue(context, 23.0),
+                          fontFamily: 'Cairo',
+                          color: Colors.white,
+                          decoration: TextDecoration.none,
+                        )
+                    ),
+                  ],
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(adjustValue(context, 22)),
+                    bottomRight: Radius.circular(adjustValue(context, 22)),
+                  ),
+                  color: AppColors.primary,
+                ),
+                width: adjustWidthValue(context, 100),
+                height: adjustHeightValue(context, 55),
+              ),
+            ),
+          ),
+          onTap: (){
+            Navigator.pop(
+                context,
+                false
+            );
+          },
+        ),
+        ],
     );
   }
 }
