@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/components/general/main_container.dart';
@@ -15,7 +16,29 @@ class NewPassword extends StatefulWidget {
   _NewPasswordState createState() => _NewPasswordState();
 }
 
-class _NewPasswordState extends State<NewPassword> {
+class _NewPasswordState extends State<NewPassword> with SingleTickerProviderStateMixin{
+  late AnimationController controller ;
+  @override
+  void initState(){
+    super.initState();
+    controller = AnimationController(
+      duration: Duration(seconds: 4),
+      vsync: this,
+      );
+      controller.addStatusListener((status) async {
+        if (status == AnimationStatus.completed)
+        {
+          Navigator.pop(context);
+          controller.reset();
+        }
+      });
+}
+  @override
+  void dispose(){
+    controller.dispose();
+    super.dispose();
+  }
+
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
   var passController1 = TextEditingController();
   var passController2 = TextEditingController();
@@ -119,7 +142,6 @@ class _NewPasswordState extends State<NewPassword> {
                     },
                   ),
                 ),
-
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: MaterialButton(
@@ -141,10 +163,11 @@ class _NewPasswordState extends State<NewPassword> {
                     ),
                     onPressed: () {
                       if(formkey.currentState!.validate()){
-                        Navigator.push(
-                            context,
-                            InOutPageRoute(const DoneScreen(), Alignment.bottomCenter),
-                        );
+                      showDoneDialog();
+                        // Navigator.push(
+                        // context,
+                        // InOutPageRoute(const DoneScreen(), Alignment.bottomCenter),
+                        // );
                       }
                     },
                   ),
@@ -155,6 +178,36 @@ class _NewPasswordState extends State<NewPassword> {
           ],
         ),
       ),
+      
     );
+    
   }
+    void showDoneDialog() => showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) =>Dialog(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Lottie.asset(
+              'assets/lottie/Done.json',
+              repeat: false,     
+              controller: controller, 
+              onLoaded: (composition){
+              controller.forward();
+              },
+                    
+              ),
+              Text(
+                'تم بنجاح ',
+                style: TextStyle(fontSize: 24),
+
+              ),
+              const SizedBox(height: 16),
+
+          ],
+        ),
+      ) ,
+      
+    );
 }

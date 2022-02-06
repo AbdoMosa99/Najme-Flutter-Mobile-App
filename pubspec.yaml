@@ -38,6 +38,7 @@ dependencies:
   flutter_rating_bar: ^4.0.0
   sqflite: ^2.0.1
   flutter_verification_code: ^1.1.1
+  lottie: ^1.2.1
 
 
 dev_dependencies:
@@ -74,6 +75,7 @@ flutter:
     - assets/icons/
     - assets/fonts/
     - assets/audios/
+    - assets/lottie/Done.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
