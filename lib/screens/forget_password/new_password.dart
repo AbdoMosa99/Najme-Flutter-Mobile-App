@@ -6,7 +6,7 @@ import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/forget_password/done_screen.dart';
+import 'package:najme/screens/main/login_screen.dart';
 import 'package:najme/utility.dart';
 
 class NewPassword extends StatefulWidget {
@@ -30,6 +30,10 @@ class _NewPasswordState extends State<NewPassword> with SingleTickerProviderStat
         {
           Navigator.pop(context);
           controller.reset();
+          Navigator.push(
+                context,
+                InOutPageRoute(const LoginScreen(), Alignment.bottomCenter),
+                );
         }
       });
 }
@@ -164,10 +168,7 @@ class _NewPasswordState extends State<NewPassword> with SingleTickerProviderStat
                     onPressed: () {
                       if(formkey.currentState!.validate()){
                       showDoneDialog();
-                        // Navigator.push(
-                        // context,
-                        // InOutPageRoute(const DoneScreen(), Alignment.bottomCenter),
-                        // );
+                
                       }
                     },
                   ),
