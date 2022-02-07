@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:najme/screens/main/login_screen.dart';
-import 'package:najme/screens/main/login_screen.dart';
 import 'package:najme/database/init.dart';
 
 
