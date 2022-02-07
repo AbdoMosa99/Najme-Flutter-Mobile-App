@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/drawer/children_profiles.dart';
 import 'package:najme/screens/drawer/personal_profile.dart';
 import '../../utility.dart';
 import 'package:najme/components/general/form_text_box.dart';
@@ -17,7 +17,7 @@ class PersonalAccountUpdates extends StatefulWidget {
   _PersonalAccountUpdatesState createState() => _PersonalAccountUpdatesState();
 }
 
-class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
+class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates>  with SingleTickerProviderStateMixin{
 
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
   var emailController = TextEditingController();
@@ -28,9 +28,32 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
   bool isoldPassword = true;
   bool isnewPassword = true;
   bool isConfPassword = true;
+
+
+late AnimationController controller ;
   @override
-  void initState() {
+  void initState(){
     super.initState();
+    controller = AnimationController(
+      duration: Duration(seconds: 4),
+      vsync: this,
+      );
+      controller.addStatusListener((status) async {
+        if (status == AnimationStatus.completed)
+        {
+          Navigator.pop(context);
+          controller.reset();
+          Navigator.push(
+            context,
+            InOutPageRoute(const PersonalProfile(), Alignment.bottomCenter),
+          );
+        }
+      });
+}
+  @override
+  void dispose(){
+    controller.dispose();
+    super.dispose();
   }
 
   var nameController = TextEditingController();
@@ -194,10 +217,7 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
                             color: AppColors.primary,
                             onTap: () {
                               if(formkey.currentState!.validate()){
-                                Navigator.push(
-                                context,
-                                InOutPageRoute(const PersonalProfile(), Alignment.bottomCenter),
-                              );
+                                showDoneDialog() ;
                               }
                             },
                           ),
@@ -271,4 +291,31 @@ class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates> {
       ],
     );
   }
+  void showDoneDialog() => showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) =>Dialog(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Lottie.asset(
+              'assets/lottie/Done.json',
+              repeat: false,     
+              controller: controller, 
+              onLoaded: (composition){
+              controller.forward();
+              },                   
+              ),
+              Text(
+                'تم بنجاح ',
+                style: TextStyle(fontSize: 24),
+
+              ),
+              const SizedBox(height: 16),
+
+          ],
+        ),
+      ) ,
+      
+    );
 }

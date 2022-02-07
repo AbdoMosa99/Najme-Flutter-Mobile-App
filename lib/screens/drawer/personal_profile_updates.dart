@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
@@ -16,7 +17,7 @@ class PersonalProfileUpdates extends StatefulWidget {
   _PersonalProfileUpdatesState createState() => _PersonalProfileUpdatesState();
 }
 enum SingingCharacter { lafayette, jefferson }
-class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> {
+class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> with SingleTickerProviderStateMixin{
 
   final List<int> dayList = [1, 2, 3, 4, 5, 6, 7,
             8, 9, 10, 11, 12, 13, 14, 15, 16,
@@ -44,8 +45,9 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> {
   String _countryCurrentItemSelected = '';
   String _futureCurrentItemSelected = '';
 
+  late AnimationController controller ;
   @override
-  void initState() {
+  void initState(){
     super.initState();
     _dayCurrentItemSelected = dayList[0];
     _monthCurrentItemSelected = monthList[0];
@@ -53,7 +55,31 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> {
     _levelCurrentItemSelected = levelList[0];
     _countryCurrentItemSelected = countryList[0];
     _futureCurrentItemSelected = futureList[0];
+  
+    controller = AnimationController(
+      duration: Duration(seconds: 4),
+      vsync: this,
+      );
+      controller.addStatusListener((status) async {
+        if (status == AnimationStatus.completed)
+        {
+          Navigator.pop(context);
+          controller.reset();
+          Navigator.push(
+                context,
+                InOutPageRoute(const PersonalProfile(), Alignment.bottomCenter),
+                );
+        }
+      });
+}
+  @override
+  void dispose(){
+    controller.dispose();
+    super.dispose();
   }
+
+
+
 
 
   var nameController = TextEditingController();
@@ -723,10 +749,7 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> {
                             text: 'حفظ التعديلات',
                             color: AppColors.primary,
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                InOutPageRoute(const PersonalProfile(), Alignment.bottomCenter),
-                              );
+                              showDoneDialog();
                             },
                           ),
                         ),
@@ -738,6 +761,7 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> {
             ),
           ),
         ),
+        
         Stack(
           children: [
             Container(
@@ -799,4 +823,31 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates> {
       ],
     );
   }
+    void showDoneDialog() => showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (context) =>Dialog(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Lottie.asset(
+              'assets/lottie/Done.json',
+              repeat: false,     
+              controller: controller, 
+              onLoaded: (composition){
+              controller.forward();
+              },                   
+              ),
+              Text(
+                'تم بنجاح ',
+                style: TextStyle(fontSize: 24),
+
+              ),
+              const SizedBox(height: 16),
+
+          ],
+        ),
+      ) ,
+      
+    );
 }
