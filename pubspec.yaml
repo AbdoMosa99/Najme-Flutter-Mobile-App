@@ -77,6 +77,7 @@ flutter:
     - assets/icons/
     - assets/fonts/
     - assets/audios/
+    - assets/lottie/launch_screen.json
     - assets/lottie/Done.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
