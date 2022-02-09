@@ -7,7 +7,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/forget_password/confirmation_code.dart';
-import 'package:najme/screens/primary_screens/login_screen.dart';
+import 'package:najme/screens/main/login_screen.dart';
 import 'package:najme/utility.dart';
 
 class ForgetPassword extends StatelessWidget {

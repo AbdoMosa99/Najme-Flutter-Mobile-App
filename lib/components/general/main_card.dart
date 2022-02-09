@@ -52,7 +52,7 @@ class MainCard extends Card {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: textColor,
-                  fontSize: adjustValue(context, fontSize),
+                  fontSize: adjustWidthValue(context, fontSize),
                   fontFamily: 'Cairo',
                   fontWeight: FontWeight.w600,
                 ),

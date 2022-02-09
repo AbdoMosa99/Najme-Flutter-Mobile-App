@@ -8,16 +8,33 @@ import 'package:najme/components/screen_specific/space/space_main_container.dart
 
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/levels/choosing_theme.dart';
+import 'package:najme/database/init.dart';
+import 'package:najme/database/models.dart';
+import 'package:najme/screens/question/choosing_theme.dart';
 import '../../utility.dart';
 import 'lessons_screen.dart';
 
 class UnitsScreen extends StatefulWidget {
-  const UnitsScreen({Key? key}) : super(key: key);
+  const UnitsScreen({
+    Key? key,
+    required this.text,
+    required this.subjectID,
+  }) : super(key: key);
+
+  final String text;
+  final int subjectID;
+
   @override
   _UnitsScreenState createState() => _UnitsScreenState();
 }
 class _UnitsScreenState extends State<UnitsScreen> {
+
+  // Database dbUnits = Database();
+  // await dbUnits.init();
+  // List<Unit> units = dbUnits.getUnits(dbUnits);
+  // Progress progress = dbUnits.getProfile(profileID);
+
+
   @override
   Widget build(BuildContext context) {
     return SpaceContainer(
@@ -35,7 +52,7 @@ class _UnitsScreenState extends State<UnitsScreen> {
                   color:const Color.fromRGBO( 80 , 54 , 164 , 0.5) ,
                 ),
                 child: Text(
-                    'حساب',
+                  widget.text,
                       style: TextStyle(
                         color: AppColors.secondary,
                         fontSize:adjustValue(context, 30),
@@ -49,6 +66,7 @@ class _UnitsScreenState extends State<UnitsScreen> {
               Expanded(
                 child:ListView(
                   children: [
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       crossAxisAlignment: CrossAxisAlignment.center,

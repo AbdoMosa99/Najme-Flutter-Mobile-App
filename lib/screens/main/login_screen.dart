@@ -6,7 +6,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/forget_password/forget_password.dart';
-import 'package:najme/screens/registeration_screens/registeration_email.dart';
+import 'package:najme/screens/registeration/registeration_email.dart';
 import 'home_screen.dart';
 import 'package:najme/utility.dart';
 
@@ -48,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: adjustHeightValue(context, 220),
                 ),
                 SizedBox(
-                  height: adjustHeightValue(context, 10.0),
+                  height: adjustHeightValue(context, 25.0),
                 ),
                 FormTextBox(
                   context: context,
@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     }
                 ),
                 SizedBox(
-                  height: adjustHeightValue(context, 10.0),
+                  height: adjustHeightValue(context, 15.0),
                 ),
                 FormTextBox(
                   context: context,
@@ -90,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   },
                 ),
                 SizedBox(
-                  height: adjustHeightValue(context, 20.0),
+                  height: adjustHeightValue(context, 35.0),
                 ),
                 Container(
                   width: double.infinity,

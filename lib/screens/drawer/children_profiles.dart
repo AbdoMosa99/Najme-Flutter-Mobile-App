@@ -6,9 +6,9 @@ import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/primary_screens/personal_account_updates.dart';
-import 'package:najme/screens/primary_screens/personal_profile.dart';
-import 'package:najme/screens/registeration_screens/registeration_name.dart';
+import 'package:najme/screens/drawer/personal_account_updates.dart';
+import 'package:najme/screens/drawer/personal_profile.dart';
+import 'package:najme/screens/registeration/registeration_name.dart';
 import '../../utility.dart';
 
 class ChildrenProfiles extends StatelessWidget {
@@ -200,7 +200,7 @@ class ChildrenProfiles extends StatelessWidget {
         ),
         GestureDetector(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 15.0)),
+            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 30.0)),
             child: Align(
               alignment: Alignment.topLeft,
               child: Container(
@@ -231,7 +231,7 @@ class ChildrenProfiles extends StatelessWidget {
                   ),
                   color: AppColors.primary,
                 ),
-                width: adjustWidthValue(context, 192),
+                width: adjustWidthValue(context, 210),
                 height: adjustHeightValue(context, 55),
               ),
             ),

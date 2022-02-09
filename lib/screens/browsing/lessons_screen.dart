@@ -8,9 +8,9 @@ import 'package:najme/components/screen_specific/space/space_main_container.dart
 
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/levels/choosing_theme.dart';
-import 'package:najme/screens/levels/listening_theme.dart';
-import 'package:najme/screens/levels/order_game.dart';
+import 'package:najme/screens/question/choosing_theme.dart';
+import 'package:najme/screens/question/listening_theme.dart';
+import 'package:najme/screens/question/order_game.dart';
 import '../../utility.dart';
 
 class LessonsScreen extends StatefulWidget {

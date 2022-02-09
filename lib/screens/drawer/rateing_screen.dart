@@ -5,7 +5,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:najme/screens/primary_screens/home_screen.dart';
+import 'package:najme/screens/main/home_screen.dart';
 import '../../utility.dart';
 
 class RatingScreen extends StatefulWidget {
@@ -104,7 +104,7 @@ class _RatingScreenState extends State<RatingScreen> {
         ),
         GestureDetector(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 15.0)),
+            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 30.0)),
             child: Align(
               alignment: Alignment.topLeft,
               child: Container(
@@ -135,9 +135,8 @@ class _RatingScreenState extends State<RatingScreen> {
                   ),
                   color: AppColors.primary,
                 ),
-                width: adjustValue(context, 100),
-                height: adjustValue(context, 50),
-
+                width: adjustWidthValue(context, 100),
+                height: adjustHeightValue(context, 55),
               ),
             ),
           ),

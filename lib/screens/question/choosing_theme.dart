@@ -1,13 +1,11 @@
-import 'package:audioplayers/audioplayers.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/game_app_bar.dart';
 import 'package:najme/components/themes/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/audios.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/space/lessons_screen.dart';
 import 'package:najme/utility.dart';
 
 class ChoosingTheme extends StatefulWidget {
@@ -21,7 +19,8 @@ class _ChoosingThemeState extends State<ChoosingTheme> {
   int answer = 0;
   bool playAudio = true;
   bool success = true;
-  AudioPlayer player = AudioPlayer();
+  final assetsAudioPlayer = AssetsAudioPlayer();
+
 
   @override
   Widget build(BuildContext context) {
@@ -161,9 +160,12 @@ class _ChoosingThemeState extends State<ChoosingTheme> {
                             ],
                           ),
                           onTap: () {
+                            assetsAudioPlayer.open(
+                              Audio(Audios.clap),
+                            );
+                            //assetsAudioPlayer.play();
                             setState(() {
                               answer = 1;
-                              player.play(Audios.clap);
                             });
                           },
                         ),
@@ -239,9 +241,11 @@ class _ChoosingThemeState extends State<ChoosingTheme> {
                             ],
                           ),
                           onTap: () {
+                            assetsAudioPlayer.open(
+                              Audio(Audios.clap),
+                            );
                             setState(() {
                               answer = 2;
-                              player.play(Audios.clap);
                             });
                           },
                         ),

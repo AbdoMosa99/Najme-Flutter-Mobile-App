@@ -4,10 +4,10 @@ import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/primary_screens/children_profiles.dart';
-import 'package:najme/screens/primary_screens/contactus_screen.dart';
-import 'package:najme/screens/primary_screens/personal_profile.dart';
-import 'package:najme/screens/primary_screens/rateing_screen.dart';
+import 'package:najme/screens/drawer/children_profiles.dart';
+import 'package:najme/screens/drawer/contactus_screen.dart';
+import 'package:najme/screens/drawer/personal_profile.dart';
+import 'package:najme/screens/drawer/rateing_screen.dart';
 import 'package:najme/utility.dart';
 
 class MainDrawer extends Drawer {

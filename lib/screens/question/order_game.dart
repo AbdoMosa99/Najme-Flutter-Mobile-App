@@ -1,14 +1,13 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/game_app_bar.dart';
 import 'package:najme/components/themes/main_container.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:najme/screens/space/lessons_screen.dart';
+import 'package:najme/constants/audios.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/constants/assets.dart';
-import 'package:najme/constants/audios.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:audioplayers/audioplayers.dart';
+
 
 class OrderGame extends StatefulWidget {
   const OrderGame({ Key? key }) : super(key: key);
@@ -18,8 +17,7 @@ class OrderGame extends StatefulWidget {
 }
 
 class _OrderGameState extends State<OrderGame> {
-  //var player = AudioCache;
-  AudioPlayer  player = AudioPlayer();
+  final assetsAudioPlayer = AssetsAudioPlayer();
   final choices = {
     'أ' : false,
     'ب' : false,
@@ -129,9 +127,12 @@ class _OrderGameState extends State<OrderGame> {
                       return data==element;
                     },
                     onAccept: (data) {
+                      assetsAudioPlayer.open(
+                        Audio(Audios.clap),
+                      );
                       setState(() {
                         choices[element] = true;
-                        player.play(Audios.zee);
+                        // player.play(Audios.zee);
                       }); 
                     }
                   );

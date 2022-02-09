@@ -6,8 +6,8 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/primary_screens/home_screen.dart';
-import 'package:najme/screens/registeration_screens/registration_address.dart';
+import 'package:najme/screens/main/home_screen.dart';
+import 'package:najme/screens/registeration/registration_address.dart';
 import 'package:najme/utility.dart';
 
 class RegistrationJob extends StatefulWidget {

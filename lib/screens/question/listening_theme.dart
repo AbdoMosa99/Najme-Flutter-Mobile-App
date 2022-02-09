@@ -1,14 +1,13 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/game_app_bar.dart';
 import 'package:najme/components/themes/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/audios.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/space/lessons_screen.dart';
 import 'package:najme/utility.dart';
-import 'package:audioplayers/audioplayers.dart';
+
 
 class ListeningTheme extends StatefulWidget {
   const ListeningTheme({Key? key}) : super(key: key);
@@ -21,8 +20,7 @@ class _ListeningThemeState extends State<ListeningTheme> {
   int answer = 0;
   bool playAudio = true;
   bool success = true;
-  AudioPlayer  player = AudioPlayer();
-
+  final assetsAudioPlayer = AssetsAudioPlayer();
   @override
   Widget build(BuildContext context) {
     return MainContainer(
@@ -78,8 +76,11 @@ class _ListeningThemeState extends State<ListeningTheme> {
                         ],
                       ),
                       onTap: () {
+                        assetsAudioPlayer.open(
+                          Audio(Audios.clap),
+                        );
+                        assetsAudioPlayer.playOrPause();
                         setState(() {
-                          player.play(Audios.zee);
                           playAudio = !playAudio;
                         });
                       },
@@ -99,9 +100,13 @@ class _ListeningThemeState extends State<ListeningTheme> {
                       ],
                     ),
                     onTap: () {
+                      assetsAudioPlayer.open(
+                        Audio(Audios.clap),
+                      );
+
                       setState(() {
-                        player.play(Audios.zee);
-                        player.setPlaybackRate(0.5);
+
+                        //player.setPlaybackRate(0.5);
                       });
                     },
                   ),
@@ -147,9 +152,11 @@ class _ListeningThemeState extends State<ListeningTheme> {
                         ],
                       ),
                       onTap: () {
+                        assetsAudioPlayer.open(
+                          Audio(Audios.clap),
+                        );
                         setState(() {
                           answer = 1;
-                          player.play(Audios.clap);
                         });
                       },
                     ),
@@ -201,9 +208,12 @@ class _ListeningThemeState extends State<ListeningTheme> {
                         ],
                       ),
                       onTap: () {
+                        assetsAudioPlayer.open(
+                          Audio(Audios.clap),
+                        );
                         setState(() {
                           answer = 2;
-                          player.play(Audios.clap);
+
                         });
                       },
                     ),

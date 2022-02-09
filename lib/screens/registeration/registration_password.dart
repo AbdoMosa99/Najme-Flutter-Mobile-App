@@ -6,8 +6,8 @@ import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/registeration_screens/registeration_email.dart';
-import 'package:najme/screens/registeration_screens/registeration_name.dart';
+import 'package:najme/screens/registeration/registeration_email.dart';
+import 'package:najme/screens/registeration/registeration_name.dart';
 
 import '../../utility.dart';
 
@@ -30,8 +30,6 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
   final confpassController = TextEditingController();
   bool isPassword = true;
   bool isConfPassword = true;
-
-
 
   @override
   Widget build(BuildContext context) {
