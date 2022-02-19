@@ -13,7 +13,7 @@ class FormTextBox extends TextFormField {
     bool ispass = false,
     var suffixFun,
     var valid,
-  }) 
+  })
   : super(
     key: key,
     style: TextStyle(
@@ -22,7 +22,6 @@ class FormTextBox extends TextFormField {
       color: AppColors.primaryDark,
     ),
       cursorColor: AppColors.primary,
-    //cursorHeight: adjustHeightValue(context, 30.0),
     obscureText: ispass,
     controller: controllerKind,
     keyboardType: type,
