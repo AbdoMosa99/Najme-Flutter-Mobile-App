@@ -1,3 +1,4 @@
+
 class Profile {
   final int id;
   String name;
@@ -19,6 +20,7 @@ class Profile {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'name': name,
       'gender': gender,
       'birthdate': birthdate.toString(),
@@ -43,10 +45,12 @@ class Profile {
 
   @override
   String toString() {
-    return 'Profile{name: $name, level: $level, city: $city}';
+    return 'Profile{id: $id, name: $name, gender: $gender, birthdate: $birthdate, level: $level, city: $city, ambition: $ambition}';
   }
 
 }
+
+
 
 class Level {
   final int id;
@@ -59,16 +63,26 @@ class Level {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'name': name,
     };
   }
 
+  static Level fromMap(Map<String, dynamic> map) {
+    return Level(
+      id: map['id'], 
+      name: map['name']
+    );
+  }
+
   @override
   String toString() {
-    return 'Profile{name: $name}';
+    return 'Profile{id: $id, name: $name}';
   }
 
 }
+
+
 
 class Subject {
   final int id;
@@ -92,11 +106,22 @@ class Subject {
     };
   }
 
+  static Subject fromMap(Map<String, dynamic> map) {
+    return Subject(
+      id: map['id'], 
+      category: map['category'], 
+      icon: map['icon'], 
+      level: map['level']
+    );
+  }
+
   @override
   String toString() {
-    return 'Lesson{category: $category, level: $level}';
+    return 'Lesson{id: $id, category: $category, icon: $icon, level: $level}';
   }
 }
+
+
 
 class Unit {
   final int id;
@@ -123,11 +148,23 @@ class Unit {
     };
   }
 
+  static Unit fromMap(Map<String, dynamic> map) {
+    return Unit(
+      id: map['id'], 
+      number: map['number'], 
+      name: map['name'], 
+      icon: map['icon'], 
+      subjectID: map['subject_id']
+    );
+  }
+
   @override
   String toString() {
-    return 'Unit{number: $number, name: $name, subject_id: $subjectID}';
+    return 'Unit{id: $id, number: $number, name: $name, icon: $icon, subject_id: $subjectID}';
   }
 }
+
+
 
 class Lesson {
   final int id;
@@ -151,11 +188,22 @@ class Lesson {
     };
   }
 
+  static Lesson fromMap(Map<String, dynamic> map) {
+    return Lesson(
+      id: map['id'], 
+      number: map['number'], 
+      name: map['name'], 
+      unitID: map['unit_id'],
+    );
+  }
+
   @override
   String toString() {
-    return 'Lesson{number: $number, name: $name, unit_id: $unitID}';
+    return 'Lesson{id: $id, number: $number, name: $name, unit_id: $unitID}';
   }
 }
+
+
 
 class Progress {
   final int id;
@@ -191,8 +239,21 @@ class Progress {
     };
   }
 
-    @override
-    String toString() {
-      return 'Progress{stars: $stars, fruits: $fruits, excellences: $excellences, currentUnit: $currentUnit, currentLesson: $currentLesson}';
-    }
+  static Progress fromMap(Map<String, dynamic> map) {
+    return Progress(
+      id: map['id'], 
+      stars: map['stars'], 
+      fruits: map['fruits'], 
+      excellences: map['excellences'], 
+      profileId: map['profile_id'], 
+      subjectId: map['profile_id'], 
+      currentUnit: map['current_unit'], 
+      currentLesson: map['current_lesson']
+    );
+  }
+
+  @override
+  String toString() {
+    return 'Progress{id: $id, stars: $stars, fruits: $fruits, excellences: $excellences, currentUnit: $currentUnit, currentLesson: $currentLesson, profileID: $profileId, subjectID: $subjectId}';
+  }
 }

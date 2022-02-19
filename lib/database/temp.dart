@@ -64,23 +64,37 @@ Future<void> insertData() async {
       excellences: 0,
       subjectId: 1,
       profileId: 1,
-      currentUnit: 1,
+      currentUnit: 4,
       currentLesson: 1
   );
   await database.insertProgress(progress);
 
+  Unit unit1 = Unit(id: 1, number: 1, name: "الوحدة الأولى", icon: Assets.mathSymbol, subjectID: 2);
+  Unit unit2 = Unit(id: 2, number: 2, name: "الوحدة الأولى", icon: Assets.mathSymbol, subjectID: 2);
+  Unit unit3 = Unit(id: 3, number: 3, name: "الوحدة الأولى", icon: Assets.mathSymbol, subjectID: 2);
+  Unit unit4 = Unit(id: 4, number: 4, name: "الوحدة الرابعة", icon: Assets.mathSymbol, subjectID: 2);
+  Unit unit5 = Unit(id: 5, number: 5, name: "الوحدة الأولى", icon: Assets.mathSymbol, subjectID: 2);
+  Unit unit6 = Unit(id: 6, number: 6, name: "الوحدة الأولى", icon: Assets.mathSymbol, subjectID: 2);
+  Unit unit7 = Unit(id: 7, number: 7, name: "الوحدة الأولى", icon: Assets.mathSymbol, subjectID: 2);
+  Unit unit8 = Unit(id: 8, number: 8, name: "الوحدة الثامنة", icon: Assets.mathSymbol, subjectID: 2);
+
+  await database.insertUnit(unit1);
+  await database.insertUnit(unit2);
+  await database.insertUnit(unit3);
+  await database.insertUnit(unit4);
+  await database.insertUnit(unit5);
+  await database.insertUnit(unit6);
+  await database.insertUnit(unit7);
+  await database.insertUnit(unit8);
 
 }
 
-Future<void> getData() async{
+Future<void> getData() async {
   final database = NajmeDatabase();
   await database.init();
 
-  database.getProfile(1).then((value) {
-    print(value.toString());
-  }).catchError((error){
-    print('error ${error.toString()}');
-  });
+  final profile = await database.getProfile(1);
+  print(profile.toString());
 }
 
 

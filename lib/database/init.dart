@@ -20,25 +20,25 @@ class NajmeDatabase {
               level INT,
               city TEXT,
               ambition TEXT
-            );
+            )
           ''',
         );
         db.execute(
-            '''
-              CREATE TABLE levels(
-                id INT PRIMARY KEY,
-                name TEXT
-              )
-            '''
+          '''
+            CREATE TABLE levels(
+              id INT PRIMARY KEY,
+              name TEXT
+            )
+          '''
         );
         db.execute(
             '''
               CREATE TABLE subjects(
-              id INT PRIMARY KEY,
-              category TEXT,
-              icon TEXT,
-              level INT
-            );
+                id INT PRIMARY KEY,
+                category TEXT,
+                icon TEXT,
+                level INT
+              )
             '''
         );
         db.execute(
@@ -50,7 +50,7 @@ class NajmeDatabase {
               icon TEXT,
               subject_id INT,
               FOREIGN KEY(subject_id) REFERENCES subjects(id)
-            );
+              )
             '''
         );
         db.execute(
@@ -61,7 +61,7 @@ class NajmeDatabase {
               name TEXT,
               unit_id INT,
               FOREIGN KEY(unit_id) REFERENCES units(id)
-            );
+            )
             '''
         );
         db.execute(
@@ -76,7 +76,7 @@ class NajmeDatabase {
               current_unit INT,
               current_lesson INT,
               FOREIGN KEY(profile_id) REFERENCES profiles(id)
-            );
+            )
             '''
         );
       },
@@ -170,15 +170,7 @@ class NajmeDatabase {
       whereArgs: [profileID],
     );
 
-    return Profile(
-      id: maps[0]['id'],
-      name: maps[0]['name'],
-      gender: maps[0]["gender"],
-      birthdate: maps[0]["birthdate"],
-      level: maps[0]["level"],
-      city: maps[0]["city"],
-      ambition: maps[0]["ambition"],
-    );
+    return Profile.fromMap(maps[0]);
   }
 
   Future<List<Profile>> getProfiles() async {
@@ -189,15 +181,7 @@ class NajmeDatabase {
     );
 
     return List.generate(maps.length, (i) {
-      return Profile(
-        id: maps[i]['id'],
-        name: maps[i]['name'],
-        gender: maps[i]['gender'],
-        birthdate: maps[i]['birthdate'],
-        level: maps[i]['level'],
-        city: maps[i]['city'],
-        ambition: maps[i]['ambition'],
-      );
+      return Profile.fromMap(maps[i]);
     });
   }
 
@@ -213,12 +197,7 @@ class NajmeDatabase {
     );
 
     return List.generate(maps.length, (i) {
-      return Subject(
-        id: maps[i]['id'],
-        category: maps[i]['category'],
-        icon: maps[i]['icon'],
-        level: maps[i]['level'],
-      );
+      return Subject.fromMap(maps[i]);
     });
   }
 
@@ -232,13 +211,7 @@ class NajmeDatabase {
     );
 
     return List.generate(maps.length, (i) {
-      return Unit(
-        id: maps[i]['id'],
-        number: maps[i]['number'],
-        name: maps[i]['name'],
-        icon: maps[i]['icon'],
-        subjectID: maps[i]['subject_id'],
-      );
+      return Unit.fromMap(maps[i]);
     });
   }
 
@@ -252,12 +225,7 @@ class NajmeDatabase {
     );
 
     return List.generate(maps.length, (i) {
-      return Lesson(
-        id: maps[i]['id'],
-        number: maps[i]['number'],
-        name: maps[i]['name'],
-        unitID: maps[i]['unit_id'],
-      );
+      return Lesson.fromMap(maps[i]);
     });
   }
 
@@ -270,41 +238,30 @@ class NajmeDatabase {
       whereArgs: [profileID],
     );
 
-    return Progress(
-      id: maps[0]['id'],
-      stars: maps[0]['stars'],
-      fruits: maps[0]['fruits'],
-      excellences: maps[0]['excellences'],
-      currentUnit: maps[0]['current_unit'],
-      currentLesson: maps[0]['current_lesson'],
-      profileId: maps[0]['profile_id'],
-      subjectId: maps[0]['subject_id'],
-    );
+    return Progress.fromMap(maps[0]);
 
   }
 
   /* Deleting */
 
-
   Future<void> deleteAll() async {
-    final db = await database;
-    await db.delete(
+    await database.delete(
     'profile'
     );
 
-    await db.delete(
+    await database.delete(
     'unit'
     );
 
-    await db.delete(
+    await database.delete(
     'lesson'
     );
 
-    await db.delete(
+    await database.delete(
     'subject'
     );
 
-    await db.delete(
+    await database.delete(
     'progress'
     );
   }

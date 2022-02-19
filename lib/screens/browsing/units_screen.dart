@@ -11,8 +11,10 @@ import 'package:najme/constants/colors.dart';
 import 'package:najme/database/init.dart';
 import 'package:najme/database/models.dart';
 import 'package:najme/screens/question/choosing_theme.dart';
-import '../../utility.dart';
+import 'package:najme/utility.dart';
 import 'lessons_screen.dart';
+import 'package:najme/data.dart';
+
 
 class UnitsScreen extends StatefulWidget {
   const UnitsScreen({
@@ -28,131 +30,109 @@ class UnitsScreen extends StatefulWidget {
   _UnitsScreenState createState() => _UnitsScreenState();
 }
 class _UnitsScreenState extends State<UnitsScreen> {
-
-  // Database dbUnits = Database();
-  // await dbUnits.init();
-  // List<Unit> units = dbUnits.getUnits(dbUnits);
-  // Progress progress = dbUnits.getProfile(profileID);
-
-
   @override
   Widget build(BuildContext context) {
-    return SpaceContainer(
-        appBar: MainAppBar(context: context,),
-        drawer: MainDrawer(context: context,),
-        child: Center(
-          child:Column(
-            children:[ 
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(adjustValue(context, 30)),
-                    bottomRight: Radius.circular(adjustValue(context, 30)),
-                  ),
-                  color:const Color.fromRGBO( 80 , 54 , 164 , 0.5) ,
-                ),
-                child: Text(
-                  widget.text,
-                      style: TextStyle(
-                        color: AppColors.secondary,
-                        fontSize:adjustValue(context, 30),
-                        fontFamily: 'Cairo',
-                        fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                padding: const EdgeInsets.all(0), 
-                alignment: Alignment.center,
-                      ),
-              Expanded(
-                child:ListView(
-                  children: [
+    bool row_is_one = false;
 
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Galaxy(
-                          context: context,
-                          backEMG: Assets.galaxy,
-                          img:Assets.two,
-                          text: 'الوحدة الثالثة',
-                          onClick: () {
-                            Navigator.push(
-                              context,
-                              InOutPageRoute(const LessonsScreen(), Alignment.bottomCenter),
-                            );
-                          },
-                        ),
-                        Galaxy(
-                          context: context,
-                          backEMG: Assets.galaxy,
-                          img:Assets.unit1,
-                          text: 'الوحدة الثالثة',
-                          onClick: () {
-                            Navigator.push(
-                              context,
-                              InOutPageRoute(const LessonsScreen(), Alignment.bottomCenter),
-                            );
-                          },
-                        ),
-                      ],
+    return FutureBuilder(
+      future: database.getUnits(2),
+      initialData: [],
+      builder: (context, AsyncSnapshot<List> snapshot) {
+        List<Unit> units = snapshot.data!.cast<Unit>();
+
+        return snapshot.hasData
+        ? SpaceContainer(
+          appBar: MainAppBar(context: context,),
+          drawer: MainDrawer(context: context,),
+          child: Center(
+            child:Column(
+              children:[ 
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(adjustValue(context, 30)),
+                      bottomRight: Radius.circular(adjustValue(context, 30)),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Galaxy(
-                          context: context,
-                          backEMG: Assets.galaxy,
-                          img:Assets.unit1,
-                          text: 'الوحدة الثالثة',
-                          onClick: () {
-                            Navigator.push(
-                              context,
-                              InOutPageRoute(const LessonsScreen(), Alignment.bottomCenter),
-                            );
-                          },
+                    color:const Color.fromRGBO( 80 , 54 , 164 , 0.5) ,
+                  ),
+                  child: Text(
+                    widget.text,
+                        style: TextStyle(
+                          color: AppColors.secondary,
+                          fontSize:adjustValue(context, 30),
+                          fontFamily: 'Cairo',
+                          fontWeight: FontWeight.w800,
+                          ),
                         ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        DarkGalaxy(
-                          context: context,
-                          backEMG: Assets.galaxy,
-                          img:Assets.unit1,
-                          text: 'الوحدة الثالثة',
-                          onClick: () {
-                            Navigator.push(
-                              context,
-                              InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                            );
-                          },
+                  padding: const EdgeInsets.all(0), 
+                  alignment: Alignment.center,
                         ),
-                        DarkGalaxy(
-                          context: context,
-                          backEMG: Assets.galaxy,
-                          img:Assets.unit1,
-                          text: 'الوحدة الثالثة',
-                          onClick: () {
-                            Navigator.push(
-                              context,
-                              InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                  ],
-                  reverse: true,
-                ),
-              )
-            ] ,
-        ),
-      ),        
-    );    
+                Expanded(
+                  child: ListView(
+                    children: [
+                      for (int i = 0; i < units.length; i++, row_is_one = !row_is_one)
+                      if (!row_is_one)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Galaxy(
+                              context: context,
+                              backEMG: Assets.galaxy,
+                              img: units[i].icon,
+                              text: units[i].name,
+                              onClick: () {
+                                Navigator.push(
+                                  context,
+                                  InOutPageRoute(const LessonsScreen(), Alignment.bottomCenter),
+                                );
+                              },
+                            ),
+                            if (++i < units.length)
+                            Galaxy(
+                              context: context,
+                              backEMG: Assets.galaxy,
+                              img: units[i].icon,
+                              text: units[i].name,
+                              onClick: () {
+                                Navigator.push(
+                                  context,
+                                  InOutPageRoute(const LessonsScreen(), Alignment.bottomCenter),
+                                );
+                              },
+                            ),
+                          ],
+                        )
+                      else
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Galaxy(
+                            context: context,
+                            backEMG: Assets.galaxy,
+                            img: units[i].icon,
+                            text: units[i].name,
+                            onClick: () {
+                              Navigator.push(
+                                context,
+                                InOutPageRoute(const LessonsScreen(), Alignment.bottomCenter),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                    reverse: true,
+                  ),
+                )
+              ] ,
+          ),
+        ),        
+      )    
+      : Center(child: CircularProgressIndicator());
+      },
+    );
   }
 }
 
