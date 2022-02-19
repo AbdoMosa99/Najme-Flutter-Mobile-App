@@ -3,9 +3,10 @@ import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/screen_specific/registration_date/birth_date_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/registeration/registeration_gender.dart';
 import 'package:najme/screens/registeration/registration_level.dart';
 import 'package:najme/utility.dart';
+
+import '../../components/general/error_message.dart';
 
 class RegistrationBirthDate extends StatefulWidget {
   RegistrationBirthDate({
@@ -37,6 +38,8 @@ class RegistrationBirthDate extends StatefulWidget {
 }
 
 class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
+  bool valid = true;
+
   @override
   Widget build(BuildContext context) {
     int? dayI;
@@ -84,6 +87,13 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                   yearI = index;
                 },
               ),
+
+              if(!valid) ErrorMessage(
+                  context: context,
+                  message: "من فضلك ادخل تاريخ ميلادك",
+                  ),
+
+
               SizedBox(
                 height: adjustValue(context, 20.0),
               ),
@@ -123,12 +133,22 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
             widget.years[yearI!].toString() + "/" +
             (monthI! + 1).toString() + "/" +
             widget.days[dayI!].toString();
+
+            setState(() {
+              valid = true;
+            });
+
           Navigator.push(
             context,
             LeftRightPageRoute(
               RegistrationLevel(registrationDate: widget.registrationData), 1, 0
             ),
           );
+        }
+        else{
+          setState(() {
+            valid = false;
+          });
         }
       },
     );

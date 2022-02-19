@@ -7,6 +7,7 @@ import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration/registration_job.dart';
 import 'package:najme/screens/registeration/registration_level.dart';
 
+import '../../components/general/error_message.dart';
 import '../../utility.dart';
 
 class RegistrationAddress extends StatefulWidget {
@@ -52,6 +53,7 @@ class RegistrationAddress extends StatefulWidget {
 }
 
 class _RegistrationAddressState extends State<RegistrationAddress> {
+  bool valid = true;
   @override
   Widget build(BuildContext context) {
     return MainContainer(
@@ -71,6 +73,10 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
                 callback: (int index) {
                   widget.registrationData["city"] = index;
                 },
+              ),
+              if(!valid) ErrorMessage(
+                context: context,
+                message: "من فضلك اختر محافظتك",
               ),
 
               Text(
@@ -105,10 +111,19 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
         if (widget.registrationData["city"] != null) {
+
+          setState(() {
+            valid = true;
+          });
           Navigator.push(
             context,
             LeftRightPageRoute(RegistrationJob(registrationData: widget.registrationData), 1, 0),
           );
+        }
+        else{
+          setState(() {
+            valid = false;
+          });
         }
       },
     );

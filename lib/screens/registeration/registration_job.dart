@@ -10,6 +10,8 @@ import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/screens/registeration/registration_address.dart';
 import 'package:najme/utility.dart';
 
+import '../../components/general/error_message.dart';
+
 class RegistrationJob extends StatefulWidget {
   RegistrationJob({
     Key? key,
@@ -24,6 +26,7 @@ class RegistrationJob extends StatefulWidget {
 
 class _RegistrationJobState extends State<RegistrationJob> {
   int job = -1;
+  bool valid = true;
   @override
   Widget build(BuildContext context) {
     return MainContainer(
@@ -166,6 +169,10 @@ class _RegistrationJobState extends State<RegistrationJob> {
                       ),
                     ],
                   ),
+                  if(!valid) ErrorMessage(
+                    context: context,
+                    message: "من فضلك اختر طموحك",
+                ),
                 ],
               ),
               Text(
@@ -198,12 +205,22 @@ class _RegistrationJobState extends State<RegistrationJob> {
                 onPressed: () {
                   if (job != -1) {
                     widget.registrationData["ambition"] = job;
+
+                     setState(() {
+                      valid = true;
+                    });
+
                     // TODO: Call API
                     print(widget.registrationData);
                     Navigator.push(
                       context,
                       InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
                     );
+                  }
+                  else{
+                    setState(() {
+                      valid = false;
+                    });
                   }
                 },
               ),    
