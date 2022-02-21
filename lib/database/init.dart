@@ -6,8 +6,8 @@ import 'models.dart';
 class NajmeDatabase {
   dynamic database;
 
-  Future<void> init() async {
-    database = openDatabase(
+  Future<void> open() async {
+    database = await openDatabase(
       join(await getDatabasesPath(), 'najme.db'),
       onCreate: (db, version) {
         db.execute(
@@ -88,48 +88,47 @@ class NajmeDatabase {
   /* Inserting Into DB */ 
 
   Future<void> insertProfile(Profile profile) async {
-    final db = await database;
-    await db.insert(
+    await database.insert(
       'profiles',
       profile.toMap(),
     );
   }
 
+
   Future<void> insertLevel(Level level) async {
-    final db = await database;
-    await db.insert(
+    await database.insert(
       'levels',
       level.toMap(),
     );
   }
 
+
   Future<void> insertSubject(Subject subject) async {
-    final db = await database;
-    await db.insert(
+    await database.insert(
       'subjects',
       subject.toMap(),
     );
   }
 
+
   Future<void> insertUnit(Unit unit) async {
-    final db = await database;
-    await db.insert(
+    await database.insert(
       'units',
       unit.toMap(),
     );
   }
 
+
   Future<void> insertLesson(Lesson lesson) async {
-    final db = await database;
-    await db.insert(
+    await database.insert(
       'lessons',
       lesson.toMap(),
     );
   }
 
+
   Future<void> insertProgress(Progress progress) async {
-    final db = await database;
-    await db.insert(
+    await database.insert(
       'progress',
       progress.toMap(),
     );
@@ -139,8 +138,7 @@ class NajmeDatabase {
   /* Updating Records */
 
   Future<void> updateProfile(Profile profile) async {
-    final db = await database;
-    await db.update(
+    await database.update(
       'profile',
       profile.toMap(),
       where: 'id = ?',
@@ -148,9 +146,9 @@ class NajmeDatabase {
     );
   }
 
+
   Future<void> updateProgress(Progress progress) async {
-    final db = await database;
-    await db.update(
+    await database.update(
       'progress',
       progress.toMap(),
       where: 'id = ?',
@@ -158,13 +156,11 @@ class NajmeDatabase {
     );
   }
 
-  /* Getting From DB */
+  /* Getting From database */
 
 
   Future<Profile> getProfile(int profileID) async {
-    final db = await database;
-
-    final List<Map<String, dynamic>> maps = await db.query(
+    final List<Map<String, dynamic>> maps = await database.query(
       'profiles',
       where: "id = ?",
       whereArgs: [profileID],
@@ -173,10 +169,9 @@ class NajmeDatabase {
     return Profile.fromMap(maps[0]);
   }
 
-  Future<List<Profile>> getProfiles() async {
-    final db = await database;
 
-    final List<Map<String, dynamic>> maps = await db.query(
+  Future<List<Profile>> getProfiles() async {
+    final List<Map<String, dynamic>> maps = await database.query(
       'profiles',
     );
 
@@ -185,12 +180,11 @@ class NajmeDatabase {
     });
   }
 
-  Future<List<Subject>> getSubjects(int profileID) async {
-    final db = await database;
 
+  Future<List<Subject>> getSubjects(int profileID) async {
     final Profile profile = await getProfile(profileID);
 
-    final List<Map<String, dynamic>> maps = await db.query(
+    final List<Map<String, dynamic>> maps = await database.query(
       'subjects',
       where: "level = ?",
       whereArgs: [profile.level],
@@ -201,10 +195,9 @@ class NajmeDatabase {
     });
   }
 
-  Future<List<Unit>> getUnits(int subjectID) async {
-    final db = await database;
 
-    final List<Map<String, dynamic>> maps = await db.query(
+  Future<List<Unit>> getUnits(int subjectID) async {
+    final List<Map<String, dynamic>> maps = await database.query(
       'units',
       where: "subject_id = ?",
       whereArgs: [subjectID],
@@ -216,9 +209,7 @@ class NajmeDatabase {
   }
 
   Future<List<Lesson>> getLessons(int unitID) async {
-    final db = await database;
-
-    final List<Map<String, dynamic>> maps = await db.query(
+    final List<Map<String, dynamic>> maps = await database.query(
       'lessons',
       where: "unit_id = ?",
       whereArgs: [unitID],
@@ -229,17 +220,17 @@ class NajmeDatabase {
     });
   }
 
-  Future<Progress> getProgress(int profileID) async {
-    final db = await database;
 
-    final List<Map<String, dynamic>> maps = await db.query(
+  Future<List<Progress>> getProgress(int profileID) async {
+    final List<Map<String, dynamic>> maps = await database.query(
       'progress',
       where: "profile_id = ?",
       whereArgs: [profileID],
     );
 
-    return Progress.fromMap(maps[0]);
-
+    return List.generate(maps.length, (i) {
+      return Progress.fromMap(maps[i]);
+    });
   }
 
   /* Deleting */

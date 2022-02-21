@@ -246,7 +246,7 @@ class Progress {
       fruits: map['fruits'], 
       excellences: map['excellences'], 
       profileId: map['profile_id'], 
-      subjectId: map['profile_id'], 
+      subjectId: map['subject_id'], 
       currentUnit: map['current_unit'], 
       currentLesson: map['current_lesson']
     );

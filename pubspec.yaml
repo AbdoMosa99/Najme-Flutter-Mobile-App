@@ -43,6 +43,7 @@ dependencies:
   liquid_progress_indicator: ^0.4.0
   lottie: ^1.2.1
   fl_chart: ^0.41.0
+  shared_preferences: ^2.0.13
 
 dev_dependencies:
   flutter_test:

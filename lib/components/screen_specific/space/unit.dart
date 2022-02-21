@@ -1,40 +1,41 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/utility.dart';
 
-import '../../../utility.dart';
 
-class DarkGalaxy extends InkWell {
-  DarkGalaxy({
+class UnitIcon extends InkWell {
+  UnitIcon({
     Key? key,
     required BuildContext context,
-    String img = "",
-    required String backEMG,
-    required String text,
+    required String icon,
+    required String title,
     void Function()? onClick,
+    required bool active,
   }) : super(
     key: key,
-    onTap: onClick,
+    onTap: active? onClick : null,
     child: Opacity(
-        opacity: 0.5,
-        child: Column(
+      opacity: active? 1.0 : 0.5,
+      child: Column(
           children: [
             Stack(
               alignment: Alignment.center,
               children: [
                 SvgPicture.asset(
-                  backEMG,
+                  Assets.galaxy,
                   height: adjustHeightValue(context, 90),
-                  color: Colors.black.withOpacity(adjustValue(context, 0.25)),
                 ),
                 SvgPicture.asset(
-                  img,
+                  icon,
                   height: adjustHeightValue(context, 50),
                 ),
               ],
             ),
             Text(
-              text,
+              title,
               style: TextStyle(
                 fontSize: adjustValue(context, 15),
                 color:AppColors.secondary,
@@ -43,6 +44,6 @@ class DarkGalaxy extends InkWell {
             )
           ],
         ),
-      ),
+    ),
   );
 }

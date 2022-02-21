@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:najme/database/temp.dart';
 import 'package:najme/screens/browsing/units_screen.dart';
-import 'package:najme/screens/drawer/personal_profile_updates.dart';
-import 'package:najme/database/init.dart';
+import 'package:najme/screens/main/loading_screen.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 import 'package:najme/data.dart';
 
+import 'constants/assets.dart';
+import 'database/models.dart';
 
 
 class NajmeApp extends StatelessWidget {
@@ -16,9 +17,15 @@ class NajmeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
-      home: UnitsScreen(
-        text: "حساب",
-        subjectID: 2,
+      home: FutureBuilder(
+        future: init(),
+        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+          return snapshot.hasData
+            ? UnitsScreen(
+              subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 1),
+            )
+            : CircularProgressIndicator();
+        },
       ), 
       debugShowCheckedModeBanner: false,
     );
@@ -28,7 +35,6 @@ class NajmeApp extends StatelessWidget {
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await deleteDatabase(join(await getDatabasesPath(), 'najme.db'));
-  await database.init();
   await insertData();
 
   runApp(const NajmeApp());

@@ -7,6 +7,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/database/models.dart';
 import 'package:najme/screens/browsing/units_screen.dart';
 import 'package:najme/utility.dart';
 
@@ -44,7 +45,12 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        InOutPageRoute(const UnitsScreen(key: null, text: 'لغة عربية', subjectID: 2), Alignment.bottomCenter),
+                        InOutPageRoute(
+                          UnitsScreen(
+                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 1)
+                          ), 
+                          Alignment.bottomCenter
+                        ),
                       );
                     },
                     image: Image.asset(
@@ -66,8 +72,13 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        InOutPageRoute(const UnitsScreen(key: null, text: 'حساب', subjectID: 1), Alignment.bottomCenter),
-                    );
+                        InOutPageRoute(
+                          UnitsScreen(
+                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 1)
+                          ), 
+                          Alignment.bottomCenter
+                        ),
+                      );
                     },
                     image: SvgPicture.asset(Assets.mathSymbol),
                     text: 'حساب',
@@ -89,7 +100,12 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        InOutPageRoute(const UnitsScreen(key: null, text: 'English', subjectID: 4), Alignment.bottomCenter),
+                        InOutPageRoute(
+                          UnitsScreen(
+                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 1)
+                          ),
+                          Alignment.bottomCenter
+                        ),
                       );
                     },
                     image: SvgPicture.asset(Assets.englishSymbol),
@@ -107,7 +123,12 @@ class HomeScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        InOutPageRoute(const UnitsScreen(key: null, text: 'ذكاء', subjectID: 3), Alignment.bottomCenter),
+                        InOutPageRoute(
+                          UnitsScreen(
+                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 1)
+                          ), 
+                          Alignment.bottomCenter
+                        ),
                       );
                     },
                     image: SvgPicture.asset(Assets.iqSymbol),
