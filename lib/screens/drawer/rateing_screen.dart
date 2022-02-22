@@ -7,6 +7,7 @@ import 'package:najme/constants/colors.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:najme/data.dart';
 import 'package:najme/screens/main/home_screen.dart';
+import '../../components/general/back_button.dart';
 import '../../utility.dart';
 
 class RatingScreen extends StatefulWidget {
@@ -19,10 +20,10 @@ class RatingScreen extends StatefulWidget {
 class _RatingScreenState extends State<RatingScreen> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        MainContainer(
-          child: Column(
+    return MainContainer(
+          child: Stack(
+            children: [
+              Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children:[
@@ -104,8 +105,10 @@ class _RatingScreenState extends State<RatingScreen> {
               ),
             ],
           ),
-        ),
-        GestureDetector(
+
+              PBackButton(context: context),
+
+              /*GestureDetector(
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: adjustValue(context, 30.0)),
             child: Align(
@@ -149,8 +152,9 @@ class _RatingScreenState extends State<RatingScreen> {
               false
             );
           },
-        ),
-      ],
+        ),*/
+            ],
+          ),
     );
   }
 }

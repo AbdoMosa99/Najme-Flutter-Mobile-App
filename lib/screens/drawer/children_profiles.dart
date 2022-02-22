@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
+import 'package:najme/components/general/back_button.dart';
 import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
@@ -28,9 +29,10 @@ class ChildrenProfiles extends StatelessWidget {
       builder: (context, AsyncSnapshot<List> snapshot) {
         List<Profile> profiles = snapshot.data!.cast<Profile>();
         return snapshot.hasData
-            ? Stack(children: [
-                MainContainer(
-                  child: Column(
+            ? MainContainer(
+                  child: Stack(
+                    children: [
+                      Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -82,18 +84,10 @@ class ChildrenProfiles extends StatelessWidget {
                           ),
                         ),
                       ]),
-                  floatingActionButton: true,
-                  floatingActionIcon: Icons.edit_outlined,
-                  floatingActionIconColor: AppColors.secondary,
-                  onFloatingActionButtonTap: () {
-                    Navigator.push(
-                      context,
-                      InOutPageRoute(const PersonalAccountUpdates(),
-                          Alignment.bottomCenter),
-                    );
-                  },
-                ),
-                GestureDetector(
+
+                      PBackButton(context: context),
+
+                      /*GestureDetector(
                   child: Padding(
                     padding: EdgeInsets.symmetric(
                         vertical: adjustValue(context, 30.0)),
@@ -132,9 +126,22 @@ class ChildrenProfiles extends StatelessWidget {
                     ),
                   ),
                   onTap: () {},
-                ),
-              ])
-            : Center(child: CircularProgressIndicator());
+                ),*/
+                    ]
+                  ),
+                  floatingActionButton: true,
+                  floatingActionIcon: Icons.edit_outlined,
+                  floatingActionIconColor: AppColors.secondary,
+                  onFloatingActionButtonTap: () {
+                    Navigator.push(
+                      context,
+                      InOutPageRoute(const PersonalAccountUpdates(),
+                          Alignment.bottomCenter),
+                    );
+                  },
+                )
+                : Center(child: CircularProgressIndicator());
+
       },
     );
   }
