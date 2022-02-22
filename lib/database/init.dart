@@ -17,7 +17,7 @@ class NajmeDatabase {
               name TEXT, 
               gender TEXT,
               birthdate TEXT,
-              level INT,
+              level TEXT,
               city TEXT,
               ambition TEXT
             )
@@ -37,7 +37,7 @@ class NajmeDatabase {
                 id INT PRIMARY KEY,
                 category TEXT,
                 icon TEXT,
-                level INT
+                level TEXT
               )
             '''
         );
@@ -160,11 +160,12 @@ class NajmeDatabase {
 
 
   Future<Profile> getProfile(int profileID) async {
-    final List<Map<String, dynamic>> maps = await database.query(
+    List<Map<String, dynamic>> maps = await database.query(
       'profiles',
       where: "id = ?",
       whereArgs: [profileID],
     );
+
 
     return Profile.fromMap(maps[0]);
   }
@@ -195,7 +196,6 @@ class NajmeDatabase {
     });
   }
 
-
   Future<List<Unit>> getUnits(int subjectID) async {
     final List<Map<String, dynamic>> maps = await database.query(
       'units',
@@ -220,7 +220,6 @@ class NajmeDatabase {
     });
   }
 
-
   Future<List<Progress>> getProgress(int profileID) async {
     final List<Map<String, dynamic>> maps = await database.query(
       'progress',
@@ -232,6 +231,7 @@ class NajmeDatabase {
       return Progress.fromMap(maps[i]);
     });
   }
+
 
   /* Deleting */
 

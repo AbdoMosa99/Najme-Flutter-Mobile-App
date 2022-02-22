@@ -7,15 +7,27 @@ import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/screens/drawer/personal_profile_updates.dart';
 import '../../utility.dart';
+import 'package:najme/data.dart';
+
 
 class PersonalProfile extends StatelessWidget {
   const PersonalProfile({Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+
+    var totalStars = 0;
+    var totalFruits = 0;
+    var totalExcellences = 0;
+
+    for(int i = 0; i < progresses.length; i++){
+      totalStars += progresses[i].stars;
+      totalFruits += progresses[i].fruits;
+      totalExcellences += progresses[i].excellences;
+    }
     return MainContainer(
       appBar: MainAppBar(
         context: context,
@@ -54,7 +66,7 @@ class PersonalProfile extends StatelessWidget {
             ),
           ),
           Text(
-            'منار شاهين',
+            profile.name,
             style: TextStyle(
               fontSize: adjustValue(context, 25.0),
               fontFamily: 'Cairo',
@@ -63,7 +75,7 @@ class PersonalProfile extends StatelessWidget {
             ),
           ),
           Text(
-            'KG2',
+            profile.level,
             style: TextStyle(
               fontSize: adjustValue(context, 20.0),
               fontFamily: 'Cairo',
@@ -106,7 +118,7 @@ class PersonalProfile extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '8',
+                                '${totalExcellences}',
                                 style: TextStyle(
                                   fontSize: adjustValue(context, 15.0),
                                   fontFamily: 'Cairo',
@@ -134,7 +146,7 @@ class PersonalProfile extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '25',
+                                '${totalFruits}',
                                 style: TextStyle(
                                   fontSize: adjustValue(context, 15.0),
                                   fontFamily: 'Cairo',
@@ -162,7 +174,7 @@ class PersonalProfile extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                '16',
+                                '${totalStars}',
                                 style: TextStyle(
                                   fontSize: adjustValue(context, 15.0),
                                   fontFamily: 'Cairo',
@@ -191,7 +203,7 @@ class PersonalProfile extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, 0, adjustValue(context, 15), 0),
                       child: Text(
-                        '6 سنوات',
+                        '${calculateDate(profile.birthdate)} سنوات',
                         style: TextStyle(
                           fontSize: adjustValue(context, 15.0),
                           fontFamily: 'Cairo',
@@ -218,7 +230,7 @@ class PersonalProfile extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, 0, adjustValue(context, 15), 0),
                       child: Text(
-                        'السويس',
+                        '${profile.city}',
                         style: TextStyle(
                           fontSize: adjustValue(context, 15.0),
                           fontFamily: 'Cairo',
@@ -245,7 +257,7 @@ class PersonalProfile extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, 0, adjustValue(context, 15), 0),
                       child: Text(
-                        'طبيب',
+                        '${profile.ambition}',
                         style: TextStyle(
                           fontSize: adjustValue(context, 15.0),
                           fontFamily: 'Cairo',

@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                         context,
                         InOutPageRoute(
                           UnitsScreen(
-                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 1)
+                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 'KG1')
                           ), 
                           Alignment.bottomCenter
                         ),
@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                         context,
                         InOutPageRoute(
                           UnitsScreen(
-                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 1)
+                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 'KG1')
                           ), 
                           Alignment.bottomCenter
                         ),
@@ -102,7 +102,7 @@ class HomeScreen extends StatelessWidget {
                         context,
                         InOutPageRoute(
                           UnitsScreen(
-                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 1)
+                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 'KG1')
                           ),
                           Alignment.bottomCenter
                         ),
@@ -125,7 +125,7 @@ class HomeScreen extends StatelessWidget {
                         context,
                         InOutPageRoute(
                           UnitsScreen(
-                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 1)
+                            subject: Subject(id: 2, category: "حساب", icon: Assets.mathSymbol, level: 'KG1')
                           ), 
                           Alignment.bottomCenter
                         ),

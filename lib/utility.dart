@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:najme/data.dart';
 
 double adjustValue(BuildContext context, double value) {
   return (
@@ -27,4 +28,14 @@ bool validatePassword(String value) {
     """^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}\$"""
   );
   return passwordRE.hasMatch(value);
+}
+
+int calculateDate(DateTime date) {
+  DateTime now = DateTime.now();
+  int age = now.year - date.year;
+  if (
+  now.month < date.month || (now.month == date.month && now.day < date.day)
+  )
+    age--;
+  return age;
 }

@@ -9,6 +9,8 @@ import 'package:najme/screens/drawer/contactus_screen.dart';
 import 'package:najme/screens/drawer/personal_profile.dart';
 import 'package:najme/screens/drawer/rateing_screen.dart';
 import 'package:najme/utility.dart';
+import 'package:najme/data.dart';
+
 
 class MainDrawer extends Drawer {
   MainDrawer({ 
@@ -42,7 +44,7 @@ class MainDrawer extends Drawer {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'الاسم',
+                          profile.name,
                           maxLines: 1,
                           style: TextStyle(
                             color: AppColors.surface,
@@ -51,7 +53,7 @@ class MainDrawer extends Drawer {
                           ),
                         ),
                         Text(
-                          'المرحلة',
+                          '${profile.level}',
                           maxLines: 1,
                           style: TextStyle(
                             color: AppColors.surface,

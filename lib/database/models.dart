@@ -4,7 +4,7 @@ class Profile {
   String name;
   String gender;
   DateTime birthdate;
-  int level;
+  String level;
   String city;
   String ambition;
 
@@ -88,7 +88,7 @@ class Subject {
   final int id;
   String category;
   String icon;
-  int level;
+  String level;
 
   Subject({
     required this.id,

@@ -8,28 +8,40 @@ Future<void> insertData() async {
   final database = NajmeDatabase();
   await database.open();
 
-  Profile profile = Profile(
+  Profile profile1 = Profile(
       id: 1,
-      name: 'أحمد',
+      name: 'Sayed Omar',
       gender: 'ولد',
       birthdate:  DateTime.utc(2015, 11, 9),
-      level: 1,
+      level: 'KG1',
       city: 'السويس',
       ambition: 'طبيب'
   );
-  await database.insertProfile(profile);
+  await database.insertProfile(profile1);
 
-  Level kg1 = Level(id: 1, name: 'KG1');
+  Profile profile2 = Profile(
+      id: 2,
+      name: 'Salma Omar',
+      gender: 'بنت',
+      birthdate:  DateTime.utc(2015, 11, 9),
+      level: 'KG1',
+      city: 'اسكندرية',
+      ambition: 'طبيب'
+  );
+  await database.insertProfile(profile2);
+
+
+  Level kg1 = Level(id: 1, name: 'KG5');
   await database.insertLevel(kg1);
 
-  Level kg2 = Level(id: 2, name: 'KG2');
+  Level kg2 = Level(id: 2, name: 'KG6');
   await database.insertLevel(kg2);
 
   Subject arabic = Subject(
       id: 1,
       category: 'لغة عربية',
       icon: Assets.arabicSymbol,
-      level: 1
+      level: 'KG1'
   );
   await database.insertSubject(arabic);
 
@@ -37,7 +49,7 @@ Future<void> insertData() async {
       id: 2,
       category: 'حساب',
       icon: Assets.mathSymbol,
-      level: 1
+      level: 'KG1'
   );
   await database.insertSubject(math);
 
@@ -45,7 +57,7 @@ Future<void> insertData() async {
       id: 3,
       category: 'English',
       icon: Assets.englishSymbol,
-      level: 1
+      level: 'KG1'
   );
   await database.insertSubject(english);
 
@@ -53,7 +65,7 @@ Future<void> insertData() async {
       id: 4,
       category: 'ذكاء',
       icon: Assets.iqSymbol,
-      level: 1
+      level: 'KG1'
   );
   await database.insertSubject(iq);
 

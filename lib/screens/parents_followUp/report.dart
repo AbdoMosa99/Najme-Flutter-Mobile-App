@@ -8,9 +8,6 @@ import 'package:najme/components/reports/report_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
-
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
-import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'dart:math' as math;
 
 class Report extends StatefulWidget {
