@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/general/app_bar.dart';
@@ -50,14 +51,46 @@ class UnitsScreen extends StatelessWidget {
                           ),
                           color: const Color.fromRGBO(80, 54, 164, 0.5),
                         ),
-                        child: Text(
-                          subject.category,
-                          style: TextStyle(
-                            color: AppColors.secondary,
-                            fontSize: adjustValue(context, 30),
-                            fontFamily: 'Cairo',
-                            fontWeight: FontWeight.w800,
-                          ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  size: 35,
+                                  color: AppColors.secondary,
+                                ),
+                                Text(
+                                  '24',
+                                  style: TextStyle(
+                                    color: AppColors.secondary,
+                                    fontSize: adjustValue(context, 25),
+                                    fontFamily: 'Cairo',
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                )
+                              ],
+                            ),
+                            Text(
+                              subject.category,
+                              style: TextStyle(
+                                color: AppColors.secondary,
+                                fontSize: adjustValue(context, 30),
+                                fontFamily: 'Cairo',
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                            IconButton(
+                              icon: Icon(
+                                Icons.arrow_forward,
+                                size: 35,
+                                color: AppColors.secondary,
+                              ),
+                              onPressed: () {},
+                            ),
+                          ],
                         ),
                         padding: const EdgeInsets.all(0),
                         alignment: Alignment.center,
