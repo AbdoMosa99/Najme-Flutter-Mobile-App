@@ -12,11 +12,10 @@ class ContactUsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Stack(
       children: [
         MainContainer(
-          child:Padding(
+          child: Padding(
             padding: EdgeInsets.only(top: adjustHeightValue(context, 100.0)),
             child: CustomScrollView(
               scrollDirection: Axis.vertical,
@@ -29,7 +28,7 @@ class ContactUsScreen extends StatelessWidget {
                     children: [
                       Text(
                         'تواصل معنا',
-                        style:TextStyle(
+                        style: TextStyle(
                           fontSize: adjustValue(context, 40.0),
                           fontFamily: 'Cairo',
                           fontWeight: FontWeight.w900,
@@ -52,14 +51,16 @@ class ContactUsScreen extends StatelessWidget {
                             color: AppColors.primary,
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
+                            borderRadius: BorderRadius.circular(
+                                adjustValue(context, 15.0)),
                             borderSide: BorderSide(
                               color: AppColors.secondaryLight,
                               width: adjustWidthValue(context, 2),
                             ),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
+                            borderRadius: BorderRadius.circular(
+                                adjustValue(context, 15.0)),
                             borderSide: const BorderSide(
                               color: AppColors.primaryLight,
                             ),
@@ -76,7 +77,7 @@ class ContactUsScreen extends StatelessWidget {
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                               vertical: adjustHeightValue(context, 15)),
-                          child:SizedBox(
+                          child: SizedBox(
                             width: adjustHeightValue(context, 100.0),
                             height: adjustHeightValue(context, 50.0),
                             child: MainButton(
@@ -104,50 +105,32 @@ class ContactUsScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           InkWell(
-                            child: Stack(
-                              alignment: AlignmentDirectional.center,
-                              children: [
-                                Container(
-                                  width: adjustValue(context, 65),
-                                  height: adjustValue(context, 65),
-                                  decoration: BoxDecoration(
-                                    color: AppColors.primaryLight,
-                                    shape: BoxShape.circle,
-                                    border: Border.all(color: AppColors.secondary,),
-                                  ),
-                                ),
-                                Column(
-                                  children: [
-                                    SvgPicture.asset(
-                                      Assets.gmail,
-                                      height: adjustValue(context, 55.0),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                            child: SvgPicture.asset(
+                              Assets.gmail_contact,
+                              height: adjustValue(context, 65.0),
                             ),
-                            onTap: (){},
+                            onTap: () {},
                           ),
                           InkWell(
                             child: SvgPicture.asset(
                               Assets.twiter,
                               height: adjustValue(context, 65.0),
                             ),
-                            onTap: (){},
+                            onTap: () {},
                           ),
                           InkWell(
                             child: SvgPicture.asset(
                               Assets.watsapp,
                               height: adjustValue(context, 65.0),
                             ),
-                            onTap: (){},
+                            onTap: () {},
                           ),
                           InkWell(
                             child: SvgPicture.asset(
                               Assets.facebock,
                               height: adjustValue(context, 65.0),
                             ),
-                            onTap: (){},
+                            onTap: () {},
                           ),
                         ],
                       ),
@@ -173,15 +156,13 @@ class ContactUsScreen extends StatelessWidget {
                       color: AppColors.secondary,
                       size: adjustValue(context, 30),
                     ),
-                    Text(
-                        'رجوع',
+                    Text('رجوع',
                         style: TextStyle(
                           fontSize: adjustValue(context, 23.0),
                           fontFamily: 'Cairo',
                           color: Colors.white,
                           decoration: TextDecoration.none,
-                        )
-                    ),
+                        )),
                   ],
                 ),
                 decoration: BoxDecoration(
@@ -196,14 +177,11 @@ class ContactUsScreen extends StatelessWidget {
               ),
             ),
           ),
-          onTap: (){
-            Navigator.pop(
-                context,
-                false
-            );
+          onTap: () {
+            Navigator.pop(context, false);
           },
         ),
-        ],
+      ],
     );
   }
 }

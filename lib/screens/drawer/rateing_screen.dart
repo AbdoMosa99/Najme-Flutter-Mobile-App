@@ -5,6 +5,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:najme/data.dart';
 import 'package:najme/screens/main/home_screen.dart';
 import '../../utility.dart';
 
@@ -55,7 +56,7 @@ class _RatingScreenState extends State<RatingScreen> {
                     glowColor: AppColors.secondaryLight,
                     glowRadius: adjustValue(context, 40),
                     itemSize: adjustWidthValue(context, 50),
-                    initialRating: 5,
+                    initialRating: prefs.getDouble('rating')!,
                     minRating: 1,
                     direction: Axis.horizontal,
                     allowHalfRating: true,
@@ -64,7 +65,9 @@ class _RatingScreenState extends State<RatingScreen> {
                     itemBuilder: (context, _) => SvgPicture.asset(
                       Assets.rateStar,
                     ),
-                    onRatingUpdate: (rating) {},
+                    onRatingUpdate: (ratingStar) async{
+                      await prefs.setDouble('rating', ratingStar);
+                    },
                   ),
                 ),
               ),
