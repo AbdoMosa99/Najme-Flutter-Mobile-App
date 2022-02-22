@@ -11,6 +11,9 @@ import 'package:najme/screens/drawer/rateing_screen.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/data.dart';
 
+import '../../screens/main/login_screen.dart';
+import '../../screens/parents_followUp/report.dart';
+
 
 class MainDrawer extends Drawer {
   MainDrawer({ 
@@ -27,7 +30,7 @@ class MainDrawer extends Drawer {
         padding: EdgeInsets.zero,
         children: [
           Container(
-            height: adjustHeightValue(context, 160.0),
+            height: adjustHeightValue(context, 139.0),
             child: DrawerHeader(
               decoration: const BoxDecoration(
                 color: AppColors.primaryLight,
@@ -35,7 +38,10 @@ class MainDrawer extends Drawer {
               child: Row(
                 children: [
                   Expanded(
-                    child: SvgPicture.asset(Assets.male)
+                    child: SvgPicture.asset(
+                    Assets.male,
+                    width: adjustValue(context, 80.0),
+                    )
                   ),
 
                   Expanded(
@@ -75,13 +81,13 @@ class MainDrawer extends Drawer {
               style: TextStyle(
                 color: AppColors.surface,
                 fontFamily: 'Cairo',
-                fontSize: adjustValue(context, 20.0),
+                fontSize: adjustValue(context, 21.0),
               ),
             ),
             leading: SvgPicture.asset(
               Assets.faceBlack,
               color: AppColors.secondary,
-              width: adjustValue(context, 50.0),
+              width: adjustValue(context, 40.0),
             ),
             onTap: () {
               Navigator.push(
@@ -93,17 +99,17 @@ class MainDrawer extends Drawer {
 
           ListTile(
             title: Text(
-              'متابعة الآباء',
+              'حديقتي',
               style: TextStyle(
                 color: AppColors.surface,
                 fontFamily: 'Cairo',
-                fontSize: adjustValue(context, 20.0),
+                fontSize: adjustValue(context, 21.0),
               ),
             ),
             leading: SvgPicture.asset(
-              Assets.parentsFollowUp,
+              Assets.plant,
               color: AppColors.secondary,
-              width: adjustValue(context, 50.0),
+              width: adjustValue(context, 40.0),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -116,13 +122,13 @@ class MainDrawer extends Drawer {
               style: TextStyle(
                 color: AppColors.surface,
                 fontFamily: 'Cairo',
-                fontSize: adjustValue(context, 20.0),
+                fontSize: adjustValue(context, 21.0),
               ),
             ),
             leading: SvgPicture.asset(
               Assets.settings,
               color: AppColors.secondary,
-              width: adjustValue(context, 50.0),
+              width: adjustValue(context, 40.0),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -130,7 +136,7 @@ class MainDrawer extends Drawer {
           ),
 
           Padding(
-            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 16.0)),
+            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 6.0)),
             child: Divider(
               color: AppColors.secondary,
               thickness: 1,
@@ -145,13 +151,13 @@ class MainDrawer extends Drawer {
               style: TextStyle(
                 color: AppColors.surface,
                 fontFamily: 'Cairo',
-                fontSize: adjustValue(context, 20.0),
+                fontSize: adjustValue(context, 21.0),
               ),
             ),
             leading: SvgPicture.asset(
               Assets.rateApp,
               color: AppColors.secondary,
-              width: adjustValue(context, 50.0),
+              width: adjustValue(context, 40.0),
             ),
             onTap: () {
               Navigator.push(
@@ -168,13 +174,13 @@ class MainDrawer extends Drawer {
               style: TextStyle(
                 color: AppColors.surface,
                 fontFamily: 'Cairo',
-                fontSize: adjustValue(context, 20.0),
+                fontSize: adjustValue(context, 21.0),
               ),
             ),
             leading: SvgPicture.asset(
               Assets.contactUs,
               color: AppColors.secondary,
-              width: adjustValue(context, 50.0),
+              width: adjustValue(context, 35.0),
             ),
             onTap: () {
               Navigator.push(
@@ -185,7 +191,7 @@ class MainDrawer extends Drawer {
           ),
 
           Padding(
-            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 16.0)),
+            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 6.0)),
             child: Divider(
               color: AppColors.secondary,
               thickness: 1,
@@ -196,17 +202,39 @@ class MainDrawer extends Drawer {
 
           ListTile(
             title: Text(
+              'متابعة الآباء',
+              style: TextStyle(
+                color: AppColors.surface,
+                fontFamily: 'Cairo',
+                fontSize: adjustValue(context, 21.0),
+              ),
+            ),
+            leading: SvgPicture.asset(
+              Assets.parentsFollowUp,
+              color: AppColors.secondary,
+              width: adjustValue(context, 40.0),
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                LeftRightPageRoute(const Report(), -1, 0),
+              );
+            },
+          ),
+
+          ListTile(
+            title: Text(
               'إدارة الحساب',
               style: TextStyle(
                 color: AppColors.surface,
                 fontFamily: 'Cairo',
-                fontSize: adjustValue(context, 20.0),
+                fontSize: adjustValue(context, 21.0),
               ),
             ),
             leading: SvgPicture.asset(
               Assets.accountCircle,
               color: AppColors.secondary,
-              width: adjustValue(context, 50.0),
+              width: adjustValue(context, 40.0),
             ),
             onTap: () {
               Navigator.push(
@@ -215,6 +243,39 @@ class MainDrawer extends Drawer {
               );
             },
           ),
+
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 6.0)),
+            child: Divider(
+              color: AppColors.secondary,
+              thickness: 1,
+              indent: adjustValue(context, 50.0),
+              endIndent: adjustValue(context, 50.0),
+            ),
+          ),
+
+          ListTile(
+            title: Text(
+              'تسجيل الخروج',
+              style: TextStyle(
+                color: AppColors.surface,
+                fontFamily: 'Cairo',
+                fontSize: adjustValue(context, 21.0),
+              ),
+            ),
+            leading: SvgPicture.asset(
+              Assets.logout,
+              color: AppColors.secondary,
+              width: adjustValue(context, 40.0),
+            ),
+            onTap: () {
+              Navigator.push(
+                context,
+                LeftRightPageRoute(const LoginScreen(), -1, 0),
+              );
+            },
+          ),
+
         ],
       ),
     ),
