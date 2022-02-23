@@ -132,9 +132,8 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
                     color: AppColors.primary,
                   ),
                   onPressed: (){
-                    Navigator.pop(
-                        context,false
-                    );
+                    int count = 0;
+                    Navigator.of(context).popUntil((_) => count++ >= 2);
                   },
                 ),
               ),

@@ -19,11 +19,9 @@ class EmailVerificationScreen extends StatefulWidget {
   EmailVerificationScreen({
     Key? key,
     required this.registrationData,
-
   }) : super(key: key);
 
   Map<String, dynamic> registrationData;
-
 
   @override
   State<EmailVerificationScreen> createState() => _EmailVerificationScreenState();
@@ -233,6 +231,5 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
         ],
       ),
     );
-
   }
 }
