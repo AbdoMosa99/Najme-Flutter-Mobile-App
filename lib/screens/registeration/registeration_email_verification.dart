@@ -15,6 +15,8 @@ import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
+import '../../components/screen_specific/registration/registration_topLayer.dart';
+
 class EmailVerificationScreen extends StatefulWidget {
   EmailVerificationScreen({
     Key? key,
@@ -60,174 +62,172 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   Widget build(BuildContext context) {
 
     return MainContainer(
+      paddingAll: 0.0,
       child: Stack(
         children: [
-          Center(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(adjustHeightValue(context, 15)),
-                    child: SvgPicture.asset(
-                          Assets.E2,
-                          height: adjustValue(context, 125) ,
-                        ),
+          Padding(
+            padding: EdgeInsets.all(adjustValue(context, 20)),
+            child: Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(adjustValue(context, 15)),
+                      child: SvgPicture.asset(
+                            Assets.E2,
+                            height: adjustValue(context, 125) ,
+                          ),
 
-                  ),
-                  Text(
-                    'ادخل كود التأكيد الذي وصلك على',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: adjustValue(context, 33.0),
-                      fontFamily: 'Cairo',
-                      color: AppColors.primaryDark,
-                      //fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  Text(
-                    'kooko@gmail.com',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontFamily: 'Cairo',
-                      color: AppColors.primaryDark,
-                      fontSize: adjustValue(context, 33.0),
-                    ),
-                  ),
-
-                  Directionality(
-                    textDirection: TextDirection.ltr,
-                    child: VerificationCode(
-                      textStyle: TextStyle(
-                        fontSize: adjustValue(context, 40.0),
-                        color: AppColors.secondary,
+                    Text(
+                      'ادخل كود التأكيد الذي وصلك على',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: adjustValue(context, 33.0),
+                        fontFamily: 'Cairo',
+                        color: AppColors.primaryDark,
                         //fontWeight: FontWeight.bold,
                       ),
-                      underlineColor: AppColors.primaryDark,
-                      keyboardType: TextInputType.number,
-                      itemSize: adjustValue(context, 50),
-                      length: 5,
-                      autofocus: false,
-                      underlineWidth: adjustValue(context, 5),
-                      onCompleted: (String value) {
-                      },
-                      onEditing: (bool value) {
-                      },
                     ),
-                  ),
+                    Text(
+                      'kooko@gmail.com',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'Cairo',
+                        color: AppColors.primaryDark,
+                        fontSize: adjustValue(context, 33.0),
+                      ),
+                    ),
 
-                  Padding(
-                        padding: EdgeInsets.all(adjustHeightValue(context, 15)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                               _start == 0 ? TextButton(
-                                  onPressed: () {
-                                    startTimer();
-                                  },
-                                  child: Text(
-                                    'إعادة إرسال الكود',
-                                    textAlign: TextAlign.center,
-                                    maxLines: 1,
-                                    style: TextStyle(
-                                      fontSize: adjustValue(context, 20.0),
-                                      color: AppColors.primaryDark,
-                                      fontFamily: 'Cairo',
-                                      decoration: TextDecoration.underline,
+                    Directionality(
+                      textDirection: TextDirection.ltr,
+                      child: VerificationCode(
+                        textStyle: TextStyle(
+                          fontSize: adjustValue(context, 40.0),
+                          color: AppColors.secondary,
+                          //fontWeight: FontWeight.bold,
+                        ),
+                        underlineColor: AppColors.primaryDark,
+                        keyboardType: TextInputType.number,
+                        itemSize: adjustValue(context, 50),
+                        length: 5,
+                        autofocus: false,
+                        underlineWidth: adjustValue(context, 5),
+                        onCompleted: (String value) {
+                        },
+                        onEditing: (bool value) {
+                        },
+                      ),
+                    ),
+
+                    Padding(
+                          padding: EdgeInsets.all(adjustHeightValue(context, 15)),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                                 _start == 0 ? TextButton(
+                                    onPressed: () {
+                                      startTimer();
+                                    },
+                                    child: Text(
+                                      'إعادة إرسال الكود',
+                                      textAlign: TextAlign.center,
+                                      maxLines: 1,
+                                      style: TextStyle(
+                                        fontSize: adjustValue(context, 20.0),
+                                        color: AppColors.primaryDark,
+                                        fontFamily: 'Cairo',
+                                        decoration: TextDecoration.underline,
+                                      ),
                                     ),
-                                  ),
-                                )
-                                           : TextButton(
-                                              onPressed: () {
+                                  )
+                                             : TextButton(
+                                                onPressed: () {
 
-                                              },
-                                              child: Text(
-                                                'إعادة إرسال الكود',
-                                                textAlign: TextAlign.center,
-                                                maxLines: 1,
-                                                style: TextStyle(
-                                                  fontSize: adjustValue(context, 20.0),
-                                                  color: AppColors.primaryDark.withOpacity(0.5),
-                                                  fontFamily: 'Cairo',
-                                                  decoration: TextDecoration.underline,
+                                                },
+                                                child: Text(
+                                                  'إعادة إرسال الكود',
+                                                  textAlign: TextAlign.center,
+                                                  maxLines: 1,
+                                                  style: TextStyle(
+                                                    fontSize: adjustValue(context, 20.0),
+                                                    color: AppColors.primaryDark.withOpacity(0.5),
+                                                    fontFamily: 'Cairo',
+                                                    decoration: TextDecoration.underline,
+                                                  ),
                                                 ),
                                               ),
-                                            ),
 
-                                _start < 10 ? Text(
-                                                "(00:0$_start)",
-                                                textAlign: TextAlign.center,
-                                                maxLines: 1,
-                                                style: TextStyle(
-                                                          fontSize: adjustValue(context, 20.0),
-                                                          color: AppColors.primaryDark,
-                                                          fontFamily: 'Cairo',
-                                                        ),
-                                              )
-                                            : Text(
-                                                "(00:$_start)",
-                                                textAlign: TextAlign.center,
-                                                maxLines: 1,
-                                                style: TextStyle(
-                                                          fontSize: adjustValue(context, 20.0),
-                                                          color: AppColors.primaryDark,
-                                                          fontFamily: 'Cairo',
-                                                        ),
-                                              )
-                              ]
-                      ),
-
-
-
-                  ),
-
-                  Align(
-                    alignment: Alignment.bottomCenter,
-                    child: MaterialButton(
-                      color: AppColors.primary,
-                      minWidth: double.infinity,
-                      height: adjustValue(context, 45),
-                      shape: RoundedRectangleBorder(
-                        borderRadius:
-                        BorderRadius.circular(adjustValue(context, 15.0)),
-                      ),
-                      child: Text(
-                        'تأكيد',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'Cairo',
-                          color: AppColors.surface,
-                          fontSize: adjustValue(context, 26.0),
+                                  _start < 10 ? Text(
+                                                  "(00:0$_start)",
+                                                  textAlign: TextAlign.center,
+                                                  maxLines: 1,
+                                                  style: TextStyle(
+                                                            fontSize: adjustValue(context, 20.0),
+                                                            color: AppColors.primaryDark,
+                                                            fontFamily: 'Cairo',
+                                                          ),
+                                                )
+                                              : Text(
+                                                  "(00:$_start)",
+                                                  textAlign: TextAlign.center,
+                                                  maxLines: 1,
+                                                  style: TextStyle(
+                                                            fontSize: adjustValue(context, 20.0),
+                                                            color: AppColors.primaryDark,
+                                                            fontFamily: 'Cairo',
+                                                          ),
+                                                )
+                                ]
                         ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          LeftRightPageRoute(RegistrationPassword(registrationData: widget.registrationData), 1, 0),
-                        );
-                      },
+
                     ),
-                  ),
-                ],
+
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: MaterialButton(
+                        color: AppColors.primary,
+                        minWidth: double.infinity,
+                        height: adjustValue(context, 45),
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                          BorderRadius.circular(adjustValue(context, 15.0)),
+                        ),
+                        child: Text(
+                          'تأكيد',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontFamily: 'Cairo',
+                            color: AppColors.surface,
+                            fontSize: adjustValue(context, 26.0),
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            LeftRightPageRoute(RegistrationPassword(registrationData: widget.registrationData), 1, 0),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios_outlined,
-                size: adjustValue(context, 30.0),
-                color: AppColors.primary,
-              ),
-              onPressed: (){
-                Navigator.pop(
+
+          TopLayer(
+            context: context,
+            width: 0.22,
+            onPressed: (){
+              Navigator.pop(
                   context,false
-                );
-              },
-            ),
+              );
+            },
           ),
+
         ],
       ),
     );

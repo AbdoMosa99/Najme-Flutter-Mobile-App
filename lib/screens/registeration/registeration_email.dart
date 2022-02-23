@@ -11,6 +11,8 @@ import 'package:najme/screens/registeration/registeration_email_verification.dar
 import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 
+import '../../components/screen_specific/registration/registration_topLayer.dart';
+
 class RegisterationEmail extends StatelessWidget {
   RegisterationEmail({Key? key}) : super(key: key);
 
@@ -31,80 +33,78 @@ class RegisterationEmail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
-      child: Stack(
-        children: [
-          Form(
-            key: _formKey,
-            child: Center(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SvgPicture.asset(
-                        Assets.E,
-                      height: adjustHeightValue(context, 150),
-                    ),
-                    SizedBox(
-                      height: adjustHeightValue(context, 50),
-                    ),
-                    FormTextBox(
-                      context: context,
-                      text: "الايميل",
-                      controllerKind: emailController,
-                      type: TextInputType.emailAddress,
-                      valid: (value) {
-                        if (!validateEmail(value)) {
-                          return "من فضلك ادخل بريد إلكتروني صحيح!";
-                        }
-                        return null;
-                      },
-                    ),
-                    SizedBox(
-                      height: adjustHeightValue(context, 50),
-                    ),
-                    Text(
-                      "إيميل ولي الأمر ",
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      style: TextStyle(
-                        fontSize: adjustValue(context, 40.0),
-                        fontFamily: 'Cairo',
-                        color: AppColors.primaryDark,
+          paddingAll: 0.0,
+          child: Stack(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(adjustValue(context, 20)),
+                child: Form(
+                  key: _formKey,
+                  child: Center(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          SvgPicture.asset(
+                              Assets.E,
+                            height: adjustHeightValue(context, 150),
+                          ),
+                          SizedBox(
+                            height: adjustHeightValue(context, 50),
+                          ),
+                          FormTextBox(
+                            context: context,
+                            text: "الايميل",
+                            controllerKind: emailController,
+                            type: TextInputType.emailAddress,
+                            valid: (value) {
+                              if (!validateEmail(value)) {
+                                return "من فضلك ادخل بريد إلكتروني صحيح!";
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(
+                            height: adjustHeightValue(context, 50),
+                          ),
+                          Text(
+                            "إيميل ولي الأمر ",
+                            textAlign: TextAlign.center,
+                            maxLines: 2,
+                            style: TextStyle(
+                              fontSize: adjustValue(context, 40.0),
+                              fontFamily: 'Cairo',
+                              color: AppColors.primaryDark,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ),
-            ),
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios_outlined,
-                size: adjustValue(context, 24.0),
-                color: AppColors.primary,
+
+              TopLayer(
+                context: context,
+                width: 0.11,
+                onPressed: (){
+                  Navigator.pop(
+                      context,false
+                  );
+                },
               ),
-              onPressed: (){
-                Navigator.pop(
-                    context,false
-                );
-
-              },
-            ),
+            ],
           ),
-        ],
-      ),
 
-      floatingActionButton: true,
-      onFloatingActionButtonTap: () {
-        if (_formKey.currentState!.validate()) {
-          registrationData["email"] = emailController.text;
-          Navigator.push(
-            context, 
-            LeftRightPageRoute(EmailVerificationScreen(registrationData: registrationData), 1, 0),
-          );
-        }
-      },
+          floatingActionButton: true,
+          onFloatingActionButtonTap: () {
+            if (_formKey.currentState!.validate()) {
+              registrationData["email"] = emailController.text;
+              Navigator.push(
+                context,
+                LeftRightPageRoute(EmailVerificationScreen(registrationData: registrationData), 1, 0),
+              );
+            }
+          },
     );
   }
 }

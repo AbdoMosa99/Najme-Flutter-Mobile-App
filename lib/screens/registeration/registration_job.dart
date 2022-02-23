@@ -11,6 +11,7 @@ import 'package:najme/screens/registeration/registration_address.dart';
 import 'package:najme/utility.dart';
 
 import '../../components/general/error_message.dart';
+import '../../components/screen_specific/registration/registration_topLayer.dart';
 
 class RegistrationJob extends StatefulWidget {
   RegistrationJob({
@@ -30,216 +31,215 @@ class _RegistrationJobState extends State<RegistrationJob> {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
+      paddingAll: 0.0,
       child: Stack(
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 3 / 4,
-                          child: MainCard(
-                            context: context,
-                            onTap: () {
-                              setState(() {
-                                job = 1;
-                              });
-                            },
-                            image: SvgPicture.asset(Assets.teacher),
-                            text: 'مدرس',
-                            color: job == 1 ? AppColors.primary : AppColors.surface,
-                            textColor: job == 1 ? AppColors.white : AppColors.primary,
-                            fontSize: 16,
-                            stroke: true,
+          Padding(
+            padding: EdgeInsets.all(adjustValue(context, 20)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                          child: AspectRatio(
+                            aspectRatio: 3 / 4,
+                            child: MainCard(
+                              context: context,
+                              onTap: () {
+                                setState(() {
+                                  job = 1;
+                                });
+                              },
+                              image: SvgPicture.asset(Assets.teacher),
+                              text: 'مدرس',
+                              color: job == 1 ? AppColors.primary : AppColors.surface,
+                              textColor: job == 1 ? AppColors.white : AppColors.primary,
+                              fontSize: 16,
+                              stroke: true,
+                            ),
                           ),
                         ),
-                      ),
 
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 3 / 4,
-                          child: MainCard(
-                            context: context,
-                            onTap: () {
-                              setState(() {
-                                job = 2;
-                              });
-                            },
-                            image: SvgPicture.asset(Assets.engineer),
-                            text: 'مهندس',
-                            color: job == 2 ? AppColors.primary : AppColors.surface,
-                            textColor: job == 2 ? AppColors.white : AppColors.primary,
-                            fontSize: 16,
-                            stroke: true,
+                        Expanded(
+                          child: AspectRatio(
+                            aspectRatio: 3 / 4,
+                            child: MainCard(
+                              context: context,
+                              onTap: () {
+                                setState(() {
+                                  job = 2;
+                                });
+                              },
+                              image: SvgPicture.asset(Assets.engineer),
+                              text: 'مهندس',
+                              color: job == 2 ? AppColors.primary : AppColors.surface,
+                              textColor: job == 2 ? AppColors.white : AppColors.primary,
+                              fontSize: 16,
+                              stroke: true,
+                            ),
                           ),
                         ),
-                      ),
 
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 3 / 4,
-                          child: MainCard(
-                            context: context,
-                            onTap: () {
-                              setState(() {
-                                job = 3;
-                              });
-                            },
-                            image: SvgPicture.asset(Assets.policeman),
-                            text: 'ضابط',
-                            color: job == 3 ? AppColors.primary : AppColors.surface,
-                            textColor: job == 3 ? AppColors.white : AppColors.primary,
-                            fontSize: 16,
-                            stroke: true,
+                        Expanded(
+                          child: AspectRatio(
+                            aspectRatio: 3 / 4,
+                            child: MainCard(
+                              context: context,
+                              onTap: () {
+                                setState(() {
+                                  job = 3;
+                                });
+                              },
+                              image: SvgPicture.asset(Assets.policeman),
+                              text: 'ضابط',
+                              color: job == 3 ? AppColors.primary : AppColors.surface,
+                              textColor: job == 3 ? AppColors.white : AppColors.primary,
+                              fontSize: 16,
+                              stroke: true,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                    SizedBox(
+                      height: adjustHeightValue(context, 10),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                          child: AspectRatio(
+                            aspectRatio: 3 / 4,
+                            child: MainCard(
+                              context: context,
+                              onTap: () {
+                                setState(() {
+                                  job = 4;
+                                });
+                              },
+                              image: SvgPicture.asset(Assets.doctor),
+                              text: 'طبيب',
+                              color: job == 4 ? AppColors.primary : AppColors.surface,
+                              textColor: job == 4 ? AppColors.white : AppColors.primary,
+                              fontSize: 16,
+                              stroke: true,
+                            ),
+                          ),
+                        ),
+
+                        Expanded(
+                          child: AspectRatio(
+                            aspectRatio: 3 / 4,
+                            child: MainCard(
+                              context: context,
+                              onTap: () {
+                                setState(() {
+                                  job = 5;
+                                });
+                              },
+                              image: SvgPicture.asset(Assets.programmer),
+                              text: 'مبرمج',
+                              color: job == 5 ? AppColors.primary : AppColors.surface,
+                              textColor: job == 5 ? AppColors.white : AppColors.primary,
+                              fontSize: 16,
+                              stroke: true,
+                            ),
+                          ),
+                        ),
+
+                        Expanded(
+                          child: AspectRatio(
+                            aspectRatio: 3 / 4,
+                            child: MainCard(
+                              context: context,
+                              onTap: () {
+                                setState(() {
+                                  job = 6;
+                                });
+                              },
+                              image: SvgPicture.asset(Assets.scientist),
+                              text: 'عالم',
+                              color: job == 6 ? AppColors.primary : AppColors.surface,
+                              textColor: job == 6 ? AppColors.white : AppColors.primary,
+                              fontSize: 16,
+                              stroke: true,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    if(!valid) ErrorMessage(
+                      context: context,
+                      message: "من فضلك اختر طموحك",
                   ),
-                  SizedBox(
-                    height: adjustHeightValue(context, 10),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 3 / 4,
-                          child: MainCard(
-                            context: context,
-                            onTap: () {
-                              setState(() {
-                                job = 4;
-                              });
-                            },
-                            image: SvgPicture.asset(Assets.doctor),
-                            text: 'طبيب',
-                            color: job == 4 ? AppColors.primary : AppColors.surface,
-                            textColor: job == 4 ? AppColors.white : AppColors.primary,
-                            fontSize: 16,
-                            stroke: true,
-                          ),
-                        ),
-                      ),
-
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 3 / 4,
-                          child: MainCard(
-                            context: context,
-                            onTap: () {
-                              setState(() {
-                                job = 5;
-                              });
-                            },
-                            image: SvgPicture.asset(Assets.programmer),
-                            text: 'مبرمج',
-                            color: job == 5 ? AppColors.primary : AppColors.surface,
-                            textColor: job == 5 ? AppColors.white : AppColors.primary,
-                            fontSize: 16,
-                            stroke: true,
-                          ),
-                        ),
-                      ),
-
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 3 / 4,
-                          child: MainCard(
-                            context: context,
-                            onTap: () {
-                              setState(() {
-                                job = 6;
-                              });
-                            },
-                            image: SvgPicture.asset(Assets.scientist),
-                            text: 'عالم',
-                            color: job == 6 ? AppColors.primary : AppColors.surface,
-                            textColor: job == 6 ? AppColors.white : AppColors.primary,
-                            fontSize: 16,
-                            stroke: true,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  if(!valid) ErrorMessage(
-                    context: context,
-                    message: "من فضلك اختر طموحك",
+                  ],
                 ),
-                ],
-              ),
-              Text(
-                "ما هو طموحك!",
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                style: TextStyle(
-                  fontSize: adjustValue(context, 40.0),
-                  fontFamily: 'Cairo',
-                  color: AppColors.primaryDark,
-                ),
-              ),
-              MaterialButton(
-                color: AppColors.primary,
-                minWidth: double.infinity,
-                height: adjustValue(context, 60),
-                shape: RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(adjustValue(context, 15.0)),
-                ),
-                child: Text(
-                  'تسجيل',
+                Text(
+                  "ما هو طموحك!",
                   textAlign: TextAlign.center,
+                  maxLines: 2,
                   style: TextStyle(
+                    fontSize: adjustValue(context, 40.0),
                     fontFamily: 'Cairo',
-                    color: AppColors.surface,
-                    fontSize: adjustValue(context, 30.0),
+                    color: AppColors.primaryDark,
                   ),
                 ),
-                onPressed: () {
-                  if (job != -1) {
-                    widget.registrationData["ambition"] = job;
+                MaterialButton(
+                  color: AppColors.primary,
+                  minWidth: double.infinity,
+                  height: adjustValue(context, 60),
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(adjustValue(context, 15.0)),
+                  ),
+                  child: Text(
+                    'تسجيل',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Cairo',
+                      color: AppColors.surface,
+                      fontSize: adjustValue(context, 30.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    if (job != -1) {
+                      widget.registrationData["ambition"] = job;
 
-                     setState(() {
-                      valid = true;
-                    });
+                       setState(() {
+                        valid = true;
+                      });
 
-                    // TODO: Call API
-                    print(widget.registrationData);
-                    Navigator.push(
-                      context,
-                      InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
-                    );
-                  }
-                  else{
-                    setState(() {
-                      valid = false;
-                    });
-                  }
-                },
-              ),    
-            ],
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios_outlined,
-                size: adjustValue(context, 24.0),
-                color: AppColors.primary,
-              ),
-              onPressed: (){
-                Navigator.pop(
-                    context,false
-                );
-              },
+                      // TODO: Call API
+                      print(widget.registrationData);
+                      Navigator.push(
+                        context,
+                        InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
+                      );
+                    }
+                    else{
+                      setState(() {
+                        valid = false;
+                      });
+                    }
+                  },
+                ),
+              ],
             ),
+          ),
+
+          TopLayer(
+            context: context,
+            width: 1,
+            onPressed: (){
+              Navigator.pop(
+                  context,false
+              );
+            },
           ),
         ],
       ),
