@@ -11,6 +11,7 @@ class Assets {
   static const String mathSymbol = "assets/icons/math_symbol.svg";
   static const String iqSymbol = "assets/icons/iq_symbol.svg";
   static const String E = "assets/icons/E.svg";
+  static const String E2 = "assets/icons/E2.svg";
   static const String child = "assets/icons/child.svg";
   static const String placeholder = "assets/icons/placeholder.svg";
   static const String male = "assets/icons/male.svg";

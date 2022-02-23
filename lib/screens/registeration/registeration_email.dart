@@ -7,6 +7,7 @@ import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/main/login_screen.dart';
+import 'package:najme/screens/registeration/registeration_email_verification.dart';
 import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 
@@ -100,7 +101,7 @@ class RegisterationEmail extends StatelessWidget {
           registrationData["email"] = emailController.text;
           Navigator.push(
             context, 
-            LeftRightPageRoute(RegistrationPassword(registrationData: registrationData), 1, 0),
+            LeftRightPageRoute(EmailVerificationScreen(registrationData: registrationData), 1, 0),
           );
         }
       },
