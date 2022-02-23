@@ -1,4 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_countdown_timer/countdown_timer_controller.dart';
+import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
@@ -10,11 +14,45 @@ import 'package:najme/screens/forget_password/new_password.dart';
 import 'package:najme/utility.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
-class ConfirmationCode extends StatelessWidget {
+class ConfirmationCode extends StatefulWidget {
   const ConfirmationCode({ Key? key }) : super(key: key);
 
   @override
+  State<ConfirmationCode> createState() => _ConfirmationCodeState();
+}
+
+class _ConfirmationCodeState extends State<ConfirmationCode> {
+
+  Timer? _timer;
+  int _start = 11;
+
+  void startTimer() {
+    _start = 11;
+    const oneSec = const Duration(seconds: 1);
+    _timer = new Timer.periodic(
+      oneSec,
+      (Timer timer) {
+        if (_start == 0) {
+          setState(() {
+            timer.cancel();
+          });
+        } else {
+          setState(() {
+            _start--;
+          });
+        }
+      },
+    );
+  }
+
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((_) => startTimer());
+  }
+
+  @override
   Widget build(BuildContext context) {
+
     return MainContainer(
       child: Stack(
         children: [
@@ -84,21 +122,68 @@ class ConfirmationCode extends StatelessWidget {
                   ),
 
                   Padding(
-                    padding: EdgeInsets.all(adjustHeightValue(context, 15)),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'إعادة إرسال الكود',
-                        textAlign: TextAlign.center,
-                        maxLines: 1,
-                        style: TextStyle(
-                          fontSize: adjustValue(context, 20.0),
-                          color: AppColors.primaryDark,
-                          fontFamily: 'Cairo',
-                          decoration: TextDecoration.underline,
-                        ),
+                        padding: EdgeInsets.all(adjustHeightValue(context, 15)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                               _start == 0 ? TextButton(
+                                  onPressed: () {
+                                    startTimer();
+                                  },
+                                  child: Text(
+                                    'إعادة إرسال الكود',
+                                    textAlign: TextAlign.center,
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                      fontSize: adjustValue(context, 20.0),
+                                      color: AppColors.primaryDark,
+                                      fontFamily: 'Cairo',
+                                      decoration: TextDecoration.underline,
+                                    ),
+                                  ),
+                                )
+                                           : TextButton(
+                                              onPressed: () {
+
+                                              },
+                                              child: Text(
+                                                'إعادة إرسال الكود',
+                                                textAlign: TextAlign.center,
+                                                maxLines: 1,
+                                                style: TextStyle(
+                                                  fontSize: adjustValue(context, 20.0),
+                                                  color: AppColors.primaryDark.withOpacity(0.5),
+                                                  fontFamily: 'Cairo',
+                                                  decoration: TextDecoration.underline,
+                                                ),
+                                              ),
+                                            ),
+
+                                _start < 10 ? Text(
+                                                "(00:0$_start)",
+                                                textAlign: TextAlign.center,
+                                                maxLines: 1,
+                                                style: TextStyle(
+                                                          fontSize: adjustValue(context, 20.0),
+                                                          color: AppColors.primaryDark,
+                                                          fontFamily: 'Cairo',
+                                                        ),
+                                              )
+                                            : Text(
+                                                "(00:$_start)",
+                                                textAlign: TextAlign.center,
+                                                maxLines: 1,
+                                                style: TextStyle(
+                                                          fontSize: adjustValue(context, 20.0),
+                                                          color: AppColors.primaryDark,
+                                                          fontFamily: 'Cairo',
+                                                        ),
+                                              )
+                              ]
                       ),
-                    ),
+
+
+
                   ),
 
                   Align(
@@ -150,5 +235,6 @@ class ConfirmationCode extends StatelessWidget {
         ],
       ),
     );
+
   }
 }

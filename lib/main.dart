@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:najme/database/temp.dart';
 import 'package:najme/screens/drawer/children_profiles.dart';
+import 'package:najme/screens/main/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -17,7 +18,7 @@ class NajmeApp extends StatelessWidget {
         future: init(),
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
           return snapshot.hasData
-              ? ChildrenProfiles()
+              ? LoginScreen()
               : Center(child: CircularProgressIndicator());
         },
       ),
