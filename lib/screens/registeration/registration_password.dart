@@ -9,6 +9,7 @@ import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration/registeration_email.dart';
 import 'package:najme/screens/registeration/registeration_name.dart';
 
+import '../../components/screen_specific/registration/registration_topLayer.dart';
 import '../../utility.dart';
 
 class RegistrationPassword extends StatefulWidget {
@@ -36,108 +37,107 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
     return Form(
       key: formkey,
         child: MainContainer(
+          paddingAll: 0.0,
           child: Stack(
             children: [
-              Center(
-                child: CustomScrollView(
-                  scrollDirection: Axis.vertical,
-                  slivers: [
-                    SliverFillRemaining(
-                      hasScrollBody: false,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(
-                            Assets.lock,
-                            height: adjustHeightValue(context, 170),
-                          ),
-                          Column(
-                            children: [
-                              FormTextBox(
-                                context: context,
-                                text: "كلمة السر",
-                                controllerKind: passController,
-                                type: TextInputType.text,
-                                suffIcon: isPassword
-                                    ? Icons.visibility_off_outlined
-                                    : Icons.visibility_outlined,
-                                ispass: isPassword,
-                                suffixFun: () {
-                                  setState(() {
-                                    isPassword = !isPassword;
-                                  });
-                                },
-                                valid: (value){
-                                  if(value.isEmpty){
-                                    return "من فضلك ادخل كلمة السر";
-                                  }
-                                  if(value.length < 8) {
-                                    return "يجب أن يكون عدد الحروف على الاقل 8";
-                                  }
-                                  return null;
-                                },
-                              ),
-                              SizedBox(
-                                height: adjustHeightValue(context, 24.0),
-                              ),
-                              FormTextBox(
-                                context: context,
-                                text: "تأكيد كلمة السر",
-                                controllerKind: confpassController,
-                                type: TextInputType.text,
-                                suffIcon: isPassword
-                                    ? Icons.visibility_off_outlined
-                                    : Icons.visibility_outlined,
-                                ispass: isConfPassword,
-                                suffixFun: () {
-                                  setState(() {
-                                    isConfPassword = !isConfPassword;
-                                  });
-                                },
-                                valid: (value) {
-                                  if (value.isEmpty) {
-                                    return "من فضلك ادخل تأكيد كلمة السر";
-                                  }
-                                  if (passController.text != confpassController.text) {
-                                    return "لا تتطابق مع كلمة السر";
-                                  }
-                                  return null;
-                                },
-                              ),
-                            ],
-                          ),
-                          Text(
-                            "اكتب كلمة السر!",
-                            textAlign: TextAlign.center,
-                            maxLines: 2,
-                            style: TextStyle(
-                              fontSize: adjustValue(context, 40.0),
-                              fontFamily: 'Cairo',
-                              color: AppColors.primaryDark,
+              Padding(
+                padding: EdgeInsets.all(adjustValue(context, 20)),
+                child: Center(
+                  child: CustomScrollView(
+                    scrollDirection: Axis.vertical,
+                    slivers: [
+                      SliverFillRemaining(
+                        hasScrollBody: false,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              Assets.lock,
+                              height: adjustHeightValue(context, 170),
                             ),
-                          ),
-                        ],
+                            Column(
+                              children: [
+                                FormTextBox(
+                                  context: context,
+                                  text: "كلمة السر",
+                                  controllerKind: passController,
+                                  type: TextInputType.text,
+                                  suffIcon: isPassword
+                                      ? Icons.visibility_off_outlined
+                                      : Icons.visibility_outlined,
+                                  ispass: isPassword,
+                                  suffixFun: () {
+                                    setState(() {
+                                      isPassword = !isPassword;
+                                    });
+                                  },
+                                  valid: (value){
+                                    if(value.isEmpty){
+                                      return "من فضلك ادخل كلمة السر";
+                                    }
+                                    if(value.length < 8) {
+                                      return "يجب أن يكون عدد الحروف على الاقل 8";
+                                    }
+                                    return null;
+                                  },
+                                ),
+                                SizedBox(
+                                  height: adjustHeightValue(context, 24.0),
+                                ),
+                                FormTextBox(
+                                  context: context,
+                                  text: "تأكيد كلمة السر",
+                                  controllerKind: confpassController,
+                                  type: TextInputType.text,
+                                  suffIcon: isPassword
+                                      ? Icons.visibility_off_outlined
+                                      : Icons.visibility_outlined,
+                                  ispass: isConfPassword,
+                                  suffixFun: () {
+                                    setState(() {
+                                      isConfPassword = !isConfPassword;
+                                    });
+                                  },
+                                  valid: (value) {
+                                    if (value.isEmpty) {
+                                      return "من فضلك ادخل تأكيد كلمة السر";
+                                    }
+                                    if (passController.text != confpassController.text) {
+                                      return "لا تتطابق مع كلمة السر";
+                                    }
+                                    return null;
+                                  },
+                                ),
+                              ],
+                            ),
+                            Text(
+                              "اكتب كلمة السر!",
+                              textAlign: TextAlign.center,
+                              maxLines: 2,
+                              style: TextStyle(
+                                fontSize: adjustValue(context, 40.0),
+                                fontFamily: 'Cairo',
+                                color: AppColors.primaryDark,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: IconButton(
-                  icon: Icon(
-                    Icons.arrow_forward_ios_outlined,
-                    size: adjustValue(context, 24.0),
-                    color: AppColors.primary,
+                    ],
                   ),
-                  onPressed: (){
-                    Navigator.pop(
-                        context,false
-                    );
-                  },
                 ),
               ),
+
+              TopLayer(
+                context: context,
+                width: 0.33,
+                onPressed: (){
+                  int count = 0;
+                  Navigator.of(context).popUntil((_) => count++ >= 2);
+                },
+              ),
+
             ],
           ),
 

@@ -14,6 +14,7 @@ class MainContainer extends StatelessWidget {
     this.floatingActionIcon = Icons.arrow_forward,
     this.floatingActionIconColor = AppColors.white,
     this.onFloatingActionButtonTap,
+    this.paddingAll = 20.0,
   }) 
   : super(key: key);
 
@@ -27,49 +28,56 @@ class MainContainer extends StatelessWidget {
   final Color? floatingActionIconColor;
   final void Function()? onFloatingActionButtonTap;
 
+  final double paddingAll;
+
+
+
+
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: appBar,
-        endDrawer: Container(
-          margin: EdgeInsets.zero,
-          child: drawer,
-          width: adjustWidthValue(context, 280.0),
-        ),
-        body: Container(
-          constraints: const BoxConstraints.expand(),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(bgImage), 
-              fit: BoxFit.cover
-            ),
+    return SafeArea(
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Scaffold(
+          appBar: appBar,
+          endDrawer: Container(
+            margin: EdgeInsets.zero,
+            child: drawer,
+            width: adjustWidthValue(context, 280.0),
           ),
-          child: Padding(
-            padding: EdgeInsets.all(adjustValue(context, 20.0)),
-            child: child,
-            ),
-          ),
-
-        floatingActionButton: floatingActionButton? Container(
-          width: adjustValue(context, 56.0),
-          height: adjustValue(context, 56.0),
-          child: FloatingActionButton(
-            key: key,
-            onPressed: onFloatingActionButtonTap,
-            backgroundColor: AppColors.primary,
-            child: Directionality(
-              textDirection: TextDirection.ltr,
-              child: Icon(
-                floatingActionIcon,
-                size: adjustValue(context, 24.0),
-                color: floatingActionIconColor,
+          body: Container(
+            constraints: const BoxConstraints.expand(),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(bgImage),
+                fit: BoxFit.cover
               ),
             ),
-          ),
-        ) : null,
-        floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+            child: Padding(
+              padding: EdgeInsets.all(adjustValue(context, paddingAll)),
+              child: child,
+              ),
+            ),
+
+          floatingActionButton: floatingActionButton? Container(
+            width: adjustValue(context, 56.0),
+            height: adjustValue(context, 56.0),
+            child: FloatingActionButton(
+              key: key,
+              onPressed: onFloatingActionButtonTap,
+              backgroundColor: AppColors.primary,
+              child: Directionality(
+                textDirection: TextDirection.ltr,
+                child: Icon(
+                  floatingActionIcon,
+                  size: adjustValue(context, 24.0),
+                  color: floatingActionIconColor,
+                ),
+              ),
+            ),
+          ) : null,
+          floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+        ),
       ),
     );
   }

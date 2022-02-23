@@ -7,6 +7,7 @@ import 'package:najme/screens/registeration/registration_level.dart';
 import 'package:najme/utility.dart';
 
 import '../../components/general/error_message.dart';
+import '../../components/screen_specific/registration/registration_topLayer.dart';
 
 class RegistrationBirthDate extends StatefulWidget {
   RegistrationBirthDate({
@@ -47,82 +48,81 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
     int? yearI;
 
     return MainContainer(
+      paddingAll: 0.0,
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              BirthDateButton(
-                width: adjustWidthValue(context, 144.0),
-                height: adjustHeightValue(context, 95.0),
-                text: "اليوم",
-                title: "اختر يوم ميلادك!  ",
-                fontSize: 26,
-                data: widget.days,
-                callBack: (int index) {
-                  dayI = index;
-                },
-              ),
-              BirthDateButton(
-                width: adjustWidthValue(context, 168.0),
-                height: adjustHeightValue(context, 113.0),
-                text: "الشهر",
-                title: "اختر شهر ميلادك!",
-                fontSize: 23,
-                data: widget.months,
-                callBack: (int index) {
-                  monthI = index;
-                },
-              ),
-              BirthDateButton(
-                width: adjustWidthValue(context, 192.0),
-                height: adjustHeightValue(context, 125.0),
-                text: "السنة",
-                title: "اختر سنة ميلادك!",
-                fontSize: 27,
-                data: widget.years,
-                callBack: (int index) {
-                  yearI = index;
-                },
-              ),
-
-              if(!valid) ErrorMessage(
-                  context: context,
-                  message: "من فضلك ادخل تاريخ ميلادك",
-                  ),
-
-
-              SizedBox(
-                height: adjustValue(context, 20.0),
-              ),
-              Text(
-                "اختر تاريخ ميلادك!",
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                style: TextStyle(
-                  fontSize: adjustValue(context, 42.0),
-                  fontFamily: 'Cairo',
-                  color: AppColors.primaryDark,
+          Padding(
+            padding: EdgeInsets.all(adjustValue(context, 20)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                BirthDateButton(
+                  width: adjustWidthValue(context, 144.0),
+                  height: adjustHeightValue(context, 95.0),
+                  text: "اليوم",
+                  title: "اختر يوم ميلادك!  ",
+                  fontSize: 26,
+                  data: widget.days,
+                  callBack: (int index) {
+                    dayI = index;
+                  },
                 ),
-              ),
-            ],
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios_outlined,
-                size: adjustValue(context, 24.0),
-                color: AppColors.primary,
-              ),
-              onPressed: () {
-                Navigator.pop(
-                    context,false
-                );
-              },
+                BirthDateButton(
+                  width: adjustWidthValue(context, 168.0),
+                  height: adjustHeightValue(context, 113.0),
+                  text: "الشهر",
+                  title: "اختر شهر ميلادك!",
+                  fontSize: 23,
+                  data: widget.months,
+                  callBack: (int index) {
+                    monthI = index;
+                  },
+                ),
+                BirthDateButton(
+                  width: adjustWidthValue(context, 192.0),
+                  height: adjustHeightValue(context, 125.0),
+                  text: "السنة",
+                  title: "اختر سنة ميلادك!",
+                  fontSize: 27,
+                  data: widget.years,
+                  callBack: (int index) {
+                    yearI = index;
+                  },
+                ),
+
+                if(!valid) ErrorMessage(
+                    context: context,
+                    message: "من فضلك ادخل تاريخ ميلادك",
+                    ),
+
+
+                SizedBox(
+                  height: adjustValue(context, 20.0),
+                ),
+                Text(
+                  "اختر تاريخ ميلادك!",
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  style: TextStyle(
+                    fontSize: adjustValue(context, 42.0),
+                    fontFamily: 'Cairo',
+                    color: AppColors.primaryDark,
+                  ),
+                ),
+              ],
             ),
+          ),
+
+          TopLayer(
+            context: context,
+            width: 0.66,
+            onPressed: (){
+              Navigator.pop(
+                  context,false
+              );
+            },
           ),
         ],
       ),

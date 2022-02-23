@@ -10,6 +10,7 @@ import 'package:najme/screens/registeration/registration_date.dart';
 import 'package:najme/utility.dart';
 
 import '../../components/general/error_message.dart';
+import '../../components/screen_specific/registration/registration_topLayer.dart';
 
 class RegistrationGender extends StatefulWidget {
   RegistrationGender({
@@ -29,101 +30,99 @@ class _RegistrationGenderState extends State<RegistrationGender> {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
+      paddingAll: 0.0,
       child: Stack(
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: adjustHeightValue(context, 8.0),
-                            horizontal: adjustWidthValue(context, 8.0),
-                          ),
-                          child: AspectRatio(
-                            aspectRatio: 3 / 4,
-                            child: MainCard(
-                              context: context,
-                              onTap: () {
-                                setState(() {
-                                  isMale = 1;
-                                });
-                              },
-                              image: SvgPicture.asset(Assets.male),
-                              color: isMale == 1 ? AppColors.primary : AppColors.surface,
-                              radius: 20.0,
-                              stroke: true,
+          Padding(
+            padding: EdgeInsets.all(adjustValue(context, 20)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: adjustHeightValue(context, 8.0),
+                              horizontal: adjustWidthValue(context, 8.0),
+                            ),
+                            child: AspectRatio(
+                              aspectRatio: 3 / 4,
+                              child: MainCard(
+                                context: context,
+                                onTap: () {
+                                  setState(() {
+                                    isMale = 1;
+                                  });
+                                },
+                                image: SvgPicture.asset(Assets.male),
+                                color: isMale == 1 ? AppColors.primary : AppColors.surface,
+                                radius: 20.0,
+                                stroke: true,
+                              ),
                             ),
                           ),
                         ),
-                      ),
 
-                      Expanded(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: adjustHeightValue(context, 8.0),
-                            horizontal: adjustWidthValue(context, 8.0),
-                          ),
-                          child: AspectRatio(
-                            aspectRatio: 3 / 4,
-                            child: MainCard(
-                              context: context,
-                              onTap: () {
-                                setState(() {
-                                  isMale = 0;
-                                });
-                              },
-                              image: SvgPicture.asset(Assets.female),
-                              color: isMale == 0 ? AppColors.primary : AppColors.surface,
-                              radius: 20.0,
-                              stroke: true,
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: adjustHeightValue(context, 8.0),
+                              horizontal: adjustWidthValue(context, 8.0),
+                            ),
+                            child: AspectRatio(
+                              aspectRatio: 3 / 4,
+                              child: MainCard(
+                                context: context,
+                                onTap: () {
+                                  setState(() {
+                                    isMale = 0;
+                                  });
+                                },
+                                image: SvgPicture.asset(Assets.female),
+                                color: isMale == 0 ? AppColors.primary : AppColors.surface,
+                                radius: 20.0,
+                                stroke: true,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  if(!valid) ErrorMessage(
-                  context: context,
-                  message: "من فضلك اختر نوعك",
-                  ),
-                ],
-              ),
-
-              Text(
-                "أختر نوعك!",
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                style: TextStyle(
-                  fontSize: adjustValue(context, 40.0),
-                  fontFamily: 'Cairo',
-                  color: AppColors.primaryDark,
+                      ],
+                    ),
+                    if(!valid) ErrorMessage(
+                    context: context,
+                    message: "من فضلك اختر نوعك",
+                    ),
+                  ],
                 ),
-              ),
-            ],
+
+                Text(
+                  "أختر نوعك!",
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  style: TextStyle(
+                    fontSize: adjustValue(context, 40.0),
+                    fontFamily: 'Cairo',
+                    color: AppColors.primaryDark,
+                  ),
+                ),
+              ],
+            ),
           ),
 
           
-          Align(
-            alignment: Alignment.topLeft,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios_outlined,
-                size: adjustValue(context, 24.0),
-                color: AppColors.primary,
-              ),
-              onPressed: (){
-                Navigator.pop(
-                    context,false
-                );
-              },
-            ),
+          TopLayer(
+            context: context,
+            width: 0.55,
+            onPressed: (){
+              Navigator.pop(
+                  context,false
+              );
+            },
           ),
         ],
       ),

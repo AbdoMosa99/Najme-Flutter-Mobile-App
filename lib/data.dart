@@ -19,7 +19,6 @@ Future<bool> init() async {
   profile = await database.getProfile(profileID);
   progresses = await database.getProgress(profileID);
   subjects = await database.getSubjects(profileID);
-  //level = await database.get;
 
   return true;
 }
