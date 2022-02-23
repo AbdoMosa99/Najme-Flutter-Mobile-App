@@ -152,25 +152,26 @@ class _RegistrationJobState extends State<RegistrationJob> {
                           ),
                         ),
 
-                        Expanded(
-                          child: AspectRatio(
-                            aspectRatio: 3 / 4,
-                            child: MainCard(
-                              context: context,
-                              onTap: () {
-                                setState(() {
-                                  job = 6;
-                                });
-                              },
-                              image: SvgPicture.asset(Assets.scientist),
-                              text: 'عالم',
-                              color: job == 6 ? AppColors.primary : AppColors.surface,
-                              textColor: job == 6 ? AppColors.white : AppColors.primary,
-                              fontSize: 16,
-                              stroke: true,
-                            ),
+
+                      Expanded(
+                        child: AspectRatio(
+                          aspectRatio: 3 / 4,
+                          child: MainCard(
+                            context: context,
+                            onTap: () {
+                              setState(() {
+                                job = 6;
+                              });
+                            },
+                            image: SvgPicture.asset(Assets.plus),
+                            text: 'أخرى',
+                            color: job == 6 ? AppColors.primary : AppColors.surface,
+                            textColor: job == 6 ? AppColors.white : AppColors.primary,
+                            fontSize: 16,
+                            stroke: true,
                           ),
                         ),
+                      ),
                       ],
                     ),
                     if(!valid) ErrorMessage(
