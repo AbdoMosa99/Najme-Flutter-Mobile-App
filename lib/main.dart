@@ -5,7 +5,7 @@ import 'package:najme/screens/main/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-
+import 'package:flutter/services.dart';
 import 'package:najme/data.dart';
 
 class NajmeApp extends StatelessWidget {
@@ -13,6 +13,10 @@ class NajmeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+
     return MaterialApp(
       home: FutureBuilder(
         future: init(),
@@ -30,6 +34,8 @@ class NajmeApp extends StatelessWidget {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Should be deleted
   await deleteDatabase(join(await getDatabasesPath(), 'najme.db'));
   await insertData();
   // should be moved to registration
