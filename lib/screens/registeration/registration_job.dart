@@ -158,8 +158,8 @@ class _RegistrationJobState extends State<RegistrationJob> {
                                 job = 6;
                               });
                             },
-                            image: SvgPicture.asset(Assets.scientist),
-                            text: 'عالم',
+                            image: SvgPicture.asset(Assets.plus),
+                            text: 'أخرى',
                             color: job == 6 ? AppColors.primary : AppColors.surface,
                             textColor: job == 6 ? AppColors.white : AppColors.primary,
                             fontSize: 16,
