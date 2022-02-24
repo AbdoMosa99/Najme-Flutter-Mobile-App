@@ -8,6 +8,7 @@ import 'package:najme/screens/registeration/registration_job.dart';
 import 'package:najme/screens/registeration/registration_level.dart';
 
 import '../../components/general/error_message.dart';
+import '../../components/screen_specific/registration/registration_topLayer.dart';
 import '../../utility.dart';
 
 class RegistrationAddress extends StatefulWidget {
@@ -57,54 +58,53 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
+      paddingAll: 0.0,
       child: Stack(
         children: [
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              AddressButton(
-                width: adjustWidthValue(context, 285.0),
-                height: adjustHeightValue(context, 315.0),
-                text: "المحافظة",
-                title: "اختر محافظتك!",
-                fontSize: 27,
-                data: widget.cities,
-                callback: (int index) {
-                  widget.registrationData["city"] = index;
-                },
-              ),
-              if(!valid) ErrorMessage(
-                context: context,
-                message: "من فضلك اختر محافظتك",
-              ),
-
-              Text(
-                "اختر محافظتك!",
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                style: TextStyle(
-                  fontSize: adjustValue(context, 45.0),
-                  fontFamily: 'Cairo',
-                  color: AppColors.primaryDark,
+          Padding(
+            padding: EdgeInsets.all(adjustValue(context, 20)),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                AddressButton(
+                  width: adjustWidthValue(context, 285.0),
+                  height: adjustHeightValue(context, 315.0),
+                  text: "المحافظة",
+                  title: "اختر محافظتك!",
+                  fontSize: 27,
+                  data: widget.cities,
+                  callback: (int index) {
+                    widget.registrationData["city"] = index;
+                  },
                 ),
-              ),
-            ],
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios_outlined,
-                size: adjustValue(context, 24.0),
-                color: AppColors.primary,
-              ),
-              onPressed: () {
-                Navigator.pop(
-                    context,false
-                );
-              },
+                if(!valid) ErrorMessage(
+                  context: context,
+                  message: "من فضلك اختر محافظتك",
+                ),
+
+                Text(
+                  "اختر محافظتك!",
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  style: TextStyle(
+                    fontSize: adjustValue(context, 45.0),
+                    fontFamily: 'Cairo',
+                    color: AppColors.primaryDark,
+                  ),
+                ),
+              ],
             ),
+          ),
+
+          TopLayer(
+            context: context,
+            width: 0.88,
+            onPressed: (){
+              Navigator.pop(
+                  context,false
+              );
+            },
           ),
         ],
       ),

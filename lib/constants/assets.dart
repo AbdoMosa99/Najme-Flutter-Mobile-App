@@ -71,5 +71,11 @@ class Assets {
   static const String two = "assets/icons/two.svg";
   static const String plant = "assets/icons/plant.svg";
   static const String gmail_contact = "assets/icons/mail2.svg";
+  static const String banner = "assets/icons/banner.svg";
+  static const String lighting = "assets/icons/lighting.svg";
+  static const String xLighting = "assets/icons/xLighting.svg";
+  static const String success_star = "assets/icons/success_star.svg";
+  static const String double_arrow = "assets/icons/double_arrow.svg";
+  static const String plus = "assets/icons/plus.svg";
 
 }
