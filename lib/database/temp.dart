@@ -31,10 +31,10 @@ Future<void> insertData() async {
   await database.insertProfile(profile2);
 
 
-  Level kg1 = Level(id: 1, name: 'KG5');
+  String kg1 = 'KG1';
   await database.insertLevel(kg1);
 
-  Level kg2 = Level(id: 2, name: 'KG6');
+  String kg2 = 'KG2';
   await database.insertLevel(kg2);
 
   Subject arabic = Subject(
