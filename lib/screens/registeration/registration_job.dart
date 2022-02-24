@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_container.dart';
@@ -27,6 +28,8 @@ class RegistrationJob extends StatefulWidget {
 class _RegistrationJobState extends State<RegistrationJob> {
   int job = -1;
   bool valid = true;
+
+  get controller => null;
   @override
   Widget build(BuildContext context) {
     return MainContainer(
@@ -236,15 +239,38 @@ class _RegistrationJobState extends State<RegistrationJob> {
               ),
               onPressed: (){
                 Navigator.pop(
-                    context,false
+                  context,false
                 );
               },
             ),
           ),
         ],
-      ),
-
-      
+      ),  
     );
   }
+
+  void showDoneDialog() => showDialog(
+    barrierDismissible: false,
+    context: context,
+    builder: (context) =>Dialog(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Lottie.asset(
+            'assets/lottie/Done.json',
+            repeat: false,     
+            controller: controller, 
+            onLoaded: (composition){
+              controller.forward();
+            },                   
+          ),
+          Text(
+            'تم بنجاح ',
+            style: TextStyle(fontSize: 24),
+          ),
+          const SizedBox(height: 16),
+        ],
+      ),
+    ) ,
+  );
 }
