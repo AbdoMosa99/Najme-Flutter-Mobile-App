@@ -30,7 +30,7 @@ class MainDrawer extends Drawer {
         padding: EdgeInsets.zero,
         children: [
           Container(
-            height: adjustHeightValue(context, 139.0),
+            height: adjustHeightValue(context, 120.0),
             child: DrawerHeader(
               decoration: const BoxDecoration(
                 color: AppColors.primaryLight,

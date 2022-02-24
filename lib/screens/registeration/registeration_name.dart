@@ -10,6 +10,8 @@ import 'package:najme/screens/registeration/registeration_gender.dart';
 import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 
+import '../../components/screen_specific/registration/registration_topLayer.dart';
+
 class RegistrationName extends StatelessWidget {
   RegistrationName({
     Key? key,
@@ -22,65 +24,64 @@ class RegistrationName extends StatelessWidget {
   Widget build(BuildContext context) {
     var nameController = TextEditingController();
     return MainContainer(
+      paddingAll: 0.0,
       child: Stack(
         children: [
-          Form(
-            key: _formKey,
-            child: Center(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SvgPicture.asset(
-                        Assets.child,
-                      height: adjustHeightValue(context, 170),
-                    ),
-                    SizedBox(
-                      height: adjustHeightValue(context, 50),
-                    ),
-                    FormTextBox(
-                      context: context,
-                      text: "الأسم",
-                      controllerKind: nameController,
-                      type: TextInputType.name,
-                      valid: (value){
-                        if (value == "") {
-                          return "من فضلك أدخل الأسم!";
-                        }
-                        return null;
-                      }
-                    ),
-                    SizedBox(
-                      height: adjustHeightValue(context, 50),
-                    ),
-                    Text(
-                      "أسم الطفل",
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      style: TextStyle(
-                        fontSize: adjustValue(context, 40.0),
-                        fontFamily: 'Cairo',
-                        color: AppColors.primaryDark,
+          Padding(
+            padding: EdgeInsets.all(adjustValue(context, 20)),
+            child: Form(
+              key: _formKey,
+              child: Center(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SvgPicture.asset(
+                          Assets.child,
+                        height: adjustHeightValue(context, 170),
                       ),
-                    ),
-                  ],
+                      SizedBox(
+                        height: adjustHeightValue(context, 50),
+                      ),
+                      FormTextBox(
+                        context: context,
+                        text: "الأسم",
+                        controllerKind: nameController,
+                        type: TextInputType.name,
+                        valid: (value){
+                          if (value == "") {
+                            return "من فضلك أدخل الأسم!";
+                          }
+                          return null;
+                        }
+                      ),
+                      SizedBox(
+                        height: adjustHeightValue(context, 50),
+                      ),
+                      Text(
+                        "أسم الطفل",
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        style: TextStyle(
+                          fontSize: adjustValue(context, 40.0),
+                          fontFamily: 'Cairo',
+                          color: AppColors.primaryDark,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: IconButton(
-              icon: Icon(
-                Icons.arrow_forward_ios_outlined,
-                size: adjustValue(context, 24.0),
-                color: AppColors.primary,
-              ),
-              onPressed: (){
-                Navigator.pop(
-                    context,false
-                );
-              },
-            ),
+
+          TopLayer(
+            context: context,
+            width: 0.44,
+            onPressed: (){
+              Navigator.pop(
+                  context,false
+              );
+            },
           ),
         ],
       ),
