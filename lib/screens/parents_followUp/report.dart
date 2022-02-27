@@ -9,6 +9,8 @@ import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
 
+import '../../components/reports/filter_card.dart';
+
 class Report extends StatefulWidget {
   const Report({Key? key}) : super(key: key);
 
@@ -48,7 +50,7 @@ class _ReportState extends State<Report> {
             appBar: AppBar(
               automaticallyImplyLeading: false,
               backgroundColor: AppColors.primary,
-              toolbarHeight: 110,
+              toolbarHeight: 90,
               actions: [
                 IconButton(
                   onPressed: () {},
@@ -115,97 +117,128 @@ class _ReportState extends State<Report> {
               ),
               //leading:
             ),
-            body: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(20.0),
-                      child: Stack(
-                        children: <Widget>[
-                          AspectRatio(
-                            aspectRatio: 1.70,
-                            child: Container(
-                              decoration: const BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(18),
+            body: Column(
+              children: [
+                Container(
+                height: adjustHeightValue(context, 50.0),
+                width: MediaQuery.of(context).size.width,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      FilterCard(context: context, titleText: 'المرحلة: KG1',),
+                      FilterCard(context: context, titleText: 'الترم: الأول',),
+                      FilterCard(context: context, titleText: 'المادة: حساب',),
+
+                    ],
+                  ),
+                ),
+
+                Expanded(
+                  //physics: BouncingScrollPhysics(),
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: adjustValue(context, 20.0),
+                      right: adjustValue(context, 20.0),
+                    ),
+                    child: ListView(
+                        //crossAxisAlignment: CrossAxisAlignment.center,
+                        //mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+
+                          Padding(
+                            padding: EdgeInsets.only(top: adjustValue(context, 10.0)),
+                            child: Stack(
+                              children: <Widget>[
+                                AspectRatio(
+                                  aspectRatio: 1.70,
+                                  child: Container(
+                                    decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(18),
+                                        ),
+                                        color: AppColors.primaryLight),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          right: 20.0,
+                                          left: 8.0,
+                                          top: 24,
+                                          bottom: 12),
+                                      child: LineChart(
+                                        showAvg ? avgData() : mainData(),
+                                      ),
+                                    ),
                                   ),
-                                  color: AppColors.primaryLight),
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 20.0,
-                                    left: 8.0,
-                                    top: 24,
-                                    bottom: 12),
-                                child: LineChart(
-                                  showAvg ? avgData() : mainData(),
                                 ),
-                              ),
+                                SizedBox(
+                                  width: 60,
+                                  height: 34,
+                                  child: TextButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        showAvg = !showAvg;
+                                      });
+                                    },
+                                    child: Text(
+                                      'avg',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          fontFamily: 'Cairo',
+                                          fontWeight: FontWeight.w900,
+                                          color: showAvg
+                                              ? Colors.white.withOpacity(0.6)
+                                              : Colors.white),
+                                    ),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: SizedBox(
+                                    width: 73,
+                                    child: Text(
+                                      'المستوي',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontFamily: 'Cairo',
+                                          fontWeight: FontWeight.w900,
+                                          color: showAvg
+                                              ? Colors.white.withOpacity(0.6)
+                                              : Colors.white),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
+                          DividerLine(),
+                          ReportCard(
+                            context: context,
+                            key: null,
+                            titleText: 'الدروس المنتهية',
+                            numText1: 30,
+                            numText2: 60,
+                            up: true,
+                            upOrDownText: 10,
+                          ),
+                          DividerLine(),
+                          ReportCard(
+                            context: context,
+                            key: null,
+                            titleText: 'الدروس المنتهية',
+                            numText1: 30,
+                            numText2: 60,
+                            up: true,
+                            upOrDownText: 10,
+                          ),
+
                           SizedBox(
-                            width: 60,
-                            height: 34,
-                            child: TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  showAvg = !showAvg;
-                                });
-                              },
-                              child: Text(
-                                'avg',
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    fontFamily: 'Cairo',
-                                    fontWeight: FontWeight.w900,
-                                    color: showAvg
-                                        ? Colors.white.withOpacity(0.6)
-                                        : Colors.white),
-                              ),
-                            ),
+                            height: adjustHeightValue(context, 40.0),
                           ),
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: SizedBox(
-                              width: 73,
-                              child: Text(
-                                'المستوي',
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    fontFamily: 'Cairo',
-                                    fontWeight: FontWeight.w900,
-                                    color: showAvg
-                                        ? Colors.white.withOpacity(0.6)
-                                        : Colors.white),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    DividerLine(),
-                    ReportCard(
-                      context: context,
-                      key: null,
-                      titleText: 'الدروس المنتهية',
-                      numText1: 30,
-                      numText2: 60,
-                      up: true,
-                      upOrDownText: 10,
-                    ),
-                    DividerLine(),
-                    ReportCard(
-                      context: context,
-                      key: null,
-                      titleText: 'الدروس المنتهية',
-                      numText1: 30,
-                      numText2: 60,
-                      up: true,
-                      upOrDownText: 10,
-                    ),
-                  ]),
+                        ]),
+                  ),
+                ),
+
+
+              ],
             ),
             floatingActionButton: Container(
               width: 80,
