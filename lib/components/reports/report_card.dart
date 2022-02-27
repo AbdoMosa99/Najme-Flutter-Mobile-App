@@ -36,7 +36,7 @@ class ReportCard extends Container {
                   alignment: AlignmentDirectional.center,
                   children: [
                     LiquidCustomProgressIndicator(
-                      value: numText1! / numText2!,
+                      value: numText1 / numText2,
                       valueColor: AlwaysStoppedAnimation(AppColors.secondary),
                       backgroundColor: AppColors.background,
                       direction: Axis.vertical,

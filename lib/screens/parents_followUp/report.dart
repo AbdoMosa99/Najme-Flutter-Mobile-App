@@ -46,6 +46,7 @@ class _ReportState extends State<Report> {
           Scaffold(
             backgroundColor: AppColors.primaryDark.withOpacity(0.0),
             appBar: AppBar(
+              automaticallyImplyLeading: false,
               backgroundColor: AppColors.primary,
               toolbarHeight: 110,
               actions: [
@@ -229,12 +230,14 @@ class _ReportState extends State<Report> {
               inactiveColor: AppColors.secondary,
               iconSize: adjustValue(context, 40),
               icons: iconList,
-              activeIndex: 0,
+              activeIndex: 1,
               gapLocation: GapLocation.center,
               notchSmoothness: NotchSmoothness.softEdge,
               leftCornerRadius: adjustValue(context, 60),
               rightCornerRadius: adjustValue(context, 60),
-              onTap: (index) {},
+              onTap: (index) {
+                print(index);
+              },
               //onTap: (index) => setState(() => _bottomNavIndex = index),
             ),
           ),
