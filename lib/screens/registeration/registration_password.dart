@@ -90,7 +90,7 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
                                   text: "تأكيد كلمة السر",
                                   controllerKind: confpassController,
                                   type: TextInputType.text,
-                                  suffIcon: isPassword
+                                  suffIcon: isConfPassword
                                       ? Icons.visibility_off_outlined
                                       : Icons.visibility_outlined,
                                   ispass: isConfPassword,
