@@ -144,68 +144,54 @@ class _ReportState extends State<Report> {
                         //crossAxisAlignment: CrossAxisAlignment.center,
                         //mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-
                           Padding(
                             padding: EdgeInsets.only(top: adjustValue(context, 10.0)),
                             child: Stack(
                               children: <Widget>[
                                 AspectRatio(
                                   aspectRatio: 1.70,
-                                  child: Container(
-                                    decoration: const BoxDecoration(
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(18),
+                                  child: Stack(
+                                    children: [
+                                      Container(
+                                        decoration: const BoxDecoration(
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(16),
+                                            ),
+                                            color: AppColors.primaryLight),
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              right: 20.0,
+                                              left: 8.0,
+                                              top: 24,
+                                              bottom: 12),
+                                          child: LineChart(
+                                            showAvg ? avgData() : mainData(),
+                                          ),
                                         ),
-                                        color: AppColors.primaryLight),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          right: 20.0,
-                                          left: 8.0,
-                                          top: 24,
-                                          bottom: 12),
-                                      child: LineChart(
-                                        showAvg ? avgData() : mainData(),
                                       ),
-                                    ),
+
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                          right: adjustValue(context, 9.0),
+                                          top: adjustValue(context, 6.0),
+
+
+                                        ),
+                                        child: Text(
+                                            'السنة / المستوى',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                fontSize: adjustValue(context, 15),
+                                                fontFamily: 'Cairo',
+                                                fontWeight: FontWeight.w900,
+                                                color: Colors.white
+                                            ),
+                                          ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                SizedBox(
-                                  width: 60,
-                                  height: 34,
-                                  child: TextButton(
-                                    onPressed: () {
-                                      setState(() {
-                                        showAvg = !showAvg;
-                                      });
-                                    },
-                                    child: Text(
-                                      'avg',
-                                      style: TextStyle(
-                                          fontSize: 12,
-                                          fontFamily: 'Cairo',
-                                          fontWeight: FontWeight.w900,
-                                          color: showAvg
-                                              ? Colors.white.withOpacity(0.6)
-                                              : Colors.white),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: SizedBox(
-                                    width: 73,
-                                    child: Text(
-                                      'المستوي',
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontFamily: 'Cairo',
-                                          fontWeight: FontWeight.w900,
-                                          color: showAvg
-                                              ? Colors.white.withOpacity(0.6)
-                                              : Colors.white),
-                                    ),
-                                  ),
-                                ),
+
                               ],
                             ),
                           ),
@@ -229,15 +215,12 @@ class _ReportState extends State<Report> {
                             up: true,
                             upOrDownText: 10,
                           ),
-
                           SizedBox(
                             height: adjustHeightValue(context, 40.0),
                           ),
                         ]),
                   ),
                 ),
-
-
               ],
             ),
             floatingActionButton: Container(
@@ -319,7 +302,7 @@ class _ReportState extends State<Report> {
               case 9:
                 return '2024';
               case 11:
-                return 'السنة';
+                return '2025';
             }
             return '';
           },
@@ -342,6 +325,8 @@ class _ReportState extends State<Report> {
                 return '30';
               case 5:
                 return '50';
+              case 7:
+                return '70';
             }
             return '';
           },
@@ -358,7 +343,7 @@ class _ReportState extends State<Report> {
       minX: 0,
       maxX: 11,
       minY: 0,
-      maxY: 6,
+      maxY: 7,
       lineBarsData: [
         LineChartBarData(
           spots: const [
