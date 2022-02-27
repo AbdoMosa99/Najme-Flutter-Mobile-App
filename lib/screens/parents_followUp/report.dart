@@ -192,7 +192,7 @@ class _ReportState extends State<Report> {
                       numText1: 30,
                       numText2: 60,
                       up: true,
-                      upOrDownText: '10%',
+                      upOrDownText: 10,
                     ),
                     DividerLine(),
                     ReportCard(
@@ -202,7 +202,7 @@ class _ReportState extends State<Report> {
                       numText1: 30,
                       numText2: 60,
                       up: true,
-                      upOrDownText: '10%',
+                      upOrDownText: 10,
                     ),
                   ]),
             ),

@@ -9,9 +9,9 @@ class ReportCard extends Container {
     Key? key,
     required BuildContext context,
     required String titleText,
-    required int? numText1,
-    required int? numText2,
-    required String upOrDownText,
+    required int numText1,
+    required int numText2,
+    required int upOrDownText,
     bool up = true,
   }) : super(
           key: key,
@@ -92,7 +92,7 @@ class ReportCard extends Container {
                             size: adjustValue(context, 40),
                           ),
                           Text(
-                            upOrDownText,
+                            '${upOrDownText}%',
                             style: TextStyle(
                               fontSize: adjustValue(context, 20.0),
                               fontFamily: 'Cairo',
