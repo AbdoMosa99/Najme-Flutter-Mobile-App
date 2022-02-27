@@ -26,8 +26,7 @@ class NajmeDatabase {
         db.execute(
           '''
             CREATE TABLE levels(
-              id INT PRIMARY KEY,
-              name TEXT
+              name TEXT PRIMARY KEY
             )
           '''
         );
@@ -95,10 +94,10 @@ class NajmeDatabase {
   }
 
 
-  Future<void> insertLevel(Level level) async {
+  Future<void> insertLevel(String level) async {
     await database.insert(
       'levels',
-      level.toMap(),
+      {"name": level},
     );
   }
 
@@ -139,7 +138,7 @@ class NajmeDatabase {
 
   Future<void> updateProfile(Profile profile) async {
     await database.update(
-      'profile',
+      'profiles',
       profile.toMap(),
       where: 'id = ?',
       whereArgs: [profile.id],
@@ -229,6 +228,16 @@ class NajmeDatabase {
 
     return List.generate(maps.length, (i) {
       return Progress.fromMap(maps[i]);
+    });
+  }
+
+  Future<List<String>> getLevels() async {
+    final List<Map<String, dynamic>> maps = await database.query(
+      'levels',
+    );
+
+    return List.generate(maps.length, (i) {
+      return maps[i]['name'];
     });
   }
 
