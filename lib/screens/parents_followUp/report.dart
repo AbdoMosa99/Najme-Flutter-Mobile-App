@@ -356,6 +356,7 @@ class _ReportState extends State<Report> {
           ],
           isCurved: true,
           colors: [AppColors.secondary],//gradientColors,
+          colorStops: [0XFFFFFF],
           barWidth: 8,
           isStrokeCapRound: true,
           dotData: FlDotData(
@@ -367,7 +368,7 @@ class _ReportState extends State<Report> {
           belowBarData: BarAreaData(
             show: true,
             colors:
-                gradientColors.map((color) => color.withOpacity(0.5)).toList(),
+                gradientColors.map((color) => color.withOpacity(0.3)).toList(),
           ),
         ),
       ],
