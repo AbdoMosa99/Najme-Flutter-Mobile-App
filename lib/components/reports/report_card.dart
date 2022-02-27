@@ -9,11 +9,10 @@ class ReportCard extends Container {
     Key? key,
     required BuildContext context,
     required String titleText,
-    int? numText1,
-    int? numText2,
+    required int? numText1,
+    required int? numText2,
+    required String upOrDownText,
     bool up = true,
-    var upText,
-    downText,
   }) : super(
           key: key,
           child: Container(
@@ -24,10 +23,10 @@ class ReportCard extends Container {
               color: AppColors.surface,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.blueGrey.withOpacity(0.5),
-                  spreadRadius: 2,
-                  blurRadius: 2,
-                  offset: const Offset(0, 3), // changes position of shadow
+                  color: Colors.blueGrey.withOpacity(adjustValue(context, 0.5)),
+                  spreadRadius: adjustValue(context, 2),
+                  blurRadius: adjustValue(context, 2),
+                  offset: const Offset(0, 3),
                 ),
               ],
             ),
@@ -37,16 +36,16 @@ class ReportCard extends Container {
                   alignment: AlignmentDirectional.center,
                   children: [
                     LiquidCustomProgressIndicator(
-                      value: numText1!/numText2!,
+                      value: numText1! / numText2!,
                       valueColor: AlwaysStoppedAnimation(AppColors.secondary),
                       backgroundColor: AppColors.background,
                       direction: Axis.vertical,
                       shapePath: StarClipper(5).getClip(
                         Size.fromWidth(100),
-                      ), // A Path object used to draw the shape of the progress indicator. The size of the progress indicator is created from the bounds of this path.
+                      ),
                     ),
                     Text(
-                      '${(numText1/numText2 * 100).toInt()}%',
+                      '${(numText1 / numText2 * 100).toInt()}%',
                       style: TextStyle(
                         fontSize: adjustValue(context, 25.0),
                         fontFamily: 'Cairo',
@@ -57,7 +56,7 @@ class ReportCard extends Container {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
+                  padding: EdgeInsets.only(right: adjustValue(context, 10)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -90,15 +89,16 @@ class ReportCard extends Container {
                                 ? Icons.arrow_drop_up_outlined
                                 : Icons.arrow_drop_down_outlined,
                             color: up ? Colors.green : Colors.red,
-                            size: 40,
+                            size: adjustValue(context, 40),
                           ),
                           Text(
-                            up ? upText : downText,
+                            upOrDownText,
                             style: TextStyle(
-                                fontSize: adjustValue(context, 20.0),
-                                fontFamily: 'Cairo',
-                                color: up ? Colors.green : Colors.red,
-                                fontWeight: FontWeight.bold),
+                              fontSize: adjustValue(context, 20.0),
+                              fontFamily: 'Cairo',
+                              color: up ? Colors.green : Colors.red,
+                              fontWeight: FontWeight.bold,
+                            ),
                           ),
                         ],
                       ),

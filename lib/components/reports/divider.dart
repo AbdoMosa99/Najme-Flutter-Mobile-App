@@ -8,22 +8,19 @@ class DividerLine extends Divider {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 20,
-        ),
-        Divider(
-          height: adjustValue(context, 10),
-          thickness: adjustHeightValue(context, 1.5),
-          indent: adjustValue(context, 10),
-          endIndent: adjustValue(context, 10),
-          color: AppColors.secondary,
-        ),
-        SizedBox(
-          height: 20,
-        ),
-      ],
+    return Padding(
+      padding: EdgeInsets.all(adjustValue(context, 18)),
+      child: Column(
+        children: [
+          Divider(
+            height: adjustValue(context, 10),
+            thickness: adjustHeightValue(context, 1.7),
+            indent: adjustValue(context, 10),
+            endIndent: adjustValue(context, 10),
+            color: AppColors.secondary,
+          ),
+        ],
+      ),
     );
   }
 }
