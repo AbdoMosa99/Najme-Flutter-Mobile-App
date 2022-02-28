@@ -77,5 +77,8 @@ class Assets {
   static const String success_star = "assets/icons/success_star.svg";
   static const String double_arrow = "assets/icons/double_arrow.svg";
   static const String plus = "assets/icons/plus.svg";
+  static const String filter = "assets/icons/filter.svg";
+  static const String information = "assets/icons/information.svg";
+
 
 }

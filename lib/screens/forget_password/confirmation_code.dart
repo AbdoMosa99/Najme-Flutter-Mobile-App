@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_countdown_timer/countdown_timer_controller.dart';
-import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/animation/two_d_direction.dart';

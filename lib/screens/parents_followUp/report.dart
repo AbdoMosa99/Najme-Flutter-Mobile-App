@@ -25,11 +25,12 @@ class _ReportState extends State<Report> {
   List<String> profiles = ['احمد','محمد'];
 
 
+
   bool showAvg = false;
 
   final iconList = <IconData>[
-    Icons.wysiwyg_sharp,
-    Icons.table_rows_sharp,
+    Icons.assignment,
+    Icons.filter_list
   ];
 
   @override
@@ -268,8 +269,8 @@ class _ReportState extends State<Report> {
               ),
             ),
             floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
-            bottomNavigationBar: AnimatedBottomNavigationBar(
+              FloatingActionButtonLocation.centerDocked,
+              bottomNavigationBar: AnimatedBottomNavigationBar(
               elevation: 0,
               backgroundColor: AppColors.primary,
               activeColor: AppColors.secondary,
