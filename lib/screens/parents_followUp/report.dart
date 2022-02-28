@@ -22,6 +22,8 @@ class _ReportState extends State<Report> {
   List<Color> gradientColors = [AppColors.secondary, AppColors.secondaryLight];
 
   List<int> num = [100, 1];
+  List<String> profiles = ['احمد','محمد'];
+
 
   bool showAvg = false;
 
@@ -50,7 +52,7 @@ class _ReportState extends State<Report> {
             appBar: AppBar(
               automaticallyImplyLeading: false,
               backgroundColor: AppColors.primary,
-              toolbarHeight: 90,
+              toolbarHeight: 100,
               actions: [
                 IconButton(
                   onPressed: () {},
@@ -61,36 +63,64 @@ class _ReportState extends State<Report> {
               ],
               title: Row(
                 children: [
-                  InkWell(
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 10.0),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Container(
-                            width: adjustWidthValue(context, 70),
-                            height: adjustHeightValue(context, 70),
-                            decoration: BoxDecoration(
-                              color: AppColors.white,
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                  color: AppColors.secondary, width: 3),
-                            ),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              SvgPicture.asset(
-                                Assets.male,
-                                height: adjustValue(context, 50.0),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                  PopupMenuButton<String>(
+                    shape: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(18),
+                        borderSide: const BorderSide(
+                            color: AppColors.secondaryLight,
+                            width: 1
+                        )
                     ),
-                    onTap: () {},
+                    color: AppColors.surface,
+                    itemBuilder: (context) {
+                      return profiles.map((str) => PopupMenuItem(
+                        value: str,
+                        child: Center(
+                          child: Text(
+                              str,
+                              style: TextStyle(
+                                fontSize: adjustValue(context, 16.0),
+                                fontFamily: 'Cairo',
+                                color: AppColors.primary,
+                              )
+                          ),
+                        ),
+                      )).toList();
+                    },
+                    onSelected: (_) {
+
+                    },
+                    child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10.0),
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              width: adjustWidthValue(context, 70),
+                              height: adjustHeightValue(context, 70),
+                              decoration: BoxDecoration(
+                                color: AppColors.white,
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                    color: AppColors.secondary, width: 3),
+                              ),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset(
+                                  Assets.male,
+                                  height: adjustValue(context, 50.0),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      //onTap: () {},
+                    ),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
