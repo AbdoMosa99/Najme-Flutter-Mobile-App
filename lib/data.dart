@@ -70,6 +70,10 @@ final List<String> futureList = [
   'مدرس',
   'طبيب',
 ];
+final List<String> levelsList = [
+  'KG1',
+  'KG2'
+];
 
 Future<bool> init() async {
   await database.open();
