@@ -11,7 +11,7 @@ class ProgressBar extends Container {
   })
   :super(
         key: key,
-        height: adjustHeightValue(context, 20.0),
+        height: adjustHeightValue(context, 12.0),
         width: MediaQuery.of(context).size.width * width,
         decoration: new BoxDecoration(
             color: AppColors.secondary,

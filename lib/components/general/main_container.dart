@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:najme/components/general/screen_background.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
@@ -32,7 +33,6 @@ class MainContainer extends StatelessWidget {
 
 
 
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -45,19 +45,13 @@ class MainContainer extends StatelessWidget {
             child: drawer,
             width: adjustWidthValue(context, 280.0),
           ),
-          body: Container(
-            constraints: const BoxConstraints.expand(),
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(bgImage),
-                fit: BoxFit.cover
-              ),
-            ),
+          body: ScreenBackground(
+            bgImage: bgImage,
             child: Padding(
               padding: EdgeInsets.all(adjustValue(context, paddingAll)),
-              child: child,
-              ),
+              child: child
             ),
+          ),
 
           floatingActionButton: floatingActionButton? Container(
             width: adjustValue(context, 56.0),
