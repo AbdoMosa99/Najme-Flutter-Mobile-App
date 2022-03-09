@@ -9,7 +9,7 @@ import '../../utility.dart';
 Widget PNavigationBar({
     required BuildContext context,
     required List<IconData> iconList,
-    required Function onTap,
+    required Function(int) onTap,
     double iconSize = 40,
     int activeIndex = 1
 })
@@ -26,9 +26,7 @@ Widget PNavigationBar({
               notchSmoothness: NotchSmoothness.softEdge,
               leftCornerRadius: adjustValue(context, 60),
               rightCornerRadius: adjustValue(context, 60),
-              onTap: (index) {
-                print(index);
-              },
+              onTap: onTap,
               //onTap: (index) => setState(() => _bottomNavIndex = index),
             );
 }

@@ -12,7 +12,7 @@ import 'package:najme/utility.dart';
 import 'package:najme/data.dart';
 
 import '../../screens/main/login_screen.dart';
-import '../../screens/parents_followUp/report.dart';
+import '../../screens/parents_followUp/report/report.dart';
 
 
 class MainDrawer extends Drawer {
@@ -217,7 +217,7 @@ class MainDrawer extends Drawer {
             onTap: () {
               Navigator.push(
                 context,
-                LeftRightPageRoute(const Report(), -1, 0),
+                LeftRightPageRoute(Report(), -1, 0),
               );
             },
           ),

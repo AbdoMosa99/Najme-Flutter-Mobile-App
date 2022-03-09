@@ -2,13 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
 
-PopUpMenu({
-  required BuildContext context,
-  required int initialIndex,
-  required List list,
-  required void Function(dynamic) callBack,
-}) =>
-    Container(
+class PopUpMenu extends StatefulWidget {
+  PopUpMenu({
+    Key? key,
+    this.initialIndex,
+    this.context,
+    this.list,
+    this.callBack,
+  }) : super(key: key);
+
+  BuildContext? context;
+  var initialIndex;
+  final List? list;
+  final Function(dynamic)? callBack;
+  @override
+  _PopUpMenuState createState() => _PopUpMenuState();
+}
+
+class _PopUpMenuState extends State<PopUpMenu> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
       height: adjustHeightValue(context, 45),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(
@@ -29,12 +43,12 @@ PopUpMenu({
           color: AppColors.surface,
           itemBuilder: (context) {
             List<PopupMenuEntry> buildList = [];
-            for (int i = 0; i < list.length; i++) {
+            for (int i = 0; i < widget.list!.length; i++) {
               buildList.add(PopupMenuItem(
                 value: i,
                 child: Center(
                   child: Text(
-                    '${list[i]}',
+                    '${widget.list![i]}',
                     style: TextStyle(
                       fontSize: adjustValue(context, 18.0),
                       fontFamily: 'Cairo',
@@ -51,7 +65,7 @@ PopUpMenu({
               Expanded(
                 child: Center(
                   child: Text(
-                    '${list[initialIndex]}',
+                    '${widget.list![widget.initialIndex!]}',
                     style: TextStyle(
                         fontSize: adjustValue(context, 16.0),
                         fontFamily: 'Cairo',
@@ -67,7 +81,17 @@ PopUpMenu({
               )
             ],
           ),
-          onSelected: callBack,
+          onSelected: (value) {
+            setState(() {
+              widget.initialIndex = value;
+            });
+            widget.callBack!(value);
+            // print(widget.initialIndex);
+            // widget.choosenIndex = widget.initialIndex;
+            // print(widget.choosenIndex);
+          },
         ),
       ),
     );
+  }
+}
