@@ -70,6 +70,21 @@ final List<String> futureList = [
   'مدرس',
   'طبيب',
 ];
+final List<String> levelsList = [
+  'KG1',
+  'KG2'
+];
+final List<String> FilterLevelList = ['الكل', 'KG1', 'KG2',];
+final List<String> FilterSemList = [
+  'الأول',
+  'الثاني',
+];
+final List<String> FilterSubjectList = [
+  'لغة عربية',
+  'حساب',
+  'لغة انجليزية',
+  'ذكاء',
+];
 
 Future<bool> init() async {
   await database.open();

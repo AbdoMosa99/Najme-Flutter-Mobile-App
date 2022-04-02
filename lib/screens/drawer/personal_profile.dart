@@ -8,7 +8,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/dialogs/settings_dialog/settings_dialog.dart';
-import 'package:najme/screens/drawer/personal_profile_updates.dart';
+import 'package:najme/screens/drawer/personal_profile_updates/personal_profile_updates.dart';
 import '../../utility.dart';
 import 'package:najme/data.dart';
 

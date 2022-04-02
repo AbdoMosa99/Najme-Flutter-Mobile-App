@@ -12,7 +12,7 @@ import 'package:najme/utility.dart';
 import 'package:najme/data.dart';
 
 import '../../screens/main/login_screen.dart';
-import '../../screens/parents_followUp/report.dart';
+import '../../screens/parents_followUp/report/report.dart';
 
 
 class MainDrawer extends Drawer {
@@ -30,7 +30,7 @@ class MainDrawer extends Drawer {
         padding: EdgeInsets.zero,
         children: [
           Container(
-            height: adjustHeightValue(context, 120.0),
+            height: adjustHeightValue(context, 118.0),
             child: DrawerHeader(
               decoration: const BoxDecoration(
                 color: AppColors.primaryLight,
@@ -217,7 +217,7 @@ class MainDrawer extends Drawer {
             onTap: () {
               Navigator.push(
                 context,
-                LeftRightPageRoute(const Report(), -1, 0),
+                LeftRightPageRoute(Report(), -1, 0),
               );
             },
           ),
