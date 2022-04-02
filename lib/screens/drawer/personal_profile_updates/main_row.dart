@@ -15,7 +15,7 @@ class RowPersonalUpdates extends Row {
               child: Text(
                 title,
                 style: TextStyle(
-                  fontSize: adjustValue(context, 20.0),
+                  fontSize: adjustValue(context, 18.0),
                   fontFamily: 'Cairo',
                   color: AppColors.primaryDark,
                   fontWeight: FontWeight.w900,

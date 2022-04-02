@@ -14,18 +14,18 @@ Widget ListTileItem({
     for (var i = 0; i < list.length; i++)
       Expanded(
         child: ListTile(
-          contentPadding: EdgeInsets.only(left: adjustValue(context, 18.0)),
+          contentPadding: EdgeInsets.only(left: adjustValue(context, 10.0)),
           title: Text(
             '${list[i]}',
             style: TextStyle(
-              fontSize: adjustWidthValue(context, 20.0),
+              fontSize: adjustWidthValue(context, 18.0),
               fontFamily: 'Cairo',
               fontWeight: FontWeight.bold,
               color: AppColors.primaryDark,
             ),
           ),
           leading: Transform.scale(
-            scale: 1.2,
+            scale: 1.1,
             child: Radio<GenderEnum>(
                 activeColor: AppColors.secondary,
                 value: values[i],
