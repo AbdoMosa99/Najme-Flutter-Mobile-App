@@ -79,6 +79,10 @@ class Assets {
   static const String plus = "assets/icons/plus.svg";
   static const String filter = "assets/icons/filter.svg";
   static const String information = "assets/icons/information.svg";
+  static const String notification = "assets/icons/notification.svg";
+  static const String vibration = "assets/icons/vibration.svg";
+  static const String bgMusic = "assets/icons/bgmusic.svg";
+  static const String sounds = "assets/icons/sound.svg";
 
 
 }

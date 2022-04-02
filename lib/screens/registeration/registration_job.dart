@@ -3,6 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
+import 'package:najme/components/general/form_text_box.dart';
+import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
@@ -29,6 +31,7 @@ class RegistrationJob extends StatefulWidget {
 class _RegistrationJobState extends State<RegistrationJob> {
   int job = -1;
   bool valid = true;
+  
 
   get controller => null;
   @override
@@ -121,6 +124,59 @@ class _RegistrationJobState extends State<RegistrationJob> {
                             child: MainCard(
                               context: context,
                               onTap: () {
+                                showDialog(
+                                  context: context, 
+                                  builder: (BuildContext context) {
+                                    TextEditingController ambitionController = TextEditingController();
+                                    return SimpleDialog(
+                                      contentPadding: EdgeInsets.all(adjustValue(context, 22.0)),
+                                      backgroundColor: AppColors.primaryLight,
+                                      children: [
+                                        Directionality(
+                                          textDirection: TextDirection.rtl,
+                                          child: FormTextBox(
+                                            context: context,
+                                            text: "طموحك",
+                                            controllerKind: ambitionController,
+                                          ),
+                                        ),
+
+                                        SizedBox(
+                                          height: adjustHeightValue(context, 16.0),
+                                        ),
+
+                                        Padding(
+                                          padding: EdgeInsets.only(left: adjustWidthValue(context, 150.0)),
+                                          child: MainButton(
+                                            context: context,
+                                            onTap: (){
+                                              Navigator.pop(context);
+                                            },
+                                            color: AppColors.secondary,
+                                            text: 'إضافة',
+                                          ),
+                                        )
+                                      ],
+                                    );
+                                  },
+                                );
+                              },
+                              image: Icon(Icons.add),
+                              text: 'أخرى',
+                              color: job == 6 ? AppColors.primary : AppColors.surface,
+                              textColor: job == 6 ? AppColors.white : AppColors.primary,
+                              fontSize: 16,
+                              stroke: true,
+                            ),
+                          ),
+                        ),
+
+                        Expanded(
+                          child: AspectRatio(
+                            aspectRatio: 3 / 4,
+                            child: MainCard(
+                              context: context,
+                              onTap: () {
                                 setState(() {
                                   job = 4;
                                 });
@@ -156,25 +212,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
                         ),
 
 
-                      Expanded(
-                        child: AspectRatio(
-                          aspectRatio: 3 / 4,
-                          child: MainCard(
-                            context: context,
-                            onTap: () {
-                              setState(() {
-                                job = 6;
-                              });
-                            },
-                            image: SvgPicture.asset(Assets.plus),
-                            text: 'أخرى',
-                            color: job == 6 ? AppColors.primary : AppColors.surface,
-                            textColor: job == 6 ? AppColors.white : AppColors.primary,
-                            fontSize: 16,
-                            stroke: true,
-                          ),
-                        ),
-                      ),
+                      
                       ],
                     ),
                     if(!valid) ErrorMessage(
@@ -217,7 +255,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
                        setState(() {
                         valid = true;
                       });
-
+                      showDoneDialog();
                       // TODO: Call API
                       print(widget.registrationData);
                       Navigator.push(
