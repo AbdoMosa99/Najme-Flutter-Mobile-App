@@ -50,7 +50,7 @@ class _PopUpMenuState extends State<PopUpMenu> {
                   child: Text(
                     '${widget.list![i]}',
                     style: TextStyle(
-                      fontSize: adjustValue(context, 18.0),
+                      fontSize: adjustValue(context, 16.0),
                       fontFamily: 'Cairo',
                       color: AppColors.primary,
                     ),
@@ -67,7 +67,7 @@ class _PopUpMenuState extends State<PopUpMenu> {
                   child: Text(
                     '${widget.list![widget.initialIndex!]}',
                     style: TextStyle(
-                        fontSize: adjustValue(context, 16.0),
+                        fontSize: adjustValue(context, 14.0),
                         fontFamily: 'Cairo',
                         color: AppColors.primaryDark,
                         fontWeight: FontWeight.w600),
@@ -86,9 +86,6 @@ class _PopUpMenuState extends State<PopUpMenu> {
               widget.initialIndex = value;
             });
             widget.callBack!(value);
-            // print(widget.initialIndex);
-            // widget.choosenIndex = widget.initialIndex;
-            // print(widget.choosenIndex);
           },
         ),
       ),

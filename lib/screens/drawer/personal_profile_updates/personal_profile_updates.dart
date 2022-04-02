@@ -68,7 +68,7 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates>
       children: [
         MainContainer(
           child: Padding(
-            padding: EdgeInsets.only(top: adjustHeightValue(context, 110.0)),
+            padding: EdgeInsets.only(top: adjustHeightValue(context, 100.0)),
             child: Center(
               child: CustomScrollView(
                 scrollDirection: Axis.vertical,
