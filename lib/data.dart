@@ -2,7 +2,6 @@ import 'package:najme/database/init.dart';
 import 'package:najme/database/models.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 final NajmeDatabase database = NajmeDatabase();
 late SharedPreferences prefs;
 
