@@ -83,6 +83,7 @@ class Assets {
   static const String vibration = "assets/icons/vibration.svg";
   static const String bgMusic = "assets/icons/bgmusic.svg";
   static const String sounds = "assets/icons/sound.svg";
+  static const String plusSign = "assets/icons/plusSign.svg";
 
 
 }
