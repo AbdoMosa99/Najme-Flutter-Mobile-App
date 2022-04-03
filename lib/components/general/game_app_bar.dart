@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/dialogs/settings_dialog/settings_dialog.dart';
 import 'package:najme/utility.dart';
 
 class GameAppBar extends AppBar {
@@ -20,11 +21,19 @@ class GameAppBar extends AppBar {
       child: Padding(
         padding: EdgeInsets.all(adjustValue(context, 5.0)),
         child: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.volume_up
+          onPressed: () {
+            showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return SettingsDialog();
+                }
+            );
+          },
+          icon: Icon(
+            Icons.settings,
+            color: AppColors.primary,
+            size: adjustValue(context, 32.0),
           ),
-          iconSize: adjustValue(context, 30.0),
         ),
       ),
     ),

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/constants/assets.dart';
@@ -7,7 +8,7 @@ import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/utility.dart';
 
 class SettingsDialog extends StatefulWidget {
-  SettingsDialog({ Key? key }) : super(key: key);
+  SettingsDialog({Key? key}) : super(key: key);
 
   @override
   _SettingsDialogState createState() => _SettingsDialogState();
@@ -21,39 +22,36 @@ class _SettingsDialogState extends State<SettingsDialog> {
 
   @override
   Widget build(BuildContext context) {
-    double width = adjustWidthValue(context, 296.0);
-    double height = adjustHeightValue(context, 180.0);
-
     return Dialog(
+      insetPadding: EdgeInsets.symmetric(
+          vertical: adjustHeightValue(context, 130.0), horizontal: adjustWidthValue(context, 35)),
       backgroundColor: AppColors.surface,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(adjustValue(context, 24.0))
-        )
-      ),
+          borderRadius:
+              BorderRadius.all(Radius.circular(adjustValue(context, 32.0)))),
       child: Stack(
         children: [
-          Container(
-            width: width,
-            padding: EdgeInsets.all(adjustValue(context, 16.0)),
+          Padding(
+            padding: EdgeInsets.all(adjustValue(context, 16)),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Divider(
                   color: AppColors.secondary,
                   thickness: 2.0,
                   height: 2.0,
                 ),
-                
                 Container(
                   child: Center(
                     child: Text(
                       "الإعدادات",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 24.0,
+                        fontSize: adjustValue(context, 22.0),
                         fontFamily: 'Cairo',
                         fontWeight: FontWeight.bold,
-                      ), 
+                      ),
                       textAlign: TextAlign.center,
                     ),
                   ),
@@ -67,77 +65,69 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     color: AppColors.primary,
                   ),
                 ),
-
+                settingsRow(
+                    context: context,
+                    icon: Assets.bgMusic,
+                    leadingText: "الموسيقى الخلفية",
+                    onChanged: (bool new_value) {
+                      setState(() {
+                        music_on = new_value;
+                      });
+                    },
+                    value: music_on),
                 settingsRow(
                   context: context,
-                  icon: Assets.bgMusic, 
-                  leadingText: "الموسيقى الخلفية", 
-                  onChanged: (bool new_value) {
-                    setState(() {
-                      music_on = new_value;
-                    });
-                  }, 
-                  value: music_on
-                ),
-
-                settingsRow(
-                  context: context,
-                  icon: Assets.sounds, 
-                  leadingText: "تأثيرات الصوت", 
+                  icon: Assets.sounds,
+                  leadingText: "تأثيرات الصوت",
                   onChanged: (bool new_value) {
                     setState(() {
                       sounds_on = new_value;
                     });
-                  }, 
+                  },
                   value: sounds_on,
                 ),
-
                 settingsRow(
-                  context: context,
-                  icon: Assets.notification, 
-                  leadingText: "الإشعارات", 
-                  onChanged: (bool new_value) {
-                    setState(() {
-                      notifications_on = new_value;
-                    });
-                  }, 
-                  value: notifications_on
-                ),
-
+                    context: context,
+                    icon: Assets.notification,
+                    leadingText: "الإشعارات",
+                    onChanged: (bool new_value) {
+                      setState(() {
+                        notifications_on = new_value;
+                      });
+                    },
+                    value: notifications_on),
                 settingsRow(
-                  context: context,
-                  icon: Assets.vibration, 
-                  leadingText: "وضع الاهتزاز", 
-                  onChanged: (bool new_value) {
-                    setState(() {
-                      vibration_on = new_value;
-                    });
-                  }, 
-                  value: vibration_on
-                ),
-
+                    context: context,
+                    icon: Assets.vibration,
+                    leadingText: "وضع الاهتزاز",
+                    onChanged: (bool new_value) {
+                      setState(() {
+                        vibration_on = new_value;
+                      });
+                    },
+                    value: vibration_on),
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: adjustHeightValue(context, 20.0)),
+                  padding: EdgeInsets.symmetric(
+                      vertical: adjustHeightValue(context, 20.0)),
                   child: Divider(
                     color: AppColors.secondary,
                     thickness: 2.0,
                     height: 2.0,
                   ),
                 ),
-
                 Container(
                   height: adjustHeightValue(context, 40.0),
                   child: MaterialButton(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
+                      borderRadius:
+                          BorderRadius.circular(adjustValue(context, 15.0)),
                     ),
                     color: AppColors.primary,
                     onPressed: () {
                       Navigator.pushAndRemoveUntil(
-                        context, 
-                        InOutPageRoute(HomeScreen(), Alignment.bottomCenter), 
-                        (route) => false
-                      );
+                          context,
+                          InOutPageRoute(HomeScreen(), Alignment.bottomCenter),
+                          (route) => false);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -164,14 +154,13 @@ class _SettingsDialogState extends State<SettingsDialog> {
               ],
             ),
           ),
-        
           Align(
             alignment: Alignment.topRight,
             child: InkWell(
               onTap: () {
                 Navigator.pop(context);
               },
-              child: Container(  
+              child: Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: AppColors.primary,
@@ -194,6 +183,6 @@ class _SettingsDialogState extends State<SettingsDialog> {
           ),
         ],
       ),
-    ); 
+    );
   }
 }

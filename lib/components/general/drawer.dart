@@ -118,7 +118,7 @@ class MainDrawer extends Drawer {
 
           ListTile(
             title: Text(
-              'الإعدادات',
+              'المتجر',
               style: TextStyle(
                 color: AppColors.surface,
                 fontFamily: 'Cairo',
