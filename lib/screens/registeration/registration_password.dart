@@ -9,6 +9,8 @@ import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration/registeration_email.dart';
 import 'package:najme/screens/registeration/registeration_name.dart';
 
+import '../../api/auth_api.dart';
+import '../../components/general/show_loader_dialog.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
 import '../../utility.dart';
 
@@ -142,9 +144,20 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
           ),
 
           floatingActionButton: true,
-          onFloatingActionButtonTap: () {
+          onFloatingActionButtonTap: () async {
             if(formkey.currentState!.validate()){
-              widget.registrationData["password"] = passController.text;
+              showLoaderDialog(context);
+                try{
+                  String token = await register_password_api(widget.registrationData["email"], passController.text);
+                  print("The token is: $token");
+                  widget.registrationData["password"] = passController.text;
+
+                }
+                catch(e){
+                  print(e);
+                }
+                Navigator.pop(context);
+
               Navigator.push(
                 context,
                 LeftRightPageRoute(RegistrationName(registrationData: widget.registrationData), 1, 0)

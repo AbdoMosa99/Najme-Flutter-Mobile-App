@@ -11,23 +11,29 @@ import 'package:najme/screens/registeration/registeration_email_verification.dar
 import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 
+import '../../api/auth_api.dart';
+import '../../components/general/show_loader_dialog.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
 
-class RegisterationEmail extends StatelessWidget {
+class RegisterationEmail extends StatefulWidget {
   RegisterationEmail({Key? key}) : super(key: key);
 
+  @override
+  State<RegisterationEmail> createState() => _RegisterationEmailState();
+}
+
+class _RegisterationEmailState extends State<RegisterationEmail> {
   final _formKey = GlobalKey<FormState>();
+
   TextEditingController emailController = TextEditingController();
+
+  bool showProgress = false;
+
 
   Map<String, dynamic> registrationData = {
     "email": null,
     "password": null,
-    "name": null,
-    "gender": null,
-    "birthdate": null,
-    "level": null,
-    "city": null,
-    "ambition": null,
+    "code": null,
   };
 
   @override
@@ -96,14 +102,30 @@ class RegisterationEmail extends StatelessWidget {
           ),
 
           floatingActionButton: true,
-          onFloatingActionButtonTap: () {
-            if (_formKey.currentState!.validate()) {
-              registrationData["email"] = emailController.text;
+          onFloatingActionButtonTap: () async {
+              String code;
+
+              // navigate to your desired page
+              if (_formKey.currentState!.validate()) {
+                showLoaderDialog(context);
+                try{
+                  code = await register_email_api(emailController.text);
+                  print("The code is: $code");
+                  registrationData["email"] = emailController.text;
+                  registrationData["code"] = code;
+                }
+                catch(e){
+                  print(e);
+                }
+                Navigator.pop(context);
+
+
               Navigator.push(
                 context,
                 LeftRightPageRoute(EmailVerificationScreen(registrationData: registrationData), 1, 0),
               );
             }
+
           },
     );
   }

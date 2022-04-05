@@ -13,6 +13,8 @@ import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
+import '../../api/auth_api.dart';
+import '../../components/general/show_loader_dialog.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
@@ -31,6 +33,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
   Timer? _timer;
   int _start = 11;
+  late String userCode;
 
   void startTimer() {
     _start = 11;
@@ -90,7 +93,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                       ),
                     ),
                     Text(
-                      'kooko@gmail.com',
+                      widget.registrationData["email"],
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: 'Cairo',
@@ -110,10 +113,11 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         underlineColor: AppColors.primaryDark,
                         keyboardType: TextInputType.number,
                         itemSize: adjustValue(context, 50),
-                        length: 5,
+                        length: 6,
                         autofocus: false,
                         underlineWidth: adjustValue(context, 5),
                         onCompleted: (String value) {
+                          userCode = value;
                         },
                         onEditing: (bool value) {
                         },
@@ -126,7 +130,16 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                                  _start == 0 ? TextButton(
-                                    onPressed: () {
+                                    onPressed: () async {
+                                      showLoaderDialog(context);
+                                      try{
+                                        widget.registrationData["code"] = await register_email_api(widget.registrationData["email"]);
+                                        print('The new code when resend is: ' + widget.registrationData["code"] );
+                                      }
+                                      catch(e){
+                                        print(e);
+                                      }
+                                      Navigator.pop(context);
                                       startTimer();
                                     },
                                     child: Text(
@@ -202,11 +215,26 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                             fontSize: adjustValue(context, 26.0),
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            LeftRightPageRoute(RegistrationPassword(registrationData: widget.registrationData), 1, 0),
-                          );
+                        onPressed: () async {
+                        try{
+                          showLoaderDialog(context);
+                          if(widget.registrationData["code"] == userCode && await verify_email_api(widget.registrationData["email"],userCode))
+                            {
+                              Navigator.pop(context);
+                              Navigator.push(
+                                context,
+                                LeftRightPageRoute(RegistrationPassword(registrationData: widget.registrationData), 1, 0),
+                              );
+                            }
+                          else{
+                            Navigator.pop(context);
+                          }
+                        }
+                        catch(e){
+                          print(e);
+                        }
+
+
                         },
                       ),
                     ),
