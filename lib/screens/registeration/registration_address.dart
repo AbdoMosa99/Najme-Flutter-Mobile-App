@@ -4,6 +4,7 @@ import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/screen_specific/registration_address/address_button.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/database/models.dart';
 import 'package:najme/screens/registeration/registration_job.dart';
 import 'package:najme/screens/registeration/registration_level.dart';
 
@@ -14,10 +15,10 @@ import '../../utility.dart';
 class RegistrationAddress extends StatefulWidget {
   RegistrationAddress({
     Key? key,
-    required this.registrationData,
+    required this.profileData,
   }) : super(key: key);
 
-  Map<String, dynamic> registrationData;
+  Profile profileData;
 
   final cities = const [
     "القاهرة",
@@ -56,6 +57,8 @@ class RegistrationAddress extends StatefulWidget {
 class _RegistrationAddressState extends State<RegistrationAddress> {
   bool valid = true;
   @override
+  late int cityI;
+
   Widget build(BuildContext context) {
     return MainContainer(
       paddingAll: 0.0,
@@ -75,7 +78,7 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
                   fontSize: 27,
                   data: widget.cities,
                   callback: (int index) {
-                    widget.registrationData["city"] = index;
+                    cityI = index;
                   },
                 ),
                 if(!valid) ErrorMessage(
@@ -110,14 +113,14 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
       ),
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
-        if (widget.registrationData["city"] != null) {
-
+        if (widget.profileData.city != null) {
+          widget.profileData.city = widget.cities[cityI];
           setState(() {
             valid = true;
           });
           Navigator.push(
             context,
-            LeftRightPageRoute(RegistrationJob(registrationData: widget.registrationData), 1, 0),
+            LeftRightPageRoute(RegistrationJob(profileData: widget.profileData), 1, 0),
           );
         }
         else{

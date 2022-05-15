@@ -11,14 +11,24 @@ import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 
 import '../../components/screen_specific/registration/registration_topLayer.dart';
+import '../../database/models.dart';
 
 class RegistrationName extends StatelessWidget {
   RegistrationName({
     Key? key,
-    required this.registrationData,
   }) : super(key: key);
   final _formKey = GlobalKey<FormState>();
-  Map<String, dynamic> registrationData;
+  //Map<String, dynamic> registrationData;
+
+  Profile profileData = Profile(
+      id: 0,
+      name: '',
+      gender: '',
+      birthdate:  DateTime.utc(2000, 1, 1),
+      level: '',
+      city: '',
+      ambition: ''
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +83,6 @@ class RegistrationName extends StatelessWidget {
               ),
             ),
           ),
-
           TopLayer(
             context: context,
             width: 0.44,
@@ -89,11 +98,11 @@ class RegistrationName extends StatelessWidget {
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
         if (_formKey.currentState!.validate()) {
-          registrationData["name"] = nameController.text;
+          profileData.name = nameController.text;
           Navigator.push(
             context, 
             LeftRightPageRoute(
-              RegistrationGender(registrationData: registrationData), 
+              RegistrationGender(profileData: profileData),
               1, 
               0,
             ),

@@ -19,11 +19,15 @@ class Profile {
   });
 
   Map<String, dynamic> toMap() {
+
+    String year = birthdate.year.toString().padLeft(4, '0');
+    String month = birthdate.month.toString().padLeft(2, '0');
+    String day = birthdate.day.toString().padLeft(2, '0');
     return {
-      'id': id,
+      'id': id.toString(),
       'name': name,
       'gender': gender,
-      'birthdate': birthdate.toString(),
+      'birthdate': "$year-$month-$day",
       'level': level,
       'city': city,
       'ambition': ambition,

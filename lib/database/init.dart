@@ -246,19 +246,19 @@ class NajmeDatabase {
 
   Future<void> deleteAll() async {
     await database.delete(
-    'profile'
+    'profiles'
     );
 
     await database.delete(
-    'unit'
+    'units'
     );
 
     await database.delete(
-    'lesson'
+    'lessons'
     );
 
     await database.delete(
-    'subject'
+    'subjects'
     );
 
     await database.delete(

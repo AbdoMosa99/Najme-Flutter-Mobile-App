@@ -9,6 +9,9 @@ late Profile profile;
 late List<Progress> progresses;
 late List<Subject> subjects;
 late String level;
+late String token;
+late bool isLoggedIn;
+
 
 final List<String> gendersList = [
   'ولد', 
@@ -62,12 +65,12 @@ final List<String> countriesList = [
   "جنوب سيناء",
 ];
 final List<String> futureList = [
-  'مهندس',
-  'عالم',
-  'مبرمج',
-  'ظابط',
   'مدرس',
+  'مهندس',
+  'ضابط',
   'طبيب',
+  'مبرمج',
+  'اخري',
 ];
 final List<String> levelsList = [
   'KG1',
@@ -88,11 +91,52 @@ final List<String> FilterSubjectList = [
 Future<bool> init() async {
   await database.open();
   prefs = await SharedPreferences.getInstance();
+  bool? loggedIn = prefs.getBool("isLoggedIn");
 
-  int profileID = prefs.getInt('profile_id')!;
-  profile = await database.getProfile(profileID);
-  progresses = await database.getProgress(profileID);
-  subjects = await database.getSubjects(profileID);
+  print('a0');
+
+
+  if (loggedIn == null){
+    print('a1');
+
+    prefs.setBool("isLoggedIn", false);
+    await prefs.setDouble('rating', 5.0);
+    await prefs.setBool('sound_is_on', true);
+    loggedIn = false;
+      print('a2');
+
+  }
+
+  print('a3');
+
+  isLoggedIn = loggedIn;
+
+  print('a4');
+
+  if (isLoggedIn){
+    print('a5');
+
+    token = prefs.getString('token')!;
+      print('a6');
+
+    int profileID = prefs.getInt('profile_id')!;
+    print(profileID);
+    print(profileID == int);
+
+      print('a7');
+
+    profile = await database.getProfile(profileID);
+      print('a8');
+
+    progresses = await database.getProgress(profileID);
+      print('a9');
+
+    subjects = await database.getSubjects(profileID);
+      print('a10');
+
+  }
+    print('a11');
+
 
   return true;
 }

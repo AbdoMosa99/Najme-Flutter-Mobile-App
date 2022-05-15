@@ -11,14 +11,15 @@ import 'package:najme/utility.dart';
 
 import '../../components/general/error_message.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
+import '../../database/models.dart';
 
 class RegistrationGender extends StatefulWidget {
   RegistrationGender({
     Key? key,
-    required this.registrationData,
+    required this.profileData,
   }) : super(key: key);
 
-  Map<String, dynamic> registrationData;
+  Profile profileData;
   @override
   _RegistrationGenderState createState() => _RegistrationGenderState();
 }
@@ -130,13 +131,13 @@ class _RegistrationGenderState extends State<RegistrationGender> {
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
         if (isMale != -1) { 
-          widget.registrationData["gender"] = (isMale == 1)? "male" : "female";
+          widget.profileData.gender = (isMale == 1)? "male" : "female";
           setState(() {
             valid = true;
           });
           Navigator.push(
             context, 
-            LeftRightPageRoute(RegistrationBirthDate(registrationData: widget.registrationData), 1, 0),
+            LeftRightPageRoute(RegistrationBirthDate(profileData: widget.profileData), 1, 0),
           );
 
         }

@@ -9,20 +9,25 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/database/models.dart';
 import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/screens/registeration/registration_address.dart';
 import 'package:najme/utility.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../api/auth_api.dart';
 import '../../components/general/error_message.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
+import '../../data.dart';
+import '../../database/init.dart';
 
 class RegistrationJob extends StatefulWidget {
   RegistrationJob({
     Key? key,
-    required this.registrationData,
+    required this.profileData,
   }) : super(key: key);
 
-  Map<String, dynamic> registrationData;
+  Profile profileData;
 
   @override
   _RegistrationJobState createState() => _RegistrationJobState();
@@ -263,16 +268,44 @@ class _RegistrationJobState extends State<RegistrationJob> {
                           fontSize: adjustValue(context, 30.0),
                         ),
                       ),
-                      onPressed: () {
+                      onPressed: () async {
                         if (job != -1) {
-                          widget.registrationData["ambition"] = job;
+                          widget.profileData.ambition = futureList[job-1];
 
                            setState(() {
                             valid = true;
                           });
                           showDoneDialog();
                           // TODO: Call API
-                          print(widget.registrationData);
+                          prefs = await SharedPreferences.getInstance();
+
+                          String token = prefs.getString('token')!;
+
+                          Profile profile = await create_profile_api(token, widget.profileData);
+
+                          await database.insertProfile(profile);
+                          await prefs.setInt('profile_id',profile.id);
+
+                          /*
+                          Progress progress = await get_progress_api(token, profile.id);
+                          await database.insertProgress(progress);
+
+                          List<Subject> subjects = await get_subjects_api(token, profile.id);
+                          subjects.forEach((subject) async{
+                            await database.insertSubject(subject);
+
+                            List<Unit> units = await get_units_api(token, subject.id);
+                            units.forEach((unit) async{
+                              await database.insertUnit(unit);
+                            });
+                          });
+                           */
+
+                          await prefs.setBool('isLoggedIn', true);
+
+                          await init();
+
+                          print(widget.profileData);
                           Navigator.push(
                             context,
                             InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),

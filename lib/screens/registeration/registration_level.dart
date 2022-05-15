@@ -6,6 +6,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/database/models.dart';
 import 'package:najme/screens/registeration/registration_address.dart';
 import 'package:najme/utility.dart';
 
@@ -15,10 +16,10 @@ import '../../components/screen_specific/registration/registration_topLayer.dart
 class RegistrationLevel extends StatefulWidget {
   RegistrationLevel({
     Key? key,
-    required this.registrationDate,
+    required this.profileData,
   }) : super(key: key);
   
-  Map<String, dynamic> registrationDate;
+  Profile profileData;
 
   @override
   _RegistrationLevelState createState() => _RegistrationLevelState();
@@ -124,7 +125,7 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
         if (level != 0) {
-          widget.registrationDate["level"] = level;
+          widget.profileData.level = level == 1 ? "KG1" : "KG2";
 
           setState(() {
             valid = true;
@@ -132,7 +133,7 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
 
           Navigator.push(
             context, 
-            LeftRightPageRoute(RegistrationAddress(registrationData: widget.registrationDate), 1, 0),
+            LeftRightPageRoute(RegistrationAddress(profileData: widget.profileData), 1, 0),
           );
         }
         else{

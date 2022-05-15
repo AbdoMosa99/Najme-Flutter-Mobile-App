@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
@@ -8,10 +7,12 @@ import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration/registeration_email.dart';
 import 'package:najme/screens/registeration/registeration_name.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../api/auth_api.dart';
 import '../../components/general/show_loader_dialog.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
+import '../../data.dart';
 import '../../utility.dart';
 
 class RegistrationPassword extends StatefulWidget {
@@ -146,12 +147,17 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
           floatingActionButton: true,
           onFloatingActionButtonTap: () async {
             if(formkey.currentState!.validate()){
-              showLoaderDialog(context);
+                showLoaderDialog(context);
+                print(widget.registrationData["email"]);
+                print(passController.text);
                 try{
                   String token = await register_password_api(widget.registrationData["email"], passController.text);
-                  print("The token is: $token");
-                  widget.registrationData["password"] = passController.text;
 
+                  prefs = await SharedPreferences.getInstance();
+                  await prefs.setString('token', token);
+                  await prefs.setString('email', widget.registrationData["email"]);
+
+                  print("The token is: $token");
                 }
                 catch(e){
                   print(e);
@@ -160,7 +166,7 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
 
               Navigator.push(
                 context,
-                LeftRightPageRoute(RegistrationName(registrationData: widget.registrationData), 1, 0)
+                LeftRightPageRoute(RegistrationName(), 1, 0)
               );
             }
 

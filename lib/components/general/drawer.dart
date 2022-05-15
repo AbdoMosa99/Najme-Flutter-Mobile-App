@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
+import 'package:najme/components/general/show_loader_dialog.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/drawer/children_profiles.dart';
@@ -10,6 +11,7 @@ import 'package:najme/screens/drawer/personal_profile.dart';
 import 'package:najme/screens/drawer/rateing_screen.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/data.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../screens/main/login_screen.dart';
 import '../../screens/parents_followUp/report/report.dart';
@@ -268,11 +270,30 @@ class MainDrawer extends Drawer {
               color: AppColors.secondary,
               width: adjustValue(context, 40.0),
             ),
-            onTap: () {
-              Navigator.push(
-                context,
-                LeftRightPageRoute(const LoginScreen(), -1, 0),
-              );
+            onTap: () async {
+              showLoaderDialog(context);
+              try{
+                prefs = await SharedPreferences.getInstance();
+                await prefs.setString('token', "");
+                await prefs.setInt('profile_id', -1);
+                await prefs.setString('email', "");
+                await prefs.setDouble('rating', 5.0);
+                await prefs.setBool('sound_is_on', true);
+                await prefs.setBool('isLoggedIn', false);
+                await database.deleteAll();
+
+
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  LeftRightPageRoute(const LoginScreen(), -1, 0),
+                );
+              }
+              catch(e){
+                Navigator.pop(context);
+                print(e);
+              }
+
             },
           ),
 

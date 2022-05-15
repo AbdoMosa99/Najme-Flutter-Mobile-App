@@ -32,7 +32,6 @@ class _RegisterationEmailState extends State<RegisterationEmail> {
 
   Map<String, dynamic> registrationData = {
     "email": null,
-    "password": null,
     "code": null,
   };
 
@@ -113,17 +112,19 @@ class _RegisterationEmailState extends State<RegisterationEmail> {
                   print("The code is: $code");
                   registrationData["email"] = emailController.text;
                   registrationData["code"] = code;
+
+                  Navigator.pop(context);
+
+                  Navigator.push(
+                    context,
+                    LeftRightPageRoute(EmailVerificationScreen(registrationData: registrationData), 1, 0),
+                  );
                 }
                 catch(e){
+                  Navigator.pop(context);
                   print(e);
                 }
-                Navigator.pop(context);
 
-
-              Navigator.push(
-                context,
-                LeftRightPageRoute(EmailVerificationScreen(registrationData: registrationData), 1, 0),
-              );
             }
 
           },

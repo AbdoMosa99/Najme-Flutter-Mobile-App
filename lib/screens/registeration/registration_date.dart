@@ -3,6 +3,7 @@ import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/screen_specific/registration_date/birth_date_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/database/models.dart';
 import 'package:najme/screens/registeration/registration_level.dart';
 import 'package:najme/utility.dart';
 
@@ -12,10 +13,10 @@ import '../../components/screen_specific/registration/registration_topLayer.dart
 class RegistrationBirthDate extends StatefulWidget {
   RegistrationBirthDate({
     Key? key,
-    required this.registrationData
+    required this.profileData
   }) : super(key: key);
 
-  Map<String, dynamic> registrationData;
+  Profile profileData;
 
   final days = [for (var i = 1; i <= 31; i++) i];
   final months = [
@@ -129,10 +130,10 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
         if (dayI != null && monthI != null && yearI != null) {
-          widget.registrationData["birthdate"] = 
-            widget.years[yearI!].toString() + "/" +
-            (monthI! + 1).toString() + "/" +
-            widget.days[dayI!].toString();
+          widget.profileData.birthdate = DateTime.utc(widget.years[yearI!], monthI! + 1, widget.days[dayI!]);
+            //widget.years[yearI!].toString() + "/" +
+            //(monthI! + 1).toString() + "/" +
+            //widget.days[dayI!].toString();
 
             setState(() {
               valid = true;
@@ -141,7 +142,7 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
           Navigator.push(
             context,
             LeftRightPageRoute(
-              RegistrationLevel(registrationDate: widget.registrationData), 1, 0
+              RegistrationLevel(profileData: widget.profileData), 1, 0
             ),
           );
         }

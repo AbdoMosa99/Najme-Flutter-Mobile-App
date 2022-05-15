@@ -75,9 +75,7 @@ class ChildrenProfiles extends StatelessWidget {
                               Navigator.push(
                                   context,
                                   LeftRightPageRoute(
-                                      RegistrationName(
-                                          registrationData:
-                                              Map<String, dynamic>()),
+                                      RegistrationName(),
                                       1,
                                       0));
                             },
