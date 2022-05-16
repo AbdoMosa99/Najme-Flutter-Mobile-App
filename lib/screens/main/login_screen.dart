@@ -9,7 +9,7 @@ import 'package:najme/database/models.dart';
 import 'package:najme/screens/forget_password/forget_password.dart';
 import 'package:najme/screens/registeration/registeration_email.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../api/auth_api.dart';
+import '../../api/auth.dart';
 import '../../components/general/show_loader_dialog.dart';
 import '../../data.dart';
 import 'home_screen.dart';

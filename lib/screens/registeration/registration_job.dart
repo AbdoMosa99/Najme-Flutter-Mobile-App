@@ -15,7 +15,7 @@ import 'package:najme/screens/registeration/registration_address.dart';
 import 'package:najme/utility.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../api/auth_api.dart';
+import '../../api/auth.dart';
 import '../../components/general/error_message.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
 import '../../data.dart';

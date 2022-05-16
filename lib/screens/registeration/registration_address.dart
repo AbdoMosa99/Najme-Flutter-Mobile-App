@@ -16,39 +16,11 @@ class RegistrationAddress extends StatefulWidget {
   RegistrationAddress({
     Key? key,
     required this.profileData,
+    required this.cities_list
   }) : super(key: key);
 
   Profile profileData;
-
-  final cities = const [
-    "القاهرة",
-    "الجيزة",
-    "الشرقية",
-    "الدقهلية",
-    "البحيرة",
-    "المنيا",
-    "القليوبية",
-    "الإسكندرية",
-    "الغربية",
-    "سوهاج",
-    "أسيوط",
-    "المنوفية",
-    "كفر الشيخ",
-    "الفيوم",
-    "قنا",
-    "بني سويف",
-    "أسوان",
-    "دمياط",
-    "الإسماعيلية",
-    "الأقصر",
-    "بور سعيد",
-    "السويس",
-    "مطروح",
-    "شمال سيناء",
-    "البحر الاحمر",
-    "الوادي الجديد",
-    "جنوب سيناء",
-  ];
+  List cities_list;
 
   @override
   _RegistrationAddressState createState() => _RegistrationAddressState();
@@ -76,7 +48,7 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
                   text: "المحافظة",
                   title: "اختر محافظتك!",
                   fontSize: 27,
-                  data: widget.cities,
+                  data: widget.cities_list,
                   callback: (int index) {
                     cityI = index;
                   },
@@ -114,7 +86,7 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
         if (widget.profileData.city != null) {
-          widget.profileData.city = widget.cities[cityI];
+          widget.profileData.city = widget.cities_list[cityI];
           setState(() {
             valid = true;
           });

@@ -7,6 +7,7 @@ import 'package:najme/database/models.dart';
 import 'package:najme/screens/registeration/registration_level.dart';
 import 'package:najme/utility.dart';
 
+import '../../api/general.dart';
 import '../../components/general/error_message.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
 
@@ -128,23 +129,20 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
         ],
       ),
       floatingActionButton: true,
-      onFloatingActionButtonTap: () {
+      onFloatingActionButtonTap: () async {
         if (dayI != null && monthI != null && yearI != null) {
           widget.profileData.birthdate = DateTime.utc(widget.years[yearI!], monthI! + 1, widget.days[dayI!]);
-            //widget.years[yearI!].toString() + "/" +
-            //(monthI! + 1).toString() + "/" +
-            //widget.days[dayI!].toString();
+          setState(() {
+            valid = true;
+          });
 
-            setState(() {
-              valid = true;
-            });
-
+          List levels_list = await levels_api();
           Navigator.push(
             context,
             LeftRightPageRoute(
-              RegistrationLevel(profileData: widget.profileData), 1, 0
-            ),
-          );
+              RegistrationLevel(profileData: widget.profileData, levels_list: levels_list), 1, 0
+                ),
+              );
         }
         else{
           setState(() {
