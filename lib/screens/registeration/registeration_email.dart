@@ -26,14 +26,10 @@ class _RegisterationEmailState extends State<RegisterationEmail> {
   final _formKey = GlobalKey<FormState>();
 
   TextEditingController emailController = TextEditingController();
+  String server_code = '';
 
   bool showProgress = false;
 
-
-  Map<String, dynamic> registrationData = {
-    "email": null,
-    "code": null,
-  };
 
   @override
   Widget build(BuildContext context) {
@@ -108,16 +104,14 @@ class _RegisterationEmailState extends State<RegisterationEmail> {
               if (_formKey.currentState!.validate()) {
                 showLoaderDialog(context);
                 try{
-                  code = await register_email_api(emailController.text);
-                  print("The code is: $code");
-                  registrationData["email"] = emailController.text;
-                  registrationData["code"] = code;
+                  server_code = await register_email_api(emailController.text);
+                  print("The code is: $server_code");
 
                   Navigator.pop(context);
 
                   Navigator.push(
                     context,
-                    LeftRightPageRoute(EmailVerificationScreen(registrationData: registrationData), 1, 0),
+                    LeftRightPageRoute(EmailVerificationScreen(email: emailController.text, server_code: server_code), 1, 0),
                   );
                 }
                 catch(e){

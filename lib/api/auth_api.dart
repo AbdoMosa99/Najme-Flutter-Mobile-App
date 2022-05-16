@@ -22,7 +22,7 @@ Future<Map> post_api(
 }
 
 
-Future<List> get_api(
+Future<Map> get_api(
     String url,
     {Map<String, String> headers = const {"X-Api-Key": API_KEY}}
     ) async {
@@ -32,7 +32,7 @@ Future<List> get_api(
   Response response = await get(uri, headers: headers);
   assert(response.statusCode == 200);
 
-  List decodedResponse = jsonDecode(utf8.decode(response.bodyBytes));
+  Map decodedResponse = jsonDecode(utf8.decode(response.bodyBytes)) as Map;
 
   return decodedResponse;
 }
@@ -115,11 +115,11 @@ Future<List<Profile>> get_profiles_api(String token) async {
                                   "X-Api-Key": API_KEY,
                                   "Authorization": "Token ${token}",
                                 };
-  List response = await get_api(url, headers: headers);
+  Map response = await get_api(url, headers: headers);
   print(response);
 
   List<Profile> profiles = [];
-  response.forEach( (map_profile) async{
+  response["result"].forEach( (map_profile) async{
   print(map_profile);
     Profile profile = Profile.fromMap(map_profile);
     print(profile);

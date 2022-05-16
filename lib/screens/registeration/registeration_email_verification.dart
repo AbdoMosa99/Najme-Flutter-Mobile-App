@@ -20,10 +20,12 @@ import '../../components/screen_specific/registration/registration_topLayer.dart
 class EmailVerificationScreen extends StatefulWidget {
   EmailVerificationScreen({
     Key? key,
-    required this.registrationData,
+    required this.email,
+    required this.server_code,
   }) : super(key: key);
 
-  Map<String, dynamic> registrationData;
+  String email;
+  String server_code;
 
   @override
   State<EmailVerificationScreen> createState() => _EmailVerificationScreenState();
@@ -93,7 +95,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                       ),
                     ),
                     Text(
-                      widget.registrationData["email"],
+                      widget.email,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: 'Cairo',
@@ -133,8 +135,8 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                                     onPressed: () async {
                                       showLoaderDialog(context);
                                       try{
-                                        widget.registrationData["code"] = await register_email_api(widget.registrationData["email"]);
-                                        print('The new code when resend is: ' + widget.registrationData["code"] );
+                                        widget.server_code = await register_email_api(widget.email);
+                                        print('The new code when resend is: ' + widget.server_code);
                                       }
                                       catch(e){
                                         print(e);
@@ -218,12 +220,12 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         onPressed: () async {
                         try{
                           showLoaderDialog(context);
-                          if(widget.registrationData["code"] == userCode && await verify_email_api(widget.registrationData["email"],userCode))
+                          if(widget.server_code == userCode && await verify_email_api(widget.email,userCode))
                             {
                               Navigator.pop(context);
                               Navigator.push(
                                 context,
-                                LeftRightPageRoute(RegistrationPassword(registrationData: widget.registrationData), 1, 0),
+                                LeftRightPageRoute(RegistrationPassword(email: widget.email), 1, 0),
                               );
                             }
                           else{

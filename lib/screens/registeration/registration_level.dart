@@ -26,6 +26,7 @@ class RegistrationLevel extends StatefulWidget {
 }
 
 class _RegistrationLevelState extends State<RegistrationLevel> {
+  List<String> my_levels = ["a", "c"];
   int level = 0;
   bool valid = true;
 
@@ -54,39 +55,14 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                            MainCard(
-                              context: context,
-                              text: "KG1",
-                              onTap: () {
-                                setState(() {
-                                  level = 1;
-                                });
-                              },
-                              color: level == 1 ? AppColors.primary : AppColors.surface,
-                              textColor: level == 1 ? AppColors.white : AppColors.primary,
-                              radius: 76.0,
-                              fontSize: 48.0,
-                              circle: true,
-                              padding: 20.0,
-                            ),
-
-                          MainCard(
+                        children: levelList(
                             context: context,
-                            text: "KG2",
-                            onTap: () {
-                              setState(() {
-                                level = 2;
-                              });
-                            },
-                            color: level == 2 ? AppColors.primary : AppColors.surface,
-                            textColor: level == 2 ? AppColors.white : AppColors.primary,
-                            radius: 76.0,
-                            fontSize: 48.0,
-                            circle: true,
-                            padding: 20.0,
-                          ),
-                        ],
+                            levels: my_levels,
+                            function: (int level_id){ setState(() {
+                                level = level_id;
+                              });},
+                              active_level: level
+                        ),
                       ),
                       if(!valid) ErrorMessage(
                         context: context,
@@ -125,7 +101,7 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
         if (level != 0) {
-          widget.profileData.level = level == 1 ? "KG1" : "KG2";
+          widget.profileData.level = my_levels[level - 1] ;
 
           setState(() {
             valid = true;
@@ -144,4 +120,36 @@ class _RegistrationLevelState extends State<RegistrationLevel> {
       },
     );
   }
+}
+
+List<Widget> levelList(
+  {
+    required BuildContext context,
+    required List<String> levels,
+    required Function function,
+    required int active_level
+ }
+) {
+  List<Widget> list = [];
+
+  for (int i = 0; i < levels.length; i++) {
+    int level_id = i + 1;
+    list.add(
+      MainCard(
+        context: context,
+        text: levels[i],
+        onTap: () {
+          function(level_id);
+          print(level_id);
+        },
+        color: active_level ==  level_id ? AppColors.primary : AppColors.surface,
+        textColor: active_level ==  level_id ? AppColors.white : AppColors.primary,
+        radius: 76.0,
+        fontSize: 48.0,
+        circle: true,
+        padding: 20.0,
+      ),
+    );
+  }
+  return list;
 }

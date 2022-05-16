@@ -5,7 +5,6 @@ import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/registeration/registeration_email.dart';
 import 'package:najme/screens/registeration/registeration_name.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,10 +17,10 @@ import '../../utility.dart';
 class RegistrationPassword extends StatefulWidget {
   RegistrationPassword({
     Key? key,
-    required this.registrationData,
+    required this.email,
   }) : super(key: key);
 
-  Map<String, dynamic> registrationData;
+  String email;
 
   @override
   _RegistrationPasswordState createState() => _RegistrationPasswordState();
@@ -148,14 +147,14 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
           onFloatingActionButtonTap: () async {
             if(formkey.currentState!.validate()){
                 showLoaderDialog(context);
-                print(widget.registrationData["email"]);
+                print(widget.email);
                 print(passController.text);
                 try{
-                  String token = await register_password_api(widget.registrationData["email"], passController.text);
+                  String token = await register_password_api(widget.email, passController.text);
 
                   prefs = await SharedPreferences.getInstance();
                   await prefs.setString('token', token);
-                  await prefs.setString('email', widget.registrationData["email"]);
+                  await prefs.setString('email', widget.email);
 
                   print("The token is: $token");
                 }
