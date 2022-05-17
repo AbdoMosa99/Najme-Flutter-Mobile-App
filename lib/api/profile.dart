@@ -1,4 +1,4 @@
-import 'package:najme/database/models.dart';
+import '../database/models.dart';
 
 import 'base.dart';
 
