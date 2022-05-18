@@ -76,7 +76,7 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
                                   },
                                   valid: (value){
                                     if(value.isEmpty){
-                                      return "من فضلك ادخل كلمة السر";
+                                      return "!من فضلك ادخل كلمة السر";
                                     }
                                     if(value.length < 8) {
                                       return "يجب أن يكون عدد الحروف على الاقل 8";
@@ -103,7 +103,7 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
                                   },
                                   valid: (value) {
                                     if (value.isEmpty) {
-                                      return "من فضلك ادخل تأكيد كلمة السر";
+                                      return "من فضلك ادخل تأكيد كلمة السر!";
                                     }
                                     if (passController.text != confpassController.text) {
                                       return "لا تتطابق مع كلمة السر";

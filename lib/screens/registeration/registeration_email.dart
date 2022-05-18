@@ -6,9 +6,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/main/login_screen.dart';
 import 'package:najme/screens/registeration/registeration_email_verification.dart';
-import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 
 import '../../api/auth.dart';
@@ -98,8 +96,6 @@ class _RegisterationEmailState extends State<RegisterationEmail> {
 
           floatingActionButton: true,
           onFloatingActionButtonTap: () async {
-              String code;
-
               // navigate to your desired page
               if (_formKey.currentState!.validate()) {
                 showLoaderDialog(context);

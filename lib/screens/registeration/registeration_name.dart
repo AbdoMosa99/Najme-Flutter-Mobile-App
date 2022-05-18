@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
@@ -7,7 +6,6 @@ import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration/registeration_gender.dart';
-import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 
 import '../../components/screen_specific/registration/registration_topLayer.dart';
@@ -18,7 +16,6 @@ class RegistrationName extends StatelessWidget {
     Key? key,
   }) : super(key: key);
   final _formKey = GlobalKey<FormState>();
-  //Map<String, dynamic> registrationData;
 
   Profile profileData = Profile(
       id: 0,

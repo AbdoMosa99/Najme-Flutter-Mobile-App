@@ -64,7 +64,7 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
                   width: adjustWidthValue(context, 144.0),
                   height: adjustHeightValue(context, 95.0),
                   text: "اليوم",
-                  title: "اختر يوم ميلادك!  ",
+                  title: "اختر يوم ميلادك!",
                   fontSize: 26,
                   data: widget.days,
                   callBack: (int index) {
@@ -96,7 +96,7 @@ class _RegistrationBirthDateState extends State<RegistrationBirthDate> {
 
                 if(!valid) ErrorMessage(
                     context: context,
-                    message: "من فضلك ادخل تاريخ ميلادك",
+                    message: "من فضلك ادخل تاريخ ميلادك!",
                     ),
 
 

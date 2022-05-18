@@ -70,7 +70,6 @@ final List<String> futureList = [
   'ضابط',
   'طبيب',
   'مبرمج',
-  'اخري',
 ];
 final List<String> levelsList = [
   'KG1',

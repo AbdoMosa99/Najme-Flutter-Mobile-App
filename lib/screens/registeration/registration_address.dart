@@ -6,7 +6,6 @@ import 'package:najme/components/screen_specific/registration_address/address_bu
 import 'package:najme/constants/colors.dart';
 import 'package:najme/database/models.dart';
 import 'package:najme/screens/registeration/registration_job.dart';
-import 'package:najme/screens/registeration/registration_level.dart';
 
 import '../../components/general/error_message.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
@@ -28,10 +27,10 @@ class RegistrationAddress extends StatefulWidget {
 
 class _RegistrationAddressState extends State<RegistrationAddress> {
   bool valid = true;
-  @override
-  late int cityI;
 
+  @override
   Widget build(BuildContext context) {
+    int? cityI;
     return MainContainer(
       paddingAll: 0.0,
       child: Stack(
@@ -55,7 +54,7 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
                 ),
                 if(!valid) ErrorMessage(
                   context: context,
-                  message: "من فضلك اختر محافظتك",
+                  message: "من فضلك اختر محافظتك!",
                 ),
 
                 Text(
@@ -85,17 +84,17 @@ class _RegistrationAddressState extends State<RegistrationAddress> {
       ),
       floatingActionButton: true,
       onFloatingActionButtonTap: () {
-        if (widget.profileData.city != null) {
-          widget.profileData.city = widget.cities_list[cityI];
+        if (cityI != null) {
+          widget.profileData.city = widget.cities_list[cityI!];
           setState(() {
             valid = true;
           });
           Navigator.push(
             context,
-            LeftRightPageRoute(RegistrationJob(profileData: widget.profileData), 1, 0),
+            LeftRightPageRoute(
+                RegistrationJob(profileData: widget.profileData), 1, 0),
           );
-        }
-        else{
+        } else {
           setState(() {
             valid = false;
           });

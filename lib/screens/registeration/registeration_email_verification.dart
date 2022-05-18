@@ -2,13 +2,11 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
+import 'package:najme/components/general/error_message.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/forget_password/forget_password.dart';
-import 'package:najme/screens/forget_password/new_password.dart';
 import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
@@ -28,19 +26,20 @@ class EmailVerificationScreen extends StatefulWidget {
   String server_code;
 
   @override
-  State<EmailVerificationScreen> createState() => _EmailVerificationScreenState();
+  State<EmailVerificationScreen> createState() =>
+      _EmailVerificationScreenState();
 }
 
 class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
-
-  Timer? _timer;
+  Timer? timer;
   int _start = 11;
   late String userCode;
+  bool valid = true;
 
   void startTimer() {
-    _start = 11;
+    _start = 31;
     const oneSec = const Duration(seconds: 1);
-    _timer = new Timer.periodic(
+    timer = new Timer.periodic(
       oneSec,
       (Timer timer) {
         if (_start == 0) {
@@ -63,7 +62,6 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return MainContainer(
       paddingAll: 0.0,
       child: Stack(
@@ -79,10 +77,9 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                     Padding(
                       padding: EdgeInsets.all(adjustValue(context, 15)),
                       child: SvgPicture.asset(
-                            Assets.E2,
-                            height: adjustValue(context, 125) ,
-                          ),
-
+                        Assets.E2,
+                        height: adjustValue(context, 125),
+                      ),
                     ),
                     Text(
                       'ادخل كود التأكيد الذي وصلك على',
@@ -91,7 +88,6 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         fontSize: adjustValue(context, 33.0),
                         fontFamily: 'Cairo',
                         color: AppColors.primaryDark,
-                        //fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
@@ -103,7 +99,6 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         fontSize: adjustValue(context, 33.0),
                       ),
                     ),
-
                     Directionality(
                       textDirection: TextDirection.ltr,
                       child: VerificationCode(
@@ -121,24 +116,30 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         onCompleted: (String value) {
                           userCode = value;
                         },
-                        onEditing: (bool value) {
-                        },
+                        onEditing: (bool value) {},
                       ),
                     ),
-
+                    if (!valid)
+                      ErrorMessage(
+                        context: context,
+                        message: "من فضلك اعد كتابة الكود الصحيح!",
+                      ),
                     Padding(
-                          padding: EdgeInsets.all(adjustHeightValue(context, 15)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                                 _start == 0 ? TextButton(
+                      padding: EdgeInsets.all(adjustHeightValue(context, 15)),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            _start == 0
+                                ? TextButton(
                                     onPressed: () async {
                                       showLoaderDialog(context);
-                                      try{
-                                        widget.server_code = await register_email_api(widget.email);
-                                        print('The new code when resend is: ' + widget.server_code);
-                                      }
-                                      catch(e){
+                                      try {
+                                        widget.server_code =
+                                            await register_email_api(
+                                                widget.email);
+                                        print('The new code when resend is: ' +
+                                            widget.server_code);
+                                      } catch (e) {
                                         print(e);
                                       }
                                       Navigator.pop(context);
@@ -156,48 +157,44 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                                       ),
                                     ),
                                   )
-                                             : TextButton(
-                                                onPressed: () {
-
-                                                },
-                                                child: Text(
-                                                  'إعادة إرسال الكود',
-                                                  textAlign: TextAlign.center,
-                                                  maxLines: 1,
-                                                  style: TextStyle(
-                                                    fontSize: adjustValue(context, 20.0),
-                                                    color: AppColors.primaryDark.withOpacity(0.5),
-                                                    fontFamily: 'Cairo',
-                                                    decoration: TextDecoration.underline,
-                                                  ),
-                                                ),
-                                              ),
-
-                                  _start < 10 ? Text(
-                                                  "(00:0$_start)",
-                                                  textAlign: TextAlign.center,
-                                                  maxLines: 1,
-                                                  style: TextStyle(
-                                                            fontSize: adjustValue(context, 20.0),
-                                                            color: AppColors.primaryDark,
-                                                            fontFamily: 'Cairo',
-                                                          ),
-                                                )
-                                              : Text(
-                                                  "(00:$_start)",
-                                                  textAlign: TextAlign.center,
-                                                  maxLines: 1,
-                                                  style: TextStyle(
-                                                            fontSize: adjustValue(context, 20.0),
-                                                            color: AppColors.primaryDark,
-                                                            fontFamily: 'Cairo',
-                                                          ),
-                                                )
-                                ]
-                        ),
-
+                                : TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'إعادة إرسال الكود',
+                                      textAlign: TextAlign.center,
+                                      maxLines: 1,
+                                      style: TextStyle(
+                                        fontSize: adjustValue(context, 20.0),
+                                        color: AppColors.primaryDark
+                                            .withOpacity(0.5),
+                                        fontFamily: 'Cairo',
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                  ),
+                            _start < 10
+                                ? Text(
+                                    "(00:0$_start)",
+                                    textAlign: TextAlign.center,
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                      fontSize: adjustValue(context, 20.0),
+                                      color: AppColors.primaryDark,
+                                      fontFamily: 'Cairo',
+                                    ),
+                                  )
+                                : Text(
+                                    "(00:$_start)",
+                                    textAlign: TextAlign.center,
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                      fontSize: adjustValue(context, 20.0),
+                                      color: AppColors.primaryDark,
+                                      fontFamily: 'Cairo',
+                                    ),
+                                  )
+                          ]),
                     ),
-
                     Align(
                       alignment: Alignment.bottomCenter,
                       child: MaterialButton(
@@ -206,7 +203,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         height: adjustValue(context, 45),
                         shape: RoundedRectangleBorder(
                           borderRadius:
-                          BorderRadius.circular(adjustValue(context, 15.0)),
+                              BorderRadius.circular(adjustValue(context, 15.0)),
                         ),
                         child: Text(
                           'تأكيد',
@@ -218,25 +215,31 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                           ),
                         ),
                         onPressed: () async {
-                        try{
-                          showLoaderDialog(context);
-                          if(widget.server_code == userCode && await verify_email_api(widget.email,userCode))
-                            {
+                          try {
+                            showLoaderDialog(context);
+                            if (widget.server_code == userCode &&
+                                await verify_email_api(
+                                    widget.email, userCode)) {
+                                      setState(() {
+                                valid = true;
+                              });
                               Navigator.pop(context);
                               Navigator.push(
                                 context,
-                                LeftRightPageRoute(RegistrationPassword(email: widget.email), 1, 0),
+                                LeftRightPageRoute(
+                                    RegistrationPassword(email: widget.email),
+                                    1,
+                                    0),
                               );
+                            } else {
+                              setState(() {
+                                valid = false;
+                              });
+                              Navigator.pop(context);
                             }
-                          else{
-                            Navigator.pop(context);
+                          } catch (e) {
+                            print(e);
                           }
-                        }
-                        catch(e){
-                          print(e);
-                        }
-
-
                         },
                       ),
                     ),
@@ -245,17 +248,13 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
               ),
             ),
           ),
-
           TopLayer(
             context: context,
             width: 0.22,
-            onPressed: (){
-              Navigator.pop(
-                  context,false
-              );
+            onPressed: () {
+              Navigator.pop(context, false);
             },
           ),
-
         ],
       ),
     );

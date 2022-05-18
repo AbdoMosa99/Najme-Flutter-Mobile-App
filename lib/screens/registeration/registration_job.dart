@@ -2,16 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
-import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/form_text_box.dart';
-import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/database/models.dart';
 import 'package:najme/screens/main/home_screen.dart';
-import 'package:najme/screens/registeration/registration_address.dart';
 import 'package:najme/utility.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,7 +16,6 @@ import '../../api/auth.dart';
 import '../../components/general/error_message.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
 import '../../data.dart';
-import '../../database/init.dart';
 
 class RegistrationJob extends StatefulWidget {
   RegistrationJob({
@@ -37,6 +33,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
   int job = -1;
   bool valid = true;
   TextEditingController ambitionController = TextEditingController();
+
 
   get controller => null;
   @override
@@ -231,7 +228,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
                         ),
                         if(!valid) ErrorMessage(
                           context: context,
-                          message: "من فضلك اختر طموحك",
+                          message: "من فضلك اختر طموحك!",
                       ),
                       ],
                     ),
@@ -270,12 +267,14 @@ class _RegistrationJobState extends State<RegistrationJob> {
                       ),
                       onPressed: () async {
                         if (job != -1) {
-                          widget.profileData.ambition = futureList[job-1];
-
-                           setState(() {
+                          job == 6
+                            ?widget.profileData.ambition = ambitionController.text
+                            :widget.profileData.ambition = futureList[job-1];
+                        
+                          setState(() {
                             valid = true;
                           });
-                          showDoneDialog();
+                          showDoneDialog(context);
                           // TODO: Call API
                           prefs = await SharedPreferences.getInstance();
 
@@ -337,28 +336,39 @@ class _RegistrationJobState extends State<RegistrationJob> {
     );
   }
 
-  void showDoneDialog() => showDialog(
-    barrierDismissible: false,
-    context: context,
-    builder: (context) =>Dialog(
-      child: Column(
+showDoneDialog(BuildContext context) {
+    AlertDialog alert = AlertDialog(
+      backgroundColor: AppColors.surface,
+      content: new Column(
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Lottie.asset(
             'assets/lottie/Done.json',
-            repeat: false,     
-            controller: controller, 
-            onLoaded: (composition){
-              controller.forward();
-            },                   
+            repeat: true,
+            controller: controller,
           ),
-          Text(
-            'تم بنجاح ',
-            style: TextStyle(fontSize: 24),
+          Center(
+            child: Text(
+              '    تم بنجاح',
+              style: TextStyle(
+                fontSize: adjustValue(context, 30.0),
+                fontFamily: 'Cairo',
+                color: AppColors.primaryDark,
+              ),
+            ),
           ),
-          const SizedBox(height: 16),
+        
         ],
       ),
-    ) ,
-  );
+    );
+    showDialog(
+      barrierDismissible: true,
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
 }

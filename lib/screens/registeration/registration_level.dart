@@ -68,7 +68,7 @@ class _RegistrationLevelState extends State<RegistrationLevel>{
                       ),
                       if(!valid) ErrorMessage(
                         context: context,
-                        message: "من فضلك اختر مرحلتك",
+                        message: "من فضلك اختر مرحلتك!",
                      ),
                     ],
                   ),
@@ -144,7 +144,6 @@ List<Widget> levelList(
         onTap: () {
           function(level_id);
           print(level_id);
-          //print(levels_list[level_id - 1]);
         },
         color: active_level ==  level_id ? AppColors.primary : AppColors.surface,
         textColor: active_level ==  level_id ? AppColors.white : AppColors.primary,
