@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lottie/lottie.dart';
+import 'package:najme/_api/profile.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/main_card.dart';
+import 'package:najme/components/general/show_loader_dialog.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/database/models.dart';
 import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/utility.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:najme/_api/auth.dart';
 
-import '../../api/auth.dart';
-import '../../components/general/error_message.dart';
-import '../../components/screen_specific/registration/registration_topLayer.dart';
-import '../../data.dart';
+import 'package:najme/components/general/error_message.dart';
+import 'package:najme/components/screen_specific/registration/registration_topLayer.dart';
+import 'package:najme/data.dart';
 
 class RegistrationJob extends StatefulWidget {
   RegistrationJob({
@@ -33,7 +35,6 @@ class _RegistrationJobState extends State<RegistrationJob> {
   int job = -1;
   bool valid = true;
   TextEditingController ambitionController = TextEditingController();
-
 
   get controller => null;
   @override
@@ -66,14 +67,17 @@ class _RegistrationJobState extends State<RegistrationJob> {
                                   },
                                   image: SvgPicture.asset(Assets.teacher),
                                   text: 'مدرس',
-                                  color: job == 1 ? AppColors.primary : AppColors.surface,
-                                  textColor: job == 1 ? AppColors.white : AppColors.primary,
+                                  color: job == 1
+                                      ? AppColors.primary
+                                      : AppColors.surface,
+                                  textColor: job == 1
+                                      ? AppColors.white
+                                      : AppColors.primary,
                                   fontSize: 16,
                                   stroke: true,
                                 ),
                               ),
                             ),
-
                             Expanded(
                               child: AspectRatio(
                                 aspectRatio: 3 / 4,
@@ -86,14 +90,17 @@ class _RegistrationJobState extends State<RegistrationJob> {
                                   },
                                   image: SvgPicture.asset(Assets.engineer),
                                   text: 'مهندس',
-                                  color: job == 2 ? AppColors.primary : AppColors.surface,
-                                  textColor: job == 2 ? AppColors.white : AppColors.primary,
+                                  color: job == 2
+                                      ? AppColors.primary
+                                      : AppColors.surface,
+                                  textColor: job == 2
+                                      ? AppColors.white
+                                      : AppColors.primary,
                                   fontSize: 16,
                                   stroke: true,
                                 ),
                               ),
                             ),
-
                             Expanded(
                               child: AspectRatio(
                                 aspectRatio: 3 / 4,
@@ -106,8 +113,12 @@ class _RegistrationJobState extends State<RegistrationJob> {
                                   },
                                   image: SvgPicture.asset(Assets.policeman),
                                   text: 'ضابط',
-                                  color: job == 3 ? AppColors.primary : AppColors.surface,
-                                  textColor: job == 3 ? AppColors.white : AppColors.primary,
+                                  color: job == 3
+                                      ? AppColors.primary
+                                      : AppColors.surface,
+                                  textColor: job == 3
+                                      ? AppColors.white
+                                      : AppColors.primary,
                                   fontSize: 16,
                                   stroke: true,
                                 ),
@@ -129,38 +140,43 @@ class _RegistrationJobState extends State<RegistrationJob> {
                                   onTap: () {
                                     ambitionController.clear();
                                     showDialog(
-                                      context: context, 
+                                      context: context,
                                       builder: (BuildContext context) {
-                                        return SimpleDialog( 
-                                          contentPadding: EdgeInsets.all(adjustValue(context, 22.0)),
-                                          backgroundColor: AppColors.primaryLight,
+                                        return SimpleDialog(
+                                          contentPadding: EdgeInsets.all(
+                                              adjustValue(context, 22.0)),
+                                          backgroundColor:
+                                              AppColors.primaryLight,
                                           children: [
                                             Directionality(
                                               textDirection: TextDirection.rtl,
                                               child: FormTextBox(
                                                 context: context,
                                                 text: "طموحك",
-                                                controllerKind: ambitionController,
+                                                controllerKind:
+                                                    ambitionController,
                                               ),
                                             ),
-
                                             SizedBox(
-                                              height: adjustHeightValue(context, 16.0),
+                                              height: adjustHeightValue(
+                                                  context, 16.0),
                                             ),
-                                            
                                             Align(
                                               alignment: Alignment.bottomRight,
                                               child: FloatingActionButton(
-                                                backgroundColor: AppColors.secondary,
+                                                backgroundColor:
+                                                    AppColors.secondary,
                                                 child: Directionality(
-                                                  textDirection: TextDirection.ltr,
+                                                  textDirection:
+                                                      TextDirection.ltr,
                                                   child: Icon(
                                                     Icons.done_outline,
-                                                    size: adjustValue(context, 20.0),
+                                                    size: adjustValue(
+                                                        context, 20.0),
                                                     color: AppColors.white,
                                                   ),
                                                 ),
-                                                onPressed: (){
+                                                onPressed: () {
                                                   Navigator.pop(context);
                                                   setState(() {
                                                     job = 6;
@@ -168,22 +184,29 @@ class _RegistrationJobState extends State<RegistrationJob> {
                                                 },
                                               ),
                                             ),
-                      
-                                            ],
+                                          ],
                                         );
                                       },
                                     );
                                   },
-                                  image: SvgPicture.asset(Assets.plusSign, color: AppColors.secondary,),
-                                  text: ambitionController.text == '' ? 'أخرى' : ambitionController.text,
-                                  color: job == 6 ? AppColors.primary : AppColors.surface,
-                                  textColor: job == 6 ? AppColors.white : AppColors.primary,
+                                  image: SvgPicture.asset(
+                                    Assets.plusSign,
+                                    color: AppColors.secondary,
+                                  ),
+                                  text: ambitionController.text == ''
+                                      ? 'أخرى'
+                                      : ambitionController.text,
+                                  color: job == 6
+                                      ? AppColors.primary
+                                      : AppColors.surface,
+                                  textColor: job == 6
+                                      ? AppColors.white
+                                      : AppColors.primary,
                                   fontSize: 16,
                                   stroke: true,
                                 ),
                               ),
                             ),
-
                             Expanded(
                               child: AspectRatio(
                                 aspectRatio: 3 / 4,
@@ -196,14 +219,17 @@ class _RegistrationJobState extends State<RegistrationJob> {
                                   },
                                   image: SvgPicture.asset(Assets.doctor),
                                   text: 'طبيب',
-                                  color: job == 4 ? AppColors.primary : AppColors.surface,
-                                  textColor: job == 4 ? AppColors.white : AppColors.primary,
+                                  color: job == 4
+                                      ? AppColors.primary
+                                      : AppColors.surface,
+                                  textColor: job == 4
+                                      ? AppColors.white
+                                      : AppColors.primary,
                                   fontSize: 16,
                                   stroke: true,
                                 ),
                               ),
                             ),
-
                             Expanded(
                               child: AspectRatio(
                                 aspectRatio: 3 / 4,
@@ -216,20 +242,24 @@ class _RegistrationJobState extends State<RegistrationJob> {
                                   },
                                   image: SvgPicture.asset(Assets.programmer),
                                   text: 'مبرمج',
-                                  color: job == 5 ? AppColors.primary : AppColors.surface,
-                                  textColor: job == 5 ? AppColors.white : AppColors.primary,
+                                  color: job == 5
+                                      ? AppColors.primary
+                                      : AppColors.surface,
+                                  textColor: job == 5
+                                      ? AppColors.white
+                                      : AppColors.primary,
                                   fontSize: 16,
                                   stroke: true,
                                 ),
                               ),
                             ),
-
                           ],
                         ),
-                        if(!valid) ErrorMessage(
-                          context: context,
-                          message: "من فضلك اختر طموحك!",
-                      ),
+                        if (!valid)
+                          ErrorMessage(
+                            context: context,
+                            message: "من فضلك اختر طموحك!",
+                          ),
                       ],
                     ),
                     SizedBox(
@@ -268,49 +298,58 @@ class _RegistrationJobState extends State<RegistrationJob> {
                       onPressed: () async {
                         if (job != -1) {
                           job == 6
-                            ?widget.profileData.ambition = ambitionController.text
-                            :widget.profileData.ambition = futureList[job-1];
-                        
+                              ? widget.profileData.ambition =
+                                  ambitionController.text
+                              : widget.profileData.ambition =
+                                  futureList[job - 1];
+
                           setState(() {
                             valid = true;
                           });
-                          showDoneDialog(context);
-                          // TODO: Call API
+                          
+                          showLoaderDialog(context);
+
                           prefs = await SharedPreferences.getInstance();
 
                           String token = prefs.getString('token')!;
 
-                          Profile profile = await create_profile_api(token, widget.profileData);
+                          Profile profile = await create_profile_api(
+                              token, widget.profileData);
 
                           await database.insertProfile(profile);
-                          await prefs.setInt('profile_id',profile.id);
+                          await prefs.setInt('profile_id', profile.id);
 
-                          /*
-                          Progress progress = await get_progress_api(token, profile.id);
-                          await database.insertProgress(progress);
+                          List<Progress> progress =
+                              await progress_api(token, profile.id);
+                          for (int i = 0; i < progress.length; i++) {
+                            await database.insertProgress(progress[i]);
+                          }
 
-                          List<Subject> subjects = await get_subjects_api(token, profile.id);
-                          subjects.forEach((subject) async{
+                          List<Subject> subjects =
+                              await subjects_api(token, profile.id);
+                              print(subjects);
+                          subjects.forEach((subject) async {
                             await database.insertSubject(subject);
 
-                            List<Unit> units = await get_units_api(token, subject.id);
-                            units.forEach((unit) async{
+                            List<Unit> units =
+                                await units_api(token, subject.id);
+                                
+                            units.forEach((unit) async {
                               await database.insertUnit(unit);
                             });
                           });
-                           */
 
                           await prefs.setBool('isLoggedIn', true);
 
                           await init();
-
+                          showDoneDialog(context);
                           print(widget.profileData);
                           Navigator.push(
                             context,
-                            InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
+                            InOutPageRoute(
+                                const HomeScreen(), Alignment.bottomCenter),
                           );
-                        }
-                        else{
+                        } else {
                           setState(() {
                             valid = false;
                           });
@@ -325,18 +364,16 @@ class _RegistrationJobState extends State<RegistrationJob> {
           TopLayer(
             context: context,
             width: 1,
-            onPressed: (){
-              Navigator.pop(
-                  context,false
-              );
+            onPressed: () {
+              Navigator.pop(context, false);
             },
           ),
         ],
-      ),  
+      ),
     );
   }
 
-showDoneDialog(BuildContext context) {
+  showDoneDialog(BuildContext context) {
     AlertDialog alert = AlertDialog(
       backgroundColor: AppColors.surface,
       content: new Column(
@@ -358,7 +395,6 @@ showDoneDialog(BuildContext context) {
               ),
             ),
           ),
-        
         ],
       ),
     );
@@ -370,5 +406,4 @@ showDoneDialog(BuildContext context) {
       },
     );
   }
-
 }

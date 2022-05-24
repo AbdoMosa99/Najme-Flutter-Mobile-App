@@ -7,7 +7,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/drawer/personal_profile.dart';
-import '../../utility.dart';
+import 'package:najme/utility.dart';
 import 'package:najme/components/general/form_text_box.dart';
 
 class PersonalAccountUpdates extends StatefulWidget {

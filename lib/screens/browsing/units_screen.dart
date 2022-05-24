@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/general/app_bar.dart';
@@ -120,7 +119,9 @@ List<Widget> buildList(
 ) {
   bool row_is_one = false;
   List<Widget> list = [];
-
+  // print(units);
+  // print(current);
+  // print(units.length);
   for (int i = 0; i < units.length; i++, row_is_one = !row_is_one) {
     list.add(
       Row(

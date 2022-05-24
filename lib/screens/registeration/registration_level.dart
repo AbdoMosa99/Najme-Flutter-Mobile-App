@@ -10,7 +10,7 @@ import 'package:najme/database/models.dart';
 import 'package:najme/screens/registeration/registration_address.dart';
 import 'package:najme/utility.dart';
 
-import '../../api/general.dart';
+import '../../_api/general.dart';
 import '../../components/general/error_message.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
 
