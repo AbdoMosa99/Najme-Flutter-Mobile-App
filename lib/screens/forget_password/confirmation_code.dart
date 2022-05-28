@@ -1,33 +1,29 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
-import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/forget_password/forget_password.dart';
 import 'package:najme/screens/forget_password/new_password.dart';
 import 'package:najme/utility.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class ConfirmationCode extends StatefulWidget {
-  const ConfirmationCode({ Key? key }) : super(key: key);
+  const ConfirmationCode({Key? key}) : super(key: key);
 
   @override
   State<ConfirmationCode> createState() => _ConfirmationCodeState();
 }
 
 class _ConfirmationCodeState extends State<ConfirmationCode> {
-
-  Timer? _timer;
+  Timer? timer;
   int _start = 11;
 
   void startTimer() {
     _start = 11;
     const oneSec = const Duration(seconds: 1);
-    _timer = new Timer.periodic(
+    timer = new Timer.periodic(
       oneSec,
       (Timer timer) {
         if (_start == 0) {
@@ -50,7 +46,6 @@ class _ConfirmationCodeState extends State<ConfirmationCode> {
 
   @override
   Widget build(BuildContext context) {
-
     return MainContainer(
       child: Stack(
         children: [
@@ -66,15 +61,14 @@ class _ConfirmationCodeState extends State<ConfirmationCode> {
                       child: Center(
                         child: SvgPicture.asset(
                           Assets.mailBox,
-                          height: adjustHeightValue(context, 135) ,
-                          width: adjustWidthValue(context, 135) ,
+                          height: adjustHeightValue(context, 135),
+                          width: adjustWidthValue(context, 135),
                         ),
                       ),
-                      height:adjustHeightValue(context, 140),
+                      height: adjustHeightValue(context, 140),
                       decoration: BoxDecoration(
                         color: AppColors.primary.withOpacity(0.6),
                         shape: BoxShape.circle,
-                        //border: Border.all(color: AppColors.secondary,),
                       ),
                     ),
                   ),
@@ -85,7 +79,6 @@ class _ConfirmationCodeState extends State<ConfirmationCode> {
                       fontSize: adjustValue(context, 33.0),
                       fontFamily: 'Cairo',
                       color: AppColors.primaryDark,
-                      //fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
@@ -97,14 +90,12 @@ class _ConfirmationCodeState extends State<ConfirmationCode> {
                       fontSize: adjustValue(context, 33.0),
                     ),
                   ),
-
                   Directionality(
                     textDirection: TextDirection.ltr,
                     child: VerificationCode(
                       textStyle: TextStyle(
                         fontSize: adjustValue(context, 40.0),
                         color: AppColors.secondary,
-                        //fontWeight: FontWeight.bold,
                       ),
                       underlineColor: AppColors.primaryDark,
                       keyboardType: TextInputType.number,
@@ -112,19 +103,17 @@ class _ConfirmationCodeState extends State<ConfirmationCode> {
                       length: 5,
                       autofocus: false,
                       underlineWidth: adjustValue(context, 5),
-                      onCompleted: (String value) {
-                      },
-                      onEditing: (bool value) {
-                      },
+                      onCompleted: (String value) {},
+                      onEditing: (bool value) {},
                     ),
                   ),
-
                   Padding(
-                        padding: EdgeInsets.all(adjustHeightValue(context, 15)),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                               _start == 0 ? TextButton(
+                    padding: EdgeInsets.all(adjustHeightValue(context, 15)),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _start == 0
+                              ? TextButton(
                                   onPressed: () {
                                     startTimer();
                                   },
@@ -140,50 +129,44 @@ class _ConfirmationCodeState extends State<ConfirmationCode> {
                                     ),
                                   ),
                                 )
-                                           : TextButton(
-                                              onPressed: () {
-
-                                              },
-                                              child: Text(
-                                                'إعادة إرسال الكود',
-                                                textAlign: TextAlign.center,
-                                                maxLines: 1,
-                                                style: TextStyle(
-                                                  fontSize: adjustValue(context, 20.0),
-                                                  color: AppColors.primaryDark.withOpacity(0.5),
-                                                  fontFamily: 'Cairo',
-                                                  decoration: TextDecoration.underline,
-                                                ),
-                                              ),
-                                            ),
-
-                                _start < 10 ? Text(
-                                                "(00:0$_start)",
-                                                textAlign: TextAlign.center,
-                                                maxLines: 1,
-                                                style: TextStyle(
-                                                          fontSize: adjustValue(context, 20.0),
-                                                          color: AppColors.primaryDark,
-                                                          fontFamily: 'Cairo',
-                                                        ),
-                                              )
-                                            : Text(
-                                                "(00:$_start)",
-                                                textAlign: TextAlign.center,
-                                                maxLines: 1,
-                                                style: TextStyle(
-                                                          fontSize: adjustValue(context, 20.0),
-                                                          color: AppColors.primaryDark,
-                                                          fontFamily: 'Cairo',
-                                                        ),
-                                              )
-                              ]
-                      ),
-
-
-
+                              : TextButton(
+                                  onPressed: () {},
+                                  child: Text(
+                                    'إعادة إرسال الكود',
+                                    textAlign: TextAlign.center,
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                      fontSize: adjustValue(context, 20.0),
+                                      color: AppColors.primaryDark
+                                          .withOpacity(0.5),
+                                      fontFamily: 'Cairo',
+                                      decoration: TextDecoration.underline,
+                                    ),
+                                  ),
+                                ),
+                          _start < 10
+                              ? Text(
+                                  "(00:0$_start)",
+                                  textAlign: TextAlign.center,
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                    fontSize: adjustValue(context, 20.0),
+                                    color: AppColors.primaryDark,
+                                    fontFamily: 'Cairo',
+                                  ),
+                                )
+                              : Text(
+                                  "(00:$_start)",
+                                  textAlign: TextAlign.center,
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                    fontSize: adjustValue(context, 20.0),
+                                    color: AppColors.primaryDark,
+                                    fontFamily: 'Cairo',
+                                  ),
+                                )
+                        ]),
                   ),
-
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: MaterialButton(
@@ -192,7 +175,7 @@ class _ConfirmationCodeState extends State<ConfirmationCode> {
                       height: adjustValue(context, 45),
                       shape: RoundedRectangleBorder(
                         borderRadius:
-                        BorderRadius.circular(adjustValue(context, 15.0)),
+                            BorderRadius.circular(adjustValue(context, 15.0)),
                       ),
                       child: Text(
                         'تأكيد',
@@ -206,7 +189,8 @@ class _ConfirmationCodeState extends State<ConfirmationCode> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          InOutPageRoute(const NewPassword(), Alignment.bottomCenter),
+                          InOutPageRoute(
+                              const NewPassword(), Alignment.bottomCenter),
                         );
                       },
                     ),
@@ -223,16 +207,13 @@ class _ConfirmationCodeState extends State<ConfirmationCode> {
                 size: adjustValue(context, 30.0),
                 color: AppColors.primary,
               ),
-              onPressed: (){
-                Navigator.pop(
-                  context,false
-                );
+              onPressed: () {
+                Navigator.pop(context, false);
               },
             ),
           ),
         ],
       ),
     );
-
   }
 }

@@ -38,12 +38,13 @@ class DoneScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: adjustHeightValue(context, 15), bottom: adjustHeightValue(context, 75)),
+            padding: EdgeInsets.only(
+                top: adjustHeightValue(context, 15),
+                bottom: adjustHeightValue(context, 75)),
             child: Text(
               'قم بإستخدامها عند التسجيل المرة القادمة',
               textAlign: TextAlign.center,
               style: TextStyle(
-                // fontWeight: FontWeight.w900,
                 fontFamily: 'Cairo',
                 color: AppColors.primaryDark,
                 fontSize: adjustValue(context, 25.0),
@@ -57,8 +58,7 @@ class DoneScreen extends StatelessWidget {
               minWidth: double.infinity,
               height: adjustValue(context, 45),
               shape: RoundedRectangleBorder(
-                borderRadius:
-                BorderRadius.circular(adjustValue(context, 15.0)),
+                borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
               ),
               child: Text(
                 'تم',

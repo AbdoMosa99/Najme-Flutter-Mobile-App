@@ -8,7 +8,7 @@ import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration/registeration_name.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../api/auth.dart';
+import '../../_api/auth.dart';
 import '../../components/general/show_loader_dialog.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
 import '../../data.dart';

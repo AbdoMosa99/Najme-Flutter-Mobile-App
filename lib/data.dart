@@ -92,50 +92,21 @@ Future<bool> init() async {
   prefs = await SharedPreferences.getInstance();
   bool? loggedIn = prefs.getBool("isLoggedIn");
 
-  print('a0');
-
-
   if (loggedIn == null){
-    print('a1');
-
     prefs.setBool("isLoggedIn", false);
     await prefs.setDouble('rating', 5.0);
     await prefs.setBool('sound_is_on', true);
     loggedIn = false;
-      print('a2');
-
   }
-
-  print('a3');
-
   isLoggedIn = loggedIn;
 
-  print('a4');
-
   if (isLoggedIn){
-    print('a5');
-
     token = prefs.getString('token')!;
-      print('a6');
-
     int profileID = prefs.getInt('profile_id')!;
-    print(profileID);
-    print(profileID == int);
-
-      print('a7');
-
     profile = await database.getProfile(profileID);
-      print('a8');
-
     progresses = await database.getProgress(profileID);
-      print('a9');
-
     subjects = await database.getSubjects(profileID);
-      print('a10');
-
   }
-    print('a11');
-
 
   return true;
 }

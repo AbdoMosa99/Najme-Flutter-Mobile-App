@@ -27,6 +27,7 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  bonfire: ^2.4.3
   flutter:
     sdk: flutter
   flutter_svg: ^0.22.0
@@ -48,8 +49,10 @@ dependencies:
   flutter_custom_clippers: ^2.0.0
   http: ^0.13.4
   flame: 1.1.1
-
-
+  flame_audio: 1.0.1
+  hive: 2.1.0
+  path_provider: 2.0.9
+  provider: 6.0.2
 
 dev_dependencies:
   flutter_test:
@@ -89,6 +92,10 @@ flutter:
     - assets/audio/
     - assets/lottie/launch_screen.json
     - assets/lottie/Done.json
+    - assets/images/parallax/
+    - assets/images/AngryPig/
+    - assets/images/Bat/
+    - assets/images/Rino/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

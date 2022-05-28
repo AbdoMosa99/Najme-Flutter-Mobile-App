@@ -11,4 +11,5 @@ class AppColors {
   static const Color background = Color(0xFFEDE7F6);
   static const Color surface = Color(0xFFDED5EF);
   static const Color white = Color(0xffffffff);
+  static const Color planetColor = Color(0xff040332);
 }

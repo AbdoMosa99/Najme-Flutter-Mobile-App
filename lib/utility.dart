@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:najme/data.dart';
 
 double adjustValue(BuildContext context, double value) {
   return (

@@ -1,15 +1,13 @@
-
-
 import 'package:flutter/material.dart';
-
-import '../../constants/colors.dart';
-import '../../utility.dart';
+import 'package:najme/constants/colors.dart';
+import 'package:najme/utility.dart';
 
 class PBackButton extends Align{
   PBackButton({
     Key? key,
     required BuildContext context,
-    double size = 28.0
+    double size = 28.0,
+    Color color = AppColors.primary
   })
   :
   super(
@@ -19,7 +17,7 @@ class PBackButton extends Align{
         icon: Icon(
           Icons.arrow_forward_ios_outlined,
           size: adjustValue(context, size),
-          color: AppColors.primary,
+          color: color,
         ),
 
         onPressed: (){

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
-import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/forget_password/confirmation_code.dart';
-import 'package:najme/screens/main/login_screen.dart';
 import 'package:najme/utility.dart';
 
 class ForgetPassword extends StatelessWidget {
@@ -31,15 +29,14 @@ class ForgetPassword extends StatelessWidget {
                       child: Center(
                         child: SvgPicture.asset(
                           Assets.E,
-                          height: adjustHeightValue(context, 90) ,
-                          width: adjustWidthValue(context, 90) ,
+                          height: adjustHeightValue(context, 90),
+                          width: adjustWidthValue(context, 90),
                         ),
                       ),
-                      height:adjustHeightValue(context, 140),
+                      height: adjustHeightValue(context, 140),
                       decoration: BoxDecoration(
                         color: AppColors.primary.withOpacity(0.6),
                         shape: BoxShape.circle,
-                        //border: Border.all(color: AppColors.secondary,),
                       ),
                     ),
                   ),
@@ -68,7 +65,9 @@ class ForgetPassword extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(top: adjustHeightValue(context, 15), bottom: adjustHeightValue(context, 40)),
+                    padding: EdgeInsets.only(
+                        top: adjustHeightValue(context, 15),
+                        bottom: adjustHeightValue(context, 40)),
                     child: FormTextBox(
                       context: context,
                       text: "البريد الالكتروني",
@@ -84,7 +83,7 @@ class ForgetPassword extends StatelessWidget {
                       height: adjustValue(context, 45),
                       shape: RoundedRectangleBorder(
                         borderRadius:
-                        BorderRadius.circular(adjustValue(context, 15.0)),
+                            BorderRadius.circular(adjustValue(context, 15.0)),
                       ),
                       child: Text(
                         'إرسال',
@@ -98,7 +97,8 @@ class ForgetPassword extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          InOutPageRoute(const ConfirmationCode(), Alignment.bottomCenter),
+                          InOutPageRoute(
+                              const ConfirmationCode(), Alignment.bottomCenter),
                         );
                       },
                     ),
@@ -119,16 +119,13 @@ class ForgetPassword extends StatelessWidget {
                     size: adjustValue(context, 30.0),
                     color: AppColors.primary,
                   ),
-                  onPressed: (){
-                    Navigator.pop(
-                        context,false
-                    );
+                  onPressed: () {
+                    Navigator.pop(context, false);
                   },
                 ),
               ],
             ),
           ),
-          
         ],
       ),
     );

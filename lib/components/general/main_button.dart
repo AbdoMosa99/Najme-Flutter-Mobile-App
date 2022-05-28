@@ -8,6 +8,7 @@ class MainButton extends MaterialButton {
     required BuildContext context,
     required String text,
     Color color = AppColors.primary,
+    double font = 20,
     void Function()? onTap,
   })
   : super(
@@ -24,7 +25,7 @@ class MainButton extends MaterialButton {
       style: TextStyle(
         fontFamily: 'Cairo',
         color: AppColors.white,
-        fontSize: adjustValue(context, 20.0),
+        fontSize: adjustValue(context, font),
       ),
     ),
   );

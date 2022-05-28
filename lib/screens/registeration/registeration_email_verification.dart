@@ -11,7 +11,7 @@ import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
 
-import '../../api/auth.dart';
+import '../../_api/auth.dart';
 import '../../components/general/show_loader_dialog.dart';
 import '../../components/screen_specific/registration/registration_topLayer.dart';
 
