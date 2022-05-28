@@ -5,7 +5,7 @@ import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/show_loader_dialog.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/dino_game/game/dino_run_app.dart';
+import 'package:najme/games/dino_game/game/dino_run_app.dart';
 import 'package:najme/screens/drawer/children_profiles.dart';
 import 'package:najme/screens/drawer/contactus_screen.dart';
 import 'package:najme/screens/drawer/personal_profile.dart';
