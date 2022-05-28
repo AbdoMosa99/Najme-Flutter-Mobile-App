@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:najme/database/temp.dart';
 import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/screens/main/login_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart';
 import 'package:flutter/services.dart';
 import 'package:najme/data.dart';
 
@@ -50,3 +46,17 @@ void main() async {
 
   runApp(const NajmeApp());
 }
+
+//to test the games
+/*
+main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final myGame = SpaceGame();
+  runApp(
+    GameWidget(
+      game: myGame,
+    ),
+  );
+}
+ */
