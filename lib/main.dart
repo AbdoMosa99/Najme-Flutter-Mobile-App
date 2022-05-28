@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:najme/dino_game/game/dino_run_app.dart';
-import 'package:najme/dino_game/game/hive.dart';
+import 'package:najme/games/dino_game/game/hive.dart';
 import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/screens/main/login_screen.dart';
 import 'package:flutter/services.dart';

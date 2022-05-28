@@ -1,7 +1,7 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:najme/dino_game/game/dino_run.dart';
-import 'package:najme/dino_game/models/enemy_data.dart';
+import 'package:najme/games/dino_game/game/dino_run.dart';
+import 'package:najme/games/dino_game/models/enemy_data.dart';
 
 
 // This represents an enemy in the game world.

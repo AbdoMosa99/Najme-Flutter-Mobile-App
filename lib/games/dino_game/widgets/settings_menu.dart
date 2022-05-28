@@ -1,10 +1,10 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/dino_game/game/audio_manager.dart';
-import 'package:najme/dino_game/game/dino_run.dart';
-import 'package:najme/dino_game/models/settings.dart';
-import 'package:najme/dino_game/widgets/main_menu.dart';
+import 'package:najme/games/dino_game/game/audio_manager.dart';
+import 'package:najme/games/dino_game/game/dino_run.dart';
+import 'package:najme/games/dino_game/models/settings.dart';
+import 'package:najme/games/dino_game/widgets/main_menu.dart';
 import 'package:provider/provider.dart';
 
 // This represents the settings menu overlay.

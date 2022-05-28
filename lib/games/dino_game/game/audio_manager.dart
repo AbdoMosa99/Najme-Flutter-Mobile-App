@@ -1,6 +1,6 @@
 import 'package:flame/flame.dart';
 import 'package:flame_audio/flame_audio.dart';
-import 'package:najme/dino_game/models/settings.dart';
+import 'package:najme/games/dino_game/models/settings.dart';
 
 /// This class is the common interface between [DinoRun]
 /// and [Flame] engine's audio APIs.

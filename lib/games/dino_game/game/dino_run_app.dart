@@ -1,12 +1,12 @@
 // The main widget for this game.
 import 'package:flutter/material.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/dino_game/game/dino_run.dart';
-import 'package:najme/dino_game/widgets/game_over_menu.dart';
-import 'package:najme/dino_game/widgets/hud.dart';
-import 'package:najme/dino_game/widgets/main_menu.dart';
-import 'package:najme/dino_game/widgets/pause_menu.dart';
-import 'package:najme/dino_game/widgets/settings_menu.dart';
+import 'package:najme/games/dino_game/game/dino_run.dart';
+import 'package:najme/games/dino_game/widgets/game_over_menu.dart';
+import 'package:najme/games/dino_game/widgets/hud.dart';
+import 'package:najme/games/dino_game/widgets/main_menu.dart';
+import 'package:najme/games/dino_game/widgets/pause_menu.dart';
+import 'package:najme/games/dino_game/widgets/settings_menu.dart';
 import 'package:flame/game.dart';
 
 /// This is the single instance of [DinoRun] which

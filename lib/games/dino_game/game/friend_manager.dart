@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'package:flame/components.dart';
-import 'package:najme/dino_game/game/dino_run.dart';
-import 'package:najme/dino_game/game/friend.dart';
-import 'package:najme/dino_game/models/friend_data.dart';
+import 'package:najme/games/dino_game/game/dino_run.dart';
+import 'package:najme/games/dino_game/game/friend.dart';
+import 'package:najme/games/dino_game/models/friend_data.dart';
 
 // This class is responsible for spawning random enemies at certain
 // interval of time depending upon players current score.

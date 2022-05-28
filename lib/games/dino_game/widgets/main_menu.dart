@@ -2,9 +2,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:najme/components/general/main_button.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/dino_game/game/dino_run.dart';
-import 'package:najme/dino_game/widgets/hud.dart';
-import 'package:najme/dino_game/widgets/settings_menu.dart';
+import 'package:najme/games/dino_game/game/dino_run.dart';
+import 'package:najme/games/dino_game/widgets/hud.dart';
+import 'package:najme/games/dino_game/widgets/settings_menu.dart';
 
 // This represents the main menu overlay.
 class MainMenu extends StatelessWidget {

@@ -4,15 +4,15 @@ import 'package:hive/hive.dart';
 import 'package:flame/parallax.dart';
 import 'package:flutter/material.dart';
 import 'package:flame/components.dart';
-import 'package:najme/dino_game/game/audio_manager.dart';
-import 'package:najme/dino_game/game/dino.dart';
-import 'package:najme/dino_game/game/enemy_manager.dart';
-import 'package:najme/dino_game/game/friend_manager.dart';
-import 'package:najme/dino_game/models/player_data.dart';
-import 'package:najme/dino_game/models/settings.dart';
-import 'package:najme/dino_game/widgets/game_over_menu.dart';
-import 'package:najme/dino_game/widgets/hud.dart';
-import 'package:najme/dino_game/widgets/pause_menu.dart';
+import 'package:najme/games/dino_game/game/audio_manager.dart';
+import 'package:najme/games/dino_game/game/dino.dart';
+import 'package:najme/games/dino_game/game/enemy_manager.dart';
+import 'package:najme/games/dino_game/game/friend_manager.dart';
+import 'package:najme/games/dino_game/models/player_data.dart';
+import 'package:najme/games/dino_game/models/settings.dart';
+import 'package:najme/games/dino_game/widgets/game_over_menu.dart';
+import 'package:najme/games/dino_game/widgets/hud.dart';
+import 'package:najme/games/dino_game/widgets/pause_menu.dart';
 
 // This is the main flame game class.
 class DinoRun extends FlameGame with TapDetector, HasCollisionDetection {

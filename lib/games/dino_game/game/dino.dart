@@ -2,11 +2,11 @@ import 'dart:ui';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:najme/dino_game/game/audio_manager.dart';
-import 'package:najme/dino_game/game/dino_run.dart';
-import 'package:najme/dino_game/game/enemy.dart';
-import 'package:najme/dino_game/game/friend.dart';
-import 'package:najme/dino_game/models/player_data.dart';
+import 'package:najme/games/dino_game/game/audio_manager.dart';
+import 'package:najme/games/dino_game/game/dino_run.dart';
+import 'package:najme/games/dino_game/game/enemy.dart';
+import 'package:najme/games/dino_game/game/friend.dart';
+import 'package:najme/games/dino_game/models/player_data.dart';
 
 
 /// This enum represents the animation states of [Dino].
