@@ -5,12 +5,12 @@ import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/show_loader_dialog.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/dino_game/game/dino_run_app.dart';
 import 'package:najme/screens/drawer/children_profiles.dart';
 import 'package:najme/screens/drawer/contactus_screen.dart';
 import 'package:najme/screens/drawer/personal_profile.dart';
 import 'package:najme/screens/drawer/planet.dart';
 import 'package:najme/screens/drawer/rateing_screen.dart';
-import 'package:najme/screens/drawer/store.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/data.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -132,7 +132,8 @@ class MainDrawer extends Drawer {
                   onTap: () {
                     Navigator.push(
                       context,
-                      LeftRightPageRoute(const StoreScreen(), -1, 0),
+                      // LeftRightPageRoute(const StoreScreen(), -1, 0),
+                      LeftRightPageRoute(const DinoRunApp(), -1, 0),
                     );
                   },
                 ),

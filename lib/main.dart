@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:najme/database/temp.dart';
+import 'package:najme/dino_game/game/dino_run_app.dart';
+import 'package:najme/dino_game/game/hive.dart';
 import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/screens/main/login_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sqflite/sqflite.dart';
-import 'package:path/path.dart';
 import 'package:flutter/services.dart';
 import 'package:najme/data.dart';
+import 'package:flame/flame.dart';
 
 class NajmeApp extends StatelessWidget {
   const NajmeApp({Key? key}) : super(key: key);
@@ -31,10 +30,8 @@ class NajmeApp extends StatelessWidget {
   }
 }
 
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   // Should be deleted
   //await deleteDatabase(join(await getDatabasesPath(), 'najme.db'));
   //await insertData();
@@ -48,5 +45,10 @@ void main() async {
   await prefs.setBool('sound_is_on', true);
    */
 
+  // Makes the game full screen and landscape only.
+  Flame.device.fullScreen();
+  Flame.device.setLandscape();
+  // Initializes hive and register the adapters.
+  await initHive();
   runApp(const NajmeApp());
 }
