@@ -14,16 +14,16 @@ Future<List<Subject>> subjects_api(String token, int profileID) async {
       level: 'KG1,'
     ),
     Subject(
-      id: 3,
-      category: "English", 
-      icon: "assets/icons/english_symbol.svg", 
-      level: 'KG1',
-    ),
-    Subject(
       id: 2,
       category: "حساب",
       icon: "assets/icons/math_symbol.svg",
       level: 'KG1,'
+    ),
+    Subject(
+      id: 3,
+      category: "English", 
+      icon: "assets/icons/english_symbol.svg", 
+      level: 'KG1',
     ),
     Subject(
       id: 4,
@@ -53,21 +53,18 @@ Future<List<Unit>> units_api(String token, int subjectID) async {
 
 
 Future<List<Lesson>> lessons_api(String token, int unitID) async {
-  return [
-    Lesson(
-    id: random.nextInt(20), 
-    number: random.nextInt(20),  
-    name: "Lesson 1",
-    unitID: random.nextInt(20), 
-    ),
-
-    Lesson(
-    id: random.nextInt(20), 
-    number: random.nextInt(20),  
-    name: "Lesson 2",
-    unitID: random.nextInt(20), 
-    ),
-  ];
+  List<Lesson> lessons = [];
+  for (int i = 1; i <= 30; i++) {
+    lessons.add(
+      Lesson(
+        id: 30 * unitID + i,
+        number: i,
+        name: "الدرس $i",
+        unitID: unitID,
+      ),
+    );
+  }
+  return lessons;
 }
 
 Future<List<Progress>> progress_api(String token, int profileID) async {

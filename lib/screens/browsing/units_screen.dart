@@ -62,7 +62,7 @@ class UnitsScreen extends StatelessWidget {
                                   color: AppColors.secondary,
                                 ),
                                 Text(
-                                  '24',
+                                  '${progress.stars}',
                                   style: TextStyle(
                                     color: AppColors.secondary,
                                     fontSize: adjustValue(context, 25),

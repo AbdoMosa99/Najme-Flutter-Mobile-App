@@ -198,9 +198,13 @@ Future<void> loginAndSetup(String email, String password) async {
     await database.insertSubject(subject);
 
     List<Unit> units = await units_api(token, subject.id);
-    print(subject);
     units.forEach((unit) async {
       await database.insertUnit(unit);
+
+      List<Lesson> lessons = await lessons_api(token, unit.id);
+      lessons.forEach((lesson) async {
+        await database.insertLesson(lesson);
+      });
     });
   });
 

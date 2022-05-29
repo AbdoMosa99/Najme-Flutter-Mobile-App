@@ -186,8 +186,9 @@ class NajmeDatabase {
 
     final List<Map<String, dynamic>> maps = await database.query(
       'subjects',
-      where: "level = ?",
-      whereArgs: [profile.level],
+      // TODO: should be remade (error english and iq only!)
+      // where: "level = ?",
+      // whereArgs: [profile.level],
     );
 
     return List.generate(maps.length, (i) {
