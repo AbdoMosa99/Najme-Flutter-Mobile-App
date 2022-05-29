@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/constants/assets.dart';

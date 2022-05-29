@@ -12,9 +12,7 @@ import 'package:najme/database/models.dart';
 import 'package:najme/screens/drawer/personal_account_updates.dart';
 import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/screens/registeration/registeration_name.dart';
-import '../../utility.dart';
-import 'package:najme/data.dart';
-
+import 'package:najme/utility.dart';
 
 class ChildrenProfiles extends StatelessWidget {
   const ChildrenProfiles({
@@ -30,9 +28,8 @@ class ChildrenProfiles extends StatelessWidget {
         List<Profile> profiles = snapshot.data!.cast<Profile>();
         return snapshot.hasData
             ? MainContainer(
-                  child: Stack(
-                    children: [
-                      Column(
+                child: Stack(children: [
+                  Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -72,83 +69,35 @@ class ChildrenProfiles extends StatelessWidget {
                             text: 'أضف ملف لطفل آخر',
                             color: AppColors.primary,
                             onTap: () {
-                              Navigator.push(
-                                  context,
-                                  LeftRightPageRoute(
-                                      RegistrationName(),
-                                      1,
-                                      0));
+                              Navigator.push(context,
+                                  LeftRightPageRoute(RegistrationName(), 1, 0));
                             },
                           ),
                         ),
                       ]),
-
-                      PBackButton(context: context),
-
-                      /*GestureDetector(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        vertical: adjustValue(context, 30.0)),
-                    child: Align(
-                      alignment: Alignment.topLeft,
-                      child: Container(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Icons.logout,
-                              color: AppColors.secondary,
-                              size: adjustValue(context, 40),
-                            ),
-                            Text('تسجيل الخروج',
-                                style: TextStyle(
-                                  fontSize: adjustValue(context, 23),
-                                  fontFamily: 'Cairo',
-                                  color: AppColors.white,
-                                  decoration: TextDecoration.none,
-                                )),
-                          ],
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(adjustValue(context, 22)),
-                            bottomRight:
-                                Radius.circular(adjustValue(context, 22)),
-                          ),
-                          color: AppColors.primary,
-                        ),
-                        width: adjustWidthValue(context, 210),
-                        height: adjustHeightValue(context, 55),
-                      ),
-                    ),
-                  ),
-                  onTap: () {},
-                ),*/
-                    ]
-                  ),
-                  floatingActionButton: true,
-                  floatingActionIcon: Icons.edit_outlined,
-                  floatingActionIconColor: AppColors.secondary,
-                  onFloatingActionButtonTap: () {
-                    Navigator.push(
-                      context,
-                      InOutPageRoute(const PersonalAccountUpdates(),
-                          Alignment.bottomCenter),
-                    );
-                  },
-                )
-                : Center(child: CircularProgressIndicator());
-
+                  PBackButton(context: context),
+                ]),
+                floatingActionButton: true,
+                floatingActionIcon: Icons.edit_outlined,
+                floatingActionIconColor: AppColors.secondary,
+                onFloatingActionButtonTap: () {
+                  Navigator.push(
+                    context,
+                    InOutPageRoute(
+                        const PersonalAccountUpdates(), Alignment.bottomCenter),
+                  );
+                },
+              )
+            : Center(child: CircularProgressIndicator());
       },
     );
   }
 }
 
 List<Widget> buildList(
-    BuildContext context,
-    List<Profile> profiles,
-    ) {
+  BuildContext context,
+  List<Profile> profiles,
+) {
   List<Widget> list = [];
 
   for (int i = 0; i < profiles.length; i++) {
@@ -158,20 +107,16 @@ List<Widget> buildList(
           InkWell(
             child: Container(
               width: double.infinity,
-              height:
-              adjustHeightValue(context, 70.0),
+              height: adjustHeightValue(context, 70.0),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(
-                    adjustValue(context, 10.0)),
+                borderRadius: BorderRadius.circular(adjustValue(context, 10.0)),
                 color: AppColors.surface,
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.blueGrey
-                        .withOpacity(0.5),
+                    color: Colors.blueGrey.withOpacity(0.5),
                     spreadRadius: 2,
                     blurRadius: 2,
-                    offset: const Offset(0,
-                        3), // changes position of shadow
+                    offset: const Offset(0, 3), // changes position of shadow
                   ),
                 ],
               ),
@@ -179,40 +124,31 @@ List<Widget> buildList(
                 children: [
                   Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: adjustValue(
-                              context, 10.0)),
+                          horizontal: adjustValue(context, 10.0)),
                       child: Stack(
-                        alignment:
-                        AlignmentDirectional
-                            .center,
+                        alignment: AlignmentDirectional.center,
                         children: [
                           Container(
-                            width: adjustValue(
-                                context, 55),
-                            height: adjustValue(
-                                context, 55),
+                            width: adjustValue(context, 55),
+                            height: adjustValue(context, 55),
                             decoration: BoxDecoration(
-                              color: AppColors
-                                  .primaryLight,
+                              color: AppColors.primaryLight,
                               shape: BoxShape.circle,
                               border: Border.all(
-                                color: AppColors
-                                    .secondary,
+                                color: AppColors.secondary,
                               ),
                             ),
                           ),
                           SvgPicture.asset(
                             Assets.male,
-                            height: adjustValue(
-                                context, 45.0),
+                            height: adjustValue(context, 45.0),
                           ),
                         ],
                       )),
                   Text(
                     profiles[i].name,
                     style: TextStyle(
-                        fontSize: adjustValue(
-                            context, 20.0),
+                        fontSize: adjustValue(context, 20.0),
                         fontFamily: 'Cairo',
                         color: AppColors.primaryDark,
                         fontWeight: FontWeight.bold),

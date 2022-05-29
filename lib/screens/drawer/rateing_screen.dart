@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:najme/data.dart';
-import 'package:najme/screens/main/home_screen.dart';
-import '../../components/general/back_button.dart';
-import '../../utility.dart';
+import 'package:najme/components/general/back_button.dart';
+import 'package:najme/utility.dart';
 
 class RatingScreen extends StatefulWidget {
-  const RatingScreen({ Key? key }) : super(key: key);
+  const RatingScreen({Key? key}) : super(key: key);
 
   @override
   _RatingScreenState createState() => _RatingScreenState();
@@ -21,12 +19,12 @@ class _RatingScreenState extends State<RatingScreen> {
   @override
   Widget build(BuildContext context) {
     return MainContainer(
-          child: Stack(
-            children: [
-              Column(
+      child: Stack(
+        children: [
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children:[
+            children: [
               Column(
                 children: [
                   Text(
@@ -50,7 +48,8 @@ class _RatingScreenState extends State<RatingScreen> {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: adjustValue(context, 90)),
+                padding:
+                    EdgeInsets.symmetric(vertical: adjustValue(context, 90)),
                 child: Directionality(
                   textDirection: TextDirection.ltr,
                   child: RatingBar.builder(
@@ -62,11 +61,12 @@ class _RatingScreenState extends State<RatingScreen> {
                     direction: Axis.horizontal,
                     allowHalfRating: true,
                     itemCount: 5,
-                    itemPadding: EdgeInsets.symmetric(horizontal: adjustValue(context, 4.0)),
+                    itemPadding: EdgeInsets.symmetric(
+                        horizontal: adjustValue(context, 4.0)),
                     itemBuilder: (context, _) => SvgPicture.asset(
                       Assets.rateStar,
                     ),
-                    onRatingUpdate: (ratingStar) async{
+                    onRatingUpdate: (ratingStar) async {
                       await prefs.setDouble('rating', ratingStar);
                     },
                   ),
@@ -77,7 +77,8 @@ class _RatingScreenState extends State<RatingScreen> {
                 minWidth: double.infinity,
                 height: adjustValue(context, 80),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
+                  borderRadius:
+                      BorderRadius.circular(adjustValue(context, 15.0)),
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -101,60 +102,13 @@ class _RatingScreenState extends State<RatingScreen> {
                     ),
                   ],
                 ),
-                onPressed: (){},
+                onPressed: () {},
               ),
             ],
           ),
-
-              PBackButton(context: context),
-
-              /*GestureDetector(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: adjustValue(context, 30.0)),
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Icons.arrow_back_ios,
-                      color: AppColors.secondary,
-                      size: adjustValue(context, 30),
-                    ),
-                    Text(
-                        'رجوع',
-                        style: TextStyle(
-                          fontSize: adjustValue(context, 23.0),
-                          fontFamily: 'Cairo',
-                          color: Colors.white,
-                          decoration: TextDecoration.none,
-                        )
-                    ),
-                  ],
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(adjustValue(context, 22)),
-                    bottomRight: Radius.circular(adjustValue(context, 22)),
-                  ),
-                  color: AppColors.primary,
-                ),
-                width: adjustWidthValue(context, 100),
-                height: adjustHeightValue(context, 55),
-              ),
-            ),
-          ),
-          onTap: (){
-            Navigator.pop(
-              context,
-              false
-            );
-          },
-        ),*/
-            ],
-          ),
+          PBackButton(context: context),
+        ],
+      ),
     );
   }
 }

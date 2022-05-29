@@ -84,6 +84,9 @@ class Assets {
   static const String bgMusic = "assets/icons/bgmusic.svg";
   static const String sounds = "assets/icons/sound.svg";
   static const String plusSign = "assets/icons/plusSign.svg";
+  static const String cart = "assets/icons/cart1.svg";
+  static const String planet = "assets/icons/planet.svg";
+  static const String store = "assets/icons/store2.png";
 
 
 }

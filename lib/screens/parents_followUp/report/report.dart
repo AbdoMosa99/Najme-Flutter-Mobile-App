@@ -10,10 +10,10 @@ import 'package:najme/constants/colors.dart';
 import 'package:najme/data.dart';
 import 'package:najme/screens/parents_followUp/report/filter_dialog.dart';
 import 'package:najme/utility.dart';
-import '../../../components/reports/filter_card.dart';
-import '../../../components/reports/floating_logo_button.dart';
-import '../../../components/reports/line_chart_data.dart';
-import '../../../components/reports/parents_follow_up_bar.dart';
+import 'package:najme/components/reports/filter_card.dart';
+import 'package:najme/components/reports/floating_logo_button.dart';
+import 'package:najme/components/reports/line_chart_data.dart';
+import 'package:najme/components/reports/parents_follow_up_bar.dart';
 
 class Report extends StatefulWidget {
   Report({Key? key}) : super(key: key);
@@ -72,7 +72,6 @@ class _ReportState extends State<Report> with SingleTickerProviderStateMixin {
                   ),
                 ),
                 Expanded(
-                  //physics: BouncingScrollPhysics(),
                   child: Padding(
                     padding: EdgeInsets.only(
                       left: adjustValue(context, 18.0),

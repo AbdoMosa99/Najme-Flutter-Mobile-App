@@ -24,9 +24,8 @@ Future<String> login_api(String username, String password) async {
 }
 
 Future<Profile> create_profile_api(String token, Profile profile) async {
-  
   return Profile(
-    id: random.nextInt(20), 
+    id: random.nextInt(1000), 
     name: profile.name, 
     gender: profile.gender, 
     birthdate: profile.birthdate, 
@@ -40,22 +39,22 @@ Future<List<Profile>> get_profiles_api(String token) async {
   
   return [
     Profile(
-    id: random.nextInt(20), 
-    name: 'Omar', 
-    gender: 'male', 
-    birthdate: DateTime.utc(2005, 11, 9),
-    level: 'KG 1', 
-    city: 'cairo', 
-    ambition: 'Doctor'
+      id: 1, 
+      name: 'عمر فارس', 
+      gender: 'ولد', 
+      birthdate: DateTime.utc(2015, 11, 9),
+      level: 'KG1', 
+      city: 'القاهرة', 
+      ambition: 'طبيب'
     ), 
     Profile(
-      id: random.nextInt(20),
-      name: 'Rana', 
-      gender: 'female', 
-      birthdate: DateTime.utc(1007, 2, 15), 
+      id: 2,
+      name: 'رنا فارس', 
+      gender: 'بنت', 
+      birthdate: DateTime.utc(2010, 3, 15), 
       level: 'KG 2', 
       city: 'Suez', 
       ambition: 'Engineer'
-      )
+    )
   ];
 }
