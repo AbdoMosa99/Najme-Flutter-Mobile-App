@@ -39,19 +39,5 @@ class BiologyGame extends FlameGame with HasDraggables, HasCollisionDetection {
       add(organPos);
       add(organ);
     });
-
-    // OrganPosition intestineSPos = OrganPosition('biology_game/Small intestine.png', Vector2(size.x/2, size.y / 2 + 100));
-    // OrganPosition liverPos = OrganPosition('biology_game/liver.png', Vector2(size.x/2, size.y / 2 + 250));
-    // OrganPosition lungLPos = OrganPosition('biology_game/lung1.png', Vector2(size.x/2, size.y / 2 + 300));
-    // OrganPosition lungRPos = OrganPosition('biology_game/lung2.png', Vector2(size.x/2, size.y / 2 + 350));
-    // OrganPosition stomachPos = OrganPosition('biology_game/stomach.png', Vector2(size.x/2, size.y / 2 + 400));
-    
-
-    // add(intestineSPos);
-    // add(liverPos);
-    // add(lungLPos);
-    // add(lungRPos);
-    // add(stomachPos);
-
   }
 }

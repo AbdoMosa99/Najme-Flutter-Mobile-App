@@ -6,8 +6,6 @@ import 'package:najme/games/biology/organ.dart';
 
 class OrganPosition extends SpriteComponent with CollisionCallbacks {
   String icon;
-  Vector2? dragDeltaPosition;
-  bool get isDragging => dragDeltaPosition != null;
 
   OrganPosition({
     required this.icon,

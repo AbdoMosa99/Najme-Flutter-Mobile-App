@@ -32,6 +32,7 @@ class Organ extends SpriteComponent with Draggable, CollisionCallbacks, HasGameR
     add(CircleHitbox());
   }
 
+  @override
   void onGameResize(Vector2 size) {
     super.onGameResize(size);
     position = initial_position;
@@ -42,7 +43,6 @@ class Organ extends SpriteComponent with Draggable, CollisionCallbacks, HasGameR
     super.onCollisionStart(intersectionPoints, other);
     if (other == place) {
       valid = true;
-      print("start");
     }
   }
 
@@ -51,7 +51,6 @@ class Organ extends SpriteComponent with Draggable, CollisionCallbacks, HasGameR
     super.onCollisionEnd(other);
     if (other == place) {
       valid = false;
-      print("end");
     }
   }
 
@@ -92,7 +91,6 @@ class Organ extends SpriteComponent with Draggable, CollisionCallbacks, HasGameR
   @override
   bool onDragCancel() {
     dragDeltaPosition = null;
-    print("cancel");
     return false;
   }
 }

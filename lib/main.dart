@@ -1,5 +1,7 @@
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:najme/database/temp.dart';
+import 'package:najme/games/biology/game.dart';
 import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/screens/main/login_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -48,5 +50,10 @@ void main() async {
   await prefs.setBool('sound_is_on', true);
    */
 
-  runApp(const NajmeApp());
+  // runApp(const NajmeApp());
+  runApp(
+    GameWidget(
+      game: BiologyGame()
+    ),
+  );
 }
