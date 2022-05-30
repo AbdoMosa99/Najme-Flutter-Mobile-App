@@ -21,7 +21,7 @@ class LessonIcon extends InkWell {
       child: Column(
           children: [
             SvgPicture.asset(
-              Assets.galaxy,
+              Assets.star,
               height: adjustHeightValue(context, 90),
             ),
             Text(

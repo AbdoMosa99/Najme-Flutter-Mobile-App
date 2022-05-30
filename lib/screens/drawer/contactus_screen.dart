@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:najme/components/general/main_button.dart';
-import 'package:najme/components/themes/main_container.dart';
+import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/components/general/back_button.dart';
@@ -16,7 +16,7 @@ class ContactUsScreen extends StatelessWidget {
       child: Stack(
         children: [
           Padding(
-            padding: EdgeInsets.only(top: adjustHeightValue(context, 100.0)),
+            padding: EdgeInsets.only(top: adjustHeightValue(context, 30.0)),
             child: CustomScrollView(
               scrollDirection: Axis.vertical,
               slivers: [

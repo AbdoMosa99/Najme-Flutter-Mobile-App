@@ -56,12 +56,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 FormTextBox(
                   context: context,
-                  text: "الاسم",
+                  text: "الإيميل",
                   controllerKind: nameController,
                   type: TextInputType.name,
-                    valid: (value){
+                    valid: (value) {
                       if (value == "") {
-                        return "من فضلك أدخل الأسم!";
+                        return "يجب أن تدخل البريد الإلكتروني!";
+                      }
+                      if (!validateEmail(value)) {
+                        return "من فضلك أدخل بريد إلكتروني صحيح!";
                       }
                       return null;
                     }

@@ -90,8 +90,7 @@ flutter:
     - assets/icons/
     - assets/fonts/
     - assets/audio/
-    - assets/lottie/launch_screen.json
-    - assets/lottie/Done.json
+    - assets/lottie/
     - assets/images/parallax/
     - assets/images/AngryPig/
     - assets/images/Bat/

@@ -7,7 +7,8 @@ class InOutPageRoute extends PageRouteBuilder {
     this.widget,
     this.alignment,
   ) : super(
-            transitionDuration: const Duration(seconds: 2),
+            transitionDuration: const Duration(milliseconds: 1500),
+            reverseTransitionDuration: const Duration(seconds: 1),
             transitionsBuilder: (BuildContext context,
                 Animation<double> animation,
                 Animation<double> secAnimation,

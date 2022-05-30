@@ -1,5 +1,6 @@
 import 'package:najme/database/init.dart';
 import 'package:najme/database/models.dart';
+import 'package:najme/dialogs/settings_dialog/settings_class.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final NajmeDatabase database = NajmeDatabase();
@@ -11,6 +12,9 @@ late List<Subject> subjects;
 late String level;
 late String token;
 late bool isLoggedIn;
+
+late Settings settings;
+late double rating;
 
 
 final List<String> gendersList = [
@@ -93,9 +97,16 @@ Future<bool> init() async {
   bool? loggedIn = prefs.getBool("isLoggedIn");
 
   if (loggedIn == null){
+    prefs.setDouble('rating', 0.0);
+    rating = 0.0;
+
+    settings = Settings();
+    prefs.setBool('bg_music', settings.bgMusic);
+    prefs.setBool('sounds', settings.sounds);
+    prefs.setBool('notifications', settings.notifications);
+    prefs.setBool('vibration', settings.vibration);
+
     prefs.setBool("isLoggedIn", false);
-    await prefs.setDouble('rating', 5.0);
-    await prefs.setBool('sound_is_on', true);
     loggedIn = false;
   }
   isLoggedIn = loggedIn;
@@ -106,6 +117,13 @@ Future<bool> init() async {
     profile = await database.getProfile(profileID);
     progresses = await database.getProgress(profileID);
     subjects = await database.getSubjects(profileID);
+    settings = Settings(
+      bgMusic: await prefs.getBool('bg_music')?? true,
+      sounds: await prefs.getBool('sounds')?? true,
+      notifications: await prefs.getBool('notifications')?? true,
+      vibration: await prefs.getBool('vibration')?? false,
+    );
+    rating = await prefs.getDouble('rating')!;
   }
 
   return true;

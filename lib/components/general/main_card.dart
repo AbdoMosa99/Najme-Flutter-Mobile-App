@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
 
@@ -52,7 +51,10 @@ class MainCard extends Card {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: textColor,
-                  fontSize: adjustWidthValue(context, fontSize),
+                  fontSize: adjustWidthValue(
+                    context,
+                    text.length > 8 ? fontSize - 4 : fontSize
+                  ),
                   fontFamily: 'Cairo',
                   fontWeight: FontWeight.w600,
                 ),

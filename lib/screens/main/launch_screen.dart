@@ -19,18 +19,13 @@ class _LaunchScreenState extends State<LaunchScreen>with SingleTickerProviderSta
   void initState(){
     super.initState();
     controller = AnimationController(
-      duration: Duration(seconds: 4),
+      duration: Duration(seconds: 2),
       vsync: this,
       );
       controller.addStatusListener((status) async {
         if (status == AnimationStatus.completed)
         {
-          Navigator.pop(context);
-          controller.reset();
-          Navigator.push(
-                context,
-                InOutPageRoute(const LoginScreen(), Alignment.bottomCenter),
-                );
+          controller.repeat();
         }
       });
 }
@@ -50,10 +45,10 @@ class _LaunchScreenState extends State<LaunchScreen>with SingleTickerProviderSta
             Lottie.asset(
               'assets/lottie/launch_screen.json', 
               fit: BoxFit.fill, 
-              repeat: false,     
+              repeat: true,     
               controller: controller, 
               onLoaded: (composition){
-              controller.forward();
+                controller.forward();
               },
               ), 
     
