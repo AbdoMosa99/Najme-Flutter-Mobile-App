@@ -1,19 +1,17 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:najme/_api/auth.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/error_message.dart';
 import 'package:najme/components/general/main_container.dart';
+import 'package:najme/components/general/show_loader_dialog.dart';
+import 'package:najme/components/screen_specific/registration/registration_topLayer.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/screens/registeration/registration_password.dart';
 import 'package:najme/utility.dart';
 import 'package:flutter_verification_code/flutter_verification_code.dart';
-
-import '../../_api/auth.dart';
-import '../../components/general/show_loader_dialog.dart';
-import '../../components/screen_specific/registration/registration_topLayer.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
   EmailVerificationScreen({
@@ -57,7 +55,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_) => startTimer());
+    WidgetsBinding.instance.addPostFrameCallback((_) => startTimer());
   }
 
   @override
@@ -103,13 +101,12 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                       textDirection: TextDirection.ltr,
                       child: VerificationCode(
                         textStyle: TextStyle(
-                          fontSize: adjustValue(context, 40.0),
+                          fontSize: adjustValue(context, 30.0),
                           color: AppColors.secondary,
-                          //fontWeight: FontWeight.bold,
                         ),
                         underlineColor: AppColors.primaryDark,
                         keyboardType: TextInputType.number,
-                        itemSize: adjustValue(context, 50),
+                        itemSize: adjustValue(context, 40),
                         length: 6,
                         autofocus: false,
                         underlineWidth: adjustValue(context, 5),

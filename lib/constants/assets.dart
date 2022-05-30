@@ -87,6 +87,12 @@ class Assets {
   static const String cart = "assets/icons/cart1.svg";
   static const String planet = "assets/icons/planet.svg";
   static const String store = "assets/icons/store2.png";
+  static const String games = "assets/icons/games.svg";
+  static const String physics = "assets/icons/physics.svg";
+  static const String chemistry = "assets/icons/chemistry.svg";
+  static const String biology = "assets/icons/Biology.svg";
+  static const String astronomy = "assets/icons/astronomy.svg";
+
 
 
 }

@@ -8,7 +8,6 @@ import 'package:najme/components/general/main_card.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/data.dart';
-import 'package:najme/database/models.dart';
 import 'package:najme/screens/browsing/units_screen.dart';
 import 'package:najme/utility.dart';
 

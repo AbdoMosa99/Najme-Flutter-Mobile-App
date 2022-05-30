@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
@@ -6,6 +7,7 @@ import 'package:najme/components/general/show_loader_dialog.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/games/dino_game/game/dino_run_app.dart';
+import 'package:najme/games/games_screen.dart';
 import 'package:najme/screens/drawer/children_profiles.dart';
 import 'package:najme/screens/drawer/contactus_screen.dart';
 import 'package:najme/screens/drawer/personal_profile.dart';
@@ -13,8 +15,6 @@ import 'package:najme/screens/drawer/planet.dart';
 import 'package:najme/screens/drawer/rateing_screen.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/data.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:najme/screens/main/login_screen.dart';
 import 'package:najme/screens/parents_followUp/report/report.dart';
 
@@ -251,6 +251,27 @@ class MainDrawer extends Drawer {
                     indent: adjustValue(context, 50.0),
                     endIndent: adjustValue(context, 50.0),
                   ),
+                ),
+                ListTile(
+                  title: Text(
+                    'مواد اخرى(Beta)',
+                    style: TextStyle(
+                      color: AppColors.surface,
+                      fontFamily: 'Cairo',
+                      fontSize: adjustValue(context, 21.0),
+                    ),
+                  ),
+                  leading: SvgPicture.asset(
+                    Assets.games,
+                    color: AppColors.secondary,
+                    width: adjustValue(context, 40.0),
+                  ),
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      LeftRightPageRoute(const GamesScreen(), -1, 0),
+                    );
+                  },
                 ),
                 ListTile(
                   title: Text(

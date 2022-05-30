@@ -25,7 +25,7 @@ class SettingsMenu extends StatelessWidget {
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
           child: SizedBox(
-            width: MediaQuery.of(context).size.width * 0.6,
+            width: MediaQuery.of(context).size.width * 0.8,
             height: MediaQuery.of(context).size.height * 0.7,
             child: Card(
               shape: RoundedRectangleBorder(

@@ -41,7 +41,7 @@ class _ConfirmationCodeState extends State<ConfirmationCode> {
 
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_) => startTimer());
+    WidgetsBinding.instance.addPostFrameCallback((_) => startTimer());
   }
 
   @override
