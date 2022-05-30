@@ -2,7 +2,7 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/general/game_app_bar.dart';
-import 'package:najme/components/themes/main_container.dart';
+import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/audios.dart';
 import 'package:najme/constants/colors.dart';
