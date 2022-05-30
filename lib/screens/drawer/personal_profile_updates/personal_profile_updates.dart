@@ -186,7 +186,6 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates>
                             list: countriesList,
                             initialIndex: countryCurrentItemIndex,
                             callBack: (value) {
-                              //Navigator.pop(context);
                               setState(() {
                                 countryCurrentItemIndex = value;
                               });
@@ -218,9 +217,9 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates>
                             color: AppColors.primary,
                             onTap: () async {
                               profile.birthdate = DateTime.utc(
-                                yearCurrentItemIndex,
+                                yearsList[0] - yearCurrentItemIndex,
                                 monthCurrentItemIndex + 1,
-                                dayCurrentItemIndex,
+                                dayCurrentItemIndex + 1,
                               );
                               profile.ambition =
                                   futureList[futureCurrentItemIndex];
@@ -229,9 +228,10 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates>
                               profile.gender = gendersList[gender!.index];
                               profile.level = levelsList[levelCurrentItemIndex];
                               profile.name = nameController.text;
+                              print(profile);
 
                               // TODO: Call API Here.
-                              await database.updateProfile(profile);
+                              database.updateProfile(profile);
                               showDoneDialog();
                             },
                           ),

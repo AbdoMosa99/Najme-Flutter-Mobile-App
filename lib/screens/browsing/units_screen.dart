@@ -87,7 +87,9 @@ class UnitsScreen extends StatelessWidget {
                                 size: 35,
                                 color: AppColors.secondary,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
                             ),
                           ],
                         ),

@@ -54,7 +54,7 @@ class MainDrawer extends Drawer {
                                 style: TextStyle(
                                   color: AppColors.surface,
                                   fontFamily: 'Cairo',
-                                  fontSize: adjustValue(context, 30.0),
+                                  fontSize: adjustValue(context, 24.0),
                                 ),
                               ),
                               Text(
@@ -63,7 +63,7 @@ class MainDrawer extends Drawer {
                                 style: TextStyle(
                                   color: AppColors.surface,
                                   fontFamily: 'Cairo',
-                                  fontSize: adjustValue(context, 15.0),
+                                  fontSize: adjustValue(context, 16.0),
                                 ),
                               ),
                             ],

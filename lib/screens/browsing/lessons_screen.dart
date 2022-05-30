@@ -64,7 +64,7 @@ class LessonsScreen extends StatelessWidget {
                                   color: AppColors.secondary,
                                 ),
                                 Text(
-                                  '24',
+                                  '${progress.stars}',
                                   style: TextStyle(
                                     color: AppColors.secondary,
                                     fontSize: adjustValue(context, 25),
@@ -76,7 +76,6 @@ class LessonsScreen extends StatelessWidget {
                             ),
                             Text(
                               unit.name,
-                              //subject.category + " : " + unit.name,
                               style: TextStyle(
                                 color: AppColors.secondary,
                                 fontSize: adjustValue(context, 30),
@@ -90,7 +89,9 @@ class LessonsScreen extends StatelessWidget {
                                 size: 35,
                                 color: AppColors.secondary,
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
                             ),
                           ],
                         ),

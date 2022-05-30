@@ -6,7 +6,7 @@ class LeftRightPageRoute extends PageRouteBuilder {
   final double y;
   LeftRightPageRoute(this.widget, this.x, this.y)
       : super(
-            transitionDuration: const Duration(seconds: 2),
+            transitionDuration: const Duration(milliseconds: 1500),
             reverseTransitionDuration: const Duration(seconds: 1),
             transitionsBuilder: (BuildContext context,
                 Animation<double> animation,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/data.dart';
 import 'package:najme/dialogs/settings_dialog/settings_row.dart';
 import 'package:najme/screens/main/home_screen.dart';
 import 'package:najme/utility.dart';
@@ -14,20 +15,19 @@ class SettingsDialog extends StatefulWidget {
 }
 
 class _SettingsDialogState extends State<SettingsDialog> {
-  bool music_on = true;
-  bool sounds_on = false;
-  bool notifications_on = true;
-  bool vibration_on = false;
-  static const id = 'SettingsDialog';
   @override
   Widget build(BuildContext context) {
     return Dialog(
       insetPadding: EdgeInsets.symmetric(
-          vertical: adjustHeightValue(context, 130.0), horizontal: adjustWidthValue(context, 35)),
+        vertical: adjustHeightValue(context, 130.0), 
+        horizontal: adjustWidthValue(context, 35)
+      ),
       backgroundColor: AppColors.surface,
       shape: RoundedRectangleBorder(
-          borderRadius:
-              BorderRadius.all(Radius.circular(adjustValue(context, 32.0)))),
+        borderRadius: BorderRadius.all(
+          Radius.circular(adjustValue(context, 32.0))
+        )
+      ),
       child: Stack(
         children: [
           Padding(
@@ -47,7 +47,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                       "الإعدادات",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: adjustValue(context, 22.0),
+                        fontSize: adjustWidthValue(context, 22.0),
                         fontFamily: 'Cairo',
                         fontWeight: FontWeight.bold,
                       ),
@@ -65,46 +65,53 @@ class _SettingsDialogState extends State<SettingsDialog> {
                   ),
                 ),
                 settingsRow(
-                    context: context,
-                    icon: Assets.bgMusic,
-                    leadingText: "الموسيقى الخلفية",
-                    onChanged: (bool new_value) {
-                      setState(() {
-                        music_on = new_value;
-                      });
-                    },
-                    value: music_on),
+                  context: context,
+                  icon: Assets.bgMusic,
+                  leadingText: "الموسيقى الخلفية",
+                  onChanged: (bool new_value) {
+                    setState(() {
+                      settings.bgMusic = new_value;
+                      prefs.setBool("bg_music", new_value);
+                    });
+                  },
+                  value: settings.bgMusic
+                ),
                 settingsRow(
                   context: context,
                   icon: Assets.sounds,
                   leadingText: "تأثيرات الصوت",
                   onChanged: (bool new_value) {
                     setState(() {
-                      sounds_on = new_value;
+                      settings.sounds = new_value;
+                      prefs.setBool("sounds", new_value);
                     });
                   },
-                  value: sounds_on,
+                  value: settings.sounds,
                 ),
                 settingsRow(
-                    context: context,
-                    icon: Assets.notification,
-                    leadingText: "الإشعارات",
-                    onChanged: (bool new_value) {
-                      setState(() {
-                        notifications_on = new_value;
-                      });
-                    },
-                    value: notifications_on),
+                  context: context,
+                  icon: Assets.notification,
+                  leadingText: "الإشعارات",
+                  onChanged: (bool new_value) {
+                    setState(() {
+                      settings.notifications = new_value;
+                      prefs.setBool("notifications", new_value);
+                    });
+                  },
+                  value: settings.notifications
+                ),
                 settingsRow(
-                    context: context,
-                    icon: Assets.vibration,
-                    leadingText: "وضع الاهتزاز",
-                    onChanged: (bool new_value) {
-                      setState(() {
-                        vibration_on = new_value;
-                      });
-                    },
-                    value: vibration_on),
+                  context: context,
+                  icon: Assets.vibration,
+                  leadingText: "وضع الاهتزاز",
+                  onChanged: (bool new_value) {
+                    setState(() {
+                      settings.vibration = new_value;
+                      prefs.setBool("vibration", new_value);
+                    });
+                  },
+                  value: settings.vibration
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(
                       vertical: adjustHeightValue(context, 20.0)),

@@ -241,9 +241,9 @@ late AnimationController controller ;
               child: Container(
                 alignment: Alignment.center,
                 child: Text(
-                    'تعديل الحساب الشخصي',
+                    'تعديل الحساب الشخصي   ',
                     style: TextStyle(
-                      fontSize: adjustValue(context, 30.0),
+                      fontSize: adjustValue(context, 24.0),
                       fontFamily: 'Cairo',
                       color: Colors.white,
                       fontWeight: FontWeight.w100,

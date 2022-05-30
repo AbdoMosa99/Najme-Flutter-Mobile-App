@@ -27,43 +27,45 @@ class SpaceContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: appBar,
-        endDrawer: Container(
-          margin: EdgeInsets.zero,
-          child: drawer,
-          width: adjustWidthValue(context, 280.0),
-        ),
-        body: Container(
-          constraints: const BoxConstraints.expand(),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(bgImage), 
-              fit: BoxFit.cover
+    return SafeArea(
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Scaffold(
+          appBar: appBar,
+          endDrawer: Container(
+            margin: EdgeInsets.zero,
+            child: drawer,
+            width: adjustWidthValue(context, 280.0),
+          ),
+          body: Container(
+            constraints: const BoxConstraints.expand(),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(bgImage), 
+                fit: BoxFit.cover
+              ),
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(adjustValue(context, 0.0)),
+              child: child,
             ),
           ),
-          child: Padding(
-            padding: EdgeInsets.all(adjustValue(context, 0.0)),
-            child: child,
-          ),
-        ),
 
-        floatingActionButton: floatingActionButton? Container(
-          width: adjustValue(context, 56.0),
-          height: adjustValue(context, 56.0),
-          child: FloatingActionButton(
-            key: key,
-            onPressed: onFloatingActionButtonTap,
-            backgroundColor: AppColors.primary,
-            child: Icon(
-              floatingActionIcon,
-              size: adjustValue(context, 24.0),
+          floatingActionButton: floatingActionButton? Container(
+            width: adjustValue(context, 56.0),
+            height: adjustValue(context, 56.0),
+            child: FloatingActionButton(
+              key: key,
+              onPressed: onFloatingActionButtonTap,
+              backgroundColor: AppColors.primary,
+              child: Icon(
+                floatingActionIcon,
+                size: adjustValue(context, 24.0),
+              ),
             ),
-          ),
-        ) : null,
-        floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+          ) : null,
+          floatingActionButtonLocation: FloatingActionButtonLocation.startFloat,
+        ),
       ),
     );
   }
