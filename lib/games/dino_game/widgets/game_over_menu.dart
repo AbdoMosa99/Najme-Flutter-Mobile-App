@@ -4,13 +4,13 @@ import 'package:flutter/services.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/general/main_button.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/data.dart';
 import 'package:najme/games/dino_game/game/audio_manager.dart';
 import 'package:najme/games/dino_game/game/dino_run.dart';
 import 'package:najme/games/dino_game/models/player_data.dart';
 import 'package:najme/games/dino_game/widgets/hud.dart';
 import 'package:najme/games/dino_game/widgets/main_menu.dart';
-import 'package:najme/games/games_screen.dart';
-import 'package:najme/screens/main/home_screen.dart';
+import 'package:najme/screens/browsing/units_screen.dart';
 import 'package:provider/provider.dart';
 
 // This represents the game over overlay,
@@ -90,10 +90,10 @@ class GameOverMenu extends StatelessWidget {
                         SystemChrome.setPreferredOrientations([
                           DeviceOrientation.portraitUp,
                         ]);
-                        Navigator.pushReplacement(
+                        Navigator.push(
                           context,
-                          InOutPageRoute(
-                              const GamesScreen(), Alignment.topRight),
+                          InOutPageRoute(UnitsScreen(subject: subjects[4]),
+                              Alignment.topRight),
                         );
                       },
                     )

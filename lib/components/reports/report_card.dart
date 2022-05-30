@@ -16,7 +16,6 @@ class ReportCard extends Container {
   }) : super(
           key: key,
           child: Container(
-            width: adjustWidthValue(context, 320),
             height: adjustHeightValue(context, 85.0),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(adjustValue(context, 20.0)),
@@ -64,7 +63,7 @@ class ReportCard extends Container {
                       Text(
                         titleText,
                         style: TextStyle(
-                            fontSize: adjustValue(context, 20.0),
+                            fontSize: adjustWidthValue(context, 18.0),
                             fontFamily: 'Cairo',
                             color: AppColors.primaryDark,
                             fontWeight: FontWeight.w800),
@@ -82,7 +81,7 @@ class ReportCard extends Container {
                                 fontWeight: FontWeight.normal),
                           ),
                           SizedBox(
-                            width: 15,
+                            width: adjustWidthValue(context, 15),
                           ),
                           Icon(
                             up

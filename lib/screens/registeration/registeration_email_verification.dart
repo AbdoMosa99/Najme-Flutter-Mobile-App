@@ -15,7 +15,7 @@ import 'package:flutter_verification_code/flutter_verification_code.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
   EmailVerificationScreen({
-    Key? key,
+    Key? key, 
     required this.email,
     required this.server_code,
   }) : super(key: key);

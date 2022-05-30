@@ -159,7 +159,7 @@ List<Widget> buildList(
             onTap: () async {
               await prefs.setInt('profile_id', profiles[i].id);
               await init();
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
               );

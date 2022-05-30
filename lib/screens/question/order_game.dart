@@ -29,7 +29,7 @@ class _OrderGameState extends State<OrderGame> {
     return MainContainer(
       appBar: GameAppBar(
         context:context,
-        gameName:'المستوى 21',
+        gameName:'المستوى 1',
         backButtonFunction: () {
           Navigator.pop(
               context,
@@ -124,17 +124,17 @@ class _OrderGameState extends State<OrderGame> {
                       }
                     },
                     onWillAccept: (data){
-                      return data==element;
+                      return data == element;
                     },
                     onAccept: (data) {
                       assetsAudioPlayer.open(
-                        Audio(Audios.clap),
+                        Audio(Audios.trueAns),
                       );
                       setState(() {
                         choices[element] = true;
-                        // player.play(Audios.zee);
                       }); 
                     }
+                    
                   );
                 }).toList(),
               ],

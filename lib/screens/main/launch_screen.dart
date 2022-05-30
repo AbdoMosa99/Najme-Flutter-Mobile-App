@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:najme/components/animation/from_in_to_out.dart';
-
-import 'login_screen.dart';
-
-
 
 class LaunchScreen extends StatefulWidget {
   const LaunchScreen({Key? key}) : super(key: key);

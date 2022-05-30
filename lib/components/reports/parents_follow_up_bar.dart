@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/utility.dart';
@@ -28,9 +26,11 @@ class ParentsFollowUpBar extends AppBar {
             children: [
               PopupMenuButton<String>(
                 shape: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(18),
-                    borderSide: const BorderSide(
-                        color: AppColors.secondaryLight, width: 1)),
+                    borderRadius:
+                        BorderRadius.circular(adjustValue(context, 18)),
+                    borderSide: BorderSide(
+                        color: AppColors.secondaryLight,
+                        width: adjustWidthValue(context, 1))),
                 color: AppColors.surface,
                 itemBuilder: (context) {
                   return profiles
@@ -50,7 +50,7 @@ class ParentsFollowUpBar extends AppBar {
                 onSelected: (_) {},
                 child: Container(
                   child: Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
+                    padding: EdgeInsets.only(left: adjustValue(context, 10.0)),
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
@@ -77,7 +77,6 @@ class ParentsFollowUpBar extends AppBar {
                       ],
                     ),
                   ),
-                  //onTap: () {},
                 ),
               ),
               Column(
@@ -86,7 +85,7 @@ class ParentsFollowUpBar extends AppBar {
                   Text(
                     'تقارير المستوي',
                     style: TextStyle(
-                      fontSize: adjustValue(context, 30.0),
+                      fontSize: adjustValue(context, 27.0),
                       fontFamily: 'Cairo',
                       fontWeight: FontWeight.bold,
                     ),

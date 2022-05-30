@@ -140,7 +140,7 @@ List<Widget> buildList(
                 InOutPageRoute(
                     LessonsScreen(
                       subject: subject,
-                      unit: units[i],
+                      unit: units[i-1],
                     ),
                     Alignment.bottomCenter),
               );

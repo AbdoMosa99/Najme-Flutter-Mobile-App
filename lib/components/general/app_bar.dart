@@ -23,7 +23,7 @@ class MainAppBar extends AppBar {
           image: AssetImage(Assets.logo),
         ),
         onTap: () {
-          Navigator.push(
+          Navigator.pushReplacement(
             context,
             InOutPageRoute(const HomeScreen(), Alignment.topRight),
           );
@@ -42,7 +42,7 @@ class MainAppBar extends AppBar {
         ),
       ),
       onTap: () {
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           InOutPageRoute(const HomeScreen(), Alignment.topRight),
         );

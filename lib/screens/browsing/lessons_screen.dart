@@ -6,6 +6,9 @@ import 'package:najme/components/screen_specific/space/lesson.dart';
 import 'package:najme/components/screen_specific/space/space_main_container.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/database/models.dart';
+import 'package:najme/games/dino_game/game/dino_run_app.dart';
+import 'package:najme/screens/question/choosing_theme.dart';
+import 'package:najme/screens/question/listening_theme.dart';
 import 'package:najme/screens/question/order_game.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/data.dart';
@@ -101,7 +104,7 @@ class LessonsScreen extends StatelessWidget {
                       Expanded(
                         child: ListView(
                           children: buildList(
-                              context, lessons, progress.currentLesson - 1),
+                              context, lessons, progress.currentLesson - 1, subject),
                           reverse: true,
                         ),
                       )
@@ -116,7 +119,7 @@ class LessonsScreen extends StatelessWidget {
 }
 
 List<Widget> buildList(
-    BuildContext context, List<Lesson> lessons, int current) {
+    BuildContext context, List<Lesson> lessons, int current, Subject subject) {
   bool row_is_one = false;
   List<Widget> list = [];
 
@@ -129,10 +132,34 @@ List<Widget> buildList(
           context: context,
           title: lessons[i].name,
           onClick: () {
-            Navigator.push(
-              context,
-              InOutPageRoute(const OrderGame(), Alignment.bottomCenter),
-            );
+            if (subject.id == 1) {
+              print("arabic");
+              Navigator.push(
+                context,
+                InOutPageRoute(const OrderGame(), Alignment.bottomCenter),
+              );
+            }
+            if (subject.id == 2) {
+              print("math");
+              Navigator.push(
+                context,
+                InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
+              );
+            }
+            if (subject.id == 3) {
+              print("english");
+              Navigator.push(
+                context,
+                InOutPageRoute(const DinoRunApp(), Alignment.bottomCenter),
+              );
+            }
+            if (subject.id == 4) {
+              print("int");
+              Navigator.push(
+                context,
+                InOutPageRoute(const ListeningTheme(), Alignment.bottomCenter),
+              );
+            }
           },
           active: i <= current,
         ),
@@ -141,10 +168,34 @@ List<Widget> buildList(
             context: context,
             title: lessons[i].name,
             onClick: () {
-              Navigator.push(
-                context,
-                InOutPageRoute(const OrderGame(), Alignment.bottomCenter),
-              );
+              if (subject.id == 1) {
+                print("arabic");
+                // Navigator.push(
+                //   context,
+                //   InOutPageRoute(const DinoRunApp(), Alignment.bottomCenter),
+                // );
+              }
+              if (subject.id == 2) {
+                print("math");
+                // Navigator.push(
+                //   context,
+                //   InOutPageRoute(const DinoRunApp(), Alignment.bottomCenter),
+                // );
+              }
+              if (subject.id == 3) {
+                print("english");
+                // Navigator.push(
+                //   context,
+                //   InOutPageRoute(const DinoRunApp(), Alignment.bottomCenter),
+                // );
+              }
+              if (subject.id == 4) {
+                print("int");
+                // Navigator.push(
+                //   context,
+                //   InOutPageRoute(const DinoRunApp(), Alignment.bottomCenter),
+                // );
+              }
             },
             active: i <= current,
           ),

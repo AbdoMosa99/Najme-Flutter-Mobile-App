@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lottie/lottie.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/screens/forget_password/done_screen.dart';
 import 'package:najme/screens/main/login_screen.dart';
 import 'package:najme/utility.dart';
 
@@ -170,9 +170,11 @@ class _NewPasswordState extends State<NewPassword>
                         ),
                       ),
                       onPressed: () {
-                        if (formkey.currentState!.validate()) {
-                          showDoneDialog();
-                        }
+                        Navigator.pushReplacement(
+                          context,
+                          InOutPageRoute(
+                              const DoneScreen(), Alignment.bottomCenter),
+                        );
                       },
                     ),
                   ),
@@ -184,29 +186,4 @@ class _NewPasswordState extends State<NewPassword>
       ),
     );
   }
-
-  void showDoneDialog() => showDialog(
-        barrierDismissible: false,
-        context: context,
-        builder: (context) => Dialog(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Lottie.asset(
-                'assets/lottie/Done.json',
-                repeat: false,
-                controller: controller,
-                onLoaded: (composition) {
-                  controller.forward();
-                },
-              ),
-              Text(
-                'تم بنجاح ',
-                style: TextStyle(fontSize: 24),
-              ),
-              const SizedBox(height: 16),
-            ],
-          ),
-        ),
-      );
 }

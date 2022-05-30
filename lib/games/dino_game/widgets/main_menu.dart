@@ -72,11 +72,6 @@ class MainMenu extends StatelessWidget {
                     onTap: () {
                       gameRef.overlays.remove(MainMenu.id);
                       gameRef.overlays.add(SettingsMenu.id);
-                      // showDialog(
-                      //     context: context,
-                      //     builder: (BuildContext context) {
-                      //       return SettingsDialog();
-                      //     });
                     },
                   ),
                 ],

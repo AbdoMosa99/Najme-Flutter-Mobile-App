@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:najme/utility.dart';
 
-import '../../utility.dart';
 
 class FilterCard extends Container{
   FilterCard({
@@ -28,15 +27,15 @@ class FilterCard extends Container{
           ),
 
           child: Padding(
-            padding: const EdgeInsets.all(2.5),
+            padding: EdgeInsets.all(adjustWidthValue(context, 3)),
             child: Text(
                 titleText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: adjustValue(context, 19),
+                  fontSize: adjustValue(context, 16),
                   fontFamily: 'Cairo',
-                  fontWeight: FontWeight.w800,
+                  fontWeight: FontWeight.w600,
 
                 ),
             ),

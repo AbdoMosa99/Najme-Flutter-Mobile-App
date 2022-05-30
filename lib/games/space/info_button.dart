@@ -1,8 +1,5 @@
 import 'package:flame/components.dart';
-import 'package:flame/effects.dart';
 import 'package:flame/input.dart';
-import 'package:flutter/painting.dart';
-import 'package:najme/constants/colors.dart';
 import 'package:najme/games/space/info_card.dart';
 import 'package:najme/games/space/planet.dart';
 import 'game.dart';
