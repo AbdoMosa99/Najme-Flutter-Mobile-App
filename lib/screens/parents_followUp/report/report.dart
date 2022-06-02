@@ -36,227 +36,229 @@ class _ReportState extends State<Report> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Stack(
-        children: [
-          ScreenBackground(bgImage: Assets.screenBackground),
-          Scaffold(
-            backgroundColor: AppColors.primaryDark.withOpacity(0.0),
-            appBar:
-                ParentsFollowUpBar(context: context, profiles: widget.profiles),
-            body: Column(
-              children: [
-                Container(
-                  height: adjustHeightValue(context, 50.0),
-                  width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      FilterCard(
-                        context: context,
-                        titleText:
-                            'المرحلة: ${FilterLevelList[widget.filterLevel]}',
-                      ),
-                      FilterCard(
-                        context: context,
-                        titleText:
-                            'الترم: ${FilterSemList[widget.filterSemester]}',
-                      ),
-                      FilterCard(
-                        context: context,
-                        titleText:
-                            'المادة: ${FilterSubjectList[widget.filterSubject]}',
-                      ),
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      left: adjustValue(context, 18.0),
-                      right: adjustValue(context, 18.0),
+    return SafeArea(
+      child: Directionality(
+        textDirection: TextDirection.rtl,
+        child: Stack(
+          children: [
+            ScreenBackground(bgImage: Assets.screenBackground),
+            Scaffold(
+              backgroundColor: AppColors.primaryDark.withOpacity(0.0),
+              appBar:
+                  ParentsFollowUpBar(context: context, profiles: widget.profiles),
+              body: Column(
+                children: [
+                  Container(
+                    height: adjustHeightValue(context, 50.0),
+                    width: MediaQuery.of(context).size.width,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        FilterCard(
+                          context: context,
+                          titleText:
+                              'المرحلة: ${FilterLevelList[widget.filterLevel]}',
+                        ),
+                        FilterCard(
+                          context: context,
+                          titleText:
+                              'الترم: ${FilterSemList[widget.filterSemester]}',
+                        ),
+                        FilterCard(
+                          context: context,
+                          titleText:
+                              'المادة: ${FilterSubjectList[widget.filterSubject]}',
+                        ),
+                      ],
                     ),
-                    child: ListView(children: [
-                      Padding(
-                        padding:
-                            EdgeInsets.only(top: adjustValue(context, 10.0)),
-                        child: Graph(
-                            context: context,
-                            data: widget.showAvg ? avgData() : mainData(),
-                            XTitle: 'السنة',
-                            YTitle: 'المستوى'),
-                      ),
-                      DividerLine(),
-                      ReportCard(
-                        context: context,
-                        titleText: 'الدروس المنتهية',
-                        numText1: 30,
-                        numText2: 60,
-                        up: true,
-                        upOrDownText: 10,
-                      ),
-                      DividerLine(),
-                      ReportCard(
-                        context: context,
-                        titleText: 'حل الدروس من المرة الاولي',
-                        numText1: 65,
-                        numText2: 100,
-                        up: false,
-                        upOrDownText: 23,
-                      ),
-                      DividerLine(),
-                      ReportCard(
-                        context: context,
-                        titleText: 'عدد مرات المحاولة',
-                        numText1: 8,
-                        numText2: 10,
-                        up: true,
-                        upOrDownText: 80,
-                      ),
-                      DividerLine(),
-                      ReportCard(
-                        context: context,
-                        titleText: 'قدرته علي استيعاب المعلومة',
-                        numText1: 50,
-                        numText2: 80,
-                        up: true,
-                        upOrDownText: 80,
-                      ),
-                      DividerLine(),
-                      ReportCard(
-                        context: context,
-                        titleText: 'سرعته في الحل',
-                        numText1: 50,
-                        numText2: 100,
-                        up: false,
-                        upOrDownText: 50,
-                      ),
-                      DividerLine(),
-                      ReportCard(
-                        context: context,
-                        titleText: 'كثافة الحل',
-                        numText1: 40,
-                        numText2: 50,
-                        up: true,
-                        upOrDownText: 90,
-                      ),
-                      SizedBox(
-                        height: adjustHeightValue(context, 40.0),
-                      ),
-                    ]),
                   ),
-                ),
-              ],
-            ),
-            floatingActionButton: FloatingLogoButton(
-                context: context,
-                onPressed: () {
-                  print('object');
-                }),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerDocked,
-            bottomNavigationBar: PNavigationBar(
-              context: context,
-              iconList: iconList,
-              onTap: (index) {
-                if (index == 0) {
-                } else {
-                  return FilterDialog1(
-                      context: context,
-                      popUp: PopUpMenu(
-                        context: context,
-                        list: FilterLevelList,
-                        initialIndex: widget.filterLevel,
-                        callBack: (value) {
-                          setState(() {
-                            widget.filterLevel = value;
-                          });
-                        },
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: adjustValue(context, 18.0),
+                        right: adjustValue(context, 18.0),
                       ),
-                      titel: 'المرحلة:',
-                      numberDialog: '1/4',
-                      FABFunction: () {
-                        FilterDialog2(
-                            context: context,
-                            popUp: PopUpMenu(
+                      child: ListView(children: [
+                        Padding(
+                          padding:
+                              EdgeInsets.only(top: adjustValue(context, 10.0)),
+                          child: Graph(
                               context: context,
-                              list: FilterSemList,
-                              initialIndex: widget.filterSemester,
-                              callBack: (value) {
-                                setState(() {
-                                  widget.filterSemester = value;
-                                });
-                              },
-                            ),
-                            titel: 'الترم:',
-                            numberDialog: '2/4',
-                            FABFunction: () {
-                              FilterDialog3(
-                                  context: context,
-                                  popUp: PopUpMenu(
-                                    context: context,
-                                    list: FilterSubjectList,
-                                    initialIndex: widget.filterSubject,
-                                    callBack: (value) {
-                                      setState(() {
-                                        widget.filterSubject = value;
-                                      });
-                                    },
-                                  ),
-                                  titel: 'المادة:',
-                                  numberDialog: '3/4',
-                                  FABFunction: () {
-                                    FilterDialog4(
-                                        context: context,
-                                        popUp: Row(
-                                          children: [
-                                            Expanded(
-                                              child: PopUpMenu(
-                                                context: context,
-                                                list: yearsList,
-                                                initialIndex: widget.filterDate,
-                                                callBack: (value) {
-                                                  setState(() {
-                                                    widget.filterDate = value;
-                                                  });
-                                                },
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              width: 2,
-                                            ),
-                                            Expanded(
-                                              child: PopUpMenu(
-                                                context: context,
-                                                list: monthsList,
-                                                initialIndex: widget.filterDate,
-                                                callBack: (value) {
-                                                  setState(() {
-                                                    widget.filterDate = value;
-                                                  });
-                                                },
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        titel: 'التاريخ:',
-                                        numberDialog: '4/4',
-                                        search: true,
-                                        FABFunction: () {
-                                          Navigator.pop(context, FilterDialog3);
-                                          Navigator.pop(context, FilterDialog2);
-                                          Navigator.pop(context, FilterDialog1);
-                                          Navigator.pop(context, null);
-                                        });
-                                  });
+                              data: widget.showAvg ? avgData() : mainData(),
+                              XTitle: 'السنة',
+                              YTitle: 'المستوى'),
+                        ),
+                        DividerLine(),
+                        ReportCard(
+                          context: context,
+                          titleText: 'الدروس المنتهية',
+                          numText1: 30,
+                          numText2: 60,
+                          up: true,
+                          upOrDownText: 10,
+                        ),
+                        DividerLine(),
+                        ReportCard(
+                          context: context,
+                          titleText: 'حل الدروس من المرة الاولي',
+                          numText1: 65,
+                          numText2: 100,
+                          up: false,
+                          upOrDownText: 23,
+                        ),
+                        DividerLine(),
+                        ReportCard(
+                          context: context,
+                          titleText: 'عدد مرات المحاولة',
+                          numText1: 8,
+                          numText2: 10,
+                          up: true,
+                          upOrDownText: 80,
+                        ),
+                        DividerLine(),
+                        ReportCard(
+                          context: context,
+                          titleText: 'قدرته علي استيعاب المعلومة',
+                          numText1: 50,
+                          numText2: 80,
+                          up: true,
+                          upOrDownText: 80,
+                        ),
+                        DividerLine(),
+                        ReportCard(
+                          context: context,
+                          titleText: 'سرعته في الحل',
+                          numText1: 50,
+                          numText2: 100,
+                          up: false,
+                          upOrDownText: 50,
+                        ),
+                        DividerLine(),
+                        ReportCard(
+                          context: context,
+                          titleText: 'كثافة الحل',
+                          numText1: 40,
+                          numText2: 50,
+                          up: true,
+                          upOrDownText: 90,
+                        ),
+                        SizedBox(
+                          height: adjustHeightValue(context, 40.0),
+                        ),
+                      ]),
+                    ),
+                  ),
+                ],
+              ),
+              floatingActionButton: FloatingLogoButton(
+                  context: context,
+                  onPressed: () {
+                    print('object');
+                  }),
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.centerDocked,
+              bottomNavigationBar: PNavigationBar(
+                context: context,
+                iconList: iconList,
+                onTap: (index) {
+                  if (index == 0) {
+                  } else {
+                    return FilterDialog1(
+                        context: context,
+                        popUp: PopUpMenu(
+                          context: context,
+                          list: FilterLevelList,
+                          initialIndex: widget.filterLevel,
+                          callBack: (value) {
+                            setState(() {
+                              widget.filterLevel = value;
                             });
-                      });
-                }
-              },
+                          },
+                        ),
+                        titel: 'المرحلة:',
+                        numberDialog: '1/4',
+                        FABFunction: () {
+                          FilterDialog2(
+                              context: context,
+                              popUp: PopUpMenu(
+                                context: context,
+                                list: FilterSemList,
+                                initialIndex: widget.filterSemester,
+                                callBack: (value) {
+                                  setState(() {
+                                    widget.filterSemester = value;
+                                  });
+                                },
+                              ),
+                              titel: 'الترم:',
+                              numberDialog: '2/4',
+                              FABFunction: () {
+                                FilterDialog3(
+                                    context: context,
+                                    popUp: PopUpMenu(
+                                      context: context,
+                                      list: FilterSubjectList,
+                                      initialIndex: widget.filterSubject,
+                                      callBack: (value) {
+                                        setState(() {
+                                          widget.filterSubject = value;
+                                        });
+                                      },
+                                    ),
+                                    titel: 'المادة:',
+                                    numberDialog: '3/4',
+                                    FABFunction: () {
+                                      FilterDialog4(
+                                          context: context,
+                                          popUp: Row(
+                                            children: [
+                                              Expanded(
+                                                child: PopUpMenu(
+                                                  context: context,
+                                                  list: yearsList,
+                                                  initialIndex: widget.filterDate,
+                                                  callBack: (value) {
+                                                    setState(() {
+                                                      widget.filterDate = value;
+                                                    });
+                                                  },
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                width: 2,
+                                              ),
+                                              Expanded(
+                                                child: PopUpMenu(
+                                                  context: context,
+                                                  list: monthsList,
+                                                  initialIndex: widget.filterDate,
+                                                  callBack: (value) {
+                                                    setState(() {
+                                                      widget.filterDate = value;
+                                                    });
+                                                  },
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          titel: 'التاريخ:',
+                                          numberDialog: '4/4',
+                                          search: true,
+                                          FABFunction: () {
+                                            Navigator.pop(context, FilterDialog3);
+                                            Navigator.pop(context, FilterDialog2);
+                                            Navigator.pop(context, FilterDialog1);
+                                            Navigator.pop(context, null);
+                                          });
+                                    });
+                              });
+                        });
+                  }
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

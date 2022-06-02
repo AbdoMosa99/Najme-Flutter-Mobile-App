@@ -12,6 +12,7 @@ late List<Subject> subjects;
 late String level;
 late String token;
 late bool isLoggedIn;
+late String email;
 
 late Settings settings;
 late double rating;
@@ -124,6 +125,7 @@ Future<bool> init() async {
       vibration: await prefs.getBool('vibration')?? false,
     );
     rating = await prefs.getDouble('rating')!;
+    email = await prefs.getString("email")!;
   }
 
   return true;

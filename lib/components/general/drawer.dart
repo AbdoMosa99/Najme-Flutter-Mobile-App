@@ -87,7 +87,7 @@ class MainDrawer extends Drawer {
                     width: adjustValue(context, 40.0),
                   ),
                   onTap: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                       context,
                       LeftRightPageRoute(const PersonalProfile(), -1, 0),
                     );

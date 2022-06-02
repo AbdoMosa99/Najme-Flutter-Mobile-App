@@ -12,6 +12,7 @@ import 'package:najme/games/dino_game/widgets/game_over_menu.dart';
 import 'package:najme/games/dino_game/widgets/hud.dart';
 import 'package:najme/games/dino_game/widgets/main_menu.dart';
 import 'package:najme/screens/browsing/units_screen.dart';
+import 'package:najme/screens/main/home_screen.dart';
 import 'package:provider/provider.dart';
 
 // This represents the pause menu overlay.
@@ -89,15 +90,12 @@ class PauseMenu extends StatelessWidget {
                       text: 'خروج',
                       color: AppColors.secondary,
                       onTap: () {
-                        gameRef.overlays.remove(GameOverMenu.id);
-                        gameRef.overlays.add(MainMenu.id);
-                        gameRef.resumeEngine();
-                        gameRef.reset();
-                        AudioManager.instance.resumeBgm();
-                        Navigator.push(
-                          context,
-                          InOutPageRoute(UnitsScreen(subject: subjects[4]),
-                              Alignment.topRight),
+                        Navigator.pushReplacement(
+                          context, 
+                          InOutPageRoute(
+                            HomeScreen(), 
+                            Alignment.bottomCenter
+                          ),
                         );
                         SystemChrome.setPreferredOrientations([
                           DeviceOrientation.portraitUp,

@@ -133,28 +133,24 @@ List<Widget> buildList(
           title: lessons[i].name,
           onClick: () {
             if (subject.id == 1) {
-              print("arabic");
               Navigator.push(
                 context,
                 InOutPageRoute(const OrderGame(), Alignment.bottomCenter),
               );
             }
             if (subject.id == 2) {
-              print("math");
               Navigator.push(
                 context,
                 InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
               );
             }
             if (subject.id == 3) {
-              print("english");
               Navigator.push(
                 context,
-                InOutPageRoute(const DinoRunApp(), Alignment.bottomCenter),
+                InOutPageRoute(DinoRunApp(), Alignment.bottomCenter),
               );
             }
             if (subject.id == 4) {
-              print("int");
               Navigator.push(
                 context,
                 InOutPageRoute(const ListeningTheme(), Alignment.bottomCenter),
@@ -169,32 +165,28 @@ List<Widget> buildList(
             title: lessons[i].name,
             onClick: () {
               if (subject.id == 1) {
-                print("arabic");
-                // Navigator.push(
-                //   context,
-                //   InOutPageRoute(const DinoRunApp(), Alignment.bottomCenter),
-                // );
+                Navigator.push(
+                  context,
+                  InOutPageRoute(const OrderGame(), Alignment.bottomCenter),
+                );
               }
               if (subject.id == 2) {
-                print("math");
-                // Navigator.push(
-                //   context,
-                //   InOutPageRoute(const DinoRunApp(), Alignment.bottomCenter),
-                // );
+                Navigator.push(
+                  context,
+                  InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
+                );
               }
               if (subject.id == 3) {
-                print("english");
-                // Navigator.push(
-                //   context,
-                //   InOutPageRoute(const DinoRunApp(), Alignment.bottomCenter),
-                // );
+                Navigator.push(
+                  context,
+                  InOutPageRoute(DinoRunApp(), Alignment.bottomCenter),
+                );
               }
               if (subject.id == 4) {
-                print("int");
-                // Navigator.push(
-                //   context,
-                //   InOutPageRoute(const DinoRunApp(), Alignment.bottomCenter),
-                // );
+                Navigator.push(
+                  context,
+                  InOutPageRoute(const ListeningTheme(), Alignment.bottomCenter),
+                );
               }
             },
             active: i <= current,

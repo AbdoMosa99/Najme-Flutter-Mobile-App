@@ -63,7 +63,7 @@ class ReportCard extends Container {
                       Text(
                         titleText,
                         style: TextStyle(
-                            fontSize: adjustWidthValue(context, 18.0),
+                            fontSize: adjustWidthValue(context, 16.0),
                             fontFamily: 'Cairo',
                             color: AppColors.primaryDark,
                             fontWeight: FontWeight.w800),

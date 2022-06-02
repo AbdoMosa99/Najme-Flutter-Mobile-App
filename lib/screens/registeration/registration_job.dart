@@ -367,8 +367,8 @@ Future<void> saveAndSetup(Profile profileData) async {
       await database.insertUnit(unit);
 
       List<Lesson> lessons = await lessons_api(token, unit.id);
-      lessons.forEach((lesson) async {
-        await database.insertLesson(lesson);
+      lessons.forEach((lesson) {
+        database.insertLesson(lesson);
       });
     });
   });

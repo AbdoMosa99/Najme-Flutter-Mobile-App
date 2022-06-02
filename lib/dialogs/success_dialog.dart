@@ -95,10 +95,8 @@ showsuccessDialog(BuildContext context) {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      InOutPageRoute(const OrderGame(), Alignment.bottomCenter),
-                    );
+                    Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                 ),
               ),
@@ -149,12 +147,7 @@ showsuccessDialog(BuildContext context) {
               borderRadius: BorderRadius.circular(adjustValue(context, 15.0)),
             ),
             color: AppColors.primary,
-            onPressed: () {
-              Navigator.push(
-                context,
-                InOutPageRoute(const ChoosingTheme(), Alignment.bottomCenter),
-              );
-            },
+            onPressed: () {},
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -166,7 +159,7 @@ showsuccessDialog(BuildContext context) {
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Cairo',
                     color: AppColors.white,
-                    fontSize: adjustValue(context, 20.0),
+                    fontSize: adjustWidthValue(context, 20.0),
                   ),
                 ),
                 SvgPicture.asset(

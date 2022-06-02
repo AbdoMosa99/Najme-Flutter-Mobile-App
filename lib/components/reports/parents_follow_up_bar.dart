@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/data.dart';
 import 'package:najme/utility.dart';
 
 class ParentsFollowUpBar extends AppBar {
@@ -83,17 +84,17 @@ class ParentsFollowUpBar extends AppBar {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'تقارير المستوي',
+                    'تقارير المستوى',
                     style: TextStyle(
-                      fontSize: adjustValue(context, 27.0),
+                      fontSize: adjustWidthValue(context, 27.0),
                       fontFamily: 'Cairo',
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    'الطبيب محمد',
+                    'ال${profile.ambition} ${profile.name}',
                     style: TextStyle(
-                      fontSize: adjustValue(context, 20.0),
+                      fontSize: adjustWidthValue(context, 20.0),
                       fontFamily: 'Cairo',
                       fontWeight: FontWeight.normal,
                     ),

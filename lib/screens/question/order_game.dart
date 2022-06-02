@@ -4,6 +4,7 @@ import 'package:najme/components/general/game_app_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/audios.dart';
+import 'package:najme/dialogs/success_dialog.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
@@ -18,6 +19,7 @@ class OrderGame extends StatefulWidget {
 
 class _OrderGameState extends State<OrderGame> {
   final assetsAudioPlayer = AssetsAudioPlayer();
+  int current = 0;
   final choices = {
     'أ' : false,
     'ب' : false,
@@ -55,7 +57,7 @@ class _OrderGameState extends State<OrderGame> {
                     textAlign: TextAlign.center,
                     maxLines: 1,
                     style: TextStyle(
-                      fontSize: adjustValue(context, 40.0),
+                      fontSize: adjustWidthValue(context, 36.0),
                       fontFamily: 'Cairo',
                       color: AppColors.primaryDark,
                     ),
@@ -70,8 +72,8 @@ class _OrderGameState extends State<OrderGame> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: adjustValue(context, 60.0),
-                  height: adjustValue(context, 60.0),
+                  width: adjustWidthValue(context, 60.0),
+                  height: adjustWidthValue(context, 60.0),
                   child: SvgPicture.asset(Assets.pufferFish),
                 ),
 
@@ -85,8 +87,8 @@ class _OrderGameState extends State<OrderGame> {
                     {
                       if (choices[element] == true){ 
                         return Container(
-                          width: adjustValue(context, 60.0),
-                          height: adjustValue(context, 60.0),
+                          width: adjustWidthValue(context, 60.0),
+                          height: adjustWidthValue(context, 60.0),
                           margin: EdgeInsets.all(adjustValue(context, 1.0)),
                           decoration: BoxDecoration(
                             color: AppColors.primaryDark,  
@@ -110,8 +112,8 @@ class _OrderGameState extends State<OrderGame> {
                       }
                       else{
                         return Container(
-                          width: adjustValue(context, 60.0),
-                          height: adjustValue(context, 60.0),
+                          width: adjustWidthValue(context, 60.0),
+                          height: adjustWidthValue(context, 60.0),
                           margin: EdgeInsets.all(adjustValue(context, 1.0)),
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
@@ -124,15 +126,32 @@ class _OrderGameState extends State<OrderGame> {
                       }
                     },
                     onWillAccept: (data){
-                      return data == element;
+                      return data == element && element == choices.keys.toList()[current];
+                    },
+                    onLeave: (data) {
+                      if (!(data == element && element == choices[current])) {
+                        assetsAudioPlayer.open(
+                          Audio(Audios.wrongBuzzer),
+                        );
+                      }
                     },
                     onAccept: (data) {
                       assetsAudioPlayer.open(
-                        Audio(Audios.trueAns),
+                        Audio(Audios.correctBuzzer),
                       );
                       setState(() {
                         choices[element] = true;
-                      }); 
+                      });
+                      current++;
+
+                      if (element == choices.keys.last) {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return showsuccessDialog(context);
+                          },
+                        );
+                      }
                     }
                     
                   );
@@ -147,8 +166,8 @@ class _OrderGameState extends State<OrderGame> {
               children: choices.keys.map((element) {
                 return Draggable<String>(
                   child: choices[element] == true ? Container() : Container(
-                    width: adjustValue(context, 60.0),
-                    height: adjustValue(context, 60.0),
+                    width: adjustWidthValue(context, 60.0),
+                    height: adjustWidthValue(context, 60.0),
                     decoration: BoxDecoration(
                       color: AppColors.secondary,  
                       shape: BoxShape.circle,

@@ -186,7 +186,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
 Future<void> loginAndSetup(String email, String password) async {
   String token = await login_api(email, password);
-  await prefs.setString('token', token);
+  prefs.setString('token', token);
+
+  prefs.setString("email", email);
 
   List<Profile> profiles = await get_profiles_api(token);
   profiles.forEach((profile) async {
@@ -211,8 +213,8 @@ Future<void> loginAndSetup(String email, String password) async {
       await database.insertUnit(unit);
 
       List<Lesson> lessons = await lessons_api(token, unit.id);
-      lessons.forEach((lesson) async {
-        await database.insertLesson(lesson);
+      lessons.forEach((lesson) {
+        database.insertLesson(lesson);
       });
     });
   });

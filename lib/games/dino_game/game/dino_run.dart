@@ -15,6 +15,9 @@ import 'package:najme/games/dino_game/widgets/hud.dart';
 import 'package:najme/games/dino_game/widgets/pause_menu.dart';
 import 'package:najme/games/dino_game/game/hive.dart';
 
+
+bool first_time = true;
+
 // This is the main flame game class.
 class DinoRun extends FlameGame with TapDetector, HasCollisionDetection {
   // List of all the image assets.
@@ -52,7 +55,10 @@ class DinoRun extends FlameGame with TapDetector, HasCollisionDetection {
   // This method get called while flame is preparing this game.
   @override
   Future<void> onLoad() async {
-    await initHive();
+    if (first_time) {
+      await initHive();
+      first_time = false;
+    }
 
     /// Read [PlayerData] and [Settings] from hive.
     playerData = await _readPlayerData();

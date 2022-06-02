@@ -6,6 +6,7 @@ import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/data.dart';
 import 'package:najme/screens/drawer/personal_profile.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/components/general/form_text_box.dart';
@@ -20,7 +21,7 @@ class PersonalAccountUpdates extends StatefulWidget {
 class _PersonalAccountUpdatesState extends State<PersonalAccountUpdates>  with SingleTickerProviderStateMixin{
 
   final GlobalKey<FormState> formkey = GlobalKey<FormState>();
-  var emailController = TextEditingController();
+  var emailController = TextEditingController(text: email);
 
   final oldController = TextEditingController();
   final newController = TextEditingController();
@@ -90,6 +91,7 @@ late AnimationController controller ;
                           text: "البريد الإلكتروني",
                           controllerKind: emailController,
                           type: TextInputType.emailAddress,
+                          disabled: true,
                           valid: (value) {
                             if (!validateEmail(value)) {
                               return "من فضلك ادخل بريد إلكتروني صحيح!";
@@ -282,7 +284,6 @@ late AnimationController controller ;
               onTap: (){
                 Navigator.pop(
                     context,
-                    // false
                 );
               },
             ),

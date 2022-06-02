@@ -4,7 +4,7 @@ import 'package:sqflite/sqflite.dart';
 import 'models.dart';
 
 class NajmeDatabase {
-  dynamic database;
+  late Database database;
 
   Future<void> open() async {
     database = await openDatabase(

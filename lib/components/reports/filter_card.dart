@@ -33,7 +33,7 @@ class FilterCard extends Container{
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: adjustValue(context, 16),
+                  fontSize: adjustWidthValue(context, 16),
                   fontFamily: 'Cairo',
                   fontWeight: FontWeight.w600,
 

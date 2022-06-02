@@ -189,7 +189,7 @@ class _ChoosingThemeState extends State<ChoosingTheme> {
                         margin: EdgeInsets.all(adjustValue(context, 3.0)),
                         decoration: BoxDecoration(
                           color: answer == 2
-                              ? AppColors.primary
+                              ? Colors.red.shade200
                               : AppColors.surface,
                           shape: BoxShape.circle,
                           boxShadow: [
@@ -239,6 +239,9 @@ class _ChoosingThemeState extends State<ChoosingTheme> {
                     ],
                   ),
                   onTap: () {
+                    assetsAudioPlayer.open(
+                      Audio(Audios.wrongBuzzer),
+                    );
                     setState(() {
                       answer = 2;
                     });

@@ -10,12 +10,11 @@ import 'package:najme/games/dino_game/widgets/pause_menu.dart';
 import 'package:najme/games/dino_game/widgets/settings_menu.dart';
 import 'package:flame/game.dart';
 
-/// This is the single instance of [DinoRun] which
-/// will be reused throughout the lifecycle of the game.
-DinoRun _dinoRun = DinoRun();
 
 class DinoRunApp extends StatelessWidget {
-  const DinoRunApp({Key? key}) : super(key: key);
+  DinoRunApp({Key? key}) : super(key: key);
+
+  final DinoRun _dinoRun = DinoRun();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class DinoRunApp extends StatelessWidget {
     ]);
 
     return WillPopScope(
-      onWillPop: ()async{
+      onWillPop: () async{
         SystemChrome.setPreferredOrientations([
           DeviceOrientation.portraitUp,
         ]);
@@ -32,7 +31,6 @@ class DinoRunApp extends StatelessWidget {
       },
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Dino Run',
         theme: ThemeData(
           fontFamily: 'Audiowide',
           primarySwatch: Colors.blue,

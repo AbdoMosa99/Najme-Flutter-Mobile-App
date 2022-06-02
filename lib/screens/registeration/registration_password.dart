@@ -151,12 +151,8 @@ class _RegistrationPasswordState extends State<RegistrationPassword> {
                 print(passController.text);
                 try{
                   String token = await register_password_api(widget.email, passController.text);
-
-                  prefs = await SharedPreferences.getInstance();
-                  await prefs.setString('token', token);
-                  await prefs.setString('email', widget.email);
-
-                  print("The token is: $token");
+                  prefs.setString('token', token);
+                  prefs.setString('email', widget.email);
                 }
                 catch(e){
                   print(e);

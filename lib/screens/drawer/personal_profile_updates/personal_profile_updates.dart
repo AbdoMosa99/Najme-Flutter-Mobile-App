@@ -41,17 +41,14 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates>
   void initState() {
     super.initState();
     animationController = AnimationController(
-      duration: Duration(seconds: 4),
+      duration: Duration(seconds: 2),
       vsync: this,
     );
     animationController.addStatusListener((status) async {
       if (status == AnimationStatus.completed) {
         Navigator.pop(context);
         animationController.reset();
-        Navigator.push(
-          context,
-          InOutPageRoute(const PersonalProfile(), Alignment.bottomCenter),
-        );
+        Navigator.pop(context);
       }
     });
   }
@@ -215,7 +212,7 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates>
                             context: context,
                             text: 'حفظ التعديلات',
                             color: AppColors.primary,
-                            onTap: () async {
+                            onTap: () {
                               profile.birthdate = DateTime.utc(
                                 yearsList[0] - yearCurrentItemIndex,
                                 monthCurrentItemIndex + 1,
@@ -228,7 +225,6 @@ class _PersonalProfileUpdatesState extends State<PersonalProfileUpdates>
                               profile.gender = gendersList[gender!.index];
                               profile.level = levelsList[levelCurrentItemIndex];
                               profile.name = nameController.text;
-                              print(profile);
 
                               // TODO: Call API Here.
                               database.updateProfile(profile);

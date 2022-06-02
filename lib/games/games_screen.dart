@@ -9,7 +9,6 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/games/biology/game.dart';
-import 'package:najme/games/dino_game/game/dino_run_app.dart';
 import 'package:najme/games/space/game.dart';
 import 'package:najme/utility.dart';
 
@@ -18,9 +17,6 @@ class GamesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setPreferredOrientations([
-    //   DeviceOrientation.portraitUp,
-    // ]);
     final spaceGame = SpaceGame();
     final biology = BiologyGame();
     return MainContainer(

@@ -55,7 +55,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => startTimer());
+    WidgetsBinding.instance?.addPostFrameCallback((_) => startTimer());
   }
 
   @override
