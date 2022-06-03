@@ -19,6 +19,7 @@ class ListeningTheme extends StatefulWidget {
 class _ListeningThemeState extends State<ListeningTheme> {
   int answer = 0;
   bool playAudio = true;
+  bool finish = false;
   bool success = true;
   final assetsAudioPlayer = AssetsAudioPlayer();
 
@@ -42,7 +43,7 @@ class _ListeningThemeState extends State<ListeningTheme> {
             children: [
               Expanded(child: SvgPicture.asset(Assets.ele)),
               Expanded(
-                child: Text('أستمع وأختر',
+                child: Text('استمع واختر',
                     maxLines: 1,
                     style: TextStyle(
                       fontSize: adjustValue(context, 27.0),
@@ -58,6 +59,9 @@ class _ListeningThemeState extends State<ListeningTheme> {
               child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              SvgPicture.asset(
+                Assets.listening_arrow,
+              ),
               Expanded(
                 child: InkWell(
                   child: Stack(
@@ -75,38 +79,17 @@ class _ListeningThemeState extends State<ListeningTheme> {
                   ),
                   onTap: () {
                     assetsAudioPlayer.open(
-                      Audio(Audios.clap),
+                      Audio(Audios.frasha),
+                      autoStart: playAudio,
                     );
-                    assetsAudioPlayer.playOrPause();
                     setState(() {
                       playAudio = !playAudio;
                     });
                   },
                 ),
               ),
-              Expanded(
-                child: InkWell(
-                  child: Stack(
-                    alignment: AlignmentDirectional.center,
-                    children: [
-                      SvgPicture.asset(Assets.circular,
-                          height: adjustValue(context, 100.0)),
-                      SvgPicture.asset(
-                        Assets.snail,
-                        height: adjustValue(context, 50.0),
-                      )
-                    ],
-                  ),
-                  onTap: () {
-                    assetsAudioPlayer.open(
-                      Audio(Audios.clap),
-                    );
-
-                    setState(() {
-                      //player.setPlaybackRate(0.5);
-                    });
-                  },
-                ),
+              SvgPicture.asset(
+                Assets.listening_arrow2,
               ),
             ],
           )),
@@ -120,10 +103,10 @@ class _ListeningThemeState extends State<ListeningTheme> {
                     alignment: AlignmentDirectional.center,
                     children: [
                       Container(
-                        margin: EdgeInsets.all(adjustValue(context, 10.0)),
+                        margin: EdgeInsets.all(adjustValue(context, 5.0)),
                         decoration: BoxDecoration(
                           color: answer == 1
-                              ? AppColors.primary
+                              ? Colors.red.shade200
                               : AppColors.surface,
                           shape: BoxShape.circle,
                           boxShadow: [
@@ -136,38 +119,20 @@ class _ListeningThemeState extends State<ListeningTheme> {
                           ],
                         ),
                       ),
-                      Text(
-                        'أ',
-                        style: TextStyle(
-                          color:
-                              answer == 1 ? AppColors.white : AppColors.primary,
-                          fontSize: adjustValue(context, 56),
-                          fontFamily: 'Cairo',
-                          fontWeight: FontWeight.w600,
-                        ),
+                      SvgPicture.asset(
+                        Assets.panda,
+                        height: adjustValue(context, 90.0),
                       ),
                     ],
                   ),
                   onTap: () {
                     assetsAudioPlayer.open(
-                      Audio(Audios.clap),
+                      Audio(Audios.wrongBuzzer),
                     );
                     setState(() {
                       answer = 1;
                     });
                   },
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.all(adjustValue(context, 8.0)),
-                child: Text(
-                  'أم',
-                  style: TextStyle(
-                    fontSize: adjustValue(context, 25.0),
-                    fontFamily: 'Cairo',
-                    // fontWeight: FontWeight.w600,
-                    color: Colors.black,
-                  ),
                 ),
               ),
               Expanded(
@@ -176,7 +141,7 @@ class _ListeningThemeState extends State<ListeningTheme> {
                     alignment: AlignmentDirectional.center,
                     children: [
                       Container(
-                        margin: EdgeInsets.all(adjustValue(context, 10.0)),
+                        margin: EdgeInsets.all(adjustValue(context, 5.0)),
                         decoration: BoxDecoration(
                           color: answer == 2
                               ? AppColors.primary
@@ -192,31 +157,25 @@ class _ListeningThemeState extends State<ListeningTheme> {
                           ],
                         ),
                       ),
-                      Text(
-                        'ب',
-                        style: TextStyle(
-                          color:
-                              answer == 2 ? AppColors.white : AppColors.primary,
-                          fontSize: adjustValue(context, 56),
-                          fontFamily: 'Cairo',
-                          fontWeight: FontWeight.w600,
-                        ),
+                      SvgPicture.asset(
+                        Assets.butterfly,
+                        height: adjustValue(context, 90.0),
                       ),
                     ],
                   ),
                   onTap: () {
+                    assetsAudioPlayer.open(
+                      Audio(Audios.trueAns),
+                    );
+                    setState(() {
+                      answer = 2;
+                    });
                     showDialog(
                       context: context,
                       builder: (context) {
                         return showsuccessDialog(context);
                       },
                     );
-                    // assetsAudioPlayer.open(
-                    //   Audio(Audios.clap),
-                    // );
-                    setState(() {
-                      answer = 2;
-                    });
                   },
                 ),
               ),
