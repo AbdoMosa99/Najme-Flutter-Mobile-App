@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:najme/components/animation/from_in_to_out.dart';
+import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/screen_background.dart';
 import 'package:najme/components/reports/divider.dart';
 import 'package:najme/components/reports/graph.dart';
@@ -8,6 +10,8 @@ import 'package:najme/components/screen_specific/personal_profile_updates/popUpM
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/data.dart';
+import 'package:najme/screens/main/home_screen.dart';
+import 'package:najme/screens/parents_followUp/advice/advice_screen.dart';
 import 'package:najme/screens/parents_followUp/report/filter_dialog.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/components/reports/filter_card.dart';
@@ -153,7 +157,10 @@ class _ReportState extends State<Report> with SingleTickerProviderStateMixin {
               floatingActionButton: FloatingLogoButton(
                   context: context,
                   onPressed: () {
-                    print('object');
+                    Navigator.pushReplacement(
+                      context,
+                      InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
+                    );
                   }),
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerDocked,
@@ -162,6 +169,10 @@ class _ReportState extends State<Report> with SingleTickerProviderStateMixin {
                 iconList: iconList,
                 onTap: (index) {
                   if (index == 0) {
+                    Navigator.push(
+                      context,
+                      LeftRightPageRoute(AdviceScreen(), 1, 1)
+                    );
                   } else {
                     return FilterDialog1(
                         context: context,

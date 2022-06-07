@@ -39,3 +39,10 @@ int calculateDate(DateTime date) {
   return age;
 }
 
+
+Size textSize(String text, TextStyle style) {
+  final TextPainter textPainter = TextPainter(
+      text: TextSpan(text: text, style: style), textDirection: TextDirection.rtl)
+    ..layout(minWidth: 0, maxWidth: double.infinity);
+  return textPainter.size;
+}
