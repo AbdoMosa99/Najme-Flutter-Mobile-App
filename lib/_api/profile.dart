@@ -38,15 +38,50 @@ Future<List<Subject>> subjects_api(String token, int profileID) async {
 Future<List<Unit>> units_api(String token, int subjectID) async {
   List<Unit> units = [];
   for (int i = 1; i <= 15; i++) {
-    units.add(
-      Unit(
-        id: 15 * subjectID + i,
-        number: i,
-        name: "الوحدة $i",
-        icon: "assets/icons/two.svg",
-        subjectID: subjectID,
-      ),
-    );
+    if(subjectID == 1){
+      units.add(
+        Unit(
+          id: 15 * subjectID + i,
+          number: i,
+          name: "الوحدة $i",
+          icon: "assets/icons/noon.svg",
+          subjectID: subjectID,
+        ),
+      );
+    }
+    if (subjectID == 2) {
+      units.add(
+        Unit(
+          id: 15 * subjectID + i,
+          number: i,
+          name: "الوحدة $i",
+          icon: "assets/icons/two.svg",
+          subjectID: subjectID,
+        ),
+      );
+    }
+    if (subjectID == 3) {
+      units.add(
+        Unit(
+          id: 15 * subjectID + i,
+          number: i,
+          name: "الوحدة $i",
+          icon: "assets/icons/aa.svg",
+          subjectID: subjectID,
+        ),
+      );
+    }
+    if (subjectID == 4) {
+      units.add(
+        Unit(
+          id: 15 * subjectID + i,
+          number: i,
+          name: "الوحدة $i",
+          icon: "assets/icons/butterfly-units.svg",
+          subjectID: subjectID,
+        ),
+      );
+    }
   }
   return units;
 }

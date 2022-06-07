@@ -76,6 +76,7 @@ class HomeScreen extends StatelessWidget {
                     child: MainCard(
                       context: context,
                       onTap: () {
+                        print('2');
                         print(progresses);
                         print(subjects);
                         Navigator.push(
@@ -129,7 +130,6 @@ class HomeScreen extends StatelessWidget {
                     child: MainCard(
                       context: context,
                       onTap: () {
-                        
                         Navigator.push(
                           context,
                           InOutPageRoute(
