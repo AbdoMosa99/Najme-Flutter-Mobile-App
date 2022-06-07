@@ -92,6 +92,12 @@ class Assets {
   static const String chemistry = "assets/icons/chemistry.svg";
   static const String biology = "assets/icons/Biology.svg";
   static const String astronomy = "assets/icons/astronomy.svg";
+  static const String listening_arrow = "assets/icons/listening_arrow.svg";
+  static const String listening_arrow2 = "assets/icons/listening_arrow2.svg";
+  static const String panda = "assets/icons/panda.svg";
+  static const String parrot = "assets/icons/parrot.svg";
+  static const String butterfly = "assets/icons/butterfly.svg";
+  
 
 
 
