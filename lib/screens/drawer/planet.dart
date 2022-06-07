@@ -26,11 +26,11 @@ class PlanetScreen extends StatelessWidget {
                         children: [
                           SvgPicture.asset(
                             Assets.rateStar,
-                            height: adjustValue(context, 30.0),
+                            height: adjustValue(context, 20.0),
                           ),
                           SvgPicture.asset(
                             Assets.rateStar,
-                            height: adjustValue(context, 50.0),
+                            height: adjustValue(context, 40.0),
                           ),
                           SvgPicture.asset(
                             Assets.rateStar,
@@ -52,17 +52,133 @@ class PlanetScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(
+                            Assets.rateStar,
+                            height: adjustValue(context, 20.0),
+                          ),
+                          SvgPicture.asset(
+                            Assets.rateStar,
+                            height: adjustValue(context, 35.0),
+                          ),
+                          SvgPicture.asset(
+                            Assets.rateStar,
+                            height: adjustValue(context, 20.0),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset(
+                            Assets.rateStar,
+                            height: adjustValue(context, 30.0),
+                          ),
+                          SvgPicture.asset(
+                            Assets.rateStar,
+                            height: adjustValue(context, 28.0),
+                          ),
+                        ],
+                      ),
                       SizedBox(
-                        height: adjustValue(context, 40.0),
+                        height: adjustValue(context, 20.0),
                       ),
                       Center(
-                        child: SvgPicture.asset(
+                        child: Image.asset(
                           Assets.planet,
+                          height: adjustHeightValue(context, 350),
                         ),
                       ),
                     ],
                   ),
-                  PBackButton(context: context, color: AppColors.secondary,),
+                  Column(
+                    children: [
+                      PBackButton(
+                        context: context,
+                        color: AppColors.secondary,
+                      ),
+                      Spacer(),
+                      InkWell(
+                        onTap: (){},
+                        child: Row(
+                          children: [
+                            Image.asset(Assets.small_store,
+                                height: adjustHeightValue(context, 60)),
+                            Column(
+                              children: [
+                                Text(
+                                  'جزيرة',
+                                  style: TextStyle(
+                                    fontSize: adjustValue(context, 10.0),
+                                    fontFamily: 'Cairo',
+                                    color: AppColors.white,
+                                    fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                                Text(
+                                  'المتاجر',
+                                  style: TextStyle(
+                                    fontSize: adjustValue(context, 10.0),
+                                      fontFamily: 'Cairo',
+                                      color: AppColors.white,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                                                            
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            onTap: (){},
+                            child: Row(
+                              children: [
+                                SvgPicture.asset(Assets.stars_box),
+                                Column(
+                                  children: [
+                                    Text(
+                                      'صندوق',
+                                      style: TextStyle(
+                                          fontSize: adjustValue(context, 10.0),
+                                          fontFamily: 'Cairo',
+                                          color: AppColors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text(
+                                      'النجوم',
+                                      style: TextStyle(
+                                          fontSize: adjustValue(context, 10.0),
+                                          fontFamily: 'Cairo',
+                                          color: AppColors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                )
+                        
+                              ],
+                            ),
+                          ),
+                          SvgPicture.asset(
+                            Assets.next,
+                            height: adjustHeightValue(context, 15),
+                          ),
+                          InkWell(
+                            onTap: (){},
+                            child: Image.asset(Assets.saving,
+                                height: adjustHeightValue(context, 60)),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ],
               ),
             )));

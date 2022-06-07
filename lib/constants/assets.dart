@@ -85,7 +85,7 @@ class Assets {
   static const String sounds = "assets/icons/sound.svg";
   static const String plusSign = "assets/icons/plusSign.svg";
   static const String cart = "assets/icons/cart1.svg";
-  static const String planet = "assets/icons/planet.svg";
+  static const String planet = "assets/icons/Planet.png";
   static const String store = "assets/icons/store2.png";
   static const String games = "assets/icons/games.svg";
   static const String physics = "assets/icons/physics.svg";
@@ -97,7 +97,10 @@ class Assets {
   static const String panda = "assets/icons/panda.svg";
   static const String parrot = "assets/icons/parrot.svg";
   static const String butterfly = "assets/icons/butterfly.svg";
-  
+  static const String saving = "assets/icons/saving.png";
+  static const String small_store = "assets/icons/small_store.png";
+  static const String stars_box = "assets/icons/stars_box.svg";
+  static const String next = "assets/icons/next.svg";
 
 
 
