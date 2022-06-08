@@ -20,6 +20,7 @@ class MessageBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextStyle textStyle = TextStyle(
       fontSize: adjustValue(context, 20.0),
+      fontFamily: 'Cairo',
       color: selfMode? Colors.white : AppColors.primaryDark,
     );
     final size = textSize(text, textStyle);

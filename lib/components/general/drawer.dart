@@ -37,9 +37,15 @@ class MainDrawer extends Drawer {
                     ),
                     child: Row(
                       children: [
+                        profile.gender == 'ولد'?
                         Expanded(
                             child: SvgPicture.asset(
                           Assets.male,
+                          width: adjustValue(context, 80.0),
+                        )):
+                        Expanded(
+                            child: SvgPicture.asset(
+                          Assets.female,
                           width: adjustValue(context, 80.0),
                         )),
                         Expanded(

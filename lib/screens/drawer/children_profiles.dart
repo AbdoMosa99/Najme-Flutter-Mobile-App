@@ -116,7 +116,7 @@ List<Widget> buildList(
                     color: Colors.blueGrey.withOpacity(0.5),
                     spreadRadius: 2,
                     blurRadius: 2,
-                    offset: const Offset(0, 3), // changes position of shadow
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
@@ -139,10 +139,15 @@ List<Widget> buildList(
                               ),
                             ),
                           ),
+                          profiles[i].gender == 'ولد'?
                           SvgPicture.asset(
                             Assets.male,
                             height: adjustValue(context, 45.0),
-                          ),
+                          ):
+                          SvgPicture.asset(
+                            Assets.female,
+                            height: adjustValue(context, 45.0),
+                          )
                         ],
                       )),
                   Text(

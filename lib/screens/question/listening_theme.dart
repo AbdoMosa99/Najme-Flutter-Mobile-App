@@ -43,10 +43,11 @@ class _ListeningThemeState extends State<ListeningTheme> {
             children: [
               Expanded(child: SvgPicture.asset(Assets.ele)),
               Expanded(
-                child: Text('استمع واختر',
-                    maxLines: 1,
+                child: Text(
+                  'استمع واختر',
+                    maxLines: 2,
                     style: TextStyle(
-                      fontSize: adjustValue(context, 27.0),
+                      fontSize: adjustValue(context, 25.0),
                       fontFamily: 'Cairo',
                       letterSpacing: 0,
                       fontWeight: FontWeight.w900,
@@ -77,11 +78,15 @@ class _ListeningThemeState extends State<ListeningTheme> {
                       )
                     ],
                   ),
-                  onTap: () {
+                  onTap: () async{
                     assetsAudioPlayer.open(
-                      Audio(Audios.frasha),
+                      Audio(Audios.frasha,),
                       autoStart: playAudio,
                     );
+                    setState(()  {
+                      playAudio = !playAudio;
+                    });
+                    await Future.delayed(Duration(milliseconds: 1500));
                     setState(() {
                       playAudio = !playAudio;
                     });
@@ -134,6 +139,9 @@ class _ListeningThemeState extends State<ListeningTheme> {
                     });
                   },
                 ),
+              ),
+              SizedBox(
+                width: adjustWidthValue(context, 10),
               ),
               Expanded(
                 child: InkWell(

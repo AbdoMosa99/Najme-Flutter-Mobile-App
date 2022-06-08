@@ -17,6 +17,7 @@ class QuestionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextStyle textStyle = TextStyle(
+      fontFamily: 'Cairo',
       fontSize: adjustValue(context, 20.0),
       color: AppColors.primaryDark,
     );
