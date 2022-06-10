@@ -1,4 +1,3 @@
-import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
@@ -9,6 +8,7 @@ import 'package:najme/components/general/main_container.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/games/biology/game.dart';
+import 'package:najme/games/najme_game_widget.dart';
 import 'package:najme/games/space/game.dart';
 import 'package:najme/utility.dart';
 
@@ -17,8 +17,6 @@ class GamesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final spaceGame = SpaceGame();
-    final biology = BiologyGame();
     return MainContainer(
       appBar: MainAppBar(
         context: context,
@@ -63,8 +61,13 @@ class GamesScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        InOutPageRoute(GameWidget( game: spaceGame,),
-                            Alignment.bottomCenter),
+                        InOutPageRoute(
+                          NajmeGameWidget(
+                             game: SpaceGame(),
+                             backButtonAlignment: Alignment(-0.96, -0.99),
+                          ),
+                          Alignment.bottomCenter
+                        ),
                       );
                     },
                     image: SvgPicture.asset(Assets.astronomy),
@@ -87,8 +90,13 @@ class GamesScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        InOutPageRoute(GameWidget( game: biology,),
-                            Alignment.bottomCenter),
+                        InOutPageRoute(
+                          NajmeGameWidget(
+                             game: BiologyGame(),
+                             backButtonAlignment: Alignment(-0.96, -0.40),
+                          ),
+                          Alignment.bottomCenter
+                        ),
                       );
                     },
                     image: SvgPicture.asset(Assets.biology),
