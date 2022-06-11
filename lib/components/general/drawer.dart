@@ -101,7 +101,7 @@ class MainDrawer extends Drawer {
                 ),
                 ListTile(
                   title: Text(
-                    'حديقتي',
+                    'كوكبي',
                     style: TextStyle(
                       color: AppColors.surface,
                       fontFamily: 'Cairo',
@@ -109,8 +109,8 @@ class MainDrawer extends Drawer {
                     ),
                   ),
                   leading: SvgPicture.asset(
-                    Assets.plant,
-                    color: AppColors.secondary,
+                    Assets.drawer_planet,
+                    // color: AppColors.secondary,
                     width: adjustValue(context, 40.0),
                   ),
                   onTap: () {
@@ -122,7 +122,7 @@ class MainDrawer extends Drawer {
                 ),
                 ListTile(
                   title: Text(
-                    'المتجر',
+                    'جزيرة المتاجر',
                     style: TextStyle(
                       color: AppColors.surface,
                       fontFamily: 'Cairo',
