@@ -59,10 +59,14 @@ class PersonalProfile extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
+                        profile.gender == 'ولد' ?
                         SvgPicture.asset(
                           Assets.male,
                           height: adjustValue(context, 80.0),
-                        ),
+                        ):SvgPicture.asset(
+                          Assets.female,
+                          height: adjustValue(context, 80.0),
+                        )
                       ],
                     ),
                   ],

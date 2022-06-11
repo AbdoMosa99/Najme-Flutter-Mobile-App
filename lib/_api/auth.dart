@@ -53,8 +53,8 @@ Future<List<Profile>> get_profiles_api(String token) async {
       gender: 'بنت', 
       birthdate: DateTime.utc(2010, 3, 15), 
       level: 'KG 2', 
-      city: 'Suez', 
-      ambition: 'Engineer'
+      city: 'السويس',
+      ambition: 'مهندسة'
     )
   ];
 }

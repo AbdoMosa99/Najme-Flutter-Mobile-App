@@ -69,10 +69,14 @@ class ParentsFollowUpBar extends AppBar {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
+                            profile.gender == 'ولد' ?
                             SvgPicture.asset(
                               Assets.male,
                               height: adjustValue(context, 50.0),
-                            ),
+                            ):SvgPicture.asset(
+                              Assets.female,
+                              height: adjustValue(context, 50.0),
+                            )
                           ],
                         ),
                       ],
