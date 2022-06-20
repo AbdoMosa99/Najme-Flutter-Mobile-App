@@ -142,11 +142,6 @@ class Card extends SpriteComponent with Tappable, HasGameRef<SpaceGame> {
 
         //increase the next value to know the next planet
         gameRef.slider.next += 1;
-
-        //when chose the final planet
-        if(gameRef.slider.next == 8){
-          //add code run when finish the game
-        }
       }
       else{
         //show the wrong circle

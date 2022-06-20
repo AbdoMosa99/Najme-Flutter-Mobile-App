@@ -63,7 +63,7 @@ class GamesScreen extends StatelessWidget {
                         context,
                         InOutPageRoute(
                           NajmeGameWidget(
-                             game: SpaceGame(),
+                             game: SpaceGame(context),
                              backButtonAlignment: Alignment(-0.96, -0.99),
                           ),
                           Alignment.bottomCenter
@@ -92,7 +92,7 @@ class GamesScreen extends StatelessWidget {
                         context,
                         InOutPageRoute(
                           NajmeGameWidget(
-                             game: BiologyGame(),
+                             game: BiologyGame(context),
                              backButtonAlignment: Alignment(-0.96, -0.40),
                           ),
                           Alignment.bottomCenter

@@ -1,10 +1,18 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 import 'package:najme/games/space/slider.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:najme/constants/audios.dart';
+import 'package:najme/dialogs/success_dialog.dart';
+import 'package:flutter/material.dart' hide Slider;
 
 class SpaceGame extends FlameGame with HasDraggables, HasTappables {
 
   late Slider slider;
+  bool playing = true;
+  final BuildContext context;
+
+  SpaceGame(this.context) : super();
 
   @override
   Future<void>? onLoad() async {
@@ -30,5 +38,23 @@ class SpaceGame extends FlameGame with HasDraggables, HasTappables {
       Vector2(0,size.y - 150)
     );
     add(slider);
+  }
+
+  @override 
+  void update(double dt) {
+    super.update(dt);
+    if (playing && slider.next == 9) {
+      final assetsAudioPlayer = AssetsAudioPlayer();
+      assetsAudioPlayer.open(
+        Audio(Audios.correctBuzzer),
+      );
+      showDialog(
+        context: context,
+        builder: (context) {
+          return showsuccessDialog(context);
+        },
+      );
+      playing = false;
+    }
   }
 }

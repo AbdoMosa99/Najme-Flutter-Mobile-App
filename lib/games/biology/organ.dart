@@ -78,6 +78,7 @@ class Organ extends SpriteComponent with Draggable, CollisionCallbacks, HasGameR
     if (draggable) {
       if (valid) {
         position = place.position;
+        gameRef.count += 1;
         draggable = false;
       }
       else {

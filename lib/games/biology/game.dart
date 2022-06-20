@@ -3,11 +3,24 @@ import 'package:flame/game.dart';
 import 'package:najme/games/biology/organ.dart';
 import 'package:najme/games/biology/organ_position.dart';
 import 'package:najme/games/biology/organs_data.dart';
+import 'package:assets_audio_player/assets_audio_player.dart';
+import 'package:najme/constants/audios.dart';
+import 'package:najme/dialogs/success_dialog.dart';
+import 'package:flutter/material.dart';
+
+
+
 
 
 class BiologyGame extends FlameGame with HasDraggables, HasCollisionDetection {
   late TextComponent text;
-  String defaltText = 'ضع أعضاء الإنسان في مكانها الصحيح';
+  final String defaltText = 'ضع أعضاء الإنسان في مكانها الصحيح';
+  int count = 0;
+  final BuildContext context;
+  bool playing = true;
+
+  BiologyGame(this.context) : super();
+
 
   @override
   Future<void>? onLoad() async {
@@ -39,5 +52,23 @@ class BiologyGame extends FlameGame with HasDraggables, HasCollisionDetection {
       add(organPos);
       add(organ);
     });
+  }
+
+  @override 
+  void update(double dt) {
+    super.update(dt);
+    if (playing && count == organsData.length) {
+      final assetsAudioPlayer = AssetsAudioPlayer();
+      assetsAudioPlayer.open(
+        Audio(Audios.correctBuzzer),
+      );
+      showDialog(
+        context: context,
+        builder: (context) {
+          return showsuccessDialog(context);
+        },
+      );
+      playing = false;
+    }
   }
 }
