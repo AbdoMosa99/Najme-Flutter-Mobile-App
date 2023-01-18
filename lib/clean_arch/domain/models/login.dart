@@ -1,17 +1,15 @@
 class Customer {
   String id;
   String name;
-  int numOfNotifications;
 
-  Customer(this.id, this.name, this.numOfNotifications);
+  Customer(this.id, this.name);
 }
 
 class Contacts {
   String phone;
   String email;
-  String link;
 
-  Contacts(this.phone, this.email, this.link);
+  Contacts(this.phone, this.email);
 }
 
 class Authentication {
