@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:najme/clean_arch/app/constant.dart';
-import 'package:najme/clean_arch/data/response/login/login.dart';
+import 'package:najme/clean_arch/data/response/login/login_response.dart';
 import 'package:retrofit/http.dart';
 
 part 'app_api.g.dart';

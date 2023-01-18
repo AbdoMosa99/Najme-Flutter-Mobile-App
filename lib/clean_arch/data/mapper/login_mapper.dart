@@ -1,6 +1,6 @@
 import 'package:najme/clean_arch/app/constant.dart';
-import 'package:najme/clean_arch/data/response/login/login.dart';
-import 'package:najme/clean_arch/domain/models/login.dart';
+import 'package:najme/clean_arch/data/response/login/login_response.dart';
+import 'package:najme/clean_arch/domain/models/login_model.dart';
 import 'package:najme/clean_arch/app/extensions.dart';
 
 // To make sure that models will not be null
