@@ -3,13 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
 import 'package:najme/components/general/main_container.dart';
 import 'package:najme/components/general/form_text_box.dart';
+import 'package:najme/components/screen_specific/registration/registration_topLayer.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/database/models.dart';
 import 'package:najme/screens/registeration/registeration_gender.dart';
 import 'package:najme/utility.dart';
 
-import '../../components/screen_specific/registration/registration_topLayer.dart';
-import '../../database/models.dart';
 
 class RegistrationName extends StatelessWidget {
   RegistrationName({

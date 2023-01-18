@@ -15,6 +15,9 @@ class NajmeApp extends StatelessWidget {
     ]);
 
     return MaterialApp(
+      // theme: getAppTheme(),
+      // onGenerateRoute: RouteGenerator.getRoute,
+      // initialRoute: RoutesManager.splashRoute,
       home: FutureBuilder(
         future: init(),
         builder: (BuildContext context, AsyncSnapshot<void> snapshot) {

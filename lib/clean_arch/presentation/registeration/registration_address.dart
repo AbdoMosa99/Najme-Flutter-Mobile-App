@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:najme/components/animation/two_d_direction.dart';
+import 'package:najme/components/general/error_message.dart';
 import 'package:najme/components/general/main_container.dart';
+import 'package:najme/components/screen_specific/registration/registration_topLayer.dart';
 import 'package:najme/components/screen_specific/registration_address/address_button.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/database/models.dart';
 import 'package:najme/screens/registeration/registration_job.dart';
+import 'package:najme/utility.dart';
 
-import '../../components/general/error_message.dart';
-import '../../components/screen_specific/registration/registration_topLayer.dart';
-import '../../utility.dart';
 
 class RegistrationAddress extends StatefulWidget {
   RegistrationAddress({

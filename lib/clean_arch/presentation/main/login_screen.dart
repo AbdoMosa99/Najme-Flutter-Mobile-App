@@ -4,13 +4,13 @@ import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/components/general/form_text_box.dart';
 import 'package:najme/components/general/main_button.dart';
 import 'package:najme/components/general/main_container.dart';
+import 'package:najme/components/general/show_loader_dialog.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
+import 'package:najme/data.dart';
 import 'package:najme/database/models.dart';
 import 'package:najme/screens/forget_password/forget_password.dart';
 import 'package:najme/screens/registeration/registeration_email.dart';
-import '../../components/general/show_loader_dialog.dart';
-import '../../data.dart';
 import 'home_screen.dart';
 import 'package:najme/utility.dart';
 
