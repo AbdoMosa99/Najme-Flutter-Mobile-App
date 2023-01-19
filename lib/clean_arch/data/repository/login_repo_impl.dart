@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:najme/clean_arch/data/data_source/remote_data_source.dart';
 import 'package:najme/clean_arch/data/mapper/login_mapper.dart';
+import 'package:najme/clean_arch/data/network/error_handler.dart';
 import 'package:najme/clean_arch/data/network/failure.dart';
 import 'package:najme/clean_arch/data/network/network_info.dart';
 import 'package:najme/clean_arch/data/network/requests/login_request.dart';
@@ -21,7 +22,7 @@ class LoginRepositoryImpl implements Repository {
       try {
         final response = await _remoteDataSource.login(loginRequest);
 
-        if (response.status == ApiInternalStatus.SUCCESS) {
+        if (response.status == APIInternalStatus.SUCCESS) {
           // success
           // return either right
           // return data
@@ -29,7 +30,7 @@ class LoginRepositoryImpl implements Repository {
         } else {
           // failure --return business error
           // return either left
-          return Left(Failure(ApiInternalStatus.FAILURE,
+          return Left(Failure(APIInternalStatus.FAILURE,
               response.message ?? ResponseMessage.DEFAULT));
         }
       } catch (error) {
