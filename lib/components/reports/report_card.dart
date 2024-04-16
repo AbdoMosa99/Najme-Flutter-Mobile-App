@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
+// import 'package:liquid_progress_indicator/liquid_progress_indicator.dart';
 import 'package:najme/constants/colors.dart';
 import '../../utility.dart';
 import 'dart:math' as math;
@@ -34,15 +34,15 @@ class ReportCard extends Container {
                 Stack(
                   alignment: AlignmentDirectional.center,
                   children: [
-                    LiquidCustomProgressIndicator(
-                      value: numText1 / numText2,
-                      valueColor: AlwaysStoppedAnimation(AppColors.secondary),
-                      backgroundColor: AppColors.background,
-                      direction: Axis.vertical,
-                      shapePath: StarClipper(5).getClip(
-                        Size.fromWidth(100),
-                      ),
-                    ),
+                    // LiquidCustomProgressIndicator(
+                    //   value: numText1 / numText2,
+                    //   valueColor: AlwaysStoppedAnimation(AppColors.secondary),
+                    //   backgroundColor: AppColors.background,
+                    //   direction: Axis.vertical,
+                    //   shapePath: StarClipper(5).getClip(
+                    //     Size.fromWidth(100),
+                    //   ),
+                    // ),
                     Text(
                       '${(numText1 / numText2 * 100).toInt()}%',
                       style: TextStyle(

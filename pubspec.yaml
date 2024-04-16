@@ -41,7 +41,7 @@ dependencies:
   assets_audio_player: ^3.0.3+9
   animated_bottom_navigation_bar: ^0.3.2
   syncfusion_flutter_charts: ^19.4.48
-  liquid_progress_indicator: ^0.4.0
+#  liquid_progress_indicator: ^0.4.0
   lottie: ^1.2.1
   fl_chart: ^0.41.0
   shared_preferences: ^2.0.13
