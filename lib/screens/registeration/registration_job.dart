@@ -10,7 +10,7 @@ import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/database/models.dart';
 import 'package:najme/dialogs/done_dialog.dart';
-import 'package:najme/screens/main/home_screen.dart';
+import 'package:najme/CA/features/home/view/home_view.dart';
 import 'package:najme/utility.dart';
 import 'package:najme/_api/auth.dart';
 import 'package:najme/components/general/error_message.dart';
@@ -316,7 +316,7 @@ class _RegistrationJobState extends State<RegistrationJob> {
                             Navigator.pushReplacement(
                               context,
                               InOutPageRoute(
-                                  const HomeScreen(), Alignment.bottomCenter),
+                                  const HomeView(), Alignment.bottomCenter),
                             );
                           } else {
                             setState(() {

@@ -12,7 +12,7 @@ import 'package:najme/games/dino_game/widgets/game_over_menu.dart';
 import 'package:najme/games/dino_game/widgets/hud.dart';
 import 'package:najme/games/dino_game/widgets/main_menu.dart';
 import 'package:najme/screens/browsing/units_screen.dart';
-import 'package:najme/screens/main/home_screen.dart';
+import 'package:najme/CA/features/home/view/home_view.dart';
 import 'package:provider/provider.dart';
 
 // This represents the pause menu overlay.
@@ -93,7 +93,7 @@ class PauseMenu extends StatelessWidget {
                         Navigator.pushReplacement(
                           context, 
                           InOutPageRoute(
-                            HomeScreen(), 
+                            HomeView(),
                             Alignment.bottomCenter
                           ),
                         );

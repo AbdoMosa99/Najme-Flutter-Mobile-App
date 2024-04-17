@@ -9,7 +9,7 @@ import 'package:najme/games/dino_game/game/dino_run.dart';
 import 'package:najme/games/dino_game/models/player_data.dart';
 import 'package:najme/games/dino_game/widgets/hud.dart';
 import 'package:najme/games/dino_game/widgets/main_menu.dart';
-import 'package:najme/screens/main/home_screen.dart';
+import 'package:najme/CA/features/home/view/home_view.dart';
 import 'package:provider/provider.dart';
 
 // This represents the game over overlay,
@@ -84,7 +84,7 @@ class GameOverMenu extends StatelessWidget {
                         Navigator.pushReplacement(
                           context,
                           InOutPageRoute(
-                            HomeScreen(),
+                            HomeView(),
                             Alignment.topRight),
                         );
                         SystemChrome.setPreferredOrientations([

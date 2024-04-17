@@ -10,7 +10,7 @@ import 'package:najme/components/screen_specific/personal_profile_updates/popUpM
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/data.dart';
-import 'package:najme/screens/main/home_screen.dart';
+import 'package:najme/CA/features/home/view/home_view.dart';
 import 'package:najme/screens/parents_followUp/advice/advice_screen.dart';
 import 'package:najme/screens/parents_followUp/report/filter_dialog.dart';
 import 'package:najme/utility.dart';
@@ -159,7 +159,7 @@ class _ReportState extends State<Report> with SingleTickerProviderStateMixin {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
+                      InOutPageRoute(const HomeView(), Alignment.bottomCenter),
                     );
                   }),
               floatingActionButtonLocation:

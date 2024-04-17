@@ -10,7 +10,7 @@ import 'package:najme/constants/colors.dart';
 import 'package:najme/data.dart';
 import 'package:najme/database/models.dart';
 import 'package:najme/screens/drawer/personal_account_updates.dart';
-import 'package:najme/screens/main/home_screen.dart';
+import 'package:najme/CA/features/home/view/home_view.dart';
 import 'package:najme/screens/registeration/registeration_name.dart';
 import 'package:najme/utility.dart';
 
@@ -166,7 +166,7 @@ List<Widget> buildList(
               await init();
               Navigator.pushReplacement(
                 context,
-                InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
+                InOutPageRoute(const HomeView(), Alignment.bottomCenter),
               );
             },
           ),

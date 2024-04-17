@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:najme/components/animation/from_in_to_out.dart';
 import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
-import 'package:najme/screens/main/home_screen.dart';
+import 'package:najme/CA/features/home/view/home_view.dart';
 import 'package:najme/utility.dart';
 
 class MainAppBar extends AppBar {
@@ -25,7 +25,7 @@ class MainAppBar extends AppBar {
         onTap: () {
           Navigator.pushReplacement(
             context,
-            InOutPageRoute(const HomeScreen(), Alignment.topRight),
+            InOutPageRoute(const HomeView(), Alignment.topRight),
           );
         },
       ),
@@ -44,7 +44,7 @@ class MainAppBar extends AppBar {
       onTap: () {
         Navigator.pushReplacement(
           context,
-          InOutPageRoute(const HomeScreen(), Alignment.topRight),
+          InOutPageRoute(const HomeView(), Alignment.topRight),
         );
       },
     ),

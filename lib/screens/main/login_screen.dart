@@ -11,7 +11,7 @@ import 'package:najme/screens/forget_password/forget_password.dart';
 import 'package:najme/screens/registeration/registeration_email.dart';
 import '../../components/general/show_loader_dialog.dart';
 import '../../data.dart';
-import 'home_screen.dart';
+import '../../CA/features/home/view/home_view.dart';
 import 'package:najme/utility.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -119,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
     
                           Navigator.pushReplacement(
                             context,
-                            InOutPageRoute(const HomeScreen(), Alignment.bottomCenter),
+                            InOutPageRoute(const HomeView(), Alignment.bottomCenter),
                           );
                         }
                         catch(e){

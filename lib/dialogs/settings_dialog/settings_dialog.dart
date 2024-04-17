@@ -4,7 +4,7 @@ import 'package:najme/constants/assets.dart';
 import 'package:najme/constants/colors.dart';
 import 'package:najme/data.dart';
 import 'package:najme/dialogs/settings_dialog/settings_row.dart';
-import 'package:najme/screens/main/home_screen.dart';
+import 'package:najme/CA/features/home/view/home_view.dart';
 import 'package:najme/utility.dart';
 
 class SettingsDialog extends StatefulWidget {
@@ -132,7 +132,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
                     onPressed: () {
                       Navigator.pushAndRemoveUntil(
                           context,
-                          InOutPageRoute(HomeScreen(), Alignment.bottomCenter),
+                          InOutPageRoute(HomeView(), Alignment.bottomCenter),
                           (route) => false);
                     },
                     child: Row(
