@@ -40,11 +40,11 @@ class MainContainer extends StatelessWidget {
         textDirection: TextDirection.rtl,
         child: Scaffold(
           appBar: appBar,
-          endDrawer: Container(
-            margin: EdgeInsets.zero,
-            child: drawer,
-            width: adjustWidthValue(context, 280.0),
-          ),
+          // endDrawer: Container(
+          //   margin: EdgeInsets.zero,
+          //   child: drawer,
+          //   width: adjustWidthValue(context, 280.0),
+          // ),
           body: ScreenBackground(
             bgImage: bgImage,
             child: Padding(

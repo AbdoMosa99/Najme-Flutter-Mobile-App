@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:najme/CA/Core/Config/bloc_providers.dart';
 import 'package:najme/CA/core/config/page_route_names.dart';
-
 import 'config/routes.dart';
 
 class NajmeApp extends StatelessWidget {
@@ -13,21 +13,23 @@ class NajmeApp extends StatelessWidget {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-    return MaterialApp(
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarBrightness: Brightness.light,
-          ),
-          toolbarHeight: 60,
-        ),
+    return AppProviders.multiProviders(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        initialRoute: PageRouteName.initial,
+        onGenerateRoute: Routes.generateRoute,
       ),
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      initialRoute: PageRouteName.initial,
-      onGenerateRoute: Routes.generateRoute,
     );
+    // return MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   localizationsDelegates: context.localizationDelegates,
+    //   supportedLocales: context.supportedLocales,
+    //   locale: context.locale,
+    //   initialRoute: PageRouteName.initial,
+    //   onGenerateRoute: Routes.generateRoute,
+    // );
   }
 }
