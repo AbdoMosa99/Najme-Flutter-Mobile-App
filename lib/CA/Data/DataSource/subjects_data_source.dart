@@ -14,7 +14,9 @@ class GetSubjectsDataSourceImpl implements SubjectsDataSource {
 
   @override
   Future<List<SubjectModel>> getSubjects() async {
-    final response = await WebService().privateDio.get("url");
+    final response = await WebService().privateDio.get(
+      "1/students/1/subjects/",
+    );
 
     if (response.statusCode == 200) {
       return List<SubjectModel>.from(

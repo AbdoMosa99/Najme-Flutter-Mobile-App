@@ -9,9 +9,18 @@ class SubjectModel extends SubjectEntity {
   });
 
   factory SubjectModel.fromJson(Map<String, dynamic> json) => SubjectModel(
-        id: json['id'],
-        title: json['title'],
-        icon: json['icon'],
-        locked: json['locked'],
+        id: json['id'] ?? "",
+        title: json['title'] ?? "",
+        icon: json['icon'] ?? "",
+        locked: json['locked'] ?? "",
       );
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'title': title,
+      'icon': icon,
+      'locked': locked,
+    };
+  }
 }

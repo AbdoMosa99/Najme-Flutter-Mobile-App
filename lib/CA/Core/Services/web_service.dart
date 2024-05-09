@@ -50,8 +50,8 @@ class WebService {
           debugPrint("type ${e.type}");
         },
         onResponse: (e, handler) {
-          debugPrint(e.data.toString());
-          debugPrint(e.statusCode.toString());
+          debugPrint('response: ${e.data.toString()}');
+          debugPrint('statusCode: ${e.statusCode.toString()}');
           return handler.next(e); // continue
         },
       ),

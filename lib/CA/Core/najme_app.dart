@@ -23,13 +23,5 @@ class NajmeApp extends StatelessWidget {
         onGenerateRoute: Routes.generateRoute,
       ),
     );
-    // return MaterialApp(
-    //   debugShowCheckedModeBanner: false,
-    //   localizationsDelegates: context.localizationDelegates,
-    //   supportedLocales: context.supportedLocales,
-    //   locale: context.locale,
-    //   initialRoute: PageRouteName.initial,
-    //   onGenerateRoute: Routes.generateRoute,
-    // );
   }
 }

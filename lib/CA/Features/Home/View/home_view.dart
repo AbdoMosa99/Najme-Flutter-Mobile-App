@@ -49,98 +49,98 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
               ),
-              Expanded(
-                flex: 2,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: MainCard(
-                        context: context,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            InOutPageRoute(
-                              UnitsScreen(subject: subjects[0]),
-                              Alignment.bottomCenter,
-                            ),
-                          );
-                        },
-                        image: Image.asset(
-                          Assets.arabicSymbolImg,
-                          width: adjustWidthValue(context, 180.0),
-                          height: adjustHeightValue(context, 180.0),
-                        ),
-                        text: 'لغة عربية',
-                      ),
-                    ),
-                    SizedBox(
-                      width: adjustValue(context, 15.0),
-                    ),
-                    Expanded(
-                      child: MainCard(
-                        context: context,
-                        onTap: () {
-                          print('2');
-                          print(progresses);
-                          print(subjects);
-                          Navigator.push(
-                            context,
-                            InOutPageRoute(UnitsScreen(subject: subjects[1]),
-                                Alignment.bottomCenter),
-                          );
-                        },
-                        image: SvgPicture.asset(Assets.mathSymbol),
-                        text: 'حساب',
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: adjustValue(context, 15.0),
-              ),
-              Expanded(
-                flex: 2,
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: MainCard(
-                        context: context,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            InOutPageRoute(
-                              UnitsScreen(subject: subjects[2]),
-                              Alignment.bottomCenter,
-                            ),
-                          );
-                        },
-                        image: SvgPicture.asset(Assets.englishSymbol),
-                        text: 'English',
-                      ),
-                    ),
-                    SizedBox(
-                      width: adjustValue(context, 15.0),
-                    ),
-                    Expanded(
-                      child: MainCard(
-                        context: context,
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            InOutPageRoute(
-                              UnitsScreen(subject: subjects[3]),
-                              Alignment.bottomCenter,
-                            ),
-                          );
-                        },
-                        image: SvgPicture.asset(Assets.iqSymbol),
-                        text: 'ذكاء',
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Expanded(
+              //   flex: 2,
+              //   child: Row(
+              //     children: [
+              //       Expanded(
+              //         child: MainCard(
+              //           context: context,
+              //           onTap: () {
+              //             Navigator.push(
+              //               context,
+              //               InOutPageRoute(
+              //                 UnitsScreen(subject: subjects[0]),
+              //                 Alignment.bottomCenter,
+              //               ),
+              //             );
+              //           },
+              //           image: Image.asset(
+              //             Assets.arabicSymbolImg,
+              //             width: adjustWidthValue(context, 180.0),
+              //             height: adjustHeightValue(context, 180.0),
+              //           ),
+              //           text: 'لغة عربية',
+              //         ),
+              //       ),
+              //       SizedBox(
+              //         width: adjustValue(context, 15.0),
+              //       ),
+              //       Expanded(
+              //         child: MainCard(
+              //           context: context,
+              //           onTap: () {
+              //             print('2');
+              //             print(progresses);
+              //             print(subjects);
+              //             Navigator.push(
+              //               context,
+              //               InOutPageRoute(UnitsScreen(subject: subjects[1]),
+              //                   Alignment.bottomCenter),
+              //             );
+              //           },
+              //           image: SvgPicture.asset(Assets.mathSymbol),
+              //           text: 'حساب',
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
+              // SizedBox(
+              //   height: adjustValue(context, 15.0),
+              // ),
+              // Expanded(
+              //   flex: 2,
+              //   child: Row(
+              //     children: [
+              //       Expanded(
+              //         child: MainCard(
+              //           context: context,
+              //           onTap: () {
+              //             Navigator.push(
+              //               context,
+              //               InOutPageRoute(
+              //                 UnitsScreen(subject: subjects[2]),
+              //                 Alignment.bottomCenter,
+              //               ),
+              //             );
+              //           },
+              //           image: SvgPicture.asset(Assets.englishSymbol),
+              //           text: 'English',
+              //         ),
+              //       ),
+              //       SizedBox(
+              //         width: adjustValue(context, 15.0),
+              //       ),
+              //       Expanded(
+              //         child: MainCard(
+              //           context: context,
+              //           onTap: () {
+              //             Navigator.push(
+              //               context,
+              //               InOutPageRoute(
+              //                 UnitsScreen(subject: subjects[3]),
+              //                 Alignment.bottomCenter,
+              //               ),
+              //             );
+              //           },
+              //           image: SvgPicture.asset(Assets.iqSymbol),
+              //           text: 'ذكاء',
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               Expanded(
                 child: state is GetSubjectsSuccessfulLoadedState
                     ? Text("Data Is Loaded")
@@ -150,7 +150,7 @@ class HomeView extends StatelessWidget {
               ),
               MainButton(
                 context: context,
-                text: "text",
+                text: "Get Data",
                 onTap: () {
                   cubit.getSubjectsData();
                 },
